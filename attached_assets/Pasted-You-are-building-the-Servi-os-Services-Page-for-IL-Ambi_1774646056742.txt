@@ -1,0 +1,207 @@
+You are building the **Serviços (Services) Page** for **IL Ambiental — Engenharia e Consultoria Ambiental**, a premium environmental consulting firm based in Pará, Brazil.
+
+## Design Reference
+Use the attached screenshot (Paraform landing page) as the visual layout guide. Key characteristics to replicate:
+- Clean white background with generous whitespace
+- Large, bold centered headline in the hero
+- Logo/trust bar after the hero
+- Cards or feature blocks with icons + descriptions (not just lists)
+- A dark contrasting full-width section mid-page (like Paraform's dark "recruiter" section)
+- Accordion or expandable testimonials/items section
+- Final CTA section at the bottom
+- Overall tone: polished, enterprise B2B, structured
+
+---
+
+## Page Structure (build in this order)
+
+1. Hero
+2. Trust Bar
+3. Service Cards (3 columns)
+4. Urgency / Risk Section (dark, full-width)
+5. Service Detail Sections (alternating layout)
+6. Final CTA
+
+---
+
+## SECTION 1: Hero
+
+### Copy
+**Headline:** Sua conformidade ambiental no Pará, do início ao fim.
+**Subheadline:** Do licenciamento à gestão de resíduos e ESG: a IL assume a burocracia ambiental para que você foque no seu negócio — com segurança jurídica e sem imprevistos.
+**CTA:** Solicite uma avaliação gratuita
+
+### Specs
+- Background: white (`var(--color-background)`)
+- Content: centered
+- Max-width: 700px, horizontally centered
+- Padding: 100px 24px 60px
+- Headline: `<h1>`, clamp(2.2rem, 4.5vw, 3.4rem), weight 800, color `var(--color-text-primary)`, line-height 1.12
+- Subheadline: 1.1rem, weight 400, color `var(--color-text-secondary)`, max-width 580px, centered, margin-top 18px, line-height 1.7
+- CTA button: centered below subheadline, margin-top 32px
+  - Background: `var(--color-primary)` (deep green)
+  - Color: white
+  - Padding: 15px 40px
+  - Border-radius: `var(--radius-md)`
+  - Font-weight: 700
+  - Font-size: 1rem
+  - Hover: brightness(1.1), scale(1.02), transition 200ms
+  - Below the button, small ghost text: "Sem compromisso. Resposta em até 24h." — 0.8rem, `var(--color-text-secondary)`
+- Animate: headline fades up 0.6s, subheadline delay 0.15s, CTA delay 0.3s
+
+---
+
+## SECTION 2: Trust Bar
+
+### Content
+Five trust signals in a horizontal row (icons + labels):
+
+- 🏛 SEMAS-PA credenciada
+- 📋 IBAMA certificada
+- 📍 Atuação em todo o Pará
+- ✅ +30 empresas atendidas
+- ⚡ Resposta em 24h
+
+### Specs
+- Full width, background: `var(--color-surface-alt)` (very light gray or off-white)
+- Border-top and border-bottom: 1px solid `var(--color-border)`
+- Padding: 20px 0
+- Inner max-width: 960px, centered
+- Display: flex, justify-content: space-between, align-items: center, flex-wrap: wrap, gap: 16px
+- Each item: flex row, gap 8px, icon (1.1rem) + label (0.85rem, weight 500, `var(--color-text-secondary)`)
+- Divider lines between items (CSS border-right, except last)
+- Mobile: 2-column grid or wrapping flex
+
+---
+
+## SECTION 3: Service Cards (3 Columns)
+
+### Section Header
+- Small label above: "Nossos Serviços" — 0.75rem, uppercase, letter-spacing 0.12em, `var(--color-primary)`, font-weight 600
+- Section headline: "O que a IL faz pela sua empresa"
+  - Centered, clamp(1.8rem, 3.5vw, 2.6rem), weight 800
+- Section subheadline: "Cada serviço foi desenhado para eliminar riscos, reduzir burocracia e garantir que sua empresa opere em conformidade."
+  - Centered, 1rem, `var(--color-text-secondary)`, max-width 560px
+- Padding-top: 80px
+
+### Cards Layout
+- 3-column grid, gap: 28px
+- Max-width: 1040px, centered
+- Margin-top: 48px
+- On mobile: single column
+- On tablet: 1 column (stacked)
+
+### Card 1 — Licenciamento Ambiental
+**Icon:** A document/permit SVG icon, rendered in `var(--color-primary)` on a light green background pill (40px × 40px, border-radius full)
+**Title:** Licenciamento Ambiental
+**Description:** Obtenha sua licença com agilidade e sem erros. Cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei — da licença prévia até a regularização.
+**Expandable list (accordion or bullet list):**
+- Dispensa de Licenciamento (DLA)
+- Licença Prévia (LP)
+- Licença de Instalação (LI)
+- Licença de Operação (LO)
+- Licença de Regularização Ambiental (LAR)
+
+**Card style:**
+- Background: white
+- Border: 1px solid `var(--color-border)`
+- Border-radius: `var(--radius-xl)`
+- Padding: 32px
+- Box-shadow: `var(--shadow-card)`
+- Hover: shadow deepens, translateY(-4px), transition 250ms
+
+### Card 2 — Estudos e Relatórios Técnicos
+**Icon:** Chart/graph SVG in primary color
+**Title:** Estudos e Relatórios Técnicos
+**Description:** Documentação técnica rigorosa para atender condicionantes, auditorias e exigências dos órgãos fiscalizadores — elaborada por especialistas que conhecem cada detalhe da legislação ambiental do estado.
+**Expandable list:**
+- Relatório de Informação Ambiental Anual (RIAA)
+- PDITS — Plano de Turismo Sustentável
+- Relatório de Controle Ambiental (RCA)
+- Relatório Ambiental Preliminar (RAP)
+- Relatório de Caracterização do Empreendimento (RCE)
+- Plano de Gestão de Riscos (PGR)
+- Condicionantes Ambientais
+- Certificação Ambiental
+
+**Card style:** Same as Card 1
+
+### Card 3 — Consultoria e Gestão Ambiental
+**Icon:** Leaf/nature SVG in primary color
+**Title:** Consultoria e Gestão Ambiental
+**Description:** Estruture a gestão ambiental da sua empresa com ESG, planos de resíduos, monitoramento de áreas e regularização fundiária — do planejamento à execução.
+**Expandable list:**
+- Implantação de práticas de ESG
+- Plano de Gerenciamento de Resíduos Sólidos (PGRS)
+- Cadastro Ambiental Rural (CAR) e regularização fundiária
+- Monitoramento e recuperação de áreas degradadas
+
+**Card style:** Same as Card 1, but this card gets a subtle green tint background: `rgba(45, 106, 79, 0.04)` and a `var(--color-primary)` left border: 3px solid
+
+Cards animate in: staggered fade-up, delays 0.1s / 0.25s / 0.4s
+
+---
+
+## SECTION 4: Urgency / Risk Section (Dark Full-Width)
+
+Inspired by Paraform's dark contrast section mid-page.
+
+### Copy
+**Label:** "Por que isso importa"
+**Headline:** Empresa sem licença ambiental é empresa em risco.
+**Body:** Empresas sem licença ambiental estão sujeitas a multas, embargo e paralisação das atividades. Não espere a notificação chegar — regularize agora.
+**CTA:** Quero regularizar minha empresa
+
+### Visual element (right side, built in CSS/HTML — no images)
+A notification card component mimicking an official notice:
+┌─────────────────────────────────────┐
+│ ⚠️  NOTIFICAÇÃO AMBIENTAL           │
+│ Órgão: SEMAS-PA                     │
+│ Situação: Licença vencida           │
+│ Prazo para regularização: 30 dias   │
+│ Penalidade prevista: R$ 50.000+     │
+│ Status: ● PENDENTE                  │
+└─────────────────────────────────────┘
+Style: dark card with a subtle red warning accent, monospace font for the details, realistic government form aesthetic
+
+### Layout
+- Full-width section, background: `#0d1f14` (deep forest dark)
+- Two-column layout on desktop: left = text content, right = notification card visual
+- Padding: 100px 40px
+- Max-width: 1040px, centered
+
+### Text styles (on dark bg)
+- Label: `var(--color-primary)` (bright green), 0.75rem, uppercase, letter-spacing 0.12em
+- Headline: white, clamp(1.8rem, 3.5vw, 2.8rem), weight 800, line-height 1.15
+- Body: rgba(255,255,255,0.72), 1rem, line-height 1.75, max-width 480px, margin-top 16px
+- CTA: same primary filled button style, margin-top 32px
+
+- Mobile: single column, card stacks below text
+
+---
+
+## SECTION 5: Final CTA
+
+### Copy
+**Headline:** Pronto para operar sem preocupações?
+**Subheadline:** Fale com a nossa equipe e descubra como a IL pode assumir a gestão ambiental da sua empresa — do licenciamento à regularização.
+**CTA:** Solicite uma avaliação gratuita
+**Ghost text below CTA:** Sem compromisso. Nossa equipe responde em até 24 horas.
+
+### Specs
+- Background: `var(--color-surface-alt)` (very light green tint or off-white)
+- Centered content, padding: 100px 24px
+- Headline: clamp(1.8rem, 3vw, 2.4rem), weight 800
+- Subheadline: 1rem, `var(--color-text-secondary)`, max-width 500px, centered, margin-top 16px
+- CTA: same primary button style, margin-top 28px
+- Ghost text: 0.8rem, `var(--color-text-secondary)`, margin-top 12px, centered
+
+---
+
+## Global Rules for This Page
+- Do NOT use stock photos or AI images
+- All visuals (notification card, icons) must be built in HTML/CSS/JSX
+- Keep consistent use of CSS variables from global.css
+- Every section must have scroll-triggered fade-up animations (use IntersectionObserver or CSS animation-delay)
+- All CTAs (#fale-com-especialista) should link to the contact page or a WhatsApp link
+- The page should feel: authoritative, trustworthy, technically competent, but human
