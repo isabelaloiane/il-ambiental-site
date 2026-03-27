@@ -1,0 +1,78 @@
+You are a design system architect. Analyze the attached reference landing page screenshot and extract all design tokens to configure a `global.css` file for a new project.
+
+## Project Context
+This landing page is for **IL - Engenharia e Consultoria Ambiental**, a premium environmental engineering and consulting firm based in Pará, Brazil. They serve large corporations with environmental licensing and environmental management services. The brand must convey: authority, trust, technical excellence, and a deep connection to the environment (Amazon region).
+
+## Reference Design Analysis
+Analyze the provided screenshot and extract:
+
+### 1. COLOR PALETTE
+Identify and define CSS variables for:
+- `--color-primary`: The main brand/action color
+- `--color-primary-dark`: Darker variant for hover states
+- `--color-secondary`: Secondary accent color
+- `--color-background`: Main page background
+- `--color-surface`: Card/panel background color
+- `--color-surface-alt`: Alternative surface (e.g., light section backgrounds)
+- `--color-text-primary`: Main body text color
+- `--color-text-secondary`: Muted/secondary text color
+- `--color-text-inverse`: Text on dark backgrounds
+- `--color-border`: Default border color
+- `--color-accent-1` through `--color-accent-4`: Additional accent colors from the palette (pastels, highlight tones, etc.)
+
+Adapt the palette to suit an environmental consultancy: introduce deep forest greens, earthy tones, or clean blues where appropriate, while keeping the light, airy feel of the reference.
+
+### 2. TYPOGRAPHY
+Extract and define:
+- `--font-heading`: Primary heading font family (use a Google Font that matches the reference's heading style — bold, confident, modern)
+- `--font-body`: Body text font family (clean, readable sans-serif)
+- `--font-size-xs` through `--font-size-5xl`: Full type scale
+- `--font-weight-normal`, `--font-weight-medium`, `--font-weight-semibold`, `--font-weight-bold`
+- `--line-height-tight`, `--line-height-normal`, `--line-height-relaxed`
+- `--letter-spacing-tight`, `--letter-spacing-normal`, `--letter-spacing-wide`
+
+### 3. SPACING & LAYOUT
+Define a consistent spacing scale:
+- `--space-1` through `--space-20` (4px base unit system)
+- `--container-max-width`: Max content width (match reference)
+- `--container-padding`: Horizontal padding for containers
+- `--section-padding-y`: Vertical padding for page sections
+- `--grid-gap`: Default grid gap
+
+### 4. BORDER RADIUS
+- `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`, `--radius-2xl`, `--radius-full`
+(The reference uses generously rounded corners — match this)
+
+### 5. SHADOWS & ELEVATION
+- `--shadow-sm`, `--shadow-md`, `--shadow-lg`, `--shadow-xl`
+- `--shadow-card`: Shadow specifically for card components
+
+### 6. TRANSITIONS & ANIMATION
+- `--transition-fast`: ~150ms ease
+- `--transition-base`: ~250ms ease
+- `--transition-slow`: ~400ms ease-in-out
+- `--ease-bounce`: cubic-bezier for playful bounce (if used in reference)
+
+### 7. COMPONENT BASE STYLES
+Set global base styles for:
+- `body`: font-family, color, background, line-height
+- `h1`–`h6`: sizes, weights, line-heights using the extracted scale
+- `p`: font-size, color, line-height
+- `a`: color, hover state
+- `button` base and `.btn-primary`, `.btn-secondary` classes
+- `.container`: max-width + padding
+- `.section`: padding using section-padding-y variable
+
+### 8. GOOGLE FONTS IMPORT
+At the top of global.css, add the @import for all required Google Fonts identified from the reference.
+
+## Output Format
+Generate a complete, production-ready `global.css` file with:
+1. Google Fonts @import at the top
+2. `:root {}` block with ALL CSS variables
+3. CSS reset / base styles
+4. Typography base styles
+5. Layout utilities (.container, .section)
+6. Button base styles
+
+Use the reference screenshot as the visual guide, but adapt colors and feel to suit a **premium Brazilian environmental consultancy** — clean, modern, trustworthy, with subtle nods to nature (greens, earth tones) integrated into the palette.
