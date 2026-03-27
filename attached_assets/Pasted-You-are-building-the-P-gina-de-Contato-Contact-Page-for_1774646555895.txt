@@ -1,0 +1,303 @@
+You are building the **Página de Contato (Contact Page)** for **IL Ambiental — Engenharia e Consultoria Ambiental**, a premium environmental consulting firm based in Pará, Brazil.
+
+## Design Reference
+Use the attached screenshot (Ramp Help Center page) as the visual layout guide. Key characteristics to replicate:
+- Full-width dark hero with photographic background, overlay, and a prominent centered headline
+- Below the hero: a light card section with headline + two side-by-side action buttons
+- Dark-toned category cards in a 2-column grid
+- A single wide dark card spanning full width below
+- A clean multi-column content grid at the bottom (like "Popular articles")
+- Simple, structured footer
+- Overall feel: warm, professional, approachable — not cold or bureaucratic
+
+---
+
+## Page Structure
+
+1. Hero (dark, photo bg)
+2. Quick Action Card (white card, centered)
+3. Contact Method Cards (2-column dark grid)
+4. Wide Info Card (full-width dark)
+5. FAQ Section (3-column grid)
+6. Footer Strip
+
+---
+
+## SECTION 1: Hero
+
+### Copy
+**Headline:** Resolva sua situação ambiental. Fale com a gente.
+**Subheadline:** Nossa equipe responde em até 24 horas. Tire suas dúvidas ou solicite uma proposta sem compromisso.
+
+### Specs
+- Full-width, height: 340px (shorter than homepage hero — this is a utility page)
+- Background: CSS gradient imitating the Ramp reference warm/moody tones, but adapted to IL's environmental palette:
+```css
+  background: 
+    linear-gradient(to bottom, rgba(10, 22, 14, 0.55) 0%, rgba(10, 22, 14, 0.72) 100%),
+    radial-gradient(ellipse at 60% 50%, rgba(45, 106, 79, 0.35) 0%, transparent 65%),
+    linear-gradient(135deg, #1a2e1c 0%, #0d1a0f 100%);
+```
+- If a real background image is later added: `background-size: cover; background-position: center`
+- Content: centered, vertically centered in the hero
+- Padding: 80px 24px
+
+**Headline:**
+- Tag: `<h1>`
+- Font: `var(--font-heading)`
+- Size: clamp(2rem, 4vw, 3rem)
+- Weight: 800
+- Color: white
+- Max-width: 640px, centered
+- Line-height: 1.15
+- Animate: fade up 0.6s
+
+**Subheadline:**
+- Font: `var(--font-body)`
+- Size: 1.05rem
+- Color: rgba(255,255,255,0.75)
+- Max-width: 500px, centered
+- Margin-top: 16px
+- Line-height: 1.7
+- Animate: fade up, delay 0.15s
+
+---
+
+## SECTION 2: Quick Action Card
+
+Inspired by Ramp's white "Check out our Onboarding Resources" card that sits directly below the dark hero.
+
+### Copy
+**Label (small, above headline):** "Fale Conosco"
+**Headline:** Como prefere entrar em contato?
+**Subheadline:** Escolha a opção mais cômoda. Nossa equipe está pronta para responder — seja por formulário, e-mail ou WhatsApp.
+**CTA 1 (filled, dark):** Enviar mensagem
+**CTA 2 (outline):** Fale pelo WhatsApp
+
+### Specs
+- Full-width background: white
+- Inner card: max-width 720px, centered
+- Padding: 56px 40px
+- Border-radius: `var(--radius-xl)`
+- Box-shadow: `var(--shadow-lg)`
+- Margin-top: -48px (overlaps bottom of hero for visual continuity — like Ramp's design)
+- z-index: 10, position: relative
+
+**Label:**
+- Font-size: 0.72rem, uppercase, letter-spacing: 0.12em
+- Color: `var(--color-primary)`, font-weight: 600
+- Margin-bottom: 10px
+
+**Headline:**
+- clamp(1.5rem, 2.5vw, 2rem), weight 800, `var(--color-text-primary)`
+
+**Subheadline:**
+- 0.95rem, `var(--color-text-secondary)`, max-width 480px, centered, margin-top 12px, line-height 1.65
+
+**CTA Row:**
+- Horizontal, centered, gap: 14px, margin-top: 28px
+
+CTA 1 — "Enviar mensagem":
+- Background: #1a2e1c (dark forest green — matching Ramp's dark buttons)
+- Color: white, padding: 13px 32px
+- Border-radius: `var(--radius-md)`, font-weight: 600
+- Hover: brightness(1.12), transition 200ms
+
+CTA 2 — "Fale pelo WhatsApp":
+- Background: white, border: 1.5px solid `var(--color-border)`
+- Color: `var(--color-text-primary)`, padding: 13px 32px
+- Border-radius: `var(--radius-md)`, font-weight: 500
+- Hover: border-color: `var(--color-primary)`, color: `var(--color-primary)`, transition 200ms
+- Add a WhatsApp icon SVG before the text (green, 18px)
+
+---
+
+## SECTION 3: Contact Method Cards (2-Column Dark Grid)
+
+Inspired by Ramp's two dark green cards ("Getting started" / "About Ramp").
+
+### Layout
+- 2-column grid, gap: 20px
+- Max-width: 900px, centered
+- Margin-top: 48px
+- On mobile: single column
+
+### Card 1 — Formulário de Contato
+**Title:** Envie uma mensagem
+**Description:** Preencha o formulário e nossa equipe responderá em até 24 horas com uma análise inicial da sua situação.
+
+**Contact Form (built inside the card):**
+- Name field: label "Nome completo", input type text
+- Company field: label "Empresa", input type text
+- Phone field: label "Telefone / WhatsApp", input type tel
+- Message field: label "Como podemos ajudar?", textarea, 4 rows
+- Submit button: "Enviar mensagem" — full width, white text on primary green bg
+
+**Card style:**
+- Background: #1a2e1c (deep forest green, like Ramp's dark cards)
+- Border-radius: `var(--radius-xl)`
+- Padding: 36px
+- Color (all text inside): white
+
+**Form field styles:**
+- Background: rgba(255,255,255,0.08)
+- Border: 1px solid rgba(255,255,255,0.2)
+- Color: white
+- Border-radius: `var(--radius-md)`
+- Padding: 12px 16px
+- Font-size: 0.95rem
+- Label: 0.8rem, rgba(255,255,255,0.65), font-weight 500, margin-bottom 6px
+- Focus: border-color rgba(255,255,255,0.6), outline none
+- Width: 100%
+- Gap between fields: 18px
+
+**Submit button:**
+- Background: white
+- Color: #1a2e1c
+- Font-weight: 700, padding: 14px
+- Border-radius: `var(--radius-md)`
+- Width: 100%
+- Margin-top: 8px
+- Hover: background rgba(255,255,255,0.88), transition 200ms
+
+### Card 2 — Informações de Contato
+**Title:** Informações de Contato
+**Description:** Prefere falar diretamente? Aqui estão todos os nossos canais.
+
+**Contact info blocks (each with icon + label + value):**
+
+📱 **WhatsApp:**
+(91) 9 ____-____ *(placeholder — update with real number)*
+→ Small tag: "Atendimento preferencial"
+
+📧 **E-mail:**
+contato@ilambiental.com.br *(placeholder)*
+
+📍 **Localização:**
+Belém, Pará — Brasil
+Atendemos em todo o estado do Pará
+
+⏰ **Horário de Atendimento:**
+Segunda a Sexta, 8h às 18h
+Emergências ambientais: resposta prioritária
+
+**CTA inside card:**
+"Abrir WhatsApp agora →" — styled as a white ghost/outline button, full width, margin-top: auto (pins to bottom of card)
+
+**Card style:** Same dark green as Card 1, same border-radius, same padding
+
+**Info block style:**
+- Icon: 20px, rgba(255,255,255,0.6)
+- Label: 0.72rem, uppercase, letter-spacing 0.1em, rgba(255,255,255,0.5)
+- Value: 0.95rem, white, font-weight 500
+- Gap between blocks: 24px
+- Subtle divider line between blocks (1px, rgba(255,255,255,0.1))
+
+Both cards should be equal height (CSS: `align-items: stretch`)
+
+---
+
+## SECTION 4: Wide Info Card (Full-Width Dark)
+
+Inspired by Ramp's wide "Guides by topic" card that spans the full grid.
+
+### Copy
+**Label:** "Atuação regional"
+**Headline:** Atendemos empresas em todo o estado do Pará
+**Description:** Da capital Belém ao interior — estamos presentes onde sua empresa precisa de suporte ambiental. Conhecemos o contexto regulatório local, as exigências da SEMAS-PA e os prazos do IBAMA regional.
+
+### Visual Element (right side, CSS-only)
+A simple map outline of the state of Pará as an SVG — white stroke on dark background, with a glowing dot pinned at Belém's approximate location
+
+### Specs
+- Full-width card, max-width: 900px, centered
+- Background: #0d1a0f (slightly darker than the other cards)
+- Border-radius: `var(--radius-xl)`
+- Padding: 48px 56px
+- Display: flex, two columns (text left, SVG map right)
+- Gap: 40px
+- Margin-top: 20px (continuing the grid flow)
+- On mobile: single column, map below text
+
+**Label:** 0.72rem, uppercase, letter-spacing 0.12em, `var(--color-primary)` (bright green), font-weight 600
+**Headline:** clamp(1.5rem, 2.5vw, 2.2rem), white, weight 800
+**Description:** 0.95rem, rgba(255,255,255,0.7), line-height 1.7, margin-top 14px, max-width 420px
+
+---
+
+## SECTION 5: FAQ Section
+
+Inspired by Ramp's "Popular articles" 3-column grid.
+
+### Section Header
+**Label:** "Dúvidas frequentes"
+**Headline:** Perguntas que recebemos com frequência
+- Centered, padding-top: 72px
+- Headline: clamp(1.6rem, 3vw, 2.2rem), weight 800
+
+### FAQ Grid
+- 3-column grid, gap: 32px
+- Max-width: 960px, centered
+- Margin-top: 40px
+- On mobile: single column
+
+**FAQ Item 1:**
+Title: "Quanto tempo leva um licenciamento ambiental?"
+Body: "Depende do tipo de licença e do órgão responsável (SEMAS-PA ou IBAMA). Em média, o processo varia de 30 a 180 dias. Com a documentação correta e acompanhamento especializado, evitamos atrasos."
+Link: "Saiba mais →"
+
+**FAQ Item 2:**
+Title: "Minha empresa pode ser multada sem licença?"
+Body: "Sim. Empresas sem licença ambiental estão sujeitas a multas que variam de R$ 500 a R$ 10 milhões, além de embargo e paralisação das atividades. A regularização protege sua operação."
+Link: "Saiba mais →"
+
+**FAQ Item 3:**
+Title: "Vocês atendem fora de Belém?"
+Body: "Sim, atendemos empresas em todo o estado do Pará. O atendimento pode ser presencial ou remoto, dependendo da complexidade do projeto e da localidade."
+Link: "Saiba mais →"
+
+**FAQ Item 4:**
+Title: "O que é ESG e por que minha empresa precisa?"
+Body: "ESG é um conjunto de práticas ambientais, sociais e de governança que grandes empresas e investidores exigem dos seus parceiros. A IL estrutura sua empresa para atender essas exigências."
+Link: "Saiba mais →"
+
+**FAQ Item 5:**
+Title: "Quais documentos preciso para iniciar o licenciamento?"
+Body: "Depende do tipo de empreendimento. Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso gratuitamente."
+Link: "Saiba mais →"
+
+**FAQ Item 6:**
+Title: "Como funciona a avaliação gratuita?"
+Body: "Você entra em contato pelo formulário ou WhatsApp. Nossa equipe analisa sua situação e retorna em até 24h com uma orientação inicial — sem compromisso e sem custo."
+Link: "Fale conosco →"
+
+**FAQ Item style (matching Ramp's article cards):**
+- Background: white
+- No border (or very subtle: 1px solid var(--color-border))
+- Padding: 0 (content flush, separated by borders — like Ramp)
+- OR: light card with soft border and hover state
+- Title: 1.05rem, weight 700, `var(--color-text-primary)`, margin-bottom 8px
+- Body: 0.88rem, `var(--color-text-secondary)`, line-height 1.65
+- "Saiba mais →" link: 0.85rem, `var(--color-primary)`, font-weight 500, margin-top 12px, display block
+- Hover on link: underline, transition 150ms
+- Stagger fade-in on scroll: 6 items with 0.08s stagger
+
+---
+
+## Responsive Behavior
+- **Mobile (< 640px):** Hero text centered and smaller, quick action card full-width no shadow, contact cards stacked, wide card single column, FAQ single column
+- **Tablet (640px–1024px):** 2-column FAQ grid, cards maintained
+- **Desktop:** Full layout as described
+
+## Accessibility
+- Form inputs must have associated `<label>` elements
+- Required fields marked with aria-required="true"
+- Submit button must have descriptive aria-label
+- WhatsApp link opens in new tab with rel="noopener noreferrer"
+- Focus styles on all interactive elements
+
+## Notes
+- Do NOT use stock photos or placeholder images
+- Form submission: on submit, show a success message inside the card ("✓ Mensagem enviada! Nossa equipe responderá em até 24 horas.") — no page reload
+- WhatsApp link format: `https://wa.me/55[numero]?text=Olá! Sou da IL Ambiental...`
+- All dark cards use the same design system as the hero: forest greens, not generic black/gray
