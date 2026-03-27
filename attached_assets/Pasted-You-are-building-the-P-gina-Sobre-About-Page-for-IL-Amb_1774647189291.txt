@@ -1,0 +1,273 @@
+You are building the **Página Sobre (About Page)** for **IL Ambiental — Engenharia e Consultoria Ambiental**, a premium environmental engineering and consulting firm based in Pará, Brazil.
+
+## Design Reference
+Use the attached screenshot (Kota blog/about page) as the visual layout guide. Key characteristics to replicate:
+- Dark forest green hero section with left-aligned headline and a photo card on the right
+- Clean white background for the main content area below
+- Mixed editorial grid: one large featured block + smaller cards beside it, followed by a 2-column grid
+- A dark full-width CTA section before the footer with headline + email/action input
+- Structured, multi-column dark footer
+- Overall feel: editorial, trustworthy, warm, human — not cold or corporate
+
+---
+
+## Page Structure
+
+1. Hero (dark green, left text + right visual card)
+2. Intro Section (white, full story)
+3. Differentials Grid (editorial mixed layout — like "Latest stories")
+4. Mission & Vision Cards (2-column)
+5. Values Section (3-column grid)
+6. Final CTA Section (dark, like Kota's bottom CTA)
+
+---
+
+## SECTION 1: Hero
+
+### Copy
+**Label (small, above headline):** "Quem Somos"
+**Headline:** Rigor técnico. Atendimento humano. Resultado garantido.
+**Subheadline:** A consultoria ambiental que nasceu no Pará — e conhece o Pará como ninguém.
+**CTA:** Conheça nossa história
+
+### Specs
+- Full-width, min-height: 380px
+- Background: `#1a3322` (deep forest green — matching Kota's exact dark green tone)
+- Display: flex, align-items: center, padding: 80px 0
+- Inner layout: 2 columns (60% text / 40% visual card) — max-width 1040px, centered
+
+**Left Column (text):**
+- Label: 0.72rem, uppercase, letter-spacing: 0.14em, color: rgba(255,255,255,0.55), font-weight 500, margin-bottom 16px
+- Headline: `<h1>`, clamp(2rem, 4vw, 3.2rem), weight 800, color white, line-height 1.1, max-width 540px
+- Subheadline: 1rem, rgba(255,255,255,0.72), line-height 1.65, max-width 440px, margin-top 18px
+- CTA: margin-top 28px
+  - Background: white, color: `#1a3322`, padding: 12px 28px
+  - Border-radius: `var(--radius-md)`, font-weight: 600, font-size: 0.9rem
+  - Hover: rgba(240,240,240,1) background, transition 200ms
+
+**Right Column (visual card — CSS-only, inspired by Kota's photo card):**
+- A stylized card component (no stock photos)
+- Background: rgba(255,255,255,0.07)
+- Border: 1px solid rgba(255,255,255,0.15)
+- Border-radius: `var(--radius-xl)`
+- Padding: 28px
+- Contains:
+  - A large leaf/nature abstract SVG icon (white, 64px) centered at top
+  - Stat block: "Est. 2020" — 0.75rem, rgba(255,255,255,0.5), uppercase
+  - Divider line
+  - Three small stat rows:
+    - "📍 Belém, Pará"
+    - "🌿 Licenciamento & ESG"
+    - "🏛 SEMAS-PA · IBAMA"
+  - Each row: icon + text (0.88rem, rgba(255,255,255,0.75), font-weight 500)
+  - Gap between rows: 14px
+
+**Mobile:** Single column, visual card stacks below text, hero height auto
+
+---
+
+## SECTION 2: Intro Section
+
+Inspired by Kota's white content area below the hero — clean, readable, editorial.
+
+### Copy
+**Section label:** "Nossa História"
+**Headline:** A IL nasceu no Pará com uma missão clara.
+**Paragraph 1:**
+A IL nasceu no Pará com uma missão clara: tornar a conformidade ambiental acessível, ágil e sem burocracia desnecessária para empresas de todos os portes. Combinamos expertise em licenciamento, gestão ambiental e relatórios técnicos com um atendimento que entende as particularidades de cada empreendimento — porque cada empresa tem uma história e um processo próprio.
+
+**Paragraph 2:**
+Com foco no estado do Pará, a IL conhece em profundidade o contexto regulatório local: as exigências da SEMAS-PA, os prazos do IBAMA e as especificidades de cada setor produtivo na região. Isso significa menos erros, mais agilidade e um caminho mais curto até a sua licença.
+
+### Specs
+- Background: white
+- Max-width: 720px, horizontally centered
+- Padding: 80px 24px 40px
+- Label: 0.72rem, uppercase, letter-spacing: 0.12em, `var(--color-primary)`, font-weight 600, margin-bottom 14px
+- Headline: clamp(1.6rem, 3vw, 2.2rem), weight 800, `var(--color-text-primary)`, line-height 1.2, margin-bottom 28px
+- Paragraphs: 1.05rem, `var(--color-text-secondary)`, line-height 1.8, margin-bottom 20px
+- A subtle horizontal rule between the intro and next section: 1px, `var(--color-border)`, max-width 120px, centered, margin: 48px auto
+
+---
+
+## SECTION 3: Differentials Grid
+
+Inspired by Kota's "Latest stories" mixed editorial grid — one large featured block + two smaller cards on the right, then a 2-column grid below.
+
+### Section Header
+**Label:** "Por que a IL"
+**Headline:** O que nos diferencia
+- Left-aligned, padding-left: clamp(24px, 8vw, 80px)
+- Headline: clamp(1.5rem, 2.5vw, 2rem), weight 800
+- Search bar from reference: SKIP (replace with a subtle intro line: "Consultoria ambiental com expertise local, rigor técnico e compromisso real com cada cliente.")
+
+### Top Row (1 large + 2 small — like Kota's featured layout)
+
+**Featured Card (left, larger):**
+- Background: `var(--color-surface-alt)` — very light sage green
+- Border-radius: `var(--radius-xl)`
+- Padding: 40px
+- Height: ~320px
+- Contains:
+  - Large icon: 🌿 SVG leaf, 48px, `var(--color-primary)`
+  - Title: "Especialização Regional" — 1.3rem, weight 800
+  - Description: "Conhecemos as exigências da SEMAS-PA e do IBAMA regional em profundidade. Isso significa menos atrasos, menos erros e um processo mais ágil para sua empresa."
+  - Bottom tag: "📍 Atuação em todo o Pará"
+
+**Small Card 1 (right top):**
+- Background: `#1a3322` (dark green, like Kota's image card)
+- Color: white
+- Border-radius: `var(--radius-xl)`
+- Padding: 28px
+- Contains:
+  - Icon: 🏛 (document/legal SVG), white, 32px
+  - Title: "Conformidade Garantida" — 1rem, weight 700
+  - Description: "Acompanhamos cada etapa do processo para que sua empresa opere dentro da lei — sem surpresas."
+  - Date-style tag: "LP · LI · LO · LAR" — small, rgba(255,255,255,0.55)
+
+**Small Card 2 (right bottom):**
+- Background: white
+- Border: 1px solid `var(--color-border)`
+- Border-radius: `var(--radius-xl)`
+- Padding: 28px
+- Contains:
+  - Icon: ⚡ (clock/speed SVG), `var(--color-primary)`, 32px
+  - Title: "Agilidade no Processo" — 1rem, weight 700, `var(--color-text-primary)`
+  - Description: "Documentação correta desde o início = menos idas e vindas ao órgão ambiental."
+  - Tag: "Resposta em 24h"
+
+### Bottom Row (2-column grid — like Kota's secondary articles grid)
+
+**Card 3:**
+- Background: `var(--color-surface-alt)`
+- Border-radius: `var(--radius-xl)`, padding: 32px
+- Icon: 🤝 (handshake SVG), `var(--color-primary)`, 36px
+- Title: "Atendimento Personalizado"
+- Description: "Cada cliente tem uma realidade diferente. Nós estudamos seu empreendimento antes de propor qualquer solução."
+
+**Card 4:**
+- Background: white, border: 1px solid `var(--color-border)`
+- Border-radius: `var(--radius-xl)`, padding: 32px
+- Icon: 📊 (chart SVG), `var(--color-primary)`, 36px
+- Title: "Rigor Técnico"
+- Description: "Laudos, relatórios e estudos elaborados com metodologia rigorosa — para atender qualquer exigência dos órgãos fiscalizadores."
+
+**Grid Specs:**
+- Top row: CSS grid, `grid-template-columns: 1.4fr 1fr`, gap: 20px
+- Right side of top row: flex column, gap: 20px, equal height cards
+- Bottom row: CSS grid, `grid-template-columns: 1fr 1fr`, gap: 20px, margin-top: 20px
+- Max-width: 960px, centered
+- Padding: 0 24px 80px
+- On mobile: all cards single column
+
+---
+
+## SECTION 4: Mission & Vision Cards (2-column)
+
+### Layout
+- 2-column grid, max-width: 900px, centered, gap: 24px
+- Padding: 0 24px 80px
+- On mobile: single column
+
+### Card — Nossa Missão
+- Background: `#1a3322` (dark green)
+- Border-radius: `var(--radius-xl)`, padding: 40px
+- Label: "Nossa Missão" — 0.72rem, uppercase, letter-spacing: 0.12em, rgba(255,255,255,0.5)
+- Body: "Garantir que empresas de todos os portes operem em conformidade ambiental com eficiência, segurança e tranquilidade — eliminando a burocracia e conduzindo cada cliente a um caminho sólido e sustentável."
+  - Font: `var(--font-body)`, 1.05rem, white, line-height 1.75, margin-top 16px
+- Decorative: a large quotation mark SVG ("") at top-left, rgba(255,255,255,0.08), 80px — purely decorative
+
+### Card — Nossa Visão
+- Background: `var(--color-surface-alt)` (light sage green)
+- Border-radius: `var(--radius-xl)`, padding: 40px
+- Label: "Nossa Visão" — 0.72rem, uppercase, letter-spacing: 0.12em, `var(--color-primary)`, font-weight 600
+- Body: "Ser a referência em consultoria ambiental no Pará, tornando o conhecimento ambiental acessível e presente no dia a dia das empresas e da sociedade."
+  - Font: `var(--font-body)`, 1.05rem, `var(--color-text-primary)`, line-height 1.75, margin-top 16px
+- Decorative: same large quotation mark, `var(--color-primary)` at 8% opacity
+
+Both cards equal height (align-items: stretch on grid)
+
+---
+
+## SECTION 5: Values Section (3-column)
+
+### Section Header (centered)
+**Label:** "Nossos Valores"
+**Headline:** O que guia cada decisão que tomamos
+
+### Value Cards
+3 cards in a row, gap: 20px, max-width: 900px, centered, padding-bottom: 80px
+
+**Value 1:**
+- Icon: ⚖️ SVG scale/balance — representing rigor and ethics
+- Title: "Rigor Técnico"
+- Description: "Cada laudo, relatório e estudo é elaborado com precisão e fundamentação. Entregamos documentação que resiste a qualquer auditoriaou questionamento."
+
+**Value 2:**
+- Icon: 🤝 SVG — representing human connection
+- Title: "Atendimento Humano"
+- Description: "Sabemos que processos ambientais geram ansiedade. Por isso, mantemos comunicação clara, transparente e próxima em cada etapa."
+
+**Value 3:**
+- Icon: 🌿 SVG — representing environment
+- Title: "Compromisso Ambiental"
+- Description: "Não somos apenas consultores de conformidade — acreditamos no desenvolvimento sustentável como responsabilidade de todos."
+
+**Card style:**
+- Background: white
+- Border: 1px solid `var(--color-border)`
+- Border-radius: `var(--radius-xl)`
+- Padding: 32px
+- Icon container: 48px × 48px, background: light green (rgba(45,106,79,0.1)), border-radius: full, centered icon `var(--color-primary)` 24px
+- Title: 1.05rem, weight 700, `var(--color-text-primary)`, margin-top 18px
+- Description: 0.9rem, `var(--color-text-secondary)`, line-height 1.65, margin-top 10px
+- Hover: box-shadow deepens, translateY(-3px), transition 250ms
+- Staggered fade-in on scroll: delays 0.1s / 0.2s / 0.3s
+
+---
+
+## SECTION 6: Final CTA (Dark — Kota Style)
+
+Inspired by Kota's bottom dark CTA section: "Built for teams of today, like yours."
+
+### Copy
+**Headline:** Pronta para garantir sua conformidade ambiental?
+**Subheadline:** Fale com a IL Ambiental e descubra como podemos simplificar seu processo — do licenciamento à gestão completa.
+**CTA Primário:** Fale com um especialista
+**Ghost text below:** Sem compromisso. Resposta em até 24 horas.
+
+### Specs
+- Full-width, background: `#0d1a0f` (deep dark, slightly darker than hero)
+- Padding: 80px 24px
+- Content: centered, max-width: 600px
+- A decorative organic blob shape in the background — SVG, rgba(45,106,79,0.15), large, positioned right side (like Kota's gray blob)
+- Headline: clamp(1.8rem, 3.5vw, 2.8rem), weight 800, white, line-height 1.15
+- Subheadline: 1rem, rgba(255,255,255,0.68), line-height 1.7, margin-top 16px
+- CTA row: margin-top 32px, centered
+  - CTA Primário: white background, `#0d1a0f` text, padding 14px 36px, border-radius `var(--radius-md)`, weight 700
+  - Hover: rgba(240,240,240,1), transition 200ms
+- Ghost text: 0.8rem, rgba(255,255,255,0.45), margin-top 14px
+
+---
+
+## Responsive Behavior
+- **Mobile (< 640px):** Hero single column (visual card below text), all grids → single column, mission/vision cards stacked
+- **Tablet (640px–1024px):** Top editorial row adapts to single column featured + 2-col below; mission cards 2-col maintained
+- **Desktop:** Full layout as described
+
+## Animations (scroll-triggered)
+- All sections: fade-up 24px, duration 0.6s, IntersectionObserver threshold 0.15
+- Cards: staggered delays (0.08s increments per card)
+- Hero: immediate fade-up on load (no scroll trigger)
+
+## Accessibility
+- `<h1>` for hero headline
+- `<h2>` for section headlines
+- Icon containers need aria-hidden="true"
+- All cards have semantic structure (heading + paragraph)
+- CTA buttons need descriptive aria-labels
+
+## Do NOT
+- Use stock photos or AI-generated images
+- Use generic gray color scheme — all surfaces must use the forest green palette from global.css
+- Make the page feel like a standard corporate "about" page — it should feel editorial and personal
