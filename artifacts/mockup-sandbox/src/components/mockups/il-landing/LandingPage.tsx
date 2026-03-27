@@ -43,99 +43,168 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="relative w-full bg-[#0F2B1A] overflow-hidden min-h-[90vh] flex items-center pt-20 pb-24">
-    {/* Decorative abstract elements */}
-    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1A4D2E]/40 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#2E7D52]/20 to-transparent rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
-    
-    <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-      <div className="flex flex-col gap-8">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#4CAF82]/30 bg-[#1A4D2E]/40 backdrop-blur-sm w-fit">
-          <Leaf className="w-4 h-4 text-[#4CAF82]" />
-          <span className="text-sm font-medium text-[#4CAF82] tracking-wide">Referência na Amazônia</span>
-        </div>
-        
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-['Playfair_Display'] font-bold text-white leading-[1.1] tracking-tight">
-          Excelência Técnica para o <span className="text-[#D4A853] italic">Meio Ambiente</span>
-        </h1>
-        
-        <p className="text-lg md:text-xl text-white/80 font-light max-w-xl leading-relaxed">
-          Soluções estratégicas em licenciamento e gestão ambiental para corporações que buscam sustentabilidade e segurança jurídica na região Norte do Brasil.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <button className="bg-[#D4A853] hover:bg-[#c59a45] text-[#1A3A2A] font-semibold py-4 px-8 rounded-sm transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
-            Nossos Serviços <ChevronRight className="w-4 h-4" />
-          </button>
-          <button className="bg-transparent border border-white/30 text-white hover:bg-white/10 font-semibold py-4 px-8 rounded-sm transition-all flex items-center justify-center gap-2">
-            Conheça a IL
-          </button>
-        </div>
-      </div>
-      
-      <div className="relative hidden lg:block h-full min-h-[500px]">
-        {/* Artistic nature illustration using pure CSS/SVG */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-full aspect-square max-w-[500px]">
-            <div className="absolute inset-0 border border-[#D4A853]/30 rounded-full animate-[spin_60s_linear_infinite]"></div>
-            <div className="absolute inset-4 border border-[#4CAF82]/20 rounded-full animate-[spin_40s_linear_infinite_reverse]"></div>
-            
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 200 200" className="w-[80%] h-[80%] text-[#1A4D2E] drop-shadow-2xl opacity-90">
-                <path fill="currentColor" d="M100 0 C120 40 160 60 180 100 C160 140 120 160 100 200 C80 160 40 140 20 100 C40 60 80 40 100 0 Z" />
-                <path fill="#2E7D52" d="M100 20 C115 50 140 70 160 100 C140 130 115 150 100 180 C85 150 60 130 40 100 C60 70 85 50 100 20 Z" />
-                <path fill="#4CAF82" d="M100 40 C110 60 125 80 140 100 C125 120 110 140 100 160 C90 140 75 120 60 100 C75 80 90 60 100 40 Z" />
-              </svg>
-            </div>
-            
-            {/* Floating badges */}
-            <div className="absolute top-[15%] -left-[10%] bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-lg flex items-center gap-3 shadow-xl">
-              <div className="bg-[#D4A853] p-2 rounded-full text-[#1A3A2A]">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-white font-bold font-['Playfair_Display']">100%</div>
-                <div className="text-white/70 text-xs">Conformidade</div>
-              </div>
-            </div>
-            
-            <div className="absolute bottom-[20%] -right-[5%] bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-lg flex items-center gap-3 shadow-xl">
-              <div className="bg-[#4CAF82] p-2 rounded-full text-white">
-                <Award className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-white font-bold font-['Playfair_Display']">ISO 14001</div>
-                <div className="text-white/70 text-xs">Certificação</div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <section
+    className="relative w-full overflow-hidden flex items-center"
+    style={{
+      minHeight: "90vh",
+      padding: "120px 0 100px",
+      background: `
+        radial-gradient(ellipse at 30% 40%, rgba(45, 106, 79, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(30, 60, 25, 0.5) 0%, transparent 55%),
+        linear-gradient(160deg, #0d1f14 0%, #1a3322 45%, #0a1a0d 100%)
+      `,
+    }}
+  >
+    <style>{`
+      @keyframes fadeUpIn {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .hero-headline { animation: fadeUpIn 0.7s ease-out both; }
+      .hero-sub      { animation: fadeUpIn 0.7s ease-out 0.15s both; }
+      .hero-ctas     { animation: fadeUpIn 0.7s ease-out 0.3s both; }
+      .btn-primary-hero {
+        background: #2D6A4F;
+        color: #fff;
+        padding: 15px 36px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+        border: none;
+        cursor: pointer;
+        transition: filter 200ms ease, transform 200ms ease;
+        white-space: nowrap;
+      }
+      .btn-primary-hero:hover { filter: brightness(1.12); transform: scale(1.02); }
+      .btn-primary-hero:focus-visible { outline: 2px solid #5AE082; outline-offset: 3px; }
+      .btn-secondary-hero {
+        background: transparent;
+        color: #fff;
+        padding: 15px 36px;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 1rem;
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        cursor: pointer;
+        transition: border-color 200ms ease, background 200ms ease;
+        white-space: nowrap;
+      }
+      .btn-secondary-hero:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+      .btn-secondary-hero:focus-visible { outline: 2px solid #5AE082; outline-offset: 3px; }
+    `}</style>
+
+    {/* Dark overlay */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{ background: "rgba(10, 20, 12, 0.62)" }}
+    />
+
+    {/* Content */}
+    <div
+      className="relative z-10 w-full"
+      style={{ maxWidth: "760px", paddingLeft: "clamp(24px, 8vw, 120px)" }}
+    >
+      <h1
+        className="hero-headline font-['Playfair_Display'] text-white"
+        style={{
+          fontSize: "clamp(2.4rem, 5.5vw, 4rem)",
+          fontWeight: 800,
+          lineHeight: 1.1,
+          maxWidth: "680px",
+          margin: 0,
+        }}
+      >
+        Sua empresa em conformidade ambiental — com quem conhece o{" "}
+        <span style={{ color: "#5AE082" }}>Pará</span>.
+      </h1>
+
+      <p
+        className="hero-sub font-['Inter'] text-white/[0.78]"
+        style={{
+          fontSize: "clamp(1rem, 1.8vw, 1.15rem)",
+          fontWeight: 400,
+          maxWidth: "560px",
+          lineHeight: 1.75,
+          marginTop: "20px",
+        }}
+      >
+        A IL Ambiental cuida de todo o processo de licenciamento, gestão e
+        documentação ambiental para que você opere com segurança jurídica e
+        eficiência — sem burocracia desnecessária.
+      </p>
+
+      <div
+        className="hero-ctas flex flex-wrap items-center"
+        style={{ gap: "14px", marginTop: "36px" }}
+      >
+        <button className="btn-primary-hero" aria-label="Fale com um especialista da IL Ambiental">
+          Fale com um especialista
+        </button>
+        <button className="btn-secondary-hero" aria-label="Conheça os serviços da IL Ambiental">
+          Conheça nossos serviços
+        </button>
       </div>
     </div>
   </section>
 );
 
-const Stats = () => (
-  <div className="bg-white border-b border-gray-100 relative z-20 -mt-10 mx-6 lg:mx-auto lg:max-w-6xl rounded-lg shadow-xl overflow-hidden">
-    <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-100 divide-y lg:divide-y-0">
-      {[
-        { number: "25+", label: "Anos de Experiência" },
-        { number: "300+", label: "Licenças Aprovadas" },
-        { number: "50+", label: "Municípios Atendidos" },
-        { number: "100%", label: "Conformidade Legal" },
-      ].map((stat, idx) => (
-        <div key={idx} className="p-8 text-center flex flex-col items-center justify-center group hover:bg-[#F8F5F0] transition-colors">
-          <div className="text-3xl lg:text-4xl font-['Playfair_Display'] font-bold text-[#1A4D2E] group-hover:scale-105 transition-transform duration-300">
-            {stat.number}
+const TrustBar = () => {
+  const items = [
+    { stat: "+30",  label: "Empresas atendidas" },
+    { stat: "100%", label: "Atuação no Pará" },
+    { stat: "2",    label: "Órgãos: SEMAS-PA & IBAMA" },
+    { stat: "24h",  label: "Tempo de resposta" },
+  ];
+  return (
+    <div
+      className="w-full bg-white font-['Inter']"
+      style={{ borderBottom: "1px solid #E5E7EB", padding: "24px 0" }}
+    >
+      <div
+        className="mx-auto grid"
+        style={{
+          maxWidth: "900px",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          padding: "0 24px",
+        }}
+      >
+        {items.map((item, idx) => (
+          <div
+            key={idx}
+            className="flex flex-col items-center justify-center text-center"
+            style={{
+              borderRight: idx < items.length - 1 ? "1px solid #E5E7EB" : "none",
+              padding: "8px 16px",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "1.4rem",
+                fontWeight: 700,
+                color: "#2D6A4F",
+                lineHeight: 1,
+              }}
+            >
+              {item.stat}
+            </span>
+            <span
+              style={{
+                fontSize: "0.85rem",
+                color: "#6B7280",
+                fontWeight: 400,
+                marginTop: "6px",
+                lineHeight: 1.3,
+              }}
+            >
+              {item.label}
+            </span>
           </div>
-          <div className="text-sm font-medium text-[#555555] mt-2 uppercase tracking-wide">
-            {stat.label}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Services = () => {
   const services = [
@@ -479,7 +548,7 @@ export function LandingPage() {
     <div className="min-h-screen bg-white font-['Inter'] scroll-smooth selection:bg-[#2E7D52] selection:text-white">
       <Navbar />
       <Hero />
-      <Stats />
+      <TrustBar />
       <Services />
       <About />
       <Testimonials />

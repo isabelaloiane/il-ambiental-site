@@ -1,0 +1,180 @@
+You are building the **Hero Section** of the landing page for **IL Ambiental — Engenharia e Consultoria Ambiental**, a premium environmental engineering and consulting firm based in Pará, Brazil. They serve large corporations with environmental licensing and environmental management.
+
+## Design Reference
+Use the attached screenshot (Sierra landing page) as the visual layout reference for this section. Key design characteristics to replicate:
+- Dark, full-width hero with a rich photographic background and a dark overlay (gradient)
+- Large, bold white headline — left-aligned or centered
+- Short supporting subheadline below in lighter weight
+- One or two CTA buttons, one filled and prominent
+- Below the hero: a social proof / logo bar with subtle separator
+- The overall feel is: premium, modern, high-trust, enterprise B2B
+
+## Section Goal
+This is the hero — the first impression. The visitor must immediately understand:
+1. What IL Ambiental does (environmental compliance)
+2. Who it's for (businesses operating in Pará)
+3. Why it matters (legal safety, no bureaucracy, no surprises)
+4. What to do next (clear CTAs)
+
+---
+
+## Exact Copy to Use
+
+**Headline:**
+Sua empresa em conformidade ambiental — com quem conhece o Pará.
+
+**Subheadline:**
+A IL Ambiental cuida de todo o processo de licenciamento, gestão e documentação ambiental para que você opere com segurança jurídica e eficiência — sem burocracia desnecessária.
+
+**CTA Primário:**
+Fale com um especialista
+
+**CTA Secundário:**
+Conheça nossos serviços
+
+**Trust Bar (below hero, 4 items):**
+- +30 empresas atendidas
+- Atuação em todo o Pará
+- SEMAS-PA & IBAMA
+- Resposta em até 24h
+
+---
+
+## Layout Specifications
+
+### Hero Container
+- Full viewport width, min-height: 90vh
+- Position: relative
+- Background: a full-cover background image (use a CSS gradient placeholder if no image is available: `linear-gradient(135deg, #1a3322 0%, #0d1f14 60%, #2c4a1e 100%)`) — representing a dense Amazon forest or environmental landscape
+- Dark overlay: `::before` pseudo-element with `background: rgba(10, 20, 12, 0.62)` covering 100% of the hero
+- Display: flex, align-items: center
+- Padding: 120px 0 100px
+
+### Content Wrapper
+- Max-width: 760px
+- Left-aligned (not centered) — mirroring Sierra's layout
+- Padding-left: clamp(24px, 8vw, 120px)
+- z-index: 2 (above overlay)
+
+### Headline
+- Tag: `<h1>`
+- Font: `var(--font-heading)`
+- Size: clamp(2.4rem, 5.5vw, 4rem)
+- Weight: 800
+- Color: #FFFFFF
+- Line-height: 1.1
+- Max-width: 680px
+- Highlight "Pará" with `var(--color-primary)` (deep green or a bright nature green like #5AE082)
+- Animate in: fade up from 24px, duration 0.7s, ease-out, on page load
+
+### Subheadline
+- Font: `var(--font-body)`
+- Size: clamp(1rem, 1.8vw, 1.15rem)
+- Weight: 400
+- Color: rgba(255, 255, 255, 0.78)
+- Max-width: 560px
+- Line-height: 1.75
+- Margin-top: 20px
+- Animate in: fade up, delay 0.15s
+
+### CTA Buttons
+- Row, gap: 14px
+- Margin-top: 36px
+- Animate in: fade up, delay 0.3s
+- Wrap on mobile
+
+**CTA Primário:**
+- Background: `var(--color-primary)` (deep forest green, e.g. #2D6A4F or use CSS var)
+- Color: white
+- Padding: 15px 36px
+- Border-radius: var(--radius-md) — slightly rounded, not pill
+- Font-weight: 700
+- Font-size: 1rem
+- Letter-spacing: 0.01em
+- Hover: `filter: brightness(1.12)`, scale(1.02), transition 200ms
+- No border
+
+**CTA Secundário:**
+- Background: transparent
+- Border: 1.5px solid rgba(255, 255, 255, 0.55)
+- Color: white
+- Padding: 15px 36px
+- Border-radius: var(--radius-md)
+- Font-weight: 500
+- Hover: border-color: white, background: rgba(255,255,255,0.08), transition 200ms
+
+---
+
+## Trust Bar Section (directly below the hero)
+
+### Container
+- Full width
+- Background: white (or var(--color-background))
+- Border-bottom: 1px solid var(--color-border)
+- Padding: 24px 0
+
+### Inner Layout
+- Max-width: 900px, horizontally centered
+- Display: grid, 4 columns, equal width
+- Each item: centered, column direction
+
+### Each Trust Item
+[number or icon]
+[label text]
+- Number/stat: font-size 1.4rem, font-weight 700, color: var(--color-primary)
+- Label: font-size: 0.85rem, color: var(--color-text-secondary), font-weight: 400
+- Separator: vertical 1px line between items using CSS border-right (except last)
+
+Items (in order):
+1. `+30` / "Empresas atendidas"
+2. `100%` / "Atuação no Pará"  
+3. `2` / "Órgãos: SEMAS-PA & IBAMA"
+4. `24h` / "Tempo de resposta"
+
+---
+
+## Background Image Approach
+Since there's no actual photo asset yet, implement the background as follows:
+- Create a CSS-only atmospheric background: deep layered radial gradients suggesting an Amazon forest canopy
+```css
+  background: 
+    radial-gradient(ellipse at 30% 40%, rgba(45, 106, 79, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(30, 60, 25, 0.5) 0%, transparent 55%),
+    linear-gradient(160deg, #0d1f14 0%, #1a3322 45%, #0a1a0d 100%);
+```
+- Add a subtle texture overlay: a very fine noise pattern using SVG filter or a CSS noise technique
+- This way the section looks premium without requiring a real image
+
+---
+
+## Responsive Behavior
+- **Mobile (< 640px):**
+  - Content centered instead of left-aligned
+  - Headline font: clamp min (2.2rem)
+  - CTAs: full width, stacked vertically
+  - Trust bar: 2x2 grid
+  - Min-height: 85vh
+
+- **Tablet (640px – 1024px):**
+  - Left-aligned maintained
+  - Font sizes at mid range
+  - Trust bar: 4 columns maintained, smaller text
+
+- **Desktop:** Full layout as described above
+
+---
+
+## Accessibility
+- `<h1>` for headline
+- CTAs must be `<a>` or `<button>` with descriptive aria-label
+- Overlay must not reduce text contrast below WCAG AA (test: white text on dark overlay)
+- All interactive elements must have `:focus-visible` styles
+
+---
+
+## What NOT to do
+- Do NOT use stock photos or placeholder images (unsplash, picsum, etc.)
+- Do NOT center the headline on desktop — keep it left-aligned like the Sierra reference
+- Do NOT use pill-shaped buttons — use slightly rounded rectangles
+- Do NOT use light/pastel background — this section is intentionally dark and bold
+- Do NOT add unnecessary decorative elements that break the premium feel
