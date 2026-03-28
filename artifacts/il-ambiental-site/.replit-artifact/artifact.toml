@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "IL Ambiental - Site"
+version = "1.0.0"
+id = "artifacts/il-ambiental-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22483
+
+[services.development]
+run = "pnpm --filter @workspace/il-ambiental-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/il-ambiental-site", "run", "build" ]
+publicDir = "artifacts/il-ambiental-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22483"
+BASE_PATH = "/"

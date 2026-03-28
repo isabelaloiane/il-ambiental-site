@@ -1,0 +1,181 @@
+You are a deployment engineer. Your task is to prepare the current project for immediate publication on Replit's free hosting. Do NOT modify any content, text, layout, design, colors, typography, or visual identity. Only make structural and configuration changes required for the site to deploy and be publicly accessible via a Replit .replit.app domain.
+
+---
+
+## STEP 1 — AUDIT PROJECT STRUCTURE
+
+Scan the entire project and verify the following files exist. If any are missing or misnamed, fix them:
+
+### Required root-level files:
+
+**index.html** — The main entry point. Must exist at the project root (not inside a subfolder). If the homepage file has a different name (e.g., home.html, main.html, inicio.html), rename it to `index.html`.
+
+**style.css** (or equivalent) — All CSS files must be correctly linked from every HTML page using relative paths.
+
+**script.js** (or equivalent) — All JS files must be correctly linked from every HTML page using relative paths.
+
+### Required page files (verify all three exist):
+
+1. `index.html` — Home / Sobre (About)
+2. `servicos.html` — Serviços (Services)
+3. `contato.html` — Contato (Contact)
+
+If any page uses a different naming convention, do not rename it — just ensure all internal links point to the correct filenames.
+
+### Required configuration file:
+
+Create or update the `.replit` file at the project root:
+run = "npx serve ."
+entrypoint = "index.html"
+[deployment]
+run = ["sh", "-c", "npx serve -s . -l 3000"]
+deploymentTarget = "static"
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+If the project already has a `.replit` file, update only the fields shown above without removing other existing configurations.
+
+### Create or update `replit.nix` at the project root:
+```nix
+{ pkgs }: {
+  deps = [
+    pkgs.nodejs-18_x
+    pkgs.nodePackages.serve
+  ];
+}
+```
+
+---
+
+## STEP 2 — VERIFY AND FIX ALL INTERNAL LINKS
+
+Scan every HTML file and verify:
+
+1. **Navigation links** — Every `<a href="...">` pointing to an internal page must use correct relative paths:
+   - Links to home: `href="index.html"` or `href="/"`
+   - Links to services: `href="servicos.html"`
+   - Links to contact: `href="contato.html"`
+
+2. **CSS links** — Every `<link rel="stylesheet" href="...">` must use correct relative paths. If CSS files are in a subfolder (e.g., `/css/style.css`), ensure the path is correct from each HTML file's location.
+
+3. **JS links** — Every `<script src="...">` must use correct relative paths.
+
+4. **Image/asset links** — Every `<img src="...">`, `background-image: url(...)`, and other asset references must use correct relative paths. No absolute file system paths (e.g., `/Users/...` or `C:\...`).
+
+5. **Anchor links** — Any `href="#section-id"` must have a matching `id` attribute in the target element.
+
+6. **No broken links** — Remove or fix any links pointing to deleted pages (e.g., projects page or any page that no longer exists).
+
+---
+
+## STEP 3 — VERIFY HTML HEAD ON EVERY PAGE
+
+Ensure every HTML file contains a complete and valid `<head>` section:
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#452816">
+  <meta name="description" content="IL Ambiental — Engenharia e Consultoria Ambiental no Pará. Licenciamento, gestão e conformidade ambiental para empresas.">
+  <title>IL Ambiental | Engenharia e Consultoria Ambiental</title>
+  <link rel="icon" type="image/png" href="[path-to-favicon.png]">
+  <!-- CSS links here -->
+</head>
+```
+
+If the favicon file does not exist, create a placeholder reference and add a comment: `<!-- TODO: add favicon.png file -->`.
+
+Do NOT change existing `<title>` or `<meta description>` content if they already exist and contain valid text. Only add them if they are missing.
+
+---
+
+## STEP 4 — VERIFY ASSET LOADING
+
+1. Check that all images referenced in HTML and CSS actually exist in the project directory. If an image file is missing, add a comment in the code: `<!-- MISSING ASSET: filename.ext -->` but do NOT remove the reference.
+
+2. Check that all Google Fonts imports are using HTTPS URLs and are loading correctly:
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+```
+
+3. Ensure no assets are loaded from localhost, 127.0.0.1, or file:// protocols.
+
+4. Ensure no assets are loaded from expired or broken CDN links.
+
+---
+
+## STEP 5 — VERIFY RESPONSIVE META TAG
+
+Confirm that EVERY HTML file contains this meta tag inside `<head>`:
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Without this tag, the site will not render correctly on mobile devices after deployment.
+
+---
+
+## STEP 6 — REMOVE DEVELOPMENT ARTIFACTS
+
+Remove or disable the following if they exist (without altering any visible content or functionality):
+
+1. `console.log()` statements in production JS files — comment them out or remove them
+2. Any `// TODO` or `// FIXME` comments that reference development-only tasks — leave them as comments, do not delete code
+3. Any inline `<style>` blocks that duplicate rules already in external CSS files — remove only the duplicates
+4. Any `<script>` tags loading development-only tools (e.g., livereload, hot-module-replacement, browser-sync) — remove them
+5. Any references to `.env` files or environment variables that are not needed for a static site
+
+---
+
+## STEP 7 — CROSS-PAGE CONSISTENCY CHECK
+
+Verify that the following elements are identical across all three pages:
+
+1. **Header/Navigation** — Same HTML structure, same links, same active-state logic on all pages
+2. **Footer** — Same HTML structure, same content, same links on all pages
+3. **WhatsApp floating button** — Present and functional on all pages
+4. **CSS files** — Same stylesheets loaded in the same order on all pages
+5. **JS files** — Same scripts loaded in the same order on all pages
+
+If any page is missing a shared component (header, footer, WhatsApp button), copy it from another page that has it.
+
+---
+
+## STEP 8 — FINAL VALIDATION
+
+Run through this checklist and fix any issues found:
+
+- [ ] `index.html` exists at the project root
+- [ ] `.replit` file is configured for static deployment
+- [ ] All three pages load without 404 errors
+- [ ] Navigation between all three pages works correctly
+- [ ] All CSS is loading (no unstyled content flash)
+- [ ] All JS is loading (no console errors)
+- [ ] All images and assets are loading
+- [ ] Site is responsive (works on mobile viewport)
+- [ ] No hardcoded localhost or file:// URLs remain
+- [ ] Google Fonts are loading via HTTPS
+- [ ] Contact email displays: contate.ilambiental@gmail.com
+- [ ] Contact phone displays: +55 91 99250-3317
+- [ ] WhatsApp button links to: https://wa.me/5591992503317
+- [ ] No references to deleted pages remain in navigation or links
+
+---
+
+## STEP 9 — PREPARE FOR DEPLOY
+
+After all checks pass:
+
+1. Ensure the Replit "Run" button starts a local server that serves the site correctly
+2. The site must be accessible at `http://0.0.0.0:3000` when running locally in Replit
+3. All pages must load correctly at their respective URLs:
+   - `/` or `/index.html` → Home
+   - `/servicos.html` → Services
+   - `/contato.html` → Contact
+4. The project is now ready for deployment via Replit's "Deploy" button using the "Static" deployment option
+
+Do NOT run the deploy command. Only prepare the project so that when the user clicks "Deploy > Static" in the Replit UI, the site publishes correctly without errors.
