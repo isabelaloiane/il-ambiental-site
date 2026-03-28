@@ -1,0 +1,200 @@
+You are a senior front-end developer. Your task is to apply a series of precise corrections to the existing IL Ambiental website. Do NOT remove any functionality, do NOT change the visual design system, do NOT alter any content that is not explicitly mentioned below. Only apply the changes described. Maintain code organization and visual consistency throughout.
+
+---
+
+## CORRECTION 1 — PAGE STRUCTURE
+
+Delete the Projects page entirely. Remove all routes, navigation links, and references to it.
+
+The site must contain exactly three pages:
+- Sobre (About)
+- Serviços (Services)
+- Contato (Contact)
+
+Update the navigation menu to reflect only these three pages. Remove any broken links or references to the deleted page.
+
+---
+
+## CORRECTION 2 — REMOVE ALL DASHES (EM DASHES AND EN DASHES)
+
+Scan the entire site — all pages, all sections, all components — and remove every occurrence of long dashes (— and –).
+
+Replace them with appropriate punctuation according to context:
+- Use a comma (,) when the dash introduces a complement or continuation
+- Use a period (.) when the dash marks a sentence boundary
+- Use a semicolon (;) when the dash separates two related clauses
+
+Specific instance to fix:
+- Current text: "Sua empresa em conformidade ambiental — com quem conhece o Pará"
+- Corrected text: "Sua empresa em conformidade ambiental, com quem conhece o Pará"
+
+Apply this same correction to every other occurrence of dashes across all pages. No long dash (— or –) should remain anywhere on the site after this change.
+
+---
+
+## CORRECTION 3 — HERO BACKGROUND: ANIMATED AMAZON IMAGE
+
+In the hero section of the home page (the section containing the headline "Sua empresa em conformidade ambiental, com quem conhece o Pará"):
+
+Replace the current static background with an animated video or a CSS-animated background that evokes the Amazon rainforest.
+
+Implementation:
+
+Option A — If using a video element:
+```html
+<video
+  class="hero__bg-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  poster="[amazon-forest-fallback-image.jpg]">
+  <source src="[amazon-forest-video.mp4]" type="video/mp4">
+</video>
+```
+```css
+.hero__bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 22, 14, 0.60);
+  z-index: 1;
+}
+.hero__content { position: relative; z-index: 2; }
+```
+
+Option B — If no video asset is available yet, implement a CSS animated background that simulates movement through layered gradients:
+```css
+.hero {
+  background:
+    radial-gradient(ellipse at 20% 70%, rgba(30, 80, 40, 0.55) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(15, 50, 25, 0.6) 0%, transparent 55%),
+    linear-gradient(160deg, #071a0c 0%, #0f2a14 50%, #071a0c 100%);
+  animation: heroShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+```
+
+Use the Amazon-themed video/image when the asset is provided. Use Option B as the current fallback. Ensure all text in the hero maintains sufficient contrast (minimum 4.5:1) over the background.
+
+---
+
+## CORRECTION 4 — ADD REGULATORY BODIES
+
+Locate the section where regulatory bodies/agencies are listed (the section referencing SEMAS-PA and IBAMA).
+
+Add the following three agencies to that list, maintaining the same visual style as the existing items:
+
+1. SEMMA Municipal (spelled exactly as: SEMMA — with two M's, no S at the end)
+2. SESPA
+3. INCRA
+
+Do not remove SEMAS-PA or IBAMA. Simply add these three new items alongside the existing ones, preserving the layout pattern.
+
+---
+
+## CORRECTION 5 — REMOVE FOUNDING DECADE CLAIM
+
+Search the entire site for any sentence or phrase stating or implying that IL Ambiental was founded more than two decades ago, has over 20 years of experience, or any similar claim about the company's age or decades of operation.
+
+Delete that sentence or phrase entirely. Do not replace it with any other time-based claim. Simply remove it. If removing it breaks a paragraph, reflow the surrounding text naturally.
+
+---
+
+## CORRECTION 6 — SOCIAL PROOF / CLIENT SECTION
+
+Locate the section that references trust from large corporations or client companies.
+
+Remove any existing placeholder client names or testimonials that are not confirmed real clients.
+
+Add the following two real clients to this section:
+
+**Client 1:**
+- Name: Tropoc
+- Description: Multinacional atuante no beneficiamento da pimenta-do-reino
+
+**Client 2:**
+- Name: Fruta Pronta
+- Description: Empresa de Portel, Pará, produtora de açaí em polpa
+
+Important rules for this section:
+- Do NOT display testimonials, quotes, or fictional comments attributed to these companies
+- Display them as client logos or client name cards only
+- Use a format such as: client name + brief company description (as provided above)
+- Style consistent with the existing section design
+- Suggested section headline: "Empresas que confiam na IL Ambiental" or "Clientes que atendemos"
+
+---
+
+## CORRECTION 7 — REGIONAL PRESENCE SECTION
+
+Locate the section describing regional presence or consolidated presence in the North region of Brazil.
+
+Make the following removals:
+1. Remove all mentions of mining (mineração) as a sector of activity
+2. Remove all mentions of Amapá as a state of operation
+
+After removal, ensure the section only references the state of Pará. Reflow any affected text naturally. Do not add new content — only remove the specified items.
+
+---
+
+## CORRECTION 8 — REMOVE PHYSICAL ADDRESS
+
+Search all pages and components for any physical address, street address, office location, or physical location information.
+
+Delete it entirely from every location it appears — including the footer, contact page, and any other section.
+
+Do not replace the address with any other location information. Simply remove it.
+
+---
+
+## CORRECTION 9 — BUSINESS HOURS
+
+Locate the business hours / opening hours information wherever it appears on the site.
+
+Ensure it reads exactly:
+**Segunda a sexta-feira, das 08h às 18h**
+
+Do not add weekend hours. Do not add a note about emergencies or priority response. Keep only this information.
+
+---
+
+## CORRECTION 10 — CONTACT INFORMATION
+
+Update ALL occurrences of the email address and phone number across the entire site (footer, contact page, header, WhatsApp links, mailto links, and anywhere else they appear).
+
+**Correct email:** contate.ilambiental@gmail.com
+- Update all mailto: links to use this address
+- Update all visible email text to display this address
+
+**Correct phone number:** +55 91 99250-3317
+- Update all tel: links to use this number formatted as: tel:+5591992503317
+- Update all visible phone text to display: +55 91 99250-3317
+- Update the WhatsApp floating button link to: https://wa.me/5591992503317
+- Update any pre-filled WhatsApp message if present
+
+---
+
+## FINAL REQUIREMENTS
+
+After applying all corrections above:
+
+1. Run a final check — ensure no broken links remain after the Projects page deletion
+2. Ensure navigation is consistent across all three pages (Sobre, Serviços, Contato)
+3. Ensure no long dashes (— –) remain anywhere in the codebase, including in HTML, JS strings, and CSS content properties
+4. Ensure the contact email and phone are consistent across every page and component
+5. Do not alter any other content, design, colors, typography, spacing, animations, or functionality beyond what is explicitly described in this prompt
+6. Preserve all existing CSS classes, component structure, and code organization
