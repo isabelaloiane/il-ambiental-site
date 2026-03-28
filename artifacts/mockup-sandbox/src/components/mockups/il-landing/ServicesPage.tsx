@@ -10,12 +10,13 @@ import {
   Leaf, 
   AlertTriangle, 
   Lock, 
-  FileWarning 
+  FileWarning,
+  Building2
 } from "lucide-react";
 
 export function ServicesPage() {
   return (
-    <div className="font-['Inter'] w-full min-h-screen bg-white">
+    <div className="font-['Poppins'] w-full min-h-screen bg-white">
       <style>{`
         @keyframes fadeUpIn {
           from { opacity: 0; transform: translateY(24px); }
@@ -71,7 +72,7 @@ export function ServicesPage() {
       <section className="bg-white flex flex-col items-center text-center" style={{ padding: "100px 24px 60px" }}>
         <div style={{ maxWidth: "700px", width: "100%" }}>
           <h1 
-            className="srv-fade-1 font-['Playfair_Display']" 
+            className="srv-fade-1 font-['Poppins']" 
             style={{ 
               fontWeight: 800, 
               fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", 
@@ -92,7 +93,7 @@ export function ServicesPage() {
               lineHeight: 1.7 
             }}
           >
-            Do licenciamento à gestão de resíduos e ESG: a IL assume a burocracia ambiental para que você foque no seu negócio — com segurança jurídica e sem imprevistos.
+            Do licenciamento à gestão de resíduos e ESG: a IL assume a burocracia ambiental para que você foque no seu negócio, com segurança jurídica e sem imprevistos.
           </p>
           <div className="srv-fade-3" style={{ marginTop: "32px" }}>
             <button className="srv-cta-btn">
@@ -107,10 +108,13 @@ export function ServicesPage() {
 
       {/* SECTION 2 — Trust Bar */}
       <section style={{ width: "100%", background: "#F7F8F7", borderTop: "1px solid #E5E7EB", borderBottom: "1px solid #E5E7EB", padding: "20px 0" }}>
-        <div style={{ maxWidth: "960px", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "16px", padding: "0 24px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "16px", padding: "0 24px" }}>
           {[
             { icon: Landmark, label: "SEMAS-PA credenciada" },
             { icon: ClipboardList, label: "IBAMA certificada" },
+            { icon: Building2, label: "SEMMA Municipal" },
+            { icon: Building2, label: "SESPA" },
+            { icon: Building2, label: "INCRA" },
             { icon: MapPin, label: "Atuação em todo o Pará" },
             { icon: Users, label: "+30 empresas atendidas" },
             { icon: Zap, label: "Resposta em 24h" }
@@ -124,13 +128,13 @@ export function ServicesPage() {
                 alignItems: "center", 
                 justifyContent: "center",
                 gap: "8px", 
-                padding: "0 12px",
+                padding: "0 10px",
                 borderRight: i !== arr.length - 1 ? "1px solid #E5E7EB" : "none",
                 minWidth: "max-content"
               }}
             >
               <item.icon size={16} color="#2D6A4F" />
-              <span style={{ fontSize: "0.85rem", fontWeight: 500, color: "#6B7280" }}>
+              <span style={{ fontSize: "0.82rem", fontWeight: 500, color: "#6B7280" }}>
                 {item.label}
               </span>
             </div>
@@ -145,7 +149,7 @@ export function ServicesPage() {
             Nossos Serviços
           </div>
           <h2 
-            className="font-['Playfair_Display']"
+            className="font-['Poppins']"
             style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 800, color: "#1A1A1A", margin: "12px 0 0 0" }}
           >
             O que a IL faz pela sua empresa
@@ -162,11 +166,11 @@ export function ServicesPage() {
             <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(45, 106, 79, 0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <FileText size={20} color="#2D6A4F" />
             </div>
-            <h3 className="font-['Playfair_Display']" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1A1A1A", marginTop: "16px", marginBottom: 0 }}>
+            <h3 className="font-['Poppins']" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1A1A1A", marginTop: "16px", marginBottom: 0 }}>
               Licenciamento Ambiental
             </h3>
             <p style={{ fontSize: "0.9rem", color: "#6B7280", lineHeight: 1.65, marginTop: "10px", marginBottom: 0 }}>
-              Obtenha sua licença com agilidade e sem erros. Cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei — da licença prévia até a regularização.
+              Obtenha sua licença com agilidade e sem erros. Cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei, da licença prévia até a regularização.
             </p>
             <ul style={{ listStyleType: "none", padding: 0, marginTop: "12px", marginBottom: 0, display: "flex", flexDirection: "column", gap: "4px" }}>
               {[
@@ -188,16 +192,16 @@ export function ServicesPage() {
             <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(45, 106, 79, 0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <BarChart3 size={20} color="#2D6A4F" />
             </div>
-            <h3 className="font-['Playfair_Display']" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1A1A1A", marginTop: "16px", marginBottom: 0 }}>
+            <h3 className="font-['Poppins']" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1A1A1A", marginTop: "16px", marginBottom: 0 }}>
               Estudos e Relatórios Técnicos
             </h3>
             <p style={{ fontSize: "0.9rem", color: "#6B7280", lineHeight: 1.65, marginTop: "10px", marginBottom: 0 }}>
-              Documentação técnica rigorosa para atender condicionantes, auditorias e exigências dos órgãos fiscalizadores — elaborada por especialistas que conhecem cada detalhe da legislação ambiental do estado.
+              Documentação técnica rigorosa para atender condicionantes, auditorias e exigências dos órgãos fiscalizadores, elaborada por especialistas que conhecem cada detalhe da legislação ambiental do estado.
             </p>
             <ul style={{ listStyleType: "none", padding: 0, marginTop: "12px", marginBottom: 0, display: "flex", flexDirection: "column", gap: "4px" }}>
               {[
                 "Relatório de Informação Ambiental Anual (RIAA)",
-                "PDITS — Plano de Turismo Sustentável",
+                "PDITS: Plano de Turismo Sustentável",
                 "Relatório de Controle Ambiental (RCA)",
                 "Relatório Ambiental Preliminar (RAP)",
                 "Relatório de Caracterização do Empreendimento (RCE)",
@@ -217,11 +221,11 @@ export function ServicesPage() {
             <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(45, 106, 79, 0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Leaf size={20} color="#2D6A4F" />
             </div>
-            <h3 className="font-['Playfair_Display']" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1A1A1A", marginTop: "16px", marginBottom: 0 }}>
+            <h3 className="font-['Poppins']" style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1A1A1A", marginTop: "16px", marginBottom: 0 }}>
               Consultoria e Gestão Ambiental
             </h3>
             <p style={{ fontSize: "0.9rem", color: "#6B7280", lineHeight: 1.65, marginTop: "10px", marginBottom: 0 }}>
-              Estruture a gestão ambiental da sua empresa com ESG, planos de resíduos, monitoramento de áreas e regularização fundiária — do planejamento à execução.
+              Estruture a gestão ambiental da sua empresa com ESG, planos de resíduos, monitoramento de áreas e regularização fundiária, do planejamento à execução.
             </p>
             <ul style={{ listStyleType: "none", padding: 0, marginTop: "12px", marginBottom: 0, display: "flex", flexDirection: "column", gap: "4px" }}>
               {[
@@ -250,13 +254,13 @@ export function ServicesPage() {
               Por que isso importa
             </div>
             <h2 
-              className="font-['Playfair_Display']"
+              className="font-['Poppins']"
               style={{ color: "white", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, lineHeight: 1.15, marginTop: "12px", marginBottom: 0 }}
             >
               Empresa sem licença ambiental é empresa em risco.
             </h2>
             <p style={{ color: "rgba(255,255,255,0.72)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "480px", marginTop: "16px", marginBottom: 0 }}>
-              Empresas sem licença ambiental estão sujeitas a multas, embargo e paralisação das atividades. Não espere a notificação chegar — regularize agora.
+              Empresas sem licença ambiental estão sujeitas a multas, embargo e paralisação das atividades. Não espere a notificação chegar. Regularize agora.
             </p>
             <button className="srv-cta-btn" style={{ marginTop: "32px" }}>
               Quero regularizar minha empresa
@@ -311,13 +315,13 @@ export function ServicesPage() {
       {/* SECTION 5 — Final CTA */}
       <section style={{ background: "#F7F8F7", padding: "100px 24px", textAlign: "center" }}>
         <h2 
-          className="font-['Playfair_Display']"
+          className="font-['Poppins']"
           style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", fontWeight: 800, color: "#1A1A1A", margin: 0 }}
         >
           Pronto para operar sem preocupações?
         </h2>
         <p style={{ fontSize: "1rem", color: "#6B7280", maxWidth: "500px", margin: "16px auto 0", lineHeight: 1.6 }}>
-          Fale com a nossa equipe e descubra como a IL pode assumir a gestão ambiental da sua empresa — do licenciamento à regularização.
+          Fale com a nossa equipe e descubra como a IL pode assumir a gestão ambiental da sua empresa, do licenciamento à regularização.
         </p>
         <button className="srv-cta-btn" style={{ marginTop: "28px" }}>
           Solicite uma avaliação gratuita

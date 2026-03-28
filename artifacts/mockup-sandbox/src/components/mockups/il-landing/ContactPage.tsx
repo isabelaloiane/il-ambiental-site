@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MessageSquare, Phone, Mail, MapPin, Clock, ChevronRight, Check, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Check } from "lucide-react";
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -10,7 +10,7 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-['Inter']">
+    <div className="min-h-screen bg-white font-['Poppins']">
       <style>{`
         @keyframes fadeUpIn {
           from { opacity: 0; transform: translateY(20px); }
@@ -47,7 +47,7 @@ export function ContactPage() {
       >
         <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
           <h1 
-            className="contact-h1 font-['Playfair_Display']"
+            className="contact-h1 font-['Poppins']"
             style={{ fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white', lineHeight: 1.15, margin: 0 }}
           >
             Resolva sua situação ambiental. Fale com a gente.
@@ -77,11 +77,11 @@ export function ContactPage() {
           <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2D6A4F', fontWeight: 600 }}>
             Fale Conosco
           </div>
-          <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 800, color: '#1A1A1A', marginTop: '8px' }}>
+          <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 800, color: '#1A1A1A', marginTop: '8px' }}>
             Como prefere entrar em contato?
           </h2>
           <p style={{ fontSize: '0.95rem', color: '#6B7280', maxWidth: '480px', margin: '12px auto 0', lineHeight: 1.65 }}>
-            Escolha a opção mais cômoda. Nossa equipe está pronta para responder — seja por formulário, e-mail ou WhatsApp.
+            Escolha a opção mais cômoda. Nossa equipe está pronta para responder: seja por formulário, e-mail ou WhatsApp.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', marginTop: '28px', flexWrap: 'wrap' }}>
             <button 
@@ -96,7 +96,7 @@ export function ContactPage() {
             <button 
               className="contact-cta-outline"
               style={{ background: 'white', border: '1.5px solid #E5E7EB', color: '#1A1A1A', padding: '13px 32px', borderRadius: '6px', fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
-              onClick={() => window.open('https://wa.me/5591900000000?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental.', '_blank')}
+              onClick={() => window.open('https://wa.me/5591992503317?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental.', '_blank')}
             >
               <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="4" fill="#25D366"/>
@@ -115,7 +115,7 @@ export function ContactPage() {
           <div style={{ background: '#1a2e1c', borderRadius: '16px', padding: '36px', color: 'white' }}>
             {!submitted ? (
               <>
-                <h3 className="font-['Playfair_Display']" style={{ fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
+                <h3 className="font-['Poppins']" style={{ fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
                   Envie uma mensagem
                 </h3>
                 <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)', marginTop: '8px', lineHeight: 1.6, marginBottom: '24px' }}>
@@ -148,8 +148,8 @@ export function ContactPage() {
                 <div style={{ width: '40px', height: '40px', background: 'rgba(45, 106, 79, 0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                   <Check color="#4CAF82" size={20} />
                 </div>
-                <h3 className="font-['Playfair_Display']" style={{ fontSize: '1.3rem', fontWeight: 700, margin: 0 }}>
-                  ✓ Mensagem enviada!
+                <h3 className="font-['Poppins']" style={{ fontSize: '1.3rem', fontWeight: 700, margin: 0 }}>
+                  Mensagem enviada!
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginTop: '8px' }}>
                   Nossa equipe responderá em até 24 horas.
@@ -160,7 +160,7 @@ export function ContactPage() {
 
           {/* Card 2 — Contact Info */}
           <div style={{ background: '#1a2e1c', borderRadius: '16px', padding: '36px', color: 'white', display: 'flex', flexDirection: 'column' }}>
-            <h3 className="font-['Playfair_Display']" style={{ fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
+            <h3 className="font-['Poppins']" style={{ fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
               Informações de Contato
             </h3>
             <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)', marginTop: '8px', lineHeight: 1.6, marginBottom: '32px' }}>
@@ -174,7 +174,7 @@ export function ContactPage() {
                 <div>
                   <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>WhatsApp</div>
                   <div style={{ fontSize: '0.95rem', color: 'white', fontWeight: 500, marginTop: '4px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                    (91) 9 9999-9999
+                    <a href="tel:+5591992503317" style={{ color: 'white', textDecoration: 'none' }}>+55 91 99250-3317</a>
                     <span style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)', padding: '2px 8px', borderRadius: '99px', fontSize: '0.7rem' }}>Atendimento preferencial</span>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export function ContactPage() {
                 <div>
                   <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>E-mail</div>
                   <div style={{ fontSize: '0.95rem', color: 'white', fontWeight: 500, marginTop: '4px' }}>
-                    contato@ilambiental.com.br
+                    <a href="mailto:contate.ilambiental@gmail.com" style={{ color: 'white', textDecoration: 'none' }}>contate.ilambiental@gmail.com</a>
                   </div>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export function ContactPage() {
                 <div>
                   <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>Localização</div>
                   <div style={{ fontSize: '0.95rem', color: 'white', fontWeight: 500, marginTop: '4px' }}>
-                    Belém, Pará — Brasil
+                    Belém, Pará, Brasil
                   </div>
                   <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>
                     Atendemos em todo o estado do Pará
@@ -211,10 +211,7 @@ export function ContactPage() {
                 <div>
                   <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>Horário</div>
                   <div style={{ fontSize: '0.95rem', color: 'white', fontWeight: 500, marginTop: '4px' }}>
-                    Segunda a Sexta, 8h às 18h
-                  </div>
-                  <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>
-                    Emergências ambientais: resposta prioritária
+                    Segunda a sexta-feira, das 08h às 18h
                   </div>
                 </div>
               </div>
@@ -224,9 +221,9 @@ export function ContactPage() {
               <button 
                 className="contact-wa-btn"
                 style={{ background: 'transparent', border: '1.5px solid rgba(255,255,255,0.3)', color: 'white', padding: '12px 24px', borderRadius: '6px', width: '100%', fontWeight: 500, cursor: 'pointer', transition: 'border-color 200ms ease, background 200ms ease' }}
-                onClick={() => window.open('https://wa.me/5591900000000?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental.', '_blank')}
+                onClick={() => window.open('https://wa.me/5591992503317?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental.', '_blank')}
               >
-                Abrir WhatsApp agora →
+                Abrir WhatsApp agora
               </button>
             </div>
           </div>
@@ -242,11 +239,11 @@ export function ContactPage() {
             <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#4CAF82', fontWeight: 600 }}>
               Atuação regional
             </div>
-            <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)', color: 'white', fontWeight: 800, marginTop: '10px', lineHeight: 1.2 }}>
+            <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)', color: 'white', fontWeight: 800, marginTop: '10px', lineHeight: 1.2 }}>
               Atendemos empresas em todo o estado do Pará
             </h2>
             <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginTop: '14px', maxWidth: '420px' }}>
-              Da capital Belém ao interior — estamos presentes onde sua empresa precisa de suporte ambiental. Conhecemos o contexto regulatório local, as exigências da SEMAS-PA e os prazos do IBAMA regional.
+              Da capital Belém ao interior, estamos presentes onde sua empresa precisa de suporte ambiental. Conhecemos o contexto regulatório local, as exigências da SEMAS-PA e os prazos do IBAMA regional.
             </p>
           </div>
 
@@ -260,7 +257,7 @@ export function ContactPage() {
               />
               <circle cx="200" cy="90" r="6" fill="#4CAF82" />
               <circle cx="200" cy="90" r="12" fill="#4CAF82" fillOpacity="0.2" />
-              <text x="215" y="95" fill="rgba(255,255,255,0.7)" fontSize="11" fontFamily="Inter, sans-serif">Belém</text>
+              <text x="215" y="95" fill="rgba(255,255,255,0.7)" fontSize="11" fontFamily="Poppins, sans-serif">Belém</text>
               <circle cx="100" cy="180" r="4" fill="rgba(74,175,130,0.6)" />
               <circle cx="160" cy="200" r="4" fill="rgba(74,175,130,0.6)" />
               <circle cx="80" cy="120" r="4" fill="rgba(74,175,130,0.6)" />
@@ -275,7 +272,7 @@ export function ContactPage() {
         <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2D6A4F', fontWeight: 600, textAlign: 'center' }}>
           Dúvidas frequentes
         </div>
-        <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#1A1A1A', textAlign: 'center', marginTop: '10px' }}>
+        <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#1A1A1A', textAlign: 'center', marginTop: '10px' }}>
           Perguntas que recebemos com frequência
         </h2>
 
@@ -284,32 +281,32 @@ export function ContactPage() {
             {
               title: "Quanto tempo leva um licenciamento ambiental?",
               body: "Depende do tipo de licença e do órgão responsável (SEMAS-PA ou IBAMA). Em média, o processo varia de 30 a 180 dias. Com a documentação correta e acompanhamento especializado, evitamos atrasos.",
-              link: "Saiba mais →"
+              link: "Saiba mais"
             },
             {
               title: "Minha empresa pode ser multada sem licença?",
               body: "Sim. Empresas sem licença ambiental estão sujeitas a multas que variam de R$ 500 a R$ 10 milhões, além de embargo e paralisação das atividades. A regularização protege sua operação.",
-              link: "Saiba mais →"
+              link: "Saiba mais"
             },
             {
               title: "Vocês atendem fora de Belém?",
               body: "Sim, atendemos empresas em todo o estado do Pará. O atendimento pode ser presencial ou remoto, dependendo da complexidade do projeto e da localidade.",
-              link: "Saiba mais →"
+              link: "Saiba mais"
             },
             {
               title: "O que é ESG e por que minha empresa precisa?",
               body: "ESG é um conjunto de práticas ambientais, sociais e de governança que grandes empresas e investidores exigem dos seus parceiros. A IL estrutura sua empresa para atender essas exigências.",
-              link: "Saiba mais →"
+              link: "Saiba mais"
             },
             {
               title: "Quais documentos preciso para iniciar o licenciamento?",
               body: "Depende do tipo de empreendimento. Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso gratuitamente.",
-              link: "Saiba mais →"
+              link: "Saiba mais"
             },
             {
               title: "Como funciona a avaliação gratuita?",
-              body: "Você entra em contato pelo formulário ou WhatsApp. Nossa equipe analisa sua situação e retorna em até 24h com uma orientação inicial — sem compromisso e sem custo.",
-              link: "Fale conosco →"
+              body: "Você entra em contato pelo formulário ou WhatsApp. Nossa equipe analisa sua situação e retorna em até 24h com uma orientação inicial, sem compromisso e sem custo.",
+              link: "Fale conosco"
             }
           ].map((faq, idx) => (
             <div key={idx} className="faq-card" style={{ background: 'white', border: '1px solid #E5E7EB', borderRadius: '12px', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
@@ -336,7 +333,7 @@ export function ContactPage() {
       <footer style={{ background: '#0d1f14', padding: '20px 24px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
           <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem' }}>
-            © 2025 IL Ambiental. Todos os direitos reservados.
+            © {new Date().getFullYear()} IL Ambiental. Todos os direitos reservados.
           </div>
           <div style={{ display: 'flex', gap: '16px' }}>
             <a 

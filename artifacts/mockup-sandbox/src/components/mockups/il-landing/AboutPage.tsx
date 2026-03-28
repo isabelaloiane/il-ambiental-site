@@ -1,9 +1,9 @@
 import React from 'react';
-import { Leaf, FileText, Zap, Users, BarChart3, Scale, Heart, MapPin, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Leaf, FileText, Zap, Users, BarChart3, Scale, Heart, MapPin, ShieldCheck } from 'lucide-react';
 
 export function AboutPage() {
   return (
-    <div className="min-h-screen bg-white font-['Inter']">
+    <div className="min-h-screen bg-white font-['Poppins']">
       <style>{`
         @keyframes fadeUpIn {
           from { opacity: 0; transform: translateY(24px); }
@@ -38,11 +38,11 @@ export function AboutPage() {
               <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.55)', fontWeight: 500, marginBottom: '16px' }}>
                 Quem Somos
               </div>
-              <h1 className="about-h1 font-['Playfair_Display']" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: 'white', lineHeight: 1.1, maxWidth: '540px', margin: 0 }}>
+              <h1 className="about-h1 font-['Poppins']" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: 'white', lineHeight: 1.1, maxWidth: '540px', margin: 0 }}>
                 Rigor técnico. Atendimento humano. Resultado garantido.
               </h1>
               <p className="about-sub" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, maxWidth: '440px', marginTop: '18px', marginBottom: 0 }}>
-                A consultoria ambiental que nasceu no Pará — e conhece o Pará como ninguém.
+                A consultoria ambiental que nasceu no Pará, e conhece o Pará como ninguém.
               </p>
               <button className="about-hero-cta about-cta" style={{ background: 'white', color: '#1a3322', padding: '12px 28px', borderRadius: '6px', fontWeight: 600, fontSize: '0.9rem', border: 'none', cursor: 'pointer', marginTop: '28px', display: 'inline-block' }}>
                 Conheça nossa história
@@ -66,9 +66,9 @@ export function AboutPage() {
                     <Leaf size={16} color="rgba(255,255,255,0.55)" />
                     <span style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>Licenciamento & ESG</span>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'center', marginBottom: '0' }}>
-                    <ShieldCheck size={16} color="rgba(255,255,255,0.55)" />
-                    <span style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>SEMAS-PA · IBAMA</span>
+                  <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'flex-start', marginBottom: '0' }}>
+                    <ShieldCheck size={16} color="rgba(255,255,255,0.55)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', fontWeight: 500, lineHeight: 1.5 }}>SEMAS-PA · IBAMA · SEMMA · SESPA · INCRA</span>
                   </div>
                 </div>
               </div>
@@ -83,11 +83,11 @@ export function AboutPage() {
         <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2D6A4F', fontWeight: 600, marginBottom: '14px' }}>
           Nossa História
         </div>
-        <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#1A1A1A', lineHeight: 1.2, marginBottom: '28px', marginTop: 0 }}>
+        <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#1A1A1A', lineHeight: 1.2, marginBottom: '28px', marginTop: 0 }}>
           A IL nasceu no Pará com uma missão clara.
         </h2>
         <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px', marginTop: 0 }}>
-          A IL nasceu no Pará com uma missão clara: tornar a conformidade ambiental acessível, ágil e sem burocracia desnecessária para empresas de todos os portes. Combinamos expertise em licenciamento, gestão ambiental e relatórios técnicos com um atendimento que entende as particularidades de cada empreendimento — porque cada empresa tem uma história e um processo próprio.
+          A IL nasceu no Pará com uma missão clara: tornar a conformidade ambiental acessível, ágil e sem burocracia desnecessária para empresas de todos os portes. Combinamos expertise em licenciamento, gestão ambiental e relatórios técnicos com um atendimento que entende as particularidades de cada empreendimento, porque cada empresa tem uma história e um processo próprio.
         </p>
         <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.8, marginBottom: 0, marginTop: 0 }}>
           Com foco no estado do Pará, a IL conhece em profundidade o contexto regulatório local: as exigências da SEMAS-PA, os prazos do IBAMA e as especificidades de cada setor produtivo na região. Isso significa menos erros, mais agilidade e um caminho mais curto até a sua licença.
@@ -101,7 +101,7 @@ export function AboutPage() {
           <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2D6A4F', fontWeight: 600 }}>
             Por que a IL
           </div>
-          <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 800, color: '#1A1A1A', marginTop: '8px', marginBottom: 0 }}>
+          <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 800, color: '#1A1A1A', marginTop: '8px', marginBottom: 0 }}>
             O que nos diferencia
           </h2>
           <p style={{ fontSize: '0.95rem', color: '#6B7280', marginTop: '10px', marginBottom: '32px' }}>
@@ -114,7 +114,7 @@ export function AboutPage() {
           {/* LEFT: Featured Card */}
           <div className="about-card" style={{ background: '#F3F7F4', borderRadius: '16px', padding: '40px', minHeight: '280px', display: 'flex', flexDirection: 'column' }}>
             <Leaf size={48} color="#2D6A4F" style={{ marginBottom: '16px' }} />
-            <h3 className="font-['Playfair_Display']" style={{ fontSize: '1.3rem', fontWeight: 800, color: '#1A1A1A', margin: 0 }}>
+            <h3 className="font-['Poppins']" style={{ fontSize: '1.3rem', fontWeight: 800, color: '#1A1A1A', margin: 0 }}>
               Especialização Regional
             </h3>
             <p style={{ fontSize: '0.9rem', color: '#6B7280', lineHeight: 1.65, marginTop: '10px', marginBottom: 0 }}>
@@ -122,7 +122,7 @@ export function AboutPage() {
             </p>
             <div style={{ marginTop: 'auto', paddingTop: '20px' }}>
               <span style={{ display: 'inline-flex', background: 'rgba(45,106,79,0.1)', color: '#2D6A4F', padding: '4px 12px', borderRadius: '99px', fontSize: '0.75rem', fontWeight: 500 }}>
-                📍 Atuação em todo o Pará
+                Atuação em todo o Pará
               </span>
             </div>
           </div>
@@ -137,7 +137,7 @@ export function AboutPage() {
                 Conformidade Garantida
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginTop: '8px', marginBottom: 0 }}>
-                Acompanhamos cada etapa do processo para que sua empresa opere dentro da lei — sem surpresas.
+                Acompanhamos cada etapa do processo para que sua empresa opere dentro da lei, sem surpresas.
               </p>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.45)', marginTop: '12px' }}>
                 LP · LI · LO · LAR
@@ -151,7 +151,7 @@ export function AboutPage() {
                 Agilidade no Processo
               </h3>
               <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.6, marginTop: '8px', marginBottom: 0 }}>
-                Documentação correta desde o início = menos idas e vindas ao órgão ambiental.
+                Documentação correta desde o início: menos idas e vindas ao órgão ambiental.
               </p>
               <div style={{ marginTop: '12px' }}>
                 <span style={{ display: 'inline-flex', background: 'rgba(45,106,79,0.1)', color: '#2D6A4F', padding: '4px 12px', borderRadius: '99px', fontSize: '0.75rem', fontWeight: 500 }}>
@@ -184,7 +184,7 @@ export function AboutPage() {
               Rigor Técnico
             </h3>
             <p style={{ fontSize: '0.9rem', color: '#6B7280', lineHeight: 1.65, marginTop: '10px', marginBottom: 0 }}>
-              Laudos, relatórios e estudos elaborados com metodologia rigorosa — para atender qualquer exigência dos órgãos fiscalizadores.
+              Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos fiscalizadores.
             </p>
           </div>
 
@@ -205,7 +205,7 @@ export function AboutPage() {
                 Nossa Missão
               </div>
               <p style={{ fontSize: '1.05rem', color: 'white', lineHeight: 1.75, marginTop: '16px', marginBottom: 0 }}>
-                Garantir que empresas de todos os portes operem em conformidade ambiental com eficiência, segurança e tranquilidade — eliminando a burocracia e conduzindo cada cliente a um caminho sólido e sustentável.
+                Garantir que empresas de todos os portes operem em conformidade ambiental com eficiência, segurança e tranquilidade, eliminando a burocracia e conduzindo cada cliente a um caminho sólido e sustentável.
               </p>
             </div>
           </div>
@@ -234,7 +234,7 @@ export function AboutPage() {
           <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2D6A4F', fontWeight: 600, textAlign: 'center' }}>
             Nossos Valores
           </div>
-          <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 800, color: '#1A1A1A', textAlign: 'center', marginTop: '10px', marginBottom: '40px' }}>
+          <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 800, color: '#1A1A1A', textAlign: 'center', marginTop: '10px', marginBottom: '40px' }}>
             O que guia cada decisão que tomamos
           </h2>
         </div>
@@ -276,7 +276,7 @@ export function AboutPage() {
               Compromisso Ambiental
             </h3>
             <p style={{ fontSize: '0.9rem', color: '#6B7280', lineHeight: 1.65, marginTop: '10px', marginBottom: 0 }}>
-              Não somos apenas consultores de conformidade — acreditamos no desenvolvimento sustentável como responsabilidade de todos.
+              Não somos apenas consultores de conformidade; acreditamos no desenvolvimento sustentável como responsabilidade de todos.
             </p>
           </div>
 
@@ -292,11 +292,11 @@ export function AboutPage() {
         }} />
         
         <div style={{ maxWidth: '600px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <h2 className="font-['Playfair_Display']" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'white', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
+          <h2 className="font-['Poppins']" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'white', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
             Pronta para garantir sua conformidade ambiental?
           </h2>
           <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.7, marginTop: '16px', marginBottom: 0 }}>
-            Fale com a IL Ambiental e descubra como podemos simplificar seu processo — do licenciamento à gestão completa.
+            Fale com a IL Ambiental e descubra como podemos simplificar seu processo, do licenciamento à gestão completa.
           </p>
           <button className="about-final-cta" aria-label="Fale com um especialista da IL Ambiental" style={{ background: 'white', color: '#0d1a0f', padding: '14px 36px', borderRadius: '6px', fontWeight: 700, border: 'none', cursor: 'pointer', marginTop: '32px' }}>
             Fale com um especialista
