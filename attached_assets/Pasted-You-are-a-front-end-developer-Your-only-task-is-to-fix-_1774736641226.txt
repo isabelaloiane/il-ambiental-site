@@ -1,0 +1,49 @@
+You are a front-end developer. Your only task is to fix the LinkedIn and Instagram social media links across the entire site. Do NOT modify any other content, design, layout, text, functionality, or any other links. Do NOT touch the WhatsApp button or email links — they are already working correctly.
+
+---
+
+## TASK: REPLACE SOCIAL MEDIA LINKS
+
+### Step 1 — Find all LinkedIn link occurrences
+
+Search every file in the project (HTML, JS, JSX, TSX) for any `<a>` tag, button, or clickable element that links to LinkedIn.
+
+Search for:
+- Any `href` containing `linkedin.com`
+- Any `onclick` or JS handler that opens a LinkedIn URL
+- Any variable or constant storing a LinkedIn URL
+
+Replace every occurrence with this exact URL:
+https://www.linkedin.com/company/il-engenharia-e-consultoria-ambiental/about/?viewAsMember=true
+
+Ensure the link opens in a new tab:
+```html
+<a href="https://www.linkedin.com/company/il-engenharia-e-consultoria-ambiental/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
+```
+
+### Step 2 — Find all Instagram link occurrences
+
+Search every file in the project (HTML, JS, JSX, TSX) for any `<a>` tag, button, or clickable element that links to Instagram.
+
+Search for:
+- Any `href` containing `instagram.com`
+- Any `onclick` or JS handler that opens an Instagram URL
+- Any variable or constant storing an Instagram URL
+
+Replace every occurrence with this exact URL:
+https://www.instagram.com/ilambiental/
+
+Ensure the link opens in a new tab:
+```html
+<a href="https://www.instagram.com/ilambiental/" target="_blank" rel="noopener noreferrer">
+```
+
+### Step 3 — Verify
+
+After replacement, confirm:
+- [ ] Every LinkedIn icon/button across all pages points to the correct URL above
+- [ ] Every Instagram icon/button across all pages points to the correct URL above
+- [ ] Both open in a new tab with `target="_blank"` and `rel="noopener noreferrer"`
+- [ ] WhatsApp links remain unchanged
+- [ ] Email (mailto) links remain unchanged
+- [ ] No other element on the site was modified

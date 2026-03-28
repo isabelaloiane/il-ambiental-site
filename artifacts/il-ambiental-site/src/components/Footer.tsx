@@ -74,11 +74,14 @@ export function Footer() {
         <div style={{ borderTop: "1px solid #1A4D2E", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <p style={{ fontSize: "0.78rem" }}>© {new Date().getFullYear()} IL Engenharia e Consultoria Ambiental. Todos os direitos reservados.</p>
           <div style={{ display: "flex", gap: 16 }}>
-            {["LinkedIn", "Instagram"].map(s => (
-              <a key={s} href="#" style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", textDecoration: "none" }}
+            {[
+              { label: "LinkedIn", href: "https://www.linkedin.com/company/il-engenharia-e-consultoria-ambiental/about/?viewAsMember=true" },
+              { label: "Instagram", href: "https://www.instagram.com/ilambiental/" },
+            ].map(s => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", textDecoration: "none" }}
                 onMouseOver={e => (e.currentTarget.style.color = "#fff")}
                 onMouseOut={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-              >{s}</a>
+              >{s.label}</a>
             ))}
           </div>
         </div>
