@@ -7,17 +7,15 @@ export function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, marginBottom: 48 }}>
 
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-              <div style={{
-                width: 40, height: 40, borderRadius: 6,
-                background: "#734120", color: "#DFC49F",
-                fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.1rem",
-                display: "flex", alignItems: "center", justifyContent: "center"
-              }}>IL</div>
-              <div>
-                <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#DFC49F" }}>Engenharia e</div>
-                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.6rem", color: "#B5895E", textTransform: "uppercase", letterSpacing: "0.14em" }}>Consultoria Ambiental</div>
-              </div>
+            <div style={{ marginBottom: 16 }}>
+              <img
+                src="/logo-horizontal.png"
+                alt="IL Engenharia e Consultoria Ambiental"
+                className="footer-logo-img"
+                height={36}
+                style={{ height: 36, width: "auto", display: "block", objectFit: "contain", borderRadius: 6 }}
+                loading="lazy"
+              />
             </div>
             <p style={{ fontSize: "0.85rem", lineHeight: 1.6, color: "rgba(223,196,159,0.65)" }}>
               Excelência técnica em gestão e licenciamento ambiental para empreendimentos na região amazônica.

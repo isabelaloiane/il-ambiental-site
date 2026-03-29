@@ -214,6 +214,44 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
   border-color: var(--brand-beige);
 }
 
+/* ===== LOGO PROTECTION RULES ===== */
+.site-logo {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.site-logo-img,
+.footer-logo-img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: 44px !important;
+  width: auto !important;
+  max-height: 44px !important;
+  object-fit: contain !important;
+}
+
+.footer-logo-img {
+  height: 36px !important;
+  max-height: 36px !important;
+}
+
+.site-logo,
+.site-logo-img,
+header .site-logo,
+nav .site-logo {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 10 !important;
+  max-width: none !important;
+}
+
+@media (max-width: 640px) {
+  .site-logo-img { height: 36px !important; max-height: 36px !important; }
+}
+
 /* ===== WHATSAPP BUTTON (only allowed non-brand color) ===== */
 .wa-float {
   position: fixed;

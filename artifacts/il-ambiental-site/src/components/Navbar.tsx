@@ -30,27 +30,15 @@ export function Navbar() {
         alignItems: "center",
         justifyContent: "space-between"
       }}>
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
-          <div style={{
-            width: 40, height: 40, borderRadius: 6,
-            background: "#734120",
-            color: "#DFC49F",
-            fontFamily: "'Comfortaa', cursive",
-            fontWeight: 700,
-            fontSize: "1.2rem",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            flexShrink: 0
-          }}>
-            IL
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", lineHeight: 1.2 }}>
-              Engenharia e
-            </span>
-            <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 500, fontSize: "0.65rem", color: "#B5895E", textTransform: "uppercase", letterSpacing: "0.14em" }}>
-              Consultoria Ambiental
-            </span>
-          </div>
+        <Link href="/" className="site-logo" aria-label="IL Engenharia e Consultoria Ambiental" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
+          <img
+            src="/logo-principal.png"
+            alt="IL Engenharia e Consultoria Ambiental"
+            className="site-logo-img"
+            height={44}
+            style={{ height: 44, width: "auto", display: "block", objectFit: "contain" }}
+            loading="eager"
+          />
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>

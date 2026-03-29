@@ -1,0 +1,308 @@
+You are a front-end developer. Your ONLY task is to force the website to use the actual logo files from the /assets folder. This is the highest priority task. The logo MUST appear visually on the site. No placeholders. No fallbacks. No text-only logos. The real image file from /assets must load and display.
+
+---
+
+## STEP 1 — SCAN /assets AND FIND THE LOGO
+
+Run this immediately. List every file inside /assets and all its subfolders. Print the full list as a code comment so we can see what exists.
+
+From the list, identify files by priority:
+
+**LOGO PRINCIPAL (for header):**
+Search for files matching these patterns in order of priority:
+1. Filename contains "principal" (e.g., logo-principal.png, logo_principal.svg)
+2. Filename contains "horizontal" (e.g., logo-horizontal.png)
+3. Filename contains "logo" AND has the largest file size (higher resolution)
+4. Filename contains "logo" in any form
+5. Any PNG or SVG file that is a horizontal logo (wider than tall)
+
+Select ONE file as LOGO_PRINCIPAL. Store its exact path.
+
+**FAVICON (for browser tab icon):**
+Search for files matching these patterns in order of priority:
+1. Filename contains "favicon"
+2. Filename contains "icone" or "icon" or "simbolo"
+3. Filename contains "submarca"
+4. The smallest square-shaped logo file
+5. If nothing else, use LOGO_PRINCIPAL as favicon too
+
+Select ONE file as FAVICON_FILE. Store its exact path.
+
+**Print the selections clearly:**
+// SELECTED LOGO: /assets/[exact filename]
+// SELECTED FAVICON: /assets/[exact filename]
+
+If the /assets folder is empty or contains no image files, STOP and print:
+ERROR: No logo files found in /assets. Upload logo files before continuing.
+
+---
+
+## STEP 2 — VERIFY THE FILES EXIST AND ARE VALID
+
+For both LOGO_PRINCIPAL and FAVICON_FILE:
+
+1. Confirm the file exists at the path
+2. Confirm the file extension is a valid image format (.png, .svg, .jpg, .jpeg, .webp, .ico)
+3. Confirm the file is not 0 bytes (empty/corrupted)
+
+If any check fails, try the next file in the priority list from Step 1.
+
+---
+
+## STEP 3 — FORCE LOGO INTO EVERY HTML PAGE
+
+For EVERY .html file in the project, perform these changes:
+
+### 3.1 — Find the header
+
+Search for the header element. It could be:
+- `<header>`
+- `<nav>`
+- `<div class="header">`
+- `<div class="navbar">`
+- `<div class="nav">`
+- Any element at the top of the page that contains navigation links
+
+### 3.2 — Replace the logo
+
+Inside the header, find any existing logo element. It could be:
+- `<img>` tag with src containing "logo"
+- `<img>` tag inside an `<a>` that links to index.html or "/"
+- `<a class="logo">` or `<a class="brand">`
+- `<div class="logo">`
+- `<span>` or `<h1>` containing the company name used as a text logo
+- Any `<svg>` used as an inline logo
+- Any element with class containing "logo" or "brand"
+
+**DELETE the existing logo element entirely** and replace it with exactly this:
+```html
+<a href="index.html" class="site-logo" aria-label="IL Engenharia e Consultoria Ambiental">
+  <img
+    src="assets/[EXACT_LOGO_PRINCIPAL_FILENAME]"
+    alt="IL Engenharia e Consultoria Ambiental"
+    class="site-logo-img"
+    width="auto"
+    height="44"
+    loading="eager"
+    onerror="console.error('LOGO FAILED TO LOAD: check path assets/[EXACT_LOGO_PRINCIPAL_FILENAME]')"
+  >
+</a>
+```
+
+Replace `[EXACT_LOGO_PRINCIPAL_FILENAME]` with the real filename from Step 1.
+
+**If no header exists at all**, create one at the very top of `<body>`:
+```html
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo" aria-label="IL Engenharia e Consultoria Ambiental">
+      <img
+        src="assets/[EXACT_LOGO_PRINCIPAL_FILENAME]"
+        alt="IL Engenharia e Consultoria Ambiental"
+        class="site-logo-img"
+        height="44"
+        loading="eager"
+        onerror="console.error('LOGO FAILED TO LOAD')"
+      >
+    </a>
+  </div>
+</header>
+```
+
+### 3.3 — Apply to ALL pages
+
+Repeat step 3.2 for every single HTML file in the project. Not just index.html — every page must have the logo.
+
+---
+
+## STEP 4 — FORCE LOGO CSS
+
+Add these styles to the main CSS file. If they conflict with existing styles, the new styles MUST win — use higher specificity or !important if necessary:
+```css
+.site-logo {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  margin-right: 16px !important;
+}
+
+.site-logo-img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: 44px !important;
+  width: auto !important;
+  max-height: 44px !important;
+  object-fit: contain !important;
+  image-rendering: auto !important;
+  /* DO NOT SET: filter, transform: scale(0), clip, clip-path, or any property that hides the image */
+}
+
+/* Ensure nothing hides the logo */
+.site-logo,
+.site-logo-img,
+.site-logo img,
+a.site-logo,
+header .site-logo,
+nav .site-logo,
+.header .site-logo {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 10 !important;
+  max-width: none !important;
+}
+
+@media (max-width: 640px) {
+  .site-logo-img {
+    height: 36px !important;
+    max-height: 36px !important;
+  }
+}
+```
+
+Also search all CSS files for any rule that might hide the logo:
+- Any rule targeting img, header img, nav img, .logo, .brand with `display: none`, `visibility: hidden`, `opacity: 0`, `height: 0`, `width: 0`, `clip-path`, or `transform: scale(0)`
+- If found, remove or override that specific rule
+
+---
+
+## STEP 5 — FORCE FAVICON INTO EVERY HTML PAGE
+
+For EVERY .html file, find the `<head>` section and:
+
+1. Remove ALL existing favicon/icon link tags:
+   - Delete any `<link rel="icon">`
+   - Delete any `<link rel="shortcut icon">`
+   - Delete any `<link rel="apple-touch-icon">`
+
+2. Add these lines inside `<head>`:
+```html
+<link rel="icon" type="image/png" sizes="32x32" href="assets/[EXACT_FAVICON_FILENAME]">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/[EXACT_FAVICON_FILENAME]">
+<meta name="theme-color" content="#452816">
+```
+
+Replace `[EXACT_FAVICON_FILENAME]` with the real filename from Step 1.
+
+---
+
+## STEP 6 — FOOTER LOGO
+
+If the footer contains a logo element, update it to also use the real logo file:
+```html
+<img
+  src="assets/[EXACT_LOGO_PRINCIPAL_FILENAME]"
+  alt="IL Engenharia e Consultoria Ambiental"
+  class="footer-logo-img"
+  height="36"
+  loading="lazy"
+>
+```
+
+If the footer has a dark background, add this CSS so the logo is visible:
+```css
+footer .footer-logo-img,
+.footer .footer-logo-img,
+[class*="footer"] .footer-logo-img {
+  height: 36px !important;
+  width: auto !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: brightness(0) saturate(100%) invert(83%) sepia(15%) saturate(500%) hue-rotate(10deg) brightness(100%);
+}
+```
+
+Search /assets for a light/beige version of the logo (filename containing "claro", "light", "beige", "branco", or "white"). If found, use that file for the footer instead of applying the CSS filter.
+
+---
+
+## STEP 7 — PATH VERIFICATION AND DEBUGGING
+
+After all insertions, verify paths are correct:
+
+### 7.1 — Check relative paths
+If HTML files are in the root directory, the path should be: `src="assets/filename.ext"`
+If HTML files are in a subfolder, the path should be: `src="../assets/filename.ext"`
+If the project uses a /public folder, check if assets need to be in /public/assets
+
+### 7.2 — Check for common path errors
+Search all HTML files for these broken patterns and fix them:
+- `src="/assets/` → might need `src="assets/` (no leading slash for static sites)
+- `src="./assets/` → simplify to `src="assets/`
+- `src="Assets/` → fix case sensitivity to match actual folder name
+- `src="asset/` → fix to `src="assets/` (with 's')
+- Double slashes: `src="assets//` → fix to `src="assets/`
+- Spaces in path: encode or rename file
+
+### 7.3 — Add a runtime check
+Add this script to every HTML file, right before `</body>`:
+```html
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var logo = document.querySelector('.site-logo-img');
+  if (logo) {
+    logo.addEventListener('error', function() {
+      console.error('CRITICAL: Logo image failed to load from: ' + this.src);
+      console.error('Attempting alternate paths...');
+      var paths = [
+        'assets/[EXACT_LOGO_PRINCIPAL_FILENAME]',
+        './assets/[EXACT_LOGO_PRINCIPAL_FILENAME]',
+        '/assets/[EXACT_LOGO_PRINCIPAL_FILENAME]',
+        '../assets/[EXACT_LOGO_PRINCIPAL_FILENAME]'
+      ];
+      var current = this.src;
+      for (var i = 0; i < paths.length; i++) {
+        if (!current.endsWith(paths[i])) {
+          this.src = paths[i];
+          return;
+        }
+      }
+    });
+    if (logo.complete && logo.naturalHeight === 0) {
+      logo.dispatchEvent(new Event('error'));
+    }
+  }
+});
+</script>
+```
+
+Replace `[EXACT_LOGO_PRINCIPAL_FILENAME]` with the real filename.
+
+---
+
+## STEP 8 — FINAL VERIFICATION
+
+After all changes are applied:
+
+1. Open each HTML file and confirm the `<img>` tag for the logo has the correct `src` path pointing to a real file in /assets
+2. Confirm no page uses a placeholder, text-only logo, or generic icon instead of the brand logo
+3. Confirm the favicon `<link>` tag points to a real file in /assets
+4. Confirm no CSS rule hides, shrinks to zero, or makes the logo invisible
+5. Confirm the footer logo (if present) is also using a file from /assets
+
+Print a final status:
+=== LOGO IMPLEMENTATION STATUS ===
+Header logo file: /assets/[filename] — APPLIED TO [X] PAGES
+Favicon file: /assets/[filename] — APPLIED TO [X] PAGES
+Footer logo file: /assets/[filename] — APPLIED TO [X] PAGES
+CSS protection rules: APPLIED
+Path fallback script: APPLIED
+=== ALL PAGES USING REAL BRAND LOGO ===
+
+---
+
+## ABSOLUTE RULES — DO NOT VIOLATE
+
+1. The logo MUST come from /assets. No exceptions.
+2. Do NOT generate, draw, or create a logo with CSS or SVG code as a substitute.
+3. Do NOT use text (company name in a styled span/div) as a logo replacement.
+4. Do NOT use any placeholder image service (placehold.co, placeholder.com, via.placeholder, etc.).
+5. Do NOT use any CDN-hosted generic icon as a logo substitute.
+6. Do NOT leave any page without the real logo from /assets.
+7. Do NOT alter any text content, page structure, or functionality on the site.
+8. If the logo file genuinely cannot be found or loaded, print an ERROR and STOP. Do not substitute.
