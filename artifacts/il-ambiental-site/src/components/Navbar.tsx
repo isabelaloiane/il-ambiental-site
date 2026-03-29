@@ -15,9 +15,11 @@ export function Navbar() {
       top: 0,
       zIndex: 50,
       width: "100%",
-      background: "#1A4D2E",
-      borderBottom: "1px solid rgba(46,125,82,0.3)",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
+      background: "rgba(245, 240, 232, 0.95)",
+      backdropFilter: "blur(12px)",
+      WebkitBackdropFilter: "blur(12px)",
+      borderBottom: "1px solid rgba(181, 137, 94, 0.25)",
+      boxShadow: "0 2px 12px rgba(69,40,22,0.07)"
     }}>
       <div style={{
         maxWidth: "1200px",
@@ -30,9 +32,9 @@ export function Navbar() {
       }}>
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
-            width: 40, height: 40, borderRadius: 4,
-            background: "#D4A853",
-            color: "#1A4D2E",
+            width: 40, height: 40, borderRadius: 6,
+            background: "#734120",
+            color: "#DFC49F",
             fontFamily: "'Comfortaa', cursive",
             fontWeight: 700,
             fontSize: "1.2rem",
@@ -42,10 +44,10 @@ export function Navbar() {
             IL
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#fff", lineHeight: 1.2 }}>
+            <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", lineHeight: 1.2 }}>
               Engenharia e
             </span>
-            <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 500, fontSize: "0.65rem", color: "#D4A853", textTransform: "uppercase", letterSpacing: "0.14em" }}>
+            <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 500, fontSize: "0.65rem", color: "#B5895E", textTransform: "uppercase", letterSpacing: "0.14em" }}>
               Consultoria Ambiental
             </span>
           </div>
@@ -61,12 +63,12 @@ export function Navbar() {
                   fontFamily: "'Poppins', sans-serif",
                   fontSize: "0.9rem",
                   fontWeight: 500,
-                  color: location === link.href ? "#D4A853" : "rgba(255,255,255,0.85)",
+                  color: location === link.href ? "#734120" : "#2C1A0E",
                   textDecoration: "none",
-                  transition: "color 200ms ease"
+                  transition: "color 150ms ease"
                 }}
-                onMouseOver={e => (e.currentTarget.style.color = "#D4A853")}
-                onMouseOut={e => (e.currentTarget.style.color = location === link.href ? "#D4A853" : "rgba(255,255,255,0.85)")}
+                onMouseOver={e => (e.currentTarget.style.color = "#734120")}
+                onMouseOut={e => (e.currentTarget.style.color = location === link.href ? "#734120" : "#2C1A0E")}
               >
                 {link.label}
               </Link>
@@ -75,18 +77,18 @@ export function Navbar() {
           <Link
             href="/contato"
             style={{
-              background: "#D4A853",
-              color: "#1A3A2A",
+              background: "#734120",
+              color: "#DFC49F",
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 600,
               fontSize: "0.875rem",
               padding: "10px 22px",
-              borderRadius: 4,
+              borderRadius: 8,
               textDecoration: "none",
-              transition: "background 200ms ease"
+              transition: "background 150ms ease"
             }}
-            onMouseOver={e => (e.currentTarget.style.background = "#c59a45")}
-            onMouseOut={e => (e.currentTarget.style.background = "#D4A853")}
+            onMouseOver={e => (e.currentTarget.style.background = "#452816")}
+            onMouseOut={e => (e.currentTarget.style.background = "#734120")}
           >
             Fale Conosco
           </Link>

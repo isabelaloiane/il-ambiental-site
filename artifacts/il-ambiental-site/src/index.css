@@ -1,23 +1,111 @@
+/*
+ * === IL AMBIENTAL BRAND ASSETS MAP ===
+ * Logo principal: No image file uploaded yet — using Comfortaa "IL" text badge (brand-correct)
+ * Favicon source: /public/favicon.svg (existing)
+ * Manual: attached_assets/Manual_de_marca_1774737578685.pdf
+ * Identity: attached_assets/Isabela_Loiane-Identidade_Visual_*.pdf
+ * =====================================
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  /* ===== BRAND COLORS (manual de marca) ===== */
+  --brand-beige:       #DFC49F;
+  --brand-caramel:     #B5895E;
+  --brand-brown:       #734120;
+  --brand-brown-dark:  #452816;
+  --brand-green:       #4D5140;
+
+  /* ===== SEMANTIC COLOR MAPPING ===== */
+  --color-bg-page:              #F5F0E8;
+  --color-bg-white:             #FFFFFF;
+  --color-bg-accent:            rgba(223, 196, 159, 0.25);
+  --color-bg-dark:              var(--brand-brown-dark);
+  --color-bg-green:             var(--brand-green);
+
+  --color-text-heading:         #2C1A0E;
+  --color-text-body:            #2C1A0E;
+  --color-text-secondary:       var(--brand-brown);
+  --color-text-muted:           #8C7B6B;
+  --color-text-on-dark:         var(--brand-beige);
+  --color-text-on-dark-sub:     rgba(223, 196, 159, 0.72);
+
+  --color-border:               rgba(181, 137, 94, 0.25);
+  --color-border-strong:        rgba(115, 65, 32, 0.4);
+
+  --color-btn-primary-bg:       var(--brand-brown);
+  --color-btn-primary-text:     var(--brand-beige);
+  --color-btn-primary-hover:    var(--brand-brown-dark);
+  --color-btn-secondary-border: var(--brand-brown);
+  --color-btn-secondary-text:   var(--brand-brown);
+
+  --color-link:                 var(--brand-brown);
+  --color-link-hover:           var(--brand-brown-dark);
+  --color-focus:                var(--brand-brown);
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-logo:    'Comfortaa', cursive;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body:    'Poppins', sans-serif;
+
+  /* ===== SPACING ===== */
+  --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-6: 24px;  --space-8: 32px;  --space-12: 48px;
+  --space-16: 64px; --space-20: 80px;
+
+  --container-max: 1140px;
+  --section-py: clamp(64px, 10vw, 120px);
+
+  /* ===== RADIUS ===== */
+  --radius-sm: 6px;  --radius-md: 12px;  --radius-lg: 18px;
+  --radius-xl: 28px; --radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm:   0 1px 3px rgba(69,40,22,0.08);
+  --shadow-md:   0 4px 16px rgba(69,40,22,0.10);
+  --shadow-lg:   0 8px 32px rgba(69,40,22,0.14);
+  --shadow-xl:   0 20px 60px rgba(69,40,22,0.18);
+  --shadow-card: 0 4px 24px rgba(69,40,22,0.09);
+
+  /* ===== TRANSITIONS ===== */
+  --t-fast: 150ms ease;
+  --t-base: 250ms ease;
+  --t-slow: 400ms ease-in-out;
 }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-  color: #1A1A1A;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-body);
+  background-color: var(--color-bg-page);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
+p { line-height: 1.7; }
+strong { font-weight: 600; color: var(--color-text-secondary); }
+
+a { color: var(--color-link); text-decoration: none; transition: color var(--t-fast); }
+a:hover { color: var(--color-link-hover); }
+
+img, video, svg { display: block; max-width: 100%; height: auto; }
+
+/* ===== HERO ANIMATION (dark brown tones) ===== */
 @keyframes heroShift {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -31,9 +119,9 @@ a {
 
 .hero-animated-bg {
   background:
-    radial-gradient(ellipse at 20% 70%, rgba(30, 80, 40, 0.55) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 30%, rgba(15, 50, 25, 0.6) 0%, transparent 55%),
-    linear-gradient(160deg, #071a0c 0%, #0f2a14 50%, #071a0c 100%);
+    radial-gradient(ellipse at 20% 70%, rgba(69,40,22,0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(45,28,16,0.65) 0%, transparent 55%),
+    linear-gradient(160deg, #1a0f08 0%, #2e1a0e 50%, #1a0f08 100%);
   background-size: 200% 200%;
   animation: heroShift 12s ease-in-out infinite alternate;
 }
@@ -42,68 +130,91 @@ a {
 .fade-2 { animation: fadeUpIn 0.6s ease-out 0.15s both; }
 .fade-3 { animation: fadeUpIn 0.6s ease-out 0.28s both; }
 
+/* ===== CARDS ===== */
 .hover-card {
-  transition: box-shadow 250ms ease, transform 250ms ease;
+  transition: box-shadow var(--t-base), transform var(--t-base);
 }
 .hover-card:hover {
-  box-shadow: 0 8px 28px rgba(0,0,0,0.11);
-  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
+.animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
+
+/* ===== BUTTONS ===== */
+.btn-primary, .btn-outline, .btn-light, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 36px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--t-base);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-primary {
-  background: #2D6A4F;
-  color: #fff;
-  padding: 14px 36px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: filter 200ms ease, transform 200ms ease;
-  font-family: 'Poppins', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  background: var(--brand-brown);
+  color: var(--brand-beige);
+  border-color: var(--brand-brown);
 }
-.btn-primary:hover { filter: brightness(1.12); transform: scale(1.02); }
+.btn-primary:hover {
+  background: var(--brand-brown-dark);
+  border-color: var(--brand-brown-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--brand-beige);
+}
 
 .btn-outline {
   background: transparent;
-  color: #fff;
-  padding: 14px 36px;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 1rem;
-  border: 1.5px solid rgba(255,255,255,0.55);
-  cursor: pointer;
-  transition: border-color 200ms ease, background 200ms ease;
-  font-family: 'Poppins', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  color: var(--brand-beige);
+  border-color: rgba(223, 196, 159, 0.55);
 }
-.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-
-.btn-gold {
-  background: #D4A853;
-  color: #1A3A2A;
-  padding: 14px 36px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: background 200ms ease, transform 200ms ease;
-  font-family: 'Poppins', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+.btn-outline:hover {
+  border-color: var(--brand-beige);
+  background: rgba(223, 196, 159, 0.1);
+  color: var(--brand-beige);
 }
-.btn-gold:hover { background: #c59a45; transform: scale(1.02); }
 
+.btn-light {
+  background: var(--brand-beige);
+  color: var(--brand-brown-dark);
+  border-color: var(--brand-beige);
+}
+.btn-light:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--brand-brown-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--brand-beige);
+  border-color: rgba(223, 196, 159, 0.5);
+}
+.btn-ghost:hover {
+  background: rgba(223, 196, 159, 0.12);
+  border-color: var(--brand-beige);
+}
+
+/* ===== WHATSAPP BUTTON (only allowed non-brand color) ===== */
 .wa-float {
   position: fixed;
   bottom: 28px;
@@ -117,10 +228,35 @@ a {
   justify-content: center;
   box-shadow: 0 4px 20px rgba(37,211,102,0.45);
   z-index: 9999;
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
   text-decoration: none;
 }
 .wa-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+}
+
+/* ===== FORM INPUTS ===== */
+input, textarea, select {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-body);
+  background: var(--color-bg-white);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+input::placeholder, textarea::placeholder { color: var(--color-text-muted); opacity: 0.7; }
+input:focus, textarea:focus, select:focus {
+  border-color: var(--brand-brown);
+  box-shadow: 0 0 0 3px rgba(115,65,32,0.12);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  h1 { letter-spacing: -0.02em; }
+  p { max-width: 100%; }
 }

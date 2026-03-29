@@ -1,0 +1,574 @@
+You are a senior front-end developer and brand implementation specialist. Your task is to update the entire existing website for IL Engenharia e Consultoria Ambiental by applying the official brand identity. All brand assets are located in the /assets folder of this project.
+
+---
+
+## PHASE 0 — ASSET DISCOVERY AND ANALYSIS
+
+Before making any code changes, scan and catalog the entire /assets folder:
+
+### Step 0.1 — Identify all files in /assets
+List every file in /assets and its subfolders. Categorize each file as one of:
+- LOGO_PRINCIPAL: The file that has been explicitly renamed to indicate it is the main/primary logo (look for filenames containing words like "principal", "main", "primary", "logo-principal", "horizontal", or the largest/most complete horizontal logo with the monogram + "Engenharia & Consultoria Ambiental" text)
+- LOGO_VARIANT: Other logo versions (submarca, vertical, stacked, etc.)
+- ICON: The circular monogram symbol only (the "il" mark inside a circle, without accompanying text — smallest/simplest mark). Use for favicon.
+- PATTERN: Repeating brand pattern files
+- MANUAL: PDF files containing brand guidelines (manual de marca, identidade visual)
+- OTHER: Any other asset
+
+Print the catalog as a comment at the top of the main CSS file:
+```css
+/*
+ * === IL AMBIENTAL BRAND ASSETS MAP ===
+ * Logo principal: /assets/[filename]
+ * Logo variant 1: /assets/[filename] — [description]
+ * Logo variant 2: /assets/[filename] — [description]
+ * Favicon source: /assets/[filename]
+ * Pattern: /assets/[filename]
+ * Manual: /assets/[filename]
+ * =====================================
+ */
+```
+
+### Step 0.2 — Read the brand manual PDF
+Open and analyze any PDF file in /assets that appears to be a brand manual or identity guide. Extract from it:
+- Exact HEX color codes
+- Font family names
+- Logo usage rules (protection area, prohibited uses, approved backgrounds)
+- Approved color contrast combinations
+- Any spacing or composition guidelines
+
+Use these extracted values as the single source of truth for every design decision below. If a value in this prompt conflicts with what the manual says, the manual wins.
+
+### Step 0.3 — Determine asset assignments
+
+Based on the catalog:
+
+**Header logo:** Use LOGO_PRINCIPAL — the file explicitly renamed as the main logo. This is the horizontal version with the circular monogram + "Engenharia & Consultoria Ambiental" text beside it. Use for ALL header implementations across all pages.
+
+**Favicon:** Use the ICON file — the smallest mark (circular monogram only, no text). If no standalone icon file exists, use the submarca (circular badge version). If neither exists, use LOGO_PRINCIPAL as fallback.
+
+**Footer logo:** Use LOGO_PRINCIPAL. On the dark footer background, apply a CSS filter to render it in beige/light tones. If a separate light-colored logo variant exists in /assets (white or beige version), use that file directly instead of a filter.
+
+**Dark section logo (hero, CTA blocks):** Same logic as footer — use a light variant file if available, otherwise apply CSS filter to LOGO_PRINCIPAL.
+
+**Pattern:** If a PATTERN file exists, it can be used as a subtle decorative background element at very low opacity (3-5%) in accent sections.
+
+---
+
+## PHASE 1 — CSS VARIABLES FROM BRAND MANUAL
+
+The brand manual specifies these exact values. Define them in :root {} in the main CSS file. If the manual PDF contains different values than what is listed here, use the manual's values instead.
+```css
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ===== BRAND COLORS (from manual de marca) ===== */
+  --brand-beige:       #DFC49F;
+  --brand-caramel:     #B5895E;
+  --brand-brown:       #734120;
+  --brand-brown-dark:  #452816;
+  --brand-green:       #4D5140;
+
+  /* ===== SEMANTIC COLOR MAPPING ===== */
+  --color-bg-page:              #F5F0E8;
+  --color-bg-white:             #FFFFFF;
+  --color-bg-accent:            rgba(223, 196, 159, 0.25);
+  --color-bg-dark:              var(--brand-brown-dark);
+  --color-bg-green:             var(--brand-green);
+
+  --color-text-heading:         #2C1A0E;
+  --color-text-body:            #2C1A0E;
+  --color-text-secondary:       var(--brand-brown);
+  --color-text-muted:           #8C7B6B;
+  --color-text-on-dark:         var(--brand-beige);
+  --color-text-on-dark-sub:     rgba(223, 196, 159, 0.72);
+
+  --color-border:               rgba(181, 137, 94, 0.25);
+  --color-border-strong:        rgba(115, 65, 32, 0.4);
+
+  --color-btn-primary-bg:       var(--brand-brown);
+  --color-btn-primary-text:     var(--brand-beige);
+  --color-btn-primary-hover:    var(--brand-brown-dark);
+  --color-btn-secondary-border: var(--brand-brown);
+  --color-btn-secondary-text:   var(--brand-brown);
+
+  --color-link:                 var(--brand-brown);
+  --color-link-hover:           var(--brand-brown-dark);
+  --color-focus:                var(--brand-brown);
+
+  /* ===== TYPOGRAPHY (from manual) ===== */
+  --font-logo:    'Comfortaa', cursive;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body:    'Poppins', sans-serif;
+
+  --text-xs: 0.72rem;   --text-sm: 0.875rem;  --text-base: 1rem;
+  --text-md: 1.125rem;  --text-lg: 1.375rem;  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;  --text-3xl: 3rem;     --text-4xl: 3.75rem;
+
+  /* ===== SPACING ===== */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+
+  --container-max: 1140px;
+  --container-pad: clamp(20px, 5vw, 80px);
+  --section-py:    clamp(64px, 10vw, 120px);
+
+  /* ===== RADIUS ===== */
+  --radius-sm: 6px;  --radius-md: 12px;  --radius-lg: 18px;
+  --radius-xl: 28px; --radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm:   0 1px 3px rgba(69,40,22,0.08);
+  --shadow-md:   0 4px 16px rgba(69,40,22,0.10);
+  --shadow-lg:   0 8px 32px rgba(69,40,22,0.14);
+  --shadow-xl:   0 20px 60px rgba(69,40,22,0.18);
+  --shadow-card: 0 4px 24px rgba(69,40,22,0.09);
+
+  /* ===== TRANSITIONS ===== */
+  --t-fast: 150ms ease;
+  --t-base: 250ms ease;
+  --t-slow: 400ms ease-in-out;
+}
+```
+
+---
+
+## PHASE 2 — GLOBAL BASE STYLES
+
+Replace or update all global styles:
+```css
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-text-body);
+  background-color: var(--color-bg-page);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+h1 { font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl)); font-weight: 800; }
+h2 { font-size: clamp(var(--text-xl), 3.5vw, var(--text-3xl)); }
+h3 { font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)); font-weight: 600; }
+h4 { font-size: var(--text-lg); font-weight: 600; }
+
+p { line-height: 1.7; max-width: 68ch; }
+strong { font-weight: 600; color: var(--color-text-secondary); }
+
+a { color: var(--color-link); text-decoration: none; transition: color var(--t-fast); }
+a:hover { color: var(--color-link-hover); }
+
+img, video, svg { display: block; max-width: 100%; height: auto; }
+```
+
+---
+
+## PHASE 3 — HEADER AND LOGO
+
+### 3.1 — Insert logo in header
+
+Find the header element on every page. Replace the current logo/brand element with:
+```html
+<a href="index.html" class="header-logo" aria-label="IL Ambiental">
+  <img src="assets/[LOGO_PRINCIPAL_FILENAME]" alt="IL Engenharia e Consultoria Ambiental">
+</a>
+```
+
+Replace `[LOGO_PRINCIPAL_FILENAME]` with the actual filename of the file identified as LOGO_PRINCIPAL in Phase 0.
+```css
+.header-logo img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+@media (max-width: 640px) { .header-logo img { height: 36px; } }
+```
+
+Ensure minimum 16px of clear space around the logo (brand manual protection area rule).
+
+### 3.2 — Header styling
+```css
+header, .header, [class*="header"], [class*="navbar"], nav:first-of-type {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  background: rgba(245, 240, 232, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--t-base);
+}
+
+header.scrolled { background: rgba(245,240,232,0.98); box-shadow: var(--shadow-md); }
+```
+
+Ensure every page has `padding-top: 72px` on the body or main content to offset the fixed header.
+
+### 3.3 — Navigation link styles
+```css
+header a, .header a, nav a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-heading);
+  letter-spacing: 0.02em;
+  transition: color var(--t-fast);
+}
+header a:hover, nav a:hover, header a.active, nav a.active {
+  color: var(--brand-brown);
+}
+```
+
+---
+
+## PHASE 4 — FAVICON
+
+Find the ICON file from Phase 0 (circular monogram symbol). Add to the `<head>` of EVERY HTML page:
+```html
+<link rel="icon" type="image/png" sizes="32x32" href="assets/[ICON_FILENAME]">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/[ICON_FILENAME]">
+<meta name="theme-color" content="#452816">
+```
+
+Replace `[ICON_FILENAME]` with the actual filename. If no standalone icon exists, use the submarca file. If neither exists, use LOGO_PRINCIPAL and add `<!-- TODO: add standalone icon file for better favicon -->`.
+
+---
+
+## PHASE 5 — BUTTON SYSTEM
+
+Replace all button styles globally:
+```css
+.btn, button[type="submit"], a.btn, .cta-button, [class*="btn-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-base);
+  padding: 14px 36px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--t-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary */
+.btn-primary, .cta-primary, button[type="submit"] {
+  background: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  border-color: var(--color-btn-primary-bg);
+}
+.btn-primary:hover, .cta-primary:hover, button[type="submit"]:hover {
+  background: var(--color-btn-primary-hover);
+  border-color: var(--color-btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Secondary */
+.btn-secondary, .cta-secondary {
+  background: transparent;
+  color: var(--color-btn-secondary-text);
+  border-color: var(--color-btn-secondary-border);
+}
+.btn-secondary:hover, .cta-secondary:hover {
+  background: var(--brand-brown);
+  color: var(--brand-beige);
+  transform: translateY(-2px);
+}
+
+/* Light (for dark backgrounds) */
+.btn-light {
+  background: var(--brand-beige);
+  color: var(--brand-brown-dark);
+  border-color: var(--brand-beige);
+}
+.btn-light:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ghost (for dark backgrounds) */
+.btn-ghost {
+  background: transparent;
+  color: var(--brand-beige);
+  border-color: rgba(223,196,159,0.5);
+}
+.btn-ghost:hover {
+  background: rgba(223,196,159,0.12);
+  border-color: var(--brand-beige);
+}
+```
+
+---
+
+## PHASE 6 — DARK SECTIONS (HERO, CTA, FOOTER)
+
+Apply to all dark-background sections:
+```css
+.hero, [class*="hero"], .cta-section, [class*="cta"],
+footer, .footer, [class*="footer"],
+.section-dark, [class*="dark"] {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+/* Headings on dark */
+.hero h1, .hero h2, footer h2, footer h3, footer h4,
+[class*="dark"] h1, [class*="dark"] h2, [class*="dark"] h3,
+[class*="cta"] h2 {
+  color: var(--brand-beige);
+}
+
+/* Body text on dark */
+.hero p, footer p, [class*="dark"] p, [class*="cta"] p {
+  color: var(--color-text-on-dark-sub);
+}
+
+/* Labels on dark */
+.hero .label, [class*="dark"] .label, [class*="dark"] .tag {
+  color: var(--brand-caramel);
+}
+
+/* Links on dark */
+footer a, [class*="dark"] a, [class*="footer"] a {
+  color: rgba(223,196,159,0.65);
+}
+footer a:hover, [class*="dark"] a:hover {
+  color: var(--brand-beige);
+}
+
+/* Borders on dark */
+footer hr, [class*="dark"] hr {
+  border-color: rgba(223,196,159,0.12);
+}
+```
+
+### Footer logo
+```css
+footer img[class*="logo"], .footer img[class*="logo"],
+footer .header-logo img, .footer-logo img {
+  height: 36px;
+  width: auto;
+}
+```
+
+If a separate light/beige logo file was found in /assets, use that `src` for the footer logo. If not, apply:
+```css
+footer img[class*="logo"], .footer-logo img {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(15%) saturate(500%) hue-rotate(10deg) brightness(100%);
+}
+```
+
+---
+
+## PHASE 7 — CARDS
+```css
+.card, [class*="card"] {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+  transition: all var(--t-base);
+}
+.card:hover, [class*="card"]:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: var(--brand-caramel);
+}
+```
+
+---
+
+## PHASE 8 — FORM INPUTS
+```css
+input, textarea, select {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-body);
+  background: var(--color-bg-white);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+input::placeholder, textarea::placeholder { color: var(--color-text-muted); opacity: 0.7; }
+input:focus, textarea:focus, select:focus {
+  border-color: var(--brand-brown);
+  box-shadow: 0 0 0 3px rgba(115,65,32,0.12);
+}
+
+/* Forms on dark backgrounds */
+[class*="dark"] input, [class*="dark"] textarea {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(223,196,159,0.25);
+  color: var(--brand-beige);
+}
+[class*="dark"] input::placeholder, [class*="dark"] textarea::placeholder {
+  color: rgba(223,196,159,0.4);
+}
+[class*="dark"] input:focus, [class*="dark"] textarea:focus {
+  border-color: var(--brand-beige);
+  box-shadow: 0 0 0 3px rgba(223,196,159,0.15);
+}
+```
+
+---
+
+## PHASE 9 — SCROLL ANIMATIONS AND HEADER SCROLL
+
+Add to the main JavaScript file (or create one if none exists):
+```javascript
+// Scroll-triggered animations
+const observer = new IntersectionObserver(
+  (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('is-visible'); }),
+  { threshold: 0.12 }
+);
+document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+// Header scroll shadow
+const hdr = document.querySelector('header') || document.querySelector('.header') || document.querySelector('nav');
+if (hdr) window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40));
+```
+```css
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
+.animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
+```
+
+Add the class `animate-on-scroll` to all cards, section headers, and major content blocks. Do NOT add it to the header, footer, or WhatsApp button.
+
+---
+
+## PHASE 10 — RESPONSIVE
+```css
+@media (max-width: 640px) {
+  :root { --section-py: 56px; --container-pad: 20px; }
+  h1 { letter-spacing: -0.02em; }
+  p { max-width: 100%; }
+  .header-logo img { height: 36px; }
+}
+```
+
+---
+
+## PHASE 11 — HTML HEAD ON EVERY PAGE
+
+Verify every HTML file contains in `<head>`:
+```html
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#452816">
+<link rel="icon" type="image/png" href="assets/[ICON_FILENAME]">
+```
+
+Add the Google Fonts `<link>` tags from Phase 1 if not already present.
+
+---
+
+## PHASE 12 — BRAND PATTERN (OPTIONAL ENHANCEMENT)
+
+If a PATTERN file was found in /assets, use it as a subtle decorative background in one or two accent sections:
+```css
+.section-accent {
+  position: relative;
+}
+.section-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/[PATTERN_FILENAME]') repeat;
+  background-size: 200px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-accent > * { position: relative; z-index: 1; }
+```
+
+Only apply this to 1-2 sections maximum. Do not overuse.
+
+---
+
+## PHASE 13 — FULL COLOR AUDIT
+
+After applying all the above, scan every CSS file and every inline style in every HTML file. Replace any color that does NOT belong to the brand palette:
+
+**ALLOWED colors:**
+- #DFC49F (beige)
+- #B5895E (caramel)
+- #734120 (brown)
+- #452816 (dark brown)
+- #4D5140 (olive green)
+- #F5F0E8 (cream — derived)
+- #FFFFFF (white)
+- #2C1A0E (near-black warm — derived)
+- #8C7B6B (muted — derived)
+- #25D366 (WhatsApp green — ONLY for the WhatsApp button)
+- Any rgba() derived from the above colors
+
+**FORBIDDEN colors — remove all occurrences:**
+- Any blue (#0000FF, #007bff, #2196F3, etc.)
+- Any red (#FF0000, #dc3545, #f44336, etc.)
+- Any purple (#800080, #6f42c1, etc.)
+- Any teal/cyan (#008080, #17a2b8, etc.)
+- Any pink
+- Any bright/neon green that is not #4D5140 or #25D366
+- Pure black #000000 (replace with #2C1A0E)
+
+---
+
+## PHASE 14 — CROSS-PAGE CONSISTENCY
+
+Verify ALL three pages (sobre, serviços, contato) have:
+1. Identical header HTML with the same logo file and navigation links
+2. Identical footer HTML with the same content and links
+3. Same CSS files loaded in the same order
+4. Same JS files loaded in the same order
+5. Same Google Fonts imports
+6. Same favicon and meta tags
+7. WhatsApp floating button present and functional
+
+If any page is missing a shared component, copy it from a page that has it.
+
+---
+
+## RULES — DO NOT VIOLATE
+
+1. Do NOT change any text content on any page
+2. Do NOT change the page structure or navigation
+3. Do NOT remove any functionality
+4. Do NOT rename or reorganize files (except adding the assets map comment)
+5. Do NOT use colors outside the brand palette
+6. Do NOT stretch, distort, rotate, or recolor the logo
+7. Do NOT use a font other than Comfortaa (logo only) or Poppins (everything else)
+8. Do NOT place the logo on backgrounds with less than 4.5:1 contrast ratio
+9. The ONLY non-brand color allowed is WhatsApp green (#25D366) for the floating button
+10. Keep all code clean, organized, and properly indented
