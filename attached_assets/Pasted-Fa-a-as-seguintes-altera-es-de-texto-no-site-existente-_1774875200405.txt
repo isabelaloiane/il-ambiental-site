@@ -1,0 +1,170 @@
+Faça as seguintes alterações de texto no site existente. REGRA ABSOLUTA: NÃO altere cores, tipografia, layout grid, estrutura visual, CSS ou identidade visual. Altere APENAS textos, ordem de seções e microcopy. Mantenha toda a estrutura HTML/CSS existente intacta.
+
+PÁGINA HOME (index.html)
+Hero Section
+Trocar headline de:
+"Sua empresa em conformidade ambiental, com quem conhece o Pará."
+Para:
+"Sem licença ambiental, sua operação no Pará pode parar amanhã."
+Trocar subheadline de:
+"A IL Ambiental cuida de todo o processo de licenciamento, gestão e documentação ambiental para que você opere com segurança jurídica e eficiência, sem burocracia desnecessária."
+Para:
+"A IL Ambiental conduz seu licenciamento junto à SEMAS-PA, IBAMA e SEMMA do início à emissão da licença — para que sua empresa opere legalmente, sem atrasos e sem surpresas nos órgãos."
+Manter CTA primário: "Fale com um especialista"
+Trocar CTA secundário de "Conheça nossos serviços" para "Ver como funciona"
+Trust Bar (barra de números)
+Trocar "+30 Empresas atendidas" para "+30 empresas regularizadas no Pará"
+Trocar "100% Atuação no Pará" para "100% focada no Pará"
+Trocar "5 Órgãos: SEMAS-PA, IBAMA, SEMMA, SESPA, INCRA" para "5 órgãos ambientais com trâmite direto"
+Trocar "24h Tempo de resposta" para "Resposta em até 24h"
+Seção de Serviços
+Trocar eyebrow "EXPERTISE TÉCNICA" para "O QUE FAZEMOS"
+Trocar título "Soluções Integradas em Meio Ambiente" para "Do licenciamento à gestão: tudo que sua empresa precisa para operar legal"
+Trocar subtítulo "Atuamos em todas as fases do empreendimento, da concepção à operação." para "Cada serviço foi desenhado para eliminar riscos regulatórios e acelerar sua conformidade."
+Trocar as descrições dos 6 cards de serviço:
+Card "Licenciamento Ambiental" — nova descrição: "Obtemos LP, LI e LO junto à SEMAS-PA e IBAMA com agilidade. Você foca no negócio, nós resolvemos a burocracia."
+Card "Gestão Ambiental" — nova descrição: "Implantamos e operamos seu SGA para que sua empresa atenda condicionantes sem improvisos e sem multas."
+Card "Consultoria Estratégica" — nova descrição: "Assessoria para adequação a ESG e padrões internacionais. Ideal para empresas que buscam investidores ou certificações."
+Card "Monitoramento Ambiental" — nova descrição: "Monitoramento de fauna, flora, água e ar com relatórios técnicos aceitos pelos órgãos. Periodicidade garantida."
+Card "Estudos de Impacto" — nova descrição: "EIA/RIMA, PCA, RCA e PRAD elaborados por especialistas. Documentação que resiste a qualquer auditoria."
+Card "Conformidade Regulatória" — nova descrição: "Auditorias preventivas para manter suas licenças em dia e evitar notificações surpresa dos órgãos fiscalizadores."
+Trocar botão "Ver todos os serviços" para "Ver detalhes de cada serviço →"
+Seção Diferenciais
+Trocar título "Nossos Diferenciais" para "Por que empresas no Pará escolhem a IL"
+Trocar subtítulo "Autoridade Ambiental no Coração da Amazônia" para "Porque quem conhece o contexto regulatório local resolve mais rápido — e sem retrabalho."
+Trocar os textos dos 4 diferenciais:
+
+Manter título "Conhecimento Local Profundo" — nova descrição: "Conhecemos pessoalmente os processos da SEMAS-PA, IBAMA regional e SEMMA. Isso elimina idas e vindas que atrasam seu licenciamento."
+Trocar título "Diálogo Técnico Institucional" para "Relacionamento Direto com os Órgãos" — nova descrição: "Dialogamos tecnicamente com fiscalizadores e analistas. Seu processo tramita com transparência e sem ruído."
+Manter título "Gestão Integrada" — nova descrição: "Enxergamos seu empreendimento como um sistema: ambiental, jurídico, social e econômico. Nada fica de fora."
+Trocar título "Foco em Resolução" para "Foco em Resultado" — nova descrição: "Não vendemos relatórios. Entregamos licenças emitidas, condicionantes cumpridas e operações regularizadas."
+
+Seção Clientes
+Trocar título "Clientes que atendemos" para "Empresas que confiam na IL"
+Trocar subtítulo "Empresas que confiam na IL Ambiental para sua gestão e conformidade ambiental." para "De multinacionais a empresas locais, regularizamos operações de todos os portes no Pará."
+No card do Tropoc, adicionar abaixo da descrição existente a linha: "Gestão ambiental contínua desde 2022"
+No card da Fruta Pronta, adicionar abaixo da descrição existente a linha: "Licenciamento completo para operação em Portel-PA"
+CTA Final (seção escura no fim da página)
+Trocar headline "Pronto para regularizar seu empreendimento?" para "Sua empresa precisa de licença ambiental no Pará?"
+Trocar subheadline "Fale com nossos especialistas e descubra como podemos garantir a segurança jurídica e ambiental do seu projeto." para "Conte sua situação e receba uma orientação técnica inicial sem compromisso. Respondemos em até 24 horas."
+Trocar botão "Agendar Consulta Técnica →" para "Solicitar orientação gratuita →"
+
+PÁGINA SOBRE (sobre.html)
+Hero
+Manter headline: "Rigor técnico. Atendimento humano. Resultado garantido."
+Trocar subheadline "A consultoria ambiental que nasceu no Pará, e conhece o Pará como ninguém." para "Nascemos em Belém para servir empresas que precisam de conformidade ambiental com agilidade e sem burocracia."
+Trocar CTA "Conheça nossa história" para "Conheça a IL ↓" (manter como scroll interno para a seção de história)
+Seção História
+Trocar título "A IL nasceu no Pará com uma missão clara." para "Uma consultoria feita por quem vive o Pará."
+Trocar o primeiro parágrafo inteiro para: "A IL nasceu em 2020 com um propósito: tornar o licenciamento ambiental no Pará mais ágil, transparente e acessível. Combinamos rigor técnico com atendimento próximo, porque cada empresa tem suas particularidades — e merece uma solução sob medida."
+Trocar o segundo parágrafo inteiro para: "Com foco exclusivo no estado do Pará, dominamos o contexto regulatório local: os prazos da SEMAS-PA, as exigências do IBAMA regional, e as particularidades de cada setor produtivo. O resultado? Menos erros, menos idas e vindas aos órgãos, e um caminho mais curto até a sua licença."
+Seção Diferenciais (reduzir de 5 cards para 4)
+Remover o 5º card (Rigor Técnico que está sozinho na linha de baixo). Redistribuir o conteúdo nos 4 cards restantes com layout 4 colunas ou 2x2:
+Card 1 — título: "Especialização Regional" — descrição: "Conhecemos as exigências da SEMAS-PA e do IBAMA regional em profundidade. O resultado: menos erros, menos atrasos."
+Card 2 — título: "Agilidade no Processo" — descrição: "Documentação correta desde o início significa menos idas e vindas aos órgãos. Resposta em 24h."
+Card 3 — título: "Atendimento Personalizado" — descrição: "Cada cliente tem uma realidade diferente. Estudamos seu empreendimento antes de propor qualquer solução."
+Card 4 — título: "Rigor Técnico" — descrição: "Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos."
+Missão e Visão
+Trocar texto da Missão de:
+"Garantir que empresas de todos os portes operem em conformidade ambiental com eficiência, segurança e tranquilidade, eliminando a burocracia e conduzindo cada cliente a um caminho sólido e sustentável."
+Para:
+"Garantir que empresas de todos os portes operem em conformidade ambiental no Pará — com eficiência, segurança jurídica e sem burocracia desnecessária."
+Trocar texto da Visão de:
+"Ser a referência em consultoria ambiental no Pará, tornando o conhecimento ambiental acessível e presente no dia a dia das empresas e da sociedade."
+Para:
+"Ser a primeira escolha em consultoria ambiental no Pará — reconhecida pelo rigor técnico, pela agilidade e pelo impacto positivo nas operações dos nossos clientes."
+Valores (3 cards)
+Manter os títulos. Trocar apenas as descrições:
+Card "Rigor Técnico" — nova descrição: "Cada documento que sai da IL foi elaborado para resistir a qualquer auditoria."
+Card "Atendimento Humano" — nova descrição: "Processos ambientais geram ansiedade. Mantemos comunicação clara e proativa em cada etapa."
+Card "Compromisso Ambiental" — nova descrição: "Acreditamos que conformidade e desenvolvimento sustentável caminham juntos."
+CTA Final
+Trocar headline "Pronta para garantir sua conformidade ambiental?" para "Quer conversar sobre a situação ambiental da sua empresa?"
+Trocar subheadline para: "Fale com a IL e receba uma orientação técnica inicial sem custo. Respondemos em até 24 horas."
+Manter botão: "Fale com um especialista"
+Manter microcopy: "Sem compromisso. Resposta em até 24 horas."
+
+PÁGINA SERVIÇOS (servicos.html)
+Hero
+Manter headline: "Sua conformidade ambiental no Pará, do início ao fim."
+Trocar subheadline de:
+"Do licenciamento à gestão de resíduos e ESG: a IL assume a burocracia ambiental para que você foque no seu negócio, com segurança jurídica e sem imprevistos."
+Para:
+"Licenciamento, gestão ambiental e ESG: a IL assume a burocracia para que você foque no seu negócio. Segurança jurídica do início à operação."
+Manter CTA: "Solicite uma avaliação gratuita"
+Manter microcopy: "Sem compromisso. Resposta em até 24h."
+Trust Badges Bar
+Reordenar os badges nesta sequência: SEMAS-PA credenciada → IBAMA certificado → SEMMA Municipal → SESPA → INCRA → +30 empresas regularizadas → Resposta em 24h → Atuação em todo o Pará
+Seção de Serviços (3 colunas)
+Manter eyebrow: "NOSSOS SERVIÇOS"
+Trocar título "O que a IL faz pela sua empresa" para "Serviços especializados para cada fase do seu empreendimento"
+Trocar subtítulo "Cada serviço foi desenhado para eliminar riscos, reduzir burocracia e garantir que sua empresa opere em conformidade." para "Da licença prévia à operação contínua — cada entrega foi pensada para proteger sua empresa e acelerar seu projeto."
+Trocar APENAS os parágrafos introdutórios das 3 colunas (manter as listas de sub-serviços intactas):
+Coluna "Licenciamento Ambiental" — novo intro: "Da DLA à LO, cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei, sem atrasos."
+Coluna "Estudos e Relatórios Técnicos" — novo intro: "Documentação técnica que atende as exigências dos órgãos fiscalizadores na primeira tentativa. Elaborada por especialistas."
+Coluna "Consultoria e Gestão Ambiental" — novo intro: "Gestão ambiental completa: ESG, resíduos, monitoramento e regularização fundiária. Do planejamento à execução contínua."
+Seção de Urgência (fundo escuro)
+Manter tudo intacto EXCETO o botão.
+Trocar botão "Quero regularizar minha empresa" para "Quero evitar multas — falar com especialista"
+Manter o card de notificação ambiental simulado exatamente como está (SEMAS-PA, Licença vencida, 30 dias, R$ 50.000+, PENDENTE).
+CTA Final
+Trocar headline "Pronto para operar sem preocupações?" para "Sua empresa está regularizada?"
+Trocar subheadline para: "Se a resposta não é 'sim com certeza', fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas."
+Manter botão: "Solicite uma avaliação gratuita"
+
+PÁGINA CONTATO (contato.html)
+Hero
+Trocar headline "Resolva sua situação ambiental. Fale com a gente." para "Fale com quem entende de licenciamento no Pará."
+Trocar subheadline "Nossa equipe responde em até 24 horas. Tire suas dúvidas" para "Tire suas dúvidas, peça um orçamento ou solicite uma avaliação gratuita. Respondemos em até 24 horas."
+Seletor de Contato
+Manter tudo intacto. Não alterar.
+Formulário
+Trocar label "Como podemos ajudar?" para "Conte brevemente sua necessidade"
+Trocar botão "Enviar mensagem" para "Enviar e receber retorno em 24h"
+Manter os demais campos (Nome completo, Empresa, Telefone / WhatsApp) intactos.
+Cards de Informação de Contato
+Trocar texto de localização "Atendemos em todo o estado do Pará" para "Belém, PA — com atendimento em todo o estado"
+Manter todos os demais textos e botões intactos.
+Seção Atuação Regional
+Trocar título "Atendemos empresas em todo o estado do Pará" para "Da capital ao interior: presença em todo o Pará"
+Trocar descrição para: "Atendemos empresas em mais de 40 municípios do Pará. Conhecemos o contexto regulatório de cada região — da zona metropolitana de Belém aos polos industriais e agropecuários do interior."
+FAQ (6 perguntas)
+Manter todas as 6 perguntas. Trocar APENAS as respostas:
+Pergunta 1: "Quanto tempo leva um licenciamento ambiental?"
+Nova resposta: "Depende do tipo de licença e do órgão. Em geral, de 30 a 180 dias. Com a documentação correta desde o início, reduzimos significativamente esse prazo. Fale conosco para uma estimativa."
+Pergunta 2: "Minha empresa pode ser multada sem licença?"
+Nova resposta: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção."
+Pergunta 3: "Vocês atendem fora de Belém?"
+Nova resposta: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto."
+Pergunta 4: "O que é ESG e por que minha empresa precisa?"
+Nova resposta: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar."
+Pergunta 5: "Quais documentos preciso para iniciar o licenciamento?"
+Nova resposta: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário."
+Pergunta 6: "Como funciona a avaliação gratuita?"
+Nova resposta: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial — sem custo e sem compromisso."
+CTA Final
+Trocar headline para: "Sua empresa está regularizada?"
+Trocar subheadline para: "Se a resposta não é 'sim com certeza', fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas."
+Trocar botão para: "Solicitar avaliação gratuita →"
+
+AJUSTES GLOBAIS (aplicar em TODAS as 4 páginas)
+Footer
+Em todas as páginas, trocar o texto descritivo do footer de:
+"Excelência técnica em gestão e licenciamento ambiental para empreendimentos na região amazônica."
+Para:
+"Consultoria ambiental especializada no Pará. Licenciamento, gestão e ESG para empresas de todos os portes."
+Microcopy de Confiança
+Em TODOS os botões de CTA principais do site (os botões grandes de conversão), garantir que existe uma linha de microcopy logo abaixo do botão com o texto: "Sem compromisso. Resposta em até 24 horas." — Se já existir, manter. Se não existir, adicionar.
+Meta Descriptions (SEO)
+Atualizar a tag <meta name="description"> de cada página:
+index.html: "Licenciamento ambiental no Pará com agilidade e segurança jurídica. A IL Ambiental cuida de LP, LI e LO junto à SEMAS-PA e IBAMA. Fale conosco."
+sobre.html: "Conheça a IL Ambiental: consultoria especializada em licenciamento e gestão ambiental no Pará desde 2020. Rigor técnico e atendimento personalizado."
+servicos.html: "Licenciamento ambiental, estudos de impacto, gestão de resíduos e ESG no Pará. Serviços completos para empresas de todos os portes. Avaliação gratuita."
+contato.html: "Entre em contato com a IL Ambiental. WhatsApp, formulário ou e-mail. Atendemos em todo o Pará. Resposta em até 24 horas."
+Manter intacto
+
+Botão flutuante do WhatsApp (canto inferior direito)
+Navbar e CTA "Fale Conosco"
+Todas as cores, tipografia e estilos visuais
+Todas as imagens e ícones
+Toda a estrutura HTML/CSS e layout grid

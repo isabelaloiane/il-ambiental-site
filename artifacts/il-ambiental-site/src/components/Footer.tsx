@@ -18,7 +18,7 @@ export function Footer() {
               />
             </div>
             <p style={{ fontSize: "0.85rem", lineHeight: 1.6, color: "rgba(223,196,159,0.65)" }}>
-              Excelência técnica em gestão e licenciamento ambiental para empreendimentos na região amazônica.
+              Consultoria ambiental especializada no Pará. Licenciamento, gestão e ESG para empresas de todos os portes.
             </p>
           </div>
 

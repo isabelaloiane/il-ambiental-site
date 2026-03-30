@@ -17,11 +17,11 @@ export function Sobre() {
               Rigor técnico. Atendimento humano. Resultado garantido.
             </h1>
             <p className="fade-2" style={{ fontSize: "1rem", color: "rgba(223,196,159,0.72)", lineHeight: 1.65, maxWidth: 440, marginTop: 16, marginBottom: 0 }}>
-              A consultoria ambiental que nasceu no Pará, e conhece o Pará como ninguém.
+              Nascemos em Belém para servir empresas que precisam de conformidade ambiental com agilidade e sem burocracia.
             </p>
-            <Link href="/contato" className="fade-3" style={{ background: "#DFC49F", color: "#452816", padding: "12px 28px", borderRadius: 8, fontWeight: 600, fontSize: "0.9rem", display: "inline-block", marginTop: 28, textDecoration: "none", transition: "background 200ms ease" }}>
-              Conheça nossa história
-            </Link>
+            <a href="#historia" className="fade-3" style={{ background: "#DFC49F", color: "#452816", padding: "12px 28px", borderRadius: 8, fontWeight: 600, fontSize: "0.9rem", display: "inline-block", marginTop: 28, textDecoration: "none", transition: "background 200ms ease" }}>
+              Conheça a IL ↓
+            </a>
           </div>
           <div style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(223,196,159,0.15)", borderRadius: 16, padding: 28 }}>
             <div style={{ textAlign: "center", marginBottom: 16 }}>
@@ -44,14 +44,14 @@ export function Sobre() {
       </section>
 
       {/* INTRO */}
-      <section style={{ maxWidth: 720, margin: "0 auto", padding: "72px 24px 40px" }}>
+      <section id="historia" style={{ maxWidth: 720, margin: "0 auto", padding: "72px 24px 40px" }}>
         <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>Nossa História</span>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", color: "#2C1A0E", lineHeight: 1.2, margin: 0, marginBottom: 24 }}>A IL nasceu no Pará com uma missão clara.</h2>
+        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", color: "#2C1A0E", lineHeight: 1.2, margin: 0, marginBottom: 24 }}>Uma consultoria feita por quem vive o Pará.</h2>
         <p style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, marginBottom: 20, marginTop: 0 }}>
-          A IL nasceu no Pará com uma missão clara: tornar a conformidade ambiental acessível, ágil e sem burocracia desnecessária para empresas de todos os portes. Combinamos expertise em licenciamento, gestão ambiental e relatórios técnicos com um atendimento que entende as particularidades de cada empreendimento, porque cada empresa tem uma história e um processo próprio.
+          A IL nasceu em 2020 com um propósito: tornar o licenciamento ambiental no Pará mais ágil, transparente e acessível. Combinamos rigor técnico com atendimento próximo, porque cada empresa tem suas particularidades — e merece uma solução sob medida.
         </p>
         <p style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, margin: 0 }}>
-          Com foco no estado do Pará, a IL conhece em profundidade o contexto regulatório local: as exigências da SEMAS-PA, os prazos do IBAMA e as especificidades de cada setor produtivo na região. Isso significa menos erros, mais agilidade e um caminho mais curto até a sua licença.
+          Com foco exclusivo no estado do Pará, dominamos o contexto regulatório local: os prazos da SEMAS-PA, as exigências do IBAMA regional, e as particularidades de cada setor produtivo. O resultado? Menos erros, menos idas e vindas aos órgãos, e um caminho mais curto até a sua licença.
         </p>
       </section>
 
@@ -59,13 +59,12 @@ export function Sobre() {
       <section style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px 72px" }}>
         <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Por que a IL</span>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#2C1A0E", margin: 0, marginBottom: 32 }}>O que nos diferencia</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {[
-            { icon: "🌿", title: "Especialização Regional", desc: "Conhecemos as exigências da SEMAS-PA e do IBAMA regional em profundidade. Menos atrasos, menos erros e um processo mais ágil.", dark: true },
-            { icon: "📄", title: "Conformidade Garantida", desc: "Acompanhamos cada etapa do processo para que sua empresa opere dentro da lei, sem surpresas.", dark: true },
-            { icon: "⚡", title: "Agilidade no Processo", desc: "Documentação correta desde o início: menos idas e vindas ao órgão ambiental. Resposta em 24h.", dark: false },
-            { icon: "👥", title: "Atendimento Personalizado", desc: "Cada cliente tem uma realidade diferente. Nós estudamos seu empreendimento antes de propor qualquer solução.", dark: false },
-            { icon: "📊", title: "Rigor Técnico", desc: "Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos fiscalizadores.", dark: false },
+            { icon: "🌿", title: "Especialização Regional", desc: "Conhecemos as exigências da SEMAS-PA e do IBAMA regional em profundidade. O resultado: menos erros, menos atrasos.", dark: true },
+            { icon: "⚡", title: "Agilidade no Processo", desc: "Documentação correta desde o início significa menos idas e vindas aos órgãos. Resposta em 24h.", dark: true },
+            { icon: "👥", title: "Atendimento Personalizado", desc: "Cada cliente tem uma realidade diferente. Estudamos seu empreendimento antes de propor qualquer solução.", dark: false },
+            { icon: "📊", title: "Rigor Técnico", desc: "Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos.", dark: false },
           ].map((d, i) => (
             <div key={i} className="hover-card" style={{
               background: d.dark ? "#452816" : "#F5F0E8",
@@ -88,7 +87,7 @@ export function Sobre() {
             <div style={{ position: "relative", zIndex: 1 }}>
               <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(223,196,159,0.55)", fontWeight: 600 }}>Nossa Missão</span>
               <p style={{ fontSize: "1.05rem", color: "#DFC49F", lineHeight: 1.75, marginTop: 16, marginBottom: 0 }}>
-                Garantir que empresas de todos os portes operem em conformidade ambiental com eficiência, segurança e tranquilidade, eliminando a burocracia e conduzindo cada cliente a um caminho sólido e sustentável.
+                Garantir que empresas de todos os portes operem em conformidade ambiental no Pará — com eficiência, segurança jurídica e sem burocracia desnecessária.
               </p>
             </div>
           </div>
@@ -97,7 +96,7 @@ export function Sobre() {
             <div style={{ position: "relative", zIndex: 1 }}>
               <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600 }}>Nossa Visão</span>
               <p style={{ fontSize: "1.05rem", color: "#2C1A0E", lineHeight: 1.75, marginTop: 16, marginBottom: 0 }}>
-                Ser a referência em consultoria ambiental no Pará, tornando o conhecimento ambiental acessível e presente no dia a dia das empresas e da sociedade.
+                Ser a primeira escolha em consultoria ambiental no Pará — reconhecida pelo rigor técnico, pela agilidade e pelo impacto positivo nas operações dos nossos clientes.
               </p>
             </div>
           </div>
@@ -112,9 +111,9 @@ export function Sobre() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, maxWidth: 900, margin: "0 auto" }}>
           {[
-            { icon: "⚖", title: "Rigor Técnico", desc: "Cada laudo, relatório e estudo é elaborado com precisão e fundamentação. Entregamos documentação que resiste a qualquer auditoria." },
-            { icon: "🤝", title: "Atendimento Humano", desc: "Sabemos que processos ambientais geram ansiedade. Por isso, mantemos comunicação clara, transparente e próxima em cada etapa." },
-            { icon: "🌿", title: "Compromisso Ambiental", desc: "Não somos apenas consultores de conformidade; acreditamos no desenvolvimento sustentável como responsabilidade de todos." },
+            { icon: "⚖", title: "Rigor Técnico", desc: "Cada documento que sai da IL foi elaborado para resistir a qualquer auditoria." },
+            { icon: "🤝", title: "Atendimento Humano", desc: "Processos ambientais geram ansiedade. Mantemos comunicação clara e proativa em cada etapa." },
+            { icon: "🌿", title: "Compromisso Ambiental", desc: "Acreditamos que conformidade e desenvolvimento sustentável caminham juntos." },
           ].map((v, i) => (
             <div key={i} className="hover-card" style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 16, padding: 32 }}>
               <div style={{ width: 48, height: 48, background: "rgba(115,65,32,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", marginBottom: 16 }}>{v.icon}</div>
@@ -128,10 +127,10 @@ export function Sobre() {
       {/* FINAL CTA */}
       <section style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
-          Pronta para garantir sua conformidade ambiental?
+          Quer conversar sobre a situação ambiental da sua empresa?
         </h2>
         <p style={{ color: "rgba(223,196,159,0.68)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "16px auto 0" }}>
-          Fale com a IL Ambiental e descubra como podemos simplificar seu processo, do licenciamento à gestão completa.
+          Fale com a IL e receba uma orientação técnica inicial sem custo. Respondemos em até 24 horas.
         </p>
         <Link href="/contato" className="btn-light" style={{ marginTop: 32, display: "inline-flex" }}>
           Fale com um especialista

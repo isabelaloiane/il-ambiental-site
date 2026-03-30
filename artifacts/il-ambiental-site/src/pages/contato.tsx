@@ -25,10 +25,10 @@ export function Contato() {
       }}>
         <div style={{ maxWidth: 640, textAlign: "center" }}>
           <h1 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#DFC49F", lineHeight: 1.15, margin: 0 }}>
-            Resolva sua situação ambiental. Fale com a gente.
+            Fale com quem entende de licenciamento no Pará.
           </h1>
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "rgba(223,196,159,0.75)", maxWidth: 500, margin: "16px auto 0", lineHeight: 1.7 }}>
-            Nossa equipe responde em até 24 horas. Tire suas dúvidas ou solicite uma proposta sem compromisso.
+            Tire suas dúvidas, peça um orçamento ou solicite uma avaliação gratuita. Respondemos em até 24 horas.
           </p>
         </div>
       </section>
@@ -87,7 +87,7 @@ export function Contato() {
                     </div>
                   ))}
                   <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                    <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>Como podemos ajudar?</label>
+                    <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>Conte brevemente sua necessidade</label>
                     <textarea required rows={4} style={{
                       background: "rgba(255,255,255,0.06)", border: "1px solid rgba(223,196,159,0.25)",
                       color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
@@ -99,7 +99,7 @@ export function Contato() {
                     borderRadius: 8, width: "100%", cursor: "pointer", border: "none",
                     fontFamily: "'Poppins', sans-serif", fontSize: "0.95rem", marginTop: 4
                   }}>
-                    Enviar mensagem
+                    Enviar e receber retorno em 24h
                   </button>
                 </form>
               </>
@@ -133,7 +133,7 @@ export function Contato() {
                 {
                   icon: "📍", label: "Localização",
                   main: <span>Belém, Pará, Brasil</span>,
-                  sub: "Atendemos em todo o estado do Pará"
+                  sub: "Belém, PA — com atendimento em todo o estado"
                 },
                 {
                   icon: "🕐", label: "Horário",
@@ -169,10 +169,10 @@ export function Contato() {
           <div style={{ flex: "1 1 280px" }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 10 }}>Atuação regional</span>
             <h2 style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#DFC49F", fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
-              Atendemos empresas em todo o estado do Pará
+              Da capital ao interior: presença em todo o Pará
             </h2>
             <p style={{ fontSize: "0.95rem", color: "rgba(223,196,159,0.7)", lineHeight: 1.7, marginTop: 14, maxWidth: 400, marginBottom: 0 }}>
-              Da capital Belém ao interior, estamos presentes onde sua empresa precisa de suporte ambiental. Conhecemos o contexto regulatório local, as exigências da SEMAS-PA e os prazos do IBAMA regional.
+              Atendemos empresas em mais de 40 municípios do Pará. Conhecemos o contexto regulatório de cada região — da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
             </p>
           </div>
           <div style={{ flex: "1 1 160px", textAlign: "center" }}>
@@ -191,12 +191,12 @@ export function Contato() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 960, margin: "0 auto" }}>
           {[
-            { q: "Quanto tempo leva um licenciamento ambiental?", a: "Depende do tipo de licença e do órgão. Em média, o processo varia de 30 a 180 dias. Com documentação correta e acompanhamento especializado, evitamos atrasos." },
-            { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de R$ 500 a R$ 10 milhões, além de embargo e paralisação. A regularização protege sua operação." },
-            { q: "Vocês atendem fora de Belém?", a: "Sim, atendemos empresas em todo o estado do Pará. O atendimento pode ser presencial ou remoto, dependendo da complexidade do projeto." },
-            { q: "O que é ESG e por que minha empresa precisa?", a: "ESG é um conjunto de práticas ambientais, sociais e de governança que grandes empresas e investidores exigem dos seus parceiros. A IL estrutura sua empresa para atender essas exigências." },
-            { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso gratuitamente." },
-            { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp. Nossa equipe analisa sua situação e retorna em até 24h com uma orientação inicial, sem compromisso e sem custo." },
+            { q: "Quanto tempo leva um licenciamento ambiental?", a: "Depende do tipo de licença e do órgão. Em geral, de 30 a 180 dias. Com a documentação correta desde o início, reduzimos significativamente esse prazo. Fale conosco para uma estimativa." },
+            { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção." },
+            { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto." },
+            { q: "O que é ESG e por que minha empresa precisa?", a: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar." },
+            { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário." },
+            { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial — sem custo e sem compromisso." },
           ].map((faq, i) => (
             <div key={i} className="hover-card" style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(69,40,22,0.06)" }}>
               <h3 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "0.95rem", margin: 0 }}>{faq.q}</h3>
@@ -204,6 +204,20 @@ export function Contato() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
+        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
+          Sua empresa está regularizada?
+        </h2>
+        <p style={{ color: "rgba(223,196,159,0.68)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "16px auto 0" }}>
+          Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.
+        </p>
+        <Link href="/contato" className="btn-light" style={{ marginTop: 32, display: "inline-flex" }}>
+          Solicitar avaliação gratuita →
+        </Link>
+        <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
       </section>
 
       <Footer />

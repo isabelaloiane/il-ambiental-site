@@ -15,7 +15,7 @@ export function Servicos() {
             Sua conformidade ambiental no Pará, do início ao fim.
           </h1>
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "#8C7B6B", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.7 }}>
-            Do licenciamento à gestão de resíduos e ESG: a IL assume a burocracia ambiental para que você foque no seu negócio, com segurança jurídica e sem imprevistos.
+            Licenciamento, gestão ambiental e ESG: a IL assume a burocracia para que você foque no seu negócio. Segurança jurídica do início à operação.
           </p>
           <div className="fade-3" style={{ marginTop: 32 }}>
             <Link href="/contato" className="btn-primary">Solicite uma avaliação gratuita</Link>
@@ -29,13 +29,13 @@ export function Servicos() {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-around", gap: 12, padding: "0 24px" }}>
           {[
             "SEMAS-PA credenciada",
-            "IBAMA certificada",
+            "IBAMA certificado",
             "SEMMA Municipal",
             "SESPA",
             "INCRA",
-            "Atuação em todo o Pará",
-            "+30 empresas atendidas",
-            "Resposta em 24h"
+            "+30 empresas regularizadas",
+            "Resposta em 24h",
+            "Atuação em todo o Pará"
           ].map((label, i) => (
             <span key={i} style={{ fontSize: "0.82rem", fontWeight: 500, color: "#8C7B6B", display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
               <span style={{ color: "#B5895E", fontSize: "0.7rem" }}>●</span> {label}
@@ -49,26 +49,26 @@ export function Servicos() {
         <div style={{ maxWidth: 1040, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Nossos Serviços</span>
-            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>O que a IL faz pela sua empresa</h2>
-            <p style={{ color: "#8C7B6B", maxWidth: 520, margin: "12px auto 0", lineHeight: 1.65 }}>Cada serviço foi desenhado para eliminar riscos, reduzir burocracia e garantir que sua empresa opere em conformidade.</p>
+            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
+            <p style={{ color: "#8C7B6B", maxWidth: 520, margin: "12px auto 0", lineHeight: 1.65 }}>Da licença prévia à operação contínua — cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
             {[
               {
                 title: "Licenciamento Ambiental",
-                desc: "Obtenha sua licença com agilidade e sem erros. Cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei, da licença prévia até a regularização.",
+                desc: "Da DLA à LO, cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei, sem atrasos.",
                 items: ["Dispensa de Licenciamento (DLA)", "Licença Prévia (LP)", "Licença de Instalação (LI)", "Licença de Operação (LO)", "Licença de Regularização Ambiental (LAR)"],
                 highlight: false
               },
               {
                 title: "Estudos e Relatórios Técnicos",
-                desc: "Documentação técnica rigorosa para atender condicionantes, auditorias e exigências dos órgãos fiscalizadores, elaborada por especialistas.",
+                desc: "Documentação técnica que atende as exigências dos órgãos fiscalizadores na primeira tentativa. Elaborada por especialistas.",
                 items: ["Relatório de Informação Ambiental Anual (RIAA)", "PDITS: Plano de Turismo Sustentável", "Relatório de Controle Ambiental (RCA)", "Relatório Ambiental Preliminar (RAP)", "Condicionantes Ambientais", "Certificação Ambiental"],
                 highlight: false
               },
               {
                 title: "Consultoria e Gestão Ambiental",
-                desc: "Estruture a gestão ambiental da sua empresa com ESG, planos de resíduos, monitoramento de áreas e regularização fundiária, do planejamento à execução.",
+                desc: "Gestão ambiental completa: ESG, resíduos, monitoramento e regularização fundiária. Do planejamento à execução contínua.",
                 items: ["Implantação de práticas de ESG", "Plano de Gerenciamento de Resíduos Sólidos (PGRS)", "Cadastro Ambiental Rural (CAR) e regularização fundiária", "Monitoramento e recuperação de áreas degradadas"],
                 highlight: true
               },
@@ -108,7 +108,7 @@ export function Servicos() {
               Empresas sem licença ambiental estão sujeitas a multas, embargo e paralisação das atividades. Não espere a notificação chegar. Regularize agora.
             </p>
             <Link href="/contato" className="btn-light" style={{ marginTop: 28, display: "inline-flex" }}>
-              Quero regularizar minha empresa
+              Quero evitar multas — falar com especialista
             </Link>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 18 }}>
               {["⚠ Multas de até R$ 50 milhões", "🔒 Paralisação imediata", "⚖ Processo criminal para gestores"].map((r, i) => (
@@ -141,9 +141,9 @@ export function Servicos() {
 
       {/* FINAL CTA */}
       <section style={{ background: "#F5F0E8", padding: "80px 24px", textAlign: "center" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Pronto para operar sem preocupações?</h2>
+        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Sua empresa está regularizada?</h2>
         <p style={{ color: "#8C7B6B", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.6 }}>
-          Fale com a nossa equipe e descubra como a IL pode assumir a gestão ambiental da sua empresa, do licenciamento à regularização.
+          Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.
         </p>
         <Link href="/contato" className="btn-primary" style={{ marginTop: 28, display: "inline-flex" }}>
           Solicite uma avaliação gratuita

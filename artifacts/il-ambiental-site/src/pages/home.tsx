@@ -16,15 +16,15 @@ export function Home() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,15,8,0.55)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 720, marginLeft: "clamp(24px, 8vw, 120px)" }}>
           <h1 className="fade-1" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(2.4rem, 5.5vw, 4rem)", lineHeight: 1.1, color: "#fff", margin: 0 }}>
-            Sua empresa em conformidade ambiental, com quem conhece o{" "}
-            <span style={{ color: "#DFC49F" }}>Pará</span>.
+            Sem licença ambiental, sua operação no{" "}
+            <span style={{ color: "#DFC49F" }}>Pará</span> pode parar amanhã.
           </h1>
           <p className="fade-2" style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", color: "rgba(223,196,159,0.8)", fontWeight: 400, maxWidth: 560, lineHeight: 1.75, marginTop: 20 }}>
-            A IL Ambiental cuida de todo o processo de licenciamento, gestão e documentação ambiental para que você opere com segurança jurídica e eficiência, sem burocracia desnecessária.
+            A IL Ambiental conduz seu licenciamento junto à SEMAS-PA, IBAMA e SEMMA do início à emissão da licença — para que sua empresa opere legalmente, sem atrasos e sem surpresas nos órgãos.
           </p>
           <div className="fade-3" style={{ display: "flex", gap: 14, marginTop: 36, flexWrap: "wrap" }}>
             <Link href="/contato" className="btn-primary">Fale com um especialista</Link>
-            <Link href="/servicos" className="btn-outline">Conheça nossos serviços</Link>
+            <Link href="/servicos" className="btn-outline">Ver como funciona</Link>
           </div>
         </div>
       </section>
@@ -33,10 +33,10 @@ export function Home() {
       <div style={{ background: "#fff", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "20px 0" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", padding: "0 24px" }}>
           {[
-            { stat: "+30", label: "Empresas atendidas" },
-            { stat: "100%", label: "Atuação no Pará" },
-            { stat: "5", label: "Órgãos: SEMAS-PA, IBAMA, SEMMA, SESPA, INCRA" },
-            { stat: "24h", label: "Tempo de resposta" },
+            { stat: "+30", label: "empresas regularizadas no Pará" },
+            { stat: "100%", label: "focada no Pará" },
+            { stat: "5", label: "órgãos ambientais com trâmite direto" },
+            { stat: "24h", label: "Resposta em até 24h" },
           ].map((item, i, arr) => (
             <div key={i} style={{ textAlign: "center", borderRight: i < arr.length - 1 ? "1px solid rgba(181,137,94,0.25)" : "none", padding: "8px 12px" }}>
               <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "#734120", lineHeight: 1 }}>{item.stat}</div>
@@ -50,22 +50,22 @@ export function Home() {
       <section style={{ padding: "80px 24px", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Expertise Técnica</span>
+            <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>O QUE FAZEMOS</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#2C1A0E", margin: 0 }}>
-              Soluções Integradas em <span style={{ color: "#734120" }}>Meio Ambiente</span>
+              Do licenciamento à gestão: tudo que sua empresa precisa para <span style={{ color: "#734120" }}>operar legal</span>
             </h2>
             <p style={{ color: "#8C7B6B", fontSize: "1.05rem", maxWidth: 580, margin: "12px auto 0", lineHeight: 1.7 }}>
-              Atuamos em todas as fases do empreendimento, da concepção à operação.
+              Cada serviço foi desenhado para eliminar riscos regulatórios e acelerar sua conformidade.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
             {[
-              { icon: "📄", title: "Licenciamento Ambiental", desc: "Gestão completa de processos junto à SEMAS-PA, IBAMA e SEMMA, garantindo agilidade na emissão de LP, LI e LO." },
-              { icon: "📊", title: "Gestão Ambiental", desc: "Implementação e operação de Sistemas de Gestão Ambiental (SGA) robustos para indústrias e grandes empreendimentos." },
-              { icon: "🌿", title: "Consultoria Estratégica", desc: "Assessoria executiva para mitigação de riscos socioambientais e adequação a práticas ESG e padrões internacionais." },
-              { icon: "🔬", title: "Monitoramento Ambiental", desc: "Programas de monitoramento de fauna, flora, qualidade da água e do ar com emissão de relatórios técnicos periódicos." },
-              { icon: "📋", title: "Estudos de Impacto", desc: "Elaboração de EIA/RIMA, PCA, RCA, PRAD e demais estudos para viabilidade de projetos complexos." },
-              { icon: "✅", title: "Conformidade Regulatória", desc: "Auditorias preventivas e acompanhamento contínuo de condicionantes para manutenção da regularidade das operações." },
+              { icon: "📄", title: "Licenciamento Ambiental", desc: "Obtemos LP, LI e LO junto à SEMAS-PA e IBAMA com agilidade. Você foca no negócio, nós resolvemos a burocracia." },
+              { icon: "📊", title: "Gestão Ambiental", desc: "Implantamos e operamos seu SGA para que sua empresa atenda condicionantes sem improvisos e sem multas." },
+              { icon: "🌿", title: "Consultoria Estratégica", desc: "Assessoria para adequação a ESG e padrões internacionais. Ideal para empresas que buscam investidores ou certificações." },
+              { icon: "🔬", title: "Monitoramento Ambiental", desc: "Monitoramento de fauna, flora, água e ar com relatórios técnicos aceitos pelos órgãos. Periodicidade garantida." },
+              { icon: "📋", title: "Estudos de Impacto", desc: "EIA/RIMA, PCA, RCA e PRAD elaborados por especialistas. Documentação que resiste a qualquer auditoria." },
+              { icon: "✅", title: "Conformidade Regulatória", desc: "Auditorias preventivas para manter suas licenças em dia e evitar notificações surpresa dos órgãos fiscalizadores." },
             ].map((svc, i) => (
               <div key={i} className="hover-card" style={{ background: "#fff", padding: 28, borderRadius: 12, borderTop: "4px solid transparent", boxShadow: "0 2px 8px rgba(69,40,22,0.07)", cursor: "default", border: "1px solid rgba(181,137,94,0.18)", borderTopWidth: 4 }}
                 onMouseOver={e => { (e.currentTarget.style.borderTopColor = "#734120"); }}
@@ -78,7 +78,7 @@ export function Home() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Link href="/servicos" className="btn-primary">Ver todos os serviços</Link>
+            <Link href="/servicos" className="btn-primary">Ver detalhes de cada serviço →</Link>
           </div>
         </div>
       </section>
@@ -89,7 +89,7 @@ export function Home() {
           <div style={{ maxWidth: 480 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Nossa História</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0, color: "#DFC49F" }}>
-              Autoridade Ambiental no Coração da Amazônia
+              Porque quem conhece o contexto regulatório local resolve mais rápido — e sem retrabalho.
             </h2>
             <p style={{ color: "rgba(223,196,159,0.78)", fontSize: "1.05rem", lineHeight: 1.75, marginTop: 20, marginBottom: 24 }}>
               A IL Engenharia e Consultoria Ambiental nasceu com a missão de harmonizar o desenvolvimento industrial com a vasta biodiversidade da região amazônica.
@@ -102,13 +102,13 @@ export function Home() {
         </div>
         <div style={{ flex: "1 1 400px", background: "#fff", padding: "72px clamp(24px, 5vw, 80px)", display: "flex", alignItems: "center" }}>
           <div style={{ maxWidth: 480 }}>
-            <h3 style={{ fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", borderBottom: "1px solid rgba(181,137,94,0.25)", paddingBottom: 16, marginBottom: 28 }}>Nossos Diferenciais</h3>
+            <h3 style={{ fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", borderBottom: "1px solid rgba(181,137,94,0.25)", paddingBottom: 16, marginBottom: 28 }}>Por que empresas no Pará escolhem a IL</h3>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 20 }}>
               {[
-                { title: "Conhecimento Local Profundo", desc: "Expertise nas especificidades ecológicas e regulatórias dos biomas amazônicos." },
-                { title: "Diálogo Técnico Institucional", desc: "Histórico de respeito e transparência junto aos órgãos fiscalizadores." },
-                { title: "Gestão Integrada", desc: "Visão sistêmica que abrange desde o meio físico e biótico até o socioeconômico." },
-                { title: "Foco em Resolução", desc: "Abordagem pragmática para destravamento de processos com embasamento técnico." },
+                { title: "Conhecimento Local Profundo", desc: "Conhecemos pessoalmente os processos da SEMAS-PA, IBAMA regional e SEMMA. Isso elimina idas e vindas que atrasam seu licenciamento." },
+                { title: "Relacionamento Direto com os Órgãos", desc: "Dialogamos tecnicamente com fiscalizadores e analistas. Seu processo tramita com transparência e sem ruído." },
+                { title: "Gestão Integrada", desc: "Enxergamos seu empreendimento como um sistema: ambiental, jurídico, social e econômico. Nada fica de fora." },
+                { title: "Foco em Resultado", desc: "Não vendemos relatórios. Entregamos licenças emitidas, condicionantes cumpridas e operações regularizadas." },
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
                   <span style={{ color: "#734120", fontSize: "1.2rem", marginTop: 1, flexShrink: 0 }}>✓</span>
@@ -127,19 +127,20 @@ export function Home() {
       <section style={{ padding: "80px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Clientes que atendemos</h2>
-            <p style={{ color: "#8C7B6B", fontSize: "1rem", marginTop: 10, lineHeight: 1.6 }}>Empresas que confiam na IL Ambiental para sua gestão e conformidade ambiental.</p>
+            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Empresas que confiam na IL</h2>
+            <p style={{ color: "#8C7B6B", fontSize: "1rem", marginTop: 10, lineHeight: 1.6 }}>De multinacionais a empresas locais, regularizamos operações de todos os portes no Pará.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 680, margin: "0 auto" }}>
             {[
-              { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino" },
-              { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa" },
+              { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino", tag: "Gestão ambiental contínua desde 2022" },
+              { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa", tag: "Licenciamento completo para operação em Portel-PA" },
             ].map((c, i) => (
               <div key={i} className="hover-card" style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
                 <div style={{ width: 52, height: 52, background: "#734120", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", color: "#DFC49F", fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", flexShrink: 0 }}>{c.initials}</div>
                 <div>
                   <h4 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.1rem", marginBottom: 6 }}>{c.name}</h4>
                   <p style={{ color: "#8C7B6B", fontSize: "0.875rem", lineHeight: 1.55, margin: 0 }}>{c.desc}</p>
+                  <p style={{ color: "#B5895E", fontSize: "0.78rem", lineHeight: 1.5, margin: "8px 0 0", fontWeight: 500 }}>{c.tag}</p>
                 </div>
               </div>
             ))}
@@ -150,14 +151,15 @@ export function Home() {
       {/* CTA BANNER */}
       <section style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", color: "#DFC49F", margin: 0 }}>
-          Pronto para regularizar seu empreendimento?
+          Sua empresa precisa de licença ambiental no Pará?
         </h2>
         <p style={{ color: "rgba(223,196,159,0.78)", fontSize: "1.1rem", maxWidth: 600, margin: "16px auto 32px", lineHeight: 1.7 }}>
-          Fale com nossos especialistas e descubra como podemos garantir a segurança jurídica e ambiental do seu projeto.
+          Conte sua situação e receba uma orientação técnica inicial sem compromisso. Respondemos em até 24 horas.
         </p>
         <Link href="/contato" className="btn-light" style={{ fontSize: "1.05rem", padding: "16px 40px" }}>
-          Agendar Consulta Técnica →
+          Solicitar orientação gratuita →
         </Link>
+        <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
       </section>
 
       <Footer />
