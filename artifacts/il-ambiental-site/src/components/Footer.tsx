@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer style={{ background: "#452816", color: "rgba(223,196,159,0.72)", paddingTop: 72, paddingBottom: 36, borderTop: "1px solid rgba(223,196,159,0.12)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, marginBottom: 48 }}>
+        <div className="footer-cols" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, marginBottom: 48 }}>
 
           <div>
             <div style={{ marginBottom: 16 }}>
@@ -75,9 +75,9 @@ export function Footer() {
 
         </div>
 
-        <div style={{ borderTop: "1px solid rgba(223,196,159,0.12)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div className="footer-bottom-bar">
           <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.5)" }}>© {new Date().getFullYear()} IL Engenharia e Consultoria Ambiental. Todos os direitos reservados.</p>
-          <div style={{ display: "flex", gap: 16 }}>
+          <div className="footer-social" style={{ display: "flex", gap: 16 }}>
             {[
               { label: "LinkedIn", href: "https://www.linkedin.com/company/il-engenharia-e-consultoria-ambiental/about/?viewAsMember=true" },
               { label: "Instagram", href: "https://www.instagram.com/ilambiental/" },

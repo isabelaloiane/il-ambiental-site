@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 
 export function Navbar() {
   const [location] = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
     { href: "/sobre", label: "Sobre" },
@@ -9,28 +11,12 @@ export function Navbar() {
     { href: "/contato", label: "Contato" },
   ];
 
+  const close = () => setMenuOpen(false);
+
   return (
-    <nav style={{
-      position: "sticky",
-      top: 0,
-      zIndex: 50,
-      width: "100%",
-      background: "rgba(245, 240, 232, 0.95)",
-      backdropFilter: "blur(12px)",
-      WebkitBackdropFilter: "blur(12px)",
-      borderBottom: "1px solid rgba(181, 137, 94, 0.25)",
-      boxShadow: "0 2px 12px rgba(69,40,22,0.07)"
-    }}>
-      <div style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        padding: "0 24px",
-        height: "72px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between"
-      }}>
-        <Link href="/" className="site-logo" aria-label="IL Engenharia e Consultoria Ambiental" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
+    <nav className="site-nav">
+      <div className="site-nav-inner">
+        <Link href="/" className="site-logo" aria-label="IL Engenharia e Consultoria Ambiental" onClick={close}>
           <img
             src="/logo-principal.png"
             alt="IL Engenharia e Consultoria Ambiental"
@@ -41,47 +27,59 @@ export function Navbar() {
           />
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+        <div className="nav-desktop-links">
           <div style={{ display: "flex", gap: "28px" }}>
             {links.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "0.9rem",
-                  fontWeight: 500,
-                  color: location === link.href ? "#734120" : "#2C1A0E",
-                  textDecoration: "none",
-                  transition: "color 150ms ease"
-                }}
-                onMouseOver={e => (e.currentTarget.style.color = "#734120")}
-                onMouseOut={e => (e.currentTarget.style.color = location === link.href ? "#734120" : "#2C1A0E")}
+                className={`nav-link${location === link.href ? " nav-link-active" : ""}`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
-          <Link
-            href="/contato"
-            style={{
-              background: "#734120",
-              color: "#DFC49F",
-              fontFamily: "'Poppins', sans-serif",
-              fontWeight: 600,
-              fontSize: "0.875rem",
-              padding: "10px 22px",
-              borderRadius: 8,
-              textDecoration: "none",
-              transition: "background 150ms ease"
-            }}
-            onMouseOver={e => (e.currentTarget.style.background = "#452816")}
-            onMouseOut={e => (e.currentTarget.style.background = "#734120")}
-          >
+          <Link href="/contato" className="nav-cta-btn">Fale Conosco</Link>
+        </div>
+
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="3" y1="7" x2="21" y2="7" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="17" x2="21" y2="17" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="nav-mobile-menu">
+          {links.map(link => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`nav-mobile-link${location === link.href ? " nav-mobile-link-active" : ""}`}
+              onClick={close}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/contato" className="nav-cta-btn nav-mobile-cta" onClick={close}>
             Fale Conosco
           </Link>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

@@ -207,7 +207,7 @@ export function Contato() {
       </section>
 
       {/* FINAL CTA */}
-      <section style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
+      <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
           Sua empresa está regularizada?
         </h2>

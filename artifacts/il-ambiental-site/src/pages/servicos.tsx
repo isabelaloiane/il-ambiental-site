@@ -17,9 +17,9 @@ export function Servicos() {
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "#8C7B6B", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.7 }}>
             Licenciamento, gestão ambiental e ESG: a IL assume a burocracia para que você foque no seu negócio. Segurança jurídica do início à operação.
           </p>
-          <div className="fade-3" style={{ marginTop: 32 }}>
+          <div className="fade-3 hero-cta-group" style={{ marginTop: 32, justifyContent: "center" }}>
             <Link href="/contato" className="btn-primary">Solicite uma avaliação gratuita</Link>
-            <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 10 }}>Sem compromisso. Resposta em até 24h.</p>
+            <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 10, width: "100%", textAlign: "center" }}>Sem compromisso. Resposta em até 24h.</p>
           </div>
         </div>
       </section>
@@ -97,7 +97,7 @@ export function Servicos() {
       </section>
 
       {/* URGENCY SECTION */}
-      <section style={{ background: "#452816", padding: "80px 24px" }}>
+      <section className="cta-section" style={{ background: "#452816", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 60, alignItems: "center" }}>
           <div>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Por que isso importa</span>
@@ -140,7 +140,7 @@ export function Servicos() {
       </section>
 
       {/* FINAL CTA */}
-      <section style={{ background: "#F5F0E8", padding: "80px 24px", textAlign: "center" }}>
+      <section className="cta-section" style={{ background: "#F5F0E8", padding: "80px 24px", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Sua empresa está regularizada?</h2>
         <p style={{ color: "#8C7B6B", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.6 }}>
           Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.

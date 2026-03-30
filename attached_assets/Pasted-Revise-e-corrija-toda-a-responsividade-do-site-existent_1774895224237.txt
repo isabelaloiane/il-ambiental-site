@@ -1,0 +1,258 @@
+Revise e corrija toda a responsividade do site existente para que ele funcione corretamente em desktop e mobile. NÃO altere textos, cores, tipografia, identidade visual, funcionalidades ou estrutura de conteúdo. Apenas adapte o layout para diferentes tamanhos de tela.
+Aplique as seguintes correções em TODAS as páginas do site (index.html, sobre.html, servicos.html, contato.html):
+
+BREAKPOINTS
+Implementar (ou corrigir) media queries com no mínimo estes breakpoints:
+
+Desktop: acima de 1024px
+Tablet: entre 768px e 1024px
+Mobile: abaixo de 768px
+
+Garantir que o viewport meta tag exista no head de todas as páginas:
+html<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+HEADER E NAVEGAÇÃO
+Desktop:
+
+Manter logo à esquerda e menu horizontal à direita
+Manter botão "Fale Conosco" visível no header
+
+Mobile:
+
+Implementar menu hamburger (ícone de 3 linhas) que abre/fecha o menu
+Menu deve abrir como overlay ou dropdown vertical ocupando largura total
+Logo deve reduzir proporcionalmente
+Botão "Fale Conosco" deve aparecer dentro do menu mobile ou logo abaixo do menu
+Garantir que o header não fique cortado ou com elementos sobrepostos
+
+
+HERO SECTIONS (todas as páginas)
+Desktop:
+
+Manter layout atual com tamanhos de fonte e espaçamentos existentes
+
+Mobile:
+
+Reduzir tamanho da headline para no máximo 32px
+Reduzir tamanho da subheadline para no máximo 16px
+Centralizar textos no mobile
+Empilhar botões verticalmente (um abaixo do outro) com largura total
+Botões devem ter no mínimo 48px de altura para facilitar toque
+Reduzir padding lateral para 20px
+Se houver layout lado a lado (texto + card/imagem), empilhar verticalmente: texto primeiro, card/imagem abaixo
+
+
+TRUST BAR / BARRA DE NÚMEROS (index.html e servicos.html)
+Desktop:
+
+Manter em linha horizontal
+
+Mobile:
+
+Converter para grid 2x2 (2 colunas, 2 linhas)
+Centralizar cada item
+Garantir que os textos não fiquem cortados ou apertados
+Adicionar espaçamento vertical entre as linhas
+
+
+CARDS DE SERVIÇOS (index.html - grid de 6 cards)
+Desktop:
+
+Manter grid 3x2 (3 colunas, 2 linhas)
+
+Tablet:
+
+Ajustar para grid 2x3 (2 colunas, 3 linhas)
+
+Mobile:
+
+Empilhar em coluna única (1 card por linha, largura total)
+Garantir espaçamento vertical de pelo menos 16px entre cards
+Garantir que o texto dentro dos cards tenha padding adequado (mínimo 16px)
+
+
+SEÇÃO DIFERENCIAIS (index.html - texto + lista de 4 itens)
+Desktop:
+
+Manter layout lado a lado (bloco de texto à esquerda, lista de diferenciais à direita)
+
+Mobile:
+
+Empilhar verticalmente: bloco de texto em cima, lista de diferenciais embaixo
+Lista de diferenciais em coluna única
+Reduzir tamanhos de fonte proporcionalmente
+
+
+SEÇÃO CLIENTES (index.html - 2 cards)
+Desktop:
+
+Manter cards lado a lado
+
+Mobile:
+
+Empilhar verticalmente
+Cards com largura total
+
+
+SEÇÃO DE URGÊNCIA / CTA ESCURO (servicos.html)
+Desktop:
+
+Manter layout lado a lado (texto à esquerda, card de notificação à direita)
+
+Mobile:
+
+Empilhar verticalmente: texto em cima, card de notificação embaixo
+Card de notificação com largura total
+Botão com largura total
+Reduzir tamanhos de fonte
+
+
+SEÇÃO DE SERVIÇOS DETALHADOS (servicos.html - 3 colunas)
+Desktop:
+
+Manter 3 colunas lado a lado
+
+Tablet:
+
+Ajustar para 2 colunas + 1 abaixo centralizada
+
+Mobile:
+
+Empilhar em coluna única (1 coluna por linha, largura total)
+Garantir que as listas de sub-serviços dentro de cada coluna tenham padding adequado
+
+
+PÁGINA SOBRE - DIFERENCIAIS (4 cards)
+Desktop:
+
+Manter grid 4 colunas ou 2x2 conforme layout atual
+
+Mobile:
+
+Empilhar em coluna única
+Cards com largura total
+Manter alternância de cores escura/clara nos cards
+
+
+PÁGINA SOBRE - MISSÃO E VISÃO
+Desktop:
+
+Manter lado a lado
+
+Mobile:
+
+Empilhar verticalmente: Missão em cima, Visão embaixo
+Ambos com largura total
+
+
+PÁGINA SOBRE - VALORES (3 cards)
+Desktop:
+
+Manter 3 colunas
+
+Mobile:
+
+Empilhar em coluna única
+
+
+PÁGINA CONTATO - FORMULÁRIO E INFORMAÇÕES
+Desktop:
+
+Manter formulário à esquerda e cards de informação à direita, lado a lado
+
+Mobile:
+
+Empilhar verticalmente: formulário em cima (largura total), cards de informação embaixo (largura total)
+Campos do formulário com largura total
+Botão de envio com largura total e altura mínima de 48px
+Cards de informação empilhados verticalmente
+
+
+PÁGINA CONTATO - ATUAÇÃO REGIONAL
+Desktop:
+
+Manter texto à esquerda e mapa/ícone à direita
+
+Mobile:
+
+Empilhar verticalmente
+Centralizar o ícone/mapa do Pará
+
+
+PÁGINA CONTATO - FAQ (6 cards)
+Desktop:
+
+Manter grid 3x2 (3 colunas, 2 linhas)
+
+Tablet:
+
+Grid 2x3
+
+Mobile:
+
+Empilhar em coluna única
+Cards com largura total
+
+
+CTA FINAL (seção escura - todas as páginas)
+Desktop:
+
+Manter centralizado com tamanhos atuais
+
+Mobile:
+
+Reduzir headline para no máximo 28px
+Reduzir subheadline para no máximo 15px
+Botão com largura total (ou no mínimo 80% da tela) e altura mínima de 48px
+Microcopy centralizado abaixo do botão
+Padding lateral de 20px
+
+
+FOOTER (todas as páginas)
+Desktop:
+
+Manter 4 colunas lado a lado (logo/descrição, contato, links, horário)
+
+Tablet:
+
+Grid 2x2
+
+Mobile:
+
+Empilhar em coluna única
+Cada bloco com largura total
+Centralizar textos
+Links de redes sociais centralizados
+Copyright centralizado
+Espaçamento vertical entre blocos de pelo menos 24px
+
+
+BOTÃO FLUTUANTE DO WHATSAPP
+
+Manter visível em todas as telas
+No mobile, garantir que não sobreponha conteúdo importante
+Manter no canto inferior direito com z-index alto
+Tamanho mínimo de toque: 48x48px
+
+
+REGRAS GLOBAIS DE RESPONSIVIDADE
+
+Nenhuma rolagem horizontal deve existir em nenhuma tela
+Imagens devem ter max-width: 100% e height: auto
+Fontes devem escalar proporcionalmente (usar clamp() ou media queries)
+Todos os botões no mobile devem ter altura mínima de 48px para facilitar toque
+Espaçamentos laterais no mobile: mínimo 16px de padding em ambos os lados
+Nenhum elemento deve ficar cortado, sobreposto ou ilegível em telas de 360px de largura
+Testar que nenhum texto ultrapassa o container pai
+Aplicar box-sizing: border-box globalmente se ainda não estiver aplicado
+
+
+REGRAS OBRIGATÓRIAS
+
+NÃO alterar textos
+NÃO alterar cores
+NÃO alterar tipografia (fontes)
+NÃO alterar identidade visual
+NÃO remover funcionalidades
+NÃO redesenhar o site
+APENAS adaptar o layout existente para funcionar em desktop, tablet e mobile

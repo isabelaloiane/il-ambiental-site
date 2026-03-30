@@ -22,7 +22,7 @@ export function Home() {
           <p className="fade-2" style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", color: "rgba(223,196,159,0.8)", fontWeight: 400, maxWidth: 560, lineHeight: 1.75, marginTop: 20 }}>
             A IL Ambiental conduz seu licenciamento junto à SEMAS-PA, IBAMA, SEMMA e demais órgãos ambientais competentes, do início à emissão da licença, para que sua empresa opere legalmente, sem atrasos e sem surpresas.
           </p>
-          <div className="fade-3" style={{ display: "flex", gap: 14, marginTop: 36, flexWrap: "wrap" }}>
+          <div className="fade-3 hero-cta-group" style={{ marginTop: 36 }}>
             <Link href="/contato" className="btn-primary">Fale com um especialista</Link>
             <Link href="/servicos" className="btn-outline">Ver como funciona</Link>
           </div>
@@ -31,7 +31,7 @@ export function Home() {
 
       {/* TRUST BAR */}
       <div style={{ background: "#fff", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "20px 0" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", padding: "0 24px" }}>
+        <div className="trust-bar-grid">
           {[
             { stat: "+30", label: "empresas regularizadas no Pará" },
             { stat: "100%", label: "focada no Pará" },
@@ -58,7 +58,7 @@ export function Home() {
               Cada serviço foi desenhado para eliminar riscos regulatórios e acelerar sua conformidade.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+          <div className="grid-6-services">
             {[
               { icon: "📄", title: "Licenciamento Ambiental", desc: "Obtemos LP, LI e LO junto à SEMAS-PA, IBAMA e demais órgãos ambientais com agilidade. Você foca no negócio, nós resolvemos a burocracia." },
               { icon: "📊", title: "Gestão Ambiental", desc: "Implantamos e operamos seu SGA para que sua empresa atenda condicionantes sem improvisos e sem multas." },
@@ -148,7 +148,7 @@ export function Home() {
       </section>
 
       {/* CTA BANNER */}
-      <section style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
+      <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", color: "#DFC49F", margin: 0 }}>
           Sua empresa precisa de licença ambiental no Pará?
         </h2>
