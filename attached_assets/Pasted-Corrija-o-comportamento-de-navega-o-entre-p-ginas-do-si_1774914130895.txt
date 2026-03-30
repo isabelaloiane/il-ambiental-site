@@ -1,0 +1,49 @@
+Corrija o comportamento de navegação entre páginas do site. Atualmente, quando o usuário clica no menu para ir para outra página, a nova página abre na mesma posição de rolagem da página anterior. Isso precisa ser corrigido. NÃO altere layout, design, textos, identidade visual ou funcionalidades. Apenas corrija o comportamento de scroll.
+
+CORREÇÃO A APLICAR
+Garantir que TODA navegação entre páginas do site faça a nova página carregar no topo (posição 0,0).
+Solução 1: Adicionar script em TODAS as páginas
+Em cada página do site (index.html, sobre.html, servicos.html, contato.html), adicionar o seguinte script antes do fechamento da tag </body>:
+javascript<script>
+  // Força scroll para o topo ao carregar qualquer página
+  window.scrollTo(0, 0);
+
+  // Garante que o scroll vai para o topo mesmo com cache do navegador
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // Reforço: ao carregar a página, rolar para o topo
+  window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+  });
+
+  // Reforço adicional para navegadores que restauram posição
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 0);
+  });
+</script>
+Solução 2: Se o site usar navegação SPA (single page) ou JavaScript para trocar de página
+Se a troca de páginas for feita via JavaScript (fetch, AJAX, ou manipulação de DOM sem recarregar), adicionar window.scrollTo(0, 0) em TODA função que faz a troca de página ou conteúdo.
+Localizar todos os event listeners de clique nos links de navegação e garantir que incluam window.scrollTo(0, 0) após a troca de conteúdo.
+Verificação
+Aplicar a correção e verificar que:
+
+Clicar em "Sobre" no menu leva ao topo da página Sobre
+Clicar em "Serviços" no menu leva ao topo da página Serviços
+Clicar em "Contato" no menu leva ao topo da página Contato
+Clicar no logo ou "Home" leva ao topo da página inicial
+Clicar em qualquer link interno (botões de CTA, links do footer, links rápidos) que leve para outra página também abre no topo
+Funciona independentemente de onde o usuário estava na página anterior (meio, final, qualquer posição)
+
+
+REGRAS
+
+NÃO alterar layout
+NÃO alterar design
+NÃO alterar textos
+NÃO alterar cores ou tipografia
+NÃO remover funcionalidades
+APENAS corrigir o comportamento de scroll entre páginas
