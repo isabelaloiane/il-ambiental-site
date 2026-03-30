@@ -48,10 +48,10 @@ export function Sobre() {
         <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>Nossa História</span>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", color: "#2C1A0E", lineHeight: 1.2, margin: 0, marginBottom: 24 }}>Uma consultoria feita por quem vive o Pará.</h2>
         <p style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, marginBottom: 20, marginTop: 0 }}>
-          A IL nasceu em 2020 com um propósito: tornar o licenciamento ambiental no Pará mais ágil, transparente e acessível. Combinamos rigor técnico com atendimento próximo, porque cada empresa tem suas particularidades — e merece uma solução sob medida.
+          A IL nasceu em 2020 com um propósito: tornar o licenciamento ambiental no Pará mais ágil, transparente e acessível. Combinamos rigor técnico com atendimento próximo, porque cada empresa tem suas particularidades e merece uma solução sob medida.
         </p>
         <p style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, margin: 0 }}>
-          Com foco exclusivo no estado do Pará, dominamos o contexto regulatório local: os prazos da SEMAS-PA, as exigências do IBAMA regional, e as particularidades de cada setor produtivo. O resultado? Menos erros, menos idas e vindas aos órgãos, e um caminho mais curto até a sua licença.
+          Com foco exclusivo no estado do Pará, dominamos o contexto regulatório local: os prazos da SEMAS-PA, as exigências do IBAMA regional e dos demais órgãos ambientais competentes, e as particularidades de cada setor produtivo. O resultado? Menos erros, menos idas e vindas aos órgãos, e um caminho mais curto até a sua licença.
         </p>
       </section>
 
@@ -61,7 +61,7 @@ export function Sobre() {
         <h2 style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#2C1A0E", margin: 0, marginBottom: 32 }}>O que nos diferencia</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {[
-            { icon: "🌿", title: "Especialização Regional", desc: "Conhecemos as exigências da SEMAS-PA e do IBAMA regional em profundidade. O resultado: menos erros, menos atrasos.", dark: true },
+            { icon: "🌿", title: "Especialização Regional", desc: "Conhecemos as exigências da SEMAS-PA, do IBAMA regional e dos demais órgãos ambientais em profundidade. O resultado: menos erros, menos atrasos.", dark: true },
             { icon: "⚡", title: "Agilidade no Processo", desc: "Documentação correta desde o início significa menos idas e vindas aos órgãos. Resposta em 24h.", dark: true },
             { icon: "👥", title: "Atendimento Personalizado", desc: "Cada cliente tem uma realidade diferente. Estudamos seu empreendimento antes de propor qualquer solução.", dark: false },
             { icon: "📊", title: "Rigor Técnico", desc: "Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos.", dark: false },
@@ -87,7 +87,7 @@ export function Sobre() {
             <div style={{ position: "relative", zIndex: 1 }}>
               <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(223,196,159,0.55)", fontWeight: 600 }}>Nossa Missão</span>
               <p style={{ fontSize: "1.05rem", color: "#DFC49F", lineHeight: 1.75, marginTop: 16, marginBottom: 0 }}>
-                Garantir que empresas de todos os portes operem em conformidade ambiental no Pará — com eficiência, segurança jurídica e sem burocracia desnecessária.
+                Garantir que empresas de todos os portes operem em conformidade ambiental no Pará, com eficiência, segurança jurídica e sem burocracia desnecessária.
               </p>
             </div>
           </div>
@@ -96,7 +96,7 @@ export function Sobre() {
             <div style={{ position: "relative", zIndex: 1 }}>
               <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600 }}>Nossa Visão</span>
               <p style={{ fontSize: "1.05rem", color: "#2C1A0E", lineHeight: 1.75, marginTop: 16, marginBottom: 0 }}>
-                Ser a primeira escolha em consultoria ambiental no Pará — reconhecida pelo rigor técnico, pela agilidade e pelo impacto positivo nas operações dos nossos clientes.
+                Ser a primeira escolha em consultoria ambiental no Pará, reconhecida pelo rigor técnico, pela agilidade e pelo impacto positivo nas operações dos nossos clientes.
               </p>
             </div>
           </div>

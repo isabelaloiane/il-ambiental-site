@@ -1,0 +1,45 @@
+Faça as seguintes alterações de texto no site existente. NÃO altere layout, estrutura HTML, design, cores, tipografia ou funcionalidades. Altere APENAS os textos conforme descrito abaixo.
+
+1. REMOÇÃO DE TRAÇOS EM TODO O SITE
+Percorra TODAS as páginas do site (index.html, sobre.html, servicos.html, contato.html) e substitua TODOS os traços longos (—) por pontuação adequada: vírgula (,), ponto (.) ou ponto e vírgula (;), conforme o que mantiver a leitura mais natural e profissional em cada frase.
+Exemplos de como aplicar:
+"do início à emissão da licença — para que sua empresa" → "do início à emissão da licença, para que sua empresa"
+"sem atrasos e sem surpresas nos órgãos." Se houver trecho com traço, ajustar da mesma forma.
+Fazer isso em headlines, subheadlines, descrições de cards, textos de seções, FAQ, CTAs, microcopy, footer. Nenhum traço longo (—) deve permanecer em nenhuma página do site.
+
+2. AJUSTE DE TEXTO SOBRE ÓRGÃOS AMBIENTAIS
+Em TODAS as páginas, onde estiver mencionado "SEMAS-PA, IBAMA e SEMMA" (ou variações como "SEMAS-PA e IBAMA", "SEMAS-PA, IBAMA e SEMMA"), complementar o texto de forma natural para indicar que existem outros órgãos envolvidos.
+Regra: manter os órgãos principais citados e adicionar ", entre outros órgãos ambientais competentes" ou "e demais órgãos ambientais competentes" ao final da menção, conforme a frase permitir.
+Exemplos de como aplicar:
+"junto à SEMAS-PA, IBAMA e SEMMA" → "junto à SEMAS-PA, IBAMA, SEMMA e demais órgãos ambientais competentes"
+"processos da SEMAS-PA, IBAMA regional e SEMMA" → "processos da SEMAS-PA, IBAMA regional, SEMMA e demais órgãos competentes"
+"exigências da SEMAS-PA e do IBAMA regional" → "exigências da SEMAS-PA, do IBAMA regional e dos demais órgãos ambientais"
+Aplicar em todas as ocorrências em todas as páginas. Manter o texto claro, técnico e profissional. Não deixar frases longas ou redundantes.
+
+3. SEÇÃO "EMPRESAS QUE CONFIAM NA IL" (index.html)
+Localizar a seção de clientes com os cards de Tropoc e Fruta Pronta.
+No card do Tropoc:
+
+Remover a linha "Gestão ambiental contínua desde 2022"
+Manter apenas: "Tropoc" como nome e "Multinacional atuante no beneficiamento da pimenta-do-reino" como descrição
+
+No card da Fruta Pronta:
+
+Remover a linha "Licenciamento completo para operação em Portel-PA"
+Manter apenas: "Fruta Pronta" como nome e "Empresa de Portel, Pará, produtora de açaí em polpa" como descrição
+
+Não incluir nenhuma descrição de serviços prestados pela IL a esses clientes.
+
+4. FAQ — PERGUNTA SOBRE TEMPO DE LICENCIAMENTO (contato.html)
+Localizar a pergunta "Quanto tempo leva um licenciamento ambiental?" na seção de FAQ.
+Trocar a resposta atual (que contém prazos como "30 a 180 dias") para:
+"O prazo varia conforme o tipo de licença, o órgão ambiental responsável e a complexidade do empreendimento. Com a documentação correta desde o início, é possível evitar atrasos e retrabalhos. Nossa equipe orienta cada caso de forma personalizada para garantir o andamento mais ágil possível."
+
+REGRAS
+
+Não alterar layout
+Não alterar estrutura HTML
+Não alterar design
+Não alterar cores ou tipografia
+Não alterar funcionalidades
+Apenas modificar textos exatamente conforme descrito acima

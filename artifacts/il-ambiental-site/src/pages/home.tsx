@@ -20,7 +20,7 @@ export function Home() {
             <span style={{ color: "#DFC49F" }}>Pará</span> pode parar amanhã.
           </h1>
           <p className="fade-2" style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", color: "rgba(223,196,159,0.8)", fontWeight: 400, maxWidth: 560, lineHeight: 1.75, marginTop: 20 }}>
-            A IL Ambiental conduz seu licenciamento junto à SEMAS-PA, IBAMA e SEMMA do início à emissão da licença — para que sua empresa opere legalmente, sem atrasos e sem surpresas nos órgãos.
+            A IL Ambiental conduz seu licenciamento junto à SEMAS-PA, IBAMA, SEMMA e demais órgãos ambientais competentes, do início à emissão da licença, para que sua empresa opere legalmente, sem atrasos e sem surpresas.
           </p>
           <div className="fade-3" style={{ display: "flex", gap: 14, marginTop: 36, flexWrap: "wrap" }}>
             <Link href="/contato" className="btn-primary">Fale com um especialista</Link>
@@ -60,7 +60,7 @@ export function Home() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
             {[
-              { icon: "📄", title: "Licenciamento Ambiental", desc: "Obtemos LP, LI e LO junto à SEMAS-PA e IBAMA com agilidade. Você foca no negócio, nós resolvemos a burocracia." },
+              { icon: "📄", title: "Licenciamento Ambiental", desc: "Obtemos LP, LI e LO junto à SEMAS-PA, IBAMA e demais órgãos ambientais com agilidade. Você foca no negócio, nós resolvemos a burocracia." },
               { icon: "📊", title: "Gestão Ambiental", desc: "Implantamos e operamos seu SGA para que sua empresa atenda condicionantes sem improvisos e sem multas." },
               { icon: "🌿", title: "Consultoria Estratégica", desc: "Assessoria para adequação a ESG e padrões internacionais. Ideal para empresas que buscam investidores ou certificações." },
               { icon: "🔬", title: "Monitoramento Ambiental", desc: "Monitoramento de fauna, flora, água e ar com relatórios técnicos aceitos pelos órgãos. Periodicidade garantida." },
@@ -89,7 +89,7 @@ export function Home() {
           <div style={{ maxWidth: 480 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Nossa História</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0, color: "#DFC49F" }}>
-              Porque quem conhece o contexto regulatório local resolve mais rápido — e sem retrabalho.
+              Porque quem conhece o contexto regulatório local resolve mais rápido, sem retrabalho.
             </h2>
             <p style={{ color: "rgba(223,196,159,0.78)", fontSize: "1.05rem", lineHeight: 1.75, marginTop: 20, marginBottom: 24 }}>
               A IL Engenharia e Consultoria Ambiental nasceu com a missão de harmonizar o desenvolvimento industrial com a vasta biodiversidade da região amazônica.
@@ -105,7 +105,7 @@ export function Home() {
             <h3 style={{ fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", borderBottom: "1px solid rgba(181,137,94,0.25)", paddingBottom: 16, marginBottom: 28 }}>Por que empresas no Pará escolhem a IL</h3>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 20 }}>
               {[
-                { title: "Conhecimento Local Profundo", desc: "Conhecemos pessoalmente os processos da SEMAS-PA, IBAMA regional e SEMMA. Isso elimina idas e vindas que atrasam seu licenciamento." },
+                { title: "Conhecimento Local Profundo", desc: "Conhecemos pessoalmente os processos da SEMAS-PA, IBAMA regional, SEMMA e demais órgãos competentes. Isso elimina idas e vindas que atrasam seu licenciamento." },
                 { title: "Relacionamento Direto com os Órgãos", desc: "Dialogamos tecnicamente com fiscalizadores e analistas. Seu processo tramita com transparência e sem ruído." },
                 { title: "Gestão Integrada", desc: "Enxergamos seu empreendimento como um sistema: ambiental, jurídico, social e econômico. Nada fica de fora." },
                 { title: "Foco em Resultado", desc: "Não vendemos relatórios. Entregamos licenças emitidas, condicionantes cumpridas e operações regularizadas." },
@@ -132,15 +132,14 @@ export function Home() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 680, margin: "0 auto" }}>
             {[
-              { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino", tag: "Gestão ambiental contínua desde 2022" },
-              { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa", tag: "Licenciamento completo para operação em Portel-PA" },
+              { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino" },
+              { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa" },
             ].map((c, i) => (
               <div key={i} className="hover-card" style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
                 <div style={{ width: 52, height: 52, background: "#734120", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", color: "#DFC49F", fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", flexShrink: 0 }}>{c.initials}</div>
                 <div>
                   <h4 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.1rem", marginBottom: 6 }}>{c.name}</h4>
                   <p style={{ color: "#8C7B6B", fontSize: "0.875rem", lineHeight: 1.55, margin: 0 }}>{c.desc}</p>
-                  <p style={{ color: "#B5895E", fontSize: "0.78rem", lineHeight: 1.5, margin: "8px 0 0", fontWeight: 500 }}>{c.tag}</p>
                 </div>
               </div>
             ))}

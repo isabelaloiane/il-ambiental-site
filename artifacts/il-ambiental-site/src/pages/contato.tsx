@@ -133,7 +133,7 @@ export function Contato() {
                 {
                   icon: "📍", label: "Localização",
                   main: <span>Belém, Pará, Brasil</span>,
-                  sub: "Belém, PA — com atendimento em todo o estado"
+                  sub: "Belém, PA. Atendimento em todo o estado"
                 },
                 {
                   icon: "🕐", label: "Horário",
@@ -172,7 +172,7 @@ export function Contato() {
               Da capital ao interior: presença em todo o Pará
             </h2>
             <p style={{ fontSize: "0.95rem", color: "rgba(223,196,159,0.7)", lineHeight: 1.7, marginTop: 14, maxWidth: 400, marginBottom: 0 }}>
-              Atendemos empresas em mais de 40 municípios do Pará. Conhecemos o contexto regulatório de cada região — da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
+              Atendemos empresas em mais de 40 municípios do Pará. Conhecemos o contexto regulatório de cada região, da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
             </p>
           </div>
           <div style={{ flex: "1 1 160px", textAlign: "center" }}>
@@ -191,12 +191,12 @@ export function Contato() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 960, margin: "0 auto" }}>
           {[
-            { q: "Quanto tempo leva um licenciamento ambiental?", a: "Depende do tipo de licença e do órgão. Em geral, de 30 a 180 dias. Com a documentação correta desde o início, reduzimos significativamente esse prazo. Fale conosco para uma estimativa." },
+            { q: "Quanto tempo leva um licenciamento ambiental?", a: "O prazo varia conforme o tipo de licença, o órgão ambiental responsável e a complexidade do empreendimento. Com a documentação correta desde o início, é possível evitar atrasos e retrabalhos. Nossa equipe orienta cada caso de forma personalizada para garantir o andamento mais ágil possível." },
             { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção." },
             { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto." },
             { q: "O que é ESG e por que minha empresa precisa?", a: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar." },
             { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário." },
-            { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial — sem custo e sem compromisso." },
+            { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial, sem custo e sem compromisso." },
           ].map((faq, i) => (
             <div key={i} className="hover-card" style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(69,40,22,0.06)" }}>
               <h3 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "0.95rem", margin: 0 }}>{faq.q}</h3>

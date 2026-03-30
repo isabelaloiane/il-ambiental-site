@@ -50,13 +50,13 @@ export function Servicos() {
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Nossos Serviços</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
-            <p style={{ color: "#8C7B6B", maxWidth: 520, margin: "12px auto 0", lineHeight: 1.65 }}>Da licença prévia à operação contínua — cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
+            <p style={{ color: "#8C7B6B", maxWidth: 520, margin: "12px auto 0", lineHeight: 1.65 }}>Da licença prévia à operação contínua: cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
             {[
               {
                 title: "Licenciamento Ambiental",
-                desc: "Da DLA à LO, cuidamos de cada etapa junto à SEMAS-PA e ao IBAMA para que sua empresa opere dentro da lei, sem atrasos.",
+                desc: "Da DLA à LO, cuidamos de cada etapa junto à SEMAS-PA, ao IBAMA e demais órgãos ambientais competentes para que sua empresa opere dentro da lei, sem atrasos.",
                 items: ["Dispensa de Licenciamento (DLA)", "Licença Prévia (LP)", "Licença de Instalação (LI)", "Licença de Operação (LO)", "Licença de Regularização Ambiental (LAR)"],
                 highlight: false
               },
@@ -108,7 +108,7 @@ export function Servicos() {
               Empresas sem licença ambiental estão sujeitas a multas, embargo e paralisação das atividades. Não espere a notificação chegar. Regularize agora.
             </p>
             <Link href="/contato" className="btn-light" style={{ marginTop: 28, display: "inline-flex" }}>
-              Quero evitar multas — falar com especialista
+              Quero evitar multas: falar com especialista
             </Link>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 18 }}>
               {["⚠ Multas de até R$ 50 milhões", "🔒 Paralisação imediata", "⚖ Processo criminal para gestores"].map((r, i) => (
