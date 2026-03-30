@@ -12,8 +12,6 @@ export function Footer() {
                 src="/logo-horizontal.png"
                 alt="IL Engenharia e Consultoria Ambiental"
                 className="footer-logo-img"
-                height={36}
-                style={{ height: 36, width: "auto", display: "block", objectFit: "contain", borderRadius: 6 }}
                 loading="lazy"
               />
             </div>

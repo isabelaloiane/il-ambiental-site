@@ -21,8 +21,6 @@ export function Navbar() {
             src="/logo-principal.png"
             alt="IL Engenharia e Consultoria Ambiental"
             className="site-logo-img"
-            height={44}
-            style={{ height: 44, width: "auto", display: "block", objectFit: "contain" }}
             loading="eager"
           />
         </Link>

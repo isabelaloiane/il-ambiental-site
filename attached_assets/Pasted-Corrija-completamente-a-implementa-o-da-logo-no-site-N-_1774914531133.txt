@@ -1,0 +1,79 @@
+Corrija completamente a implementação da logo no site. NÃO altere textos, layout geral, estrutura do site ou identidade visual. Apenas corrija a exibição da logo.
+
+PASSO 1: LOCALIZAR A LOGO CORRETA
+Abra a pasta /assets e localize o arquivo de logo principal em formato PNG. Priorize o arquivo PNG com maior resolução e fundo transparente. Se existirem múltiplos arquivos de logo, usar o arquivo principal (geralmente o maior, com fundo transparente, sem texto "submarca" ou "ícone" no nome). NÃO usar JPG se existir versão PNG.
+Liste todos os arquivos de imagem na pasta /assets para identificar o correto antes de prosseguir.
+
+PASSO 2: REMOVER A LOGO ATUAL INCORRETA
+No header de TODAS as páginas (index.html, sobre.html, servicos.html, contato.html), remover completamente a imagem de logo atual. Remover o elemento img, qualquer div ou container que esteja envolvendo a logo de forma inadequada (como cards, caixas coloridas ou elementos decorativos), e qualquer CSS inline associado à logo antiga.
+
+PASSO 3: INSERIR A LOGO CORRETA NO HEADER
+Em TODAS as páginas, inserir a logo PNG correta no header com as seguintes especificações:
+html<a href="index.html" class="logo-link">
+  <img src="/assets/NOME-DO-ARQUIVO-CORRETO.png" alt="IL Engenharia e Consultoria Ambiental" class="site-logo">
+</a>
+Substituir NOME-DO-ARQUIVO-CORRETO.png pelo nome exato do arquivo encontrado no Passo 1.
+Posicionar a logo alinhada à esquerda, como primeiro elemento dentro do header/navbar, antes dos links de navegação.
+
+PASSO 4: CSS DA LOGO
+Adicionar ou atualizar o CSS da logo com estas regras:
+css.site-logo {
+  height: 50px;
+  width: auto;
+  max-height: 60px;
+  min-height: 40px;
+  object-fit: contain;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+Se o header atual usa flexbox, garantir que a logo e a navegação estejam no mesmo container flex com justify-content: space-between e align-items: center.
+No mobile (media query abaixo de 768px), a logo pode ser reduzida:
+css@media (max-width: 768px) {
+  .site-logo {
+    height: 40px;
+    max-height: 48px;
+  }
+}
+
+PASSO 5: LOGO NO FOOTER
+Verificar se existe uma logo no footer de todas as páginas. Se existir, aplicar a mesma correção: substituir pela logo PNG correta da pasta /assets.
+No footer, a logo deve ser menor:
+cssfooter .site-logo,
+.footer-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+Se não existir logo no footer, não adicionar.
+
+PASSO 6: VERIFICAÇÕES FINAIS
+Confirmar que:
+
+A logo aparece nítida e legível no header de TODAS as 4 páginas
+O arquivo é PNG com fundo transparente (não JPG)
+Não há distorção, corte ou compressão visível
+A logo está alinhada à esquerda no header, na mesma linha dos links de navegação
+A logo NÃO está dentro de cards, caixas coloridas ou elementos decorativos
+O caminho do arquivo está correto e a imagem carrega sem erro 404
+A logo é clicável e leva para a página inicial (index.html)
+No mobile, a logo mantém proporção e legibilidade
+
+
+REGRAS
+
+NÃO usar placeholders ou imagens genéricas
+NÃO improvisar ou gerar uma logo
+USAR exclusivamente os arquivos da pasta /assets
+NÃO alterar textos
+NÃO alterar layout geral além do necessário para corrigir a logo
+NÃO alterar cores, tipografia ou identidade visual
+NÃO remover funcionalidades
