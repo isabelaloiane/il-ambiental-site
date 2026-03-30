@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <div style={{ marginBottom: 16 }}>
               <img
-                src="/logo-horizontal.png"
+                src="/logo-principal.png"
                 alt="IL Engenharia e Consultoria Ambiental"
                 className="footer-logo-img"
                 loading="lazy"

@@ -1,0 +1,95 @@
+Corrija completamente a implementação da logo no site. NÃO altere textos, layout geral, identidade visual ou estrutura das páginas. Apenas corrija a logo.
+
+PASSO 1: LOCALIZAR O ARQUIVO
+Na pasta /assets, localizar o arquivo chamado "Logo principal" (pode ter extensão .png, .jpg, .svg ou outra). O nome do arquivo contém as palavras "Logo principal". Esse é o ÚNICO arquivo a ser usado. Ignorar todos os outros arquivos de logo, ícone ou imagem da pasta /assets.
+Se o nome do arquivo contiver espaço (ex: "Logo principal.png"), garantir que o caminho no HTML use o nome exato do arquivo, com espaço codificado se necessário (ex: /assets/Logo%20principal.png ou /assets/Logo principal.png entre aspas).
+
+PASSO 2: SUBSTITUIR A LOGO ATUAL
+Em TODAS as páginas do site (index.html, sobre.html, servicos.html, contato.html):
+
+Localizar o elemento de logo atual no header (pode ser img, div com background-image, svg inline ou qualquer outro elemento)
+Remover completamente o elemento de logo atual
+Remover qualquer container, card, caixa colorida ou elemento decorativo que esteja envolvendo a logo de forma inadequada
+Substituir por:
+
+html<a href="index.html" class="logo-link">
+  <img src="/assets/Logo principal.png" alt="IL Engenharia e Consultoria Ambiental" class="site-logo">
+</a>
+IMPORTANTE: Ajustar o atributo src para o nome exato do arquivo encontrado no Passo 1, com a extensão correta.
+
+PASSO 3: CSS DA LOGO
+Adicionar ou substituir o CSS da logo. Remover qualquer CSS antigo que estivesse aplicado à logo anterior.
+css.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-logo {
+  height: 55px;
+  width: auto;
+  max-height: 65px;
+  min-height: 40px;
+  object-fit: contain;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    height: 42px;
+    max-height: 50px;
+  }
+}
+Garantir que no header/navbar a logo esteja:
+
+Alinhada à esquerda
+Na mesma linha dos links de navegação
+Com altura proporcional ao header
+Sem distorção, sem corte, sem compressão
+
+Se o header usa flexbox, garantir:
+css.header, .navbar, nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+PASSO 4: LOGO NO FOOTER
+Se existir uma logo no footer, substituir também pelo mesmo arquivo "Logo principal" com tamanho reduzido:
+cssfooter .site-logo,
+.footer-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+Se não existir logo no footer, não adicionar.
+
+PASSO 5: VERIFICAÇÃO
+Confirmar que:
+
+A logo aparece nítida e claramente legível no header de TODAS as 4 páginas
+O arquivo usado é exclusivamente "Logo principal" da pasta /assets
+Nenhum outro arquivo de logo, ícone ou imagem está sendo usado no lugar
+Não há distorção, corte, compressão ou falta de nitidez
+A logo está alinhada à esquerda, proporcional ao header
+A logo NÃO está dentro de cards, caixas ou elementos decorativos
+A logo é clicável e leva para index.html
+No mobile a logo mantém proporção e legibilidade
+O caminho do arquivo está correto e a imagem carrega sem erro
+
+
+REGRAS
+
+USAR exclusivamente o arquivo "Logo principal" da pasta /assets
+NÃO usar nenhum outro arquivo de logo, ícone ou imagem
+NÃO usar versões antigas da logo
+NÃO escolher automaticamente outro arquivo
+NÃO usar placeholders ou imagens genéricas
+NÃO alterar textos
+NÃO alterar layout geral
+NÃO alterar identidade visual
+NÃO alterar estrutura das páginas
+NÃO remover funcionalidades

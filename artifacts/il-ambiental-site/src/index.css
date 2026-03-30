@@ -224,27 +224,24 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 
 .site-logo-img {
   display: block;
-  height: 50px;
+  height: 55px;
   width: auto;
-  max-height: 60px;
+  max-height: 65px;
   min-height: 40px;
   object-fit: contain;
-  border-radius: 50%;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
 
 .footer-logo-img {
   display: block;
-  height: 36px;
+  height: 32px;
   width: auto;
-  max-height: 44px;
   object-fit: contain;
-  opacity: 0.9;
 }
 
-@media (max-width: 767px) {
-  .site-logo-img { height: 40px; max-height: 48px; }
+@media (max-width: 768px) {
+  .site-logo-img { height: 42px; max-height: 50px; }
 }
 
 /* ===== WHATSAPP BUTTON (only allowed non-brand color) ===== */
