@@ -72,6 +72,10 @@ router.post("/contact", async (req, res) => {
 
   const { name, company, phone, message } = req.body as Record<string, unknown>;
 
+  console.log("[contact] Submission received — fields:", {
+    name: !!name, company: !!company, phone: !!phone, message: !!message,
+  });
+
   if (!String(name ?? "").trim() || !String(phone ?? "").trim() || !String(message ?? "").trim()) {
     res.status(400).json({
       success: false,
@@ -88,8 +92,10 @@ router.post("/contact", async (req, res) => {
   const emailUser = process.env.EMAIL_USER;
   const emailPass = process.env.EMAIL_PASS;
 
+  console.log("[contact] Credentials check — EMAIL_USER defined:", !!emailUser, "| EMAIL_PASS defined:", !!emailPass, "| EMAIL_PASS length:", emailPass?.length ?? 0);
+
   if (!emailUser || !emailPass) {
-    console.error("[contact] EMAIL_USER or EMAIL_PASS not configured in Secrets.");
+    console.error("[contact] Missing EMAIL_USER or EMAIL_PASS in environment.");
     res.status(500).json({
       success: false,
       message: "Erro de configuração no servidor. Entre em contato diretamente pelo WhatsApp.",
@@ -98,7 +104,9 @@ router.post("/contact", async (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: { user: emailUser, pass: emailPass },
   });
 
@@ -131,16 +139,20 @@ router.post("/contact", async (req, res) => {
   `;
 
   try {
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Site IL Ambiental" <${emailUser}>`,
       to: "contate.ilambiental@gmail.com",
       subject: `Nova mensagem do site — ${cleanName}`,
       html: htmlBody,
     });
 
+    console.log("[contact] E-mail enviado com sucesso. messageId:", info.messageId);
     res.json({ success: true, message: "E-mail enviado com sucesso" });
-  } catch (err) {
-    console.error("[contact] Error sending email:", err);
+  } catch (err: unknown) {
+    const error = err as { message?: string; code?: string; responseCode?: number; response?: string };
+    console.error("[contact] ERRO no envio:", error.message);
+    console.error("[contact] Código:", error.code, "| HTTP:", error.responseCode);
+    console.error("[contact] Resposta Gmail:", error.response);
     res.status(500).json({
       success: false,
       message: "Erro ao enviar mensagem. Tente novamente ou entre em contato pelo WhatsApp.",

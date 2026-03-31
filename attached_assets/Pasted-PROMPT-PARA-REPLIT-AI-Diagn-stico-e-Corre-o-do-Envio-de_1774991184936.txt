@@ -1,0 +1,197 @@
+PROMPT PARA REPLIT AI — Diagnóstico e Correção do Envio de E-mail do Formulário de Contato
+Você é um desenvolvedor full-stack especialista em debugging de integrações de e-mail com Node.js e Gmail.
+O formulário de contato do site foi configurado para enviar e-mails para contate.ilambiental@gmail.com usando Nodemailer + Gmail. A senha de app do Gmail foi criada e o secret EMAIL_PASS foi inserido no Replit. Mesmo assim, o formulário apresenta erro ao enviar.
+Sua tarefa é diagnosticar e corrigir o problema. NÃO altere layout, design, textos ou estrutura do site.
+
+FASE 1 — AUDITORIA COMPLETA
+1.1 Verificar Secrets do Replit
+
+Confirmar que os seguintes secrets existem:
+
+EMAIL_USER → deve conter contate.ilambiental@gmail.com
+EMAIL_PASS → deve conter a senha de app de 16 caracteres do Gmail
+
+
+Se EMAIL_USER não existir como secret, verificar se o e-mail está hardcoded no código
+Se estiver hardcoded, mover para secret OU garantir que o valor usado é exatamente contate.ilambiental@gmail.com
+IMPORTANTE: Verificar se os secrets estão configurados tanto no ambiente de desenvolvimento quanto no de deployment/produção. No Replit, secrets de desenvolvimento e de deploy podem ser configurações separadas. Se os secrets existem apenas em um dos ambientes, duplicar para ambos.
+
+1.2 Verificar o Backend — Endpoint de envio
+
+Localizar o endpoint que recebe os dados do formulário (ex: POST /api/contact, /api/send-email, /send, etc.)
+Confirmar que:
+
+O endpoint existe e está registrado corretamente no servidor
+Aceita Content-Type: application/json
+Faz parsing correto do body (express.json() ou equivalente está configurado)
+Os campos do formulário (name, company, phone, message) estão sendo lidos corretamente do request body
+
+
+
+1.3 Verificar o Transporter do Nodemailer
+Localizar a configuração do transporter e verificar se está exatamente assim:
+javascriptconst transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,    // ou 'contate.ilambiental@gmail.com'
+    pass: process.env.EMAIL_PASS     // senha de app de 16 caracteres
+  }
+});
+Problemas comuns a verificar:
+
+❌ host: 'smtp.gmail.com' com port e secure incorretos — se estiver usando host manual em vez de service: 'gmail', corrigir para:
+
+javascript  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true
+Ou simplesmente usar service: 'gmail' que já configura automaticamente
+
+❌ process.env.EMAIL_PASS retornando undefined — adicionar log temporário para verificar
+❌ Variável com nome diferente do secret (ex: código usa GMAIL_PASS mas secret é EMAIL_PASS)
+❌ Espaço em branco ou quebra de linha no valor do secret
+
+1.4 Verificar o código de envio do e-mail
+Localizar o transporter.sendMail() e confirmar que:
+
+O campo from contém contate.ilambiental@gmail.com
+O campo to contém contate.ilambiental@gmail.com
+Os campos subject e html/text estão montados corretamente
+Não há erro de sintaxe no template do e-mail
+O sendMail está dentro de um try/catch ou .then/.catch
+O erro real está sendo capturado e retornado na resposta (não engolido silenciosamente)
+
+1.5 Verificar o Frontend
+
+Localizar o código que faz o fetch ou axios.post para o endpoint
+Confirmar que:
+
+A URL do endpoint está correta (sem typo, sem barra faltando)
+O Content-Type: application/json está no header
+O body está sendo serializado com JSON.stringify()
+A resposta do backend está sendo lida corretamente
+Erros de rede estão sendo capturados no catch
+A mensagem de erro exibida ao usuário reflete o erro real (não um falso positivo)
+
+
+
+
+FASE 2 — ADICIONAR LOGGING DETALHADO (temporário para debug)
+Adicionar logs temporários no endpoint de envio para identificar exatamente onde falha:
+javascriptapp.post('/api/contact', async (req, res) => {
+  console.log('=== FORM SUBMISSION DEBUG ===');
+  console.log('1. Body recebido:', JSON.stringify(req.body));
+  console.log('2. EMAIL_USER definido:', !!process.env.EMAIL_USER);
+  console.log('3. EMAIL_PASS definido:', !!process.env.EMAIL_PASS);
+  console.log('4. EMAIL_PASS length:', process.env.EMAIL_PASS?.length);
+
+  try {
+    // ... código de envio existente ...
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('5. E-mail enviado com sucesso:', info.messageId);
+    res.json({ success: true, message: 'E-mail enviado com sucesso' });
+
+  } catch (error) {
+    console.error('5. ERRO no envio:', error.message);
+    console.error('   Código do erro:', error.code);
+    console.error('   Stack:', error.stack);
+    res.status(500).json({ success: false, message: 'Erro ao enviar mensagem', error: error.message });
+  }
+});
+
+FASE 3 — CORRIGIR OS PROBLEMAS ENCONTRADOS
+Com base no diagnóstico acima, aplicar as correções necessárias. Os problemas mais comuns são:
+Se EMAIL_PASS estiver undefined:
+
+Verificar nome exato do secret no Replit (case-sensitive)
+Se o secret está apenas em "Deployment Secrets", adicionar também em "Development Secrets" (ou vice-versa)
+Reiniciar o servidor após adicionar secrets
+
+Se o erro for de autenticação do Gmail:
+
+Confirmar que a senha de app tem exatamente 16 caracteres (sem espaços)
+Confirmar que a Verificação em Duas Etapas está ativa na conta Gmail
+Confirmar que a senha de app foi criada para "E-mail" (não para outro tipo de app)
+Regenerar a senha de app se necessário e atualizar o secret
+
+Se o erro for de conexão/timeout:
+
+Verificar se o Replit não está bloqueando conexões SMTP de saída
+Tentar usar service: 'gmail' em vez de configuração manual de host/port
+Se Gmail não funcionar no ambiente Replit, implementar alternativa com EmailJS ou Resend como fallback:
+Alternativa com EmailJS (client-side, sem backend):
+
+javascript  // Se Gmail/Nodemailer não funcionar no Replit, usar EmailJS como fallback
+  // 1. Criar conta gratuita em https://www.emailjs.com
+  // 2. Configurar service Gmail + template
+  // 3. Enviar direto do frontend
+Alternativa com Resend (API moderna de e-mail):
+javascript  // 1. Criar conta em https://resend.com (100 emails/dia grátis)
+  // 2. Obter API key
+  // 3. Salvar como secret RESEND_API_KEY
+  // 4. Usar no backend:
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from: 'Site IL Ambiental <onboarding@resend.dev>',
+      to: 'contate.ilambiental@gmail.com',
+      subject: `Nova mensagem do site — ${name}`,
+      html: emailHTML
+    })
+  });
+Se o endpoint não existir ou não estiver acessível:
+
+Criar ou corrigir a rota no servidor
+Garantir que express.json() middleware está ativo
+Verificar se o servidor está ouvindo na porta correta
+
+Se o frontend apontar para URL errada:
+
+Corrigir a URL do fetch para corresponder ao endpoint real
+Se o site roda em domínio diferente do backend, configurar CORS
+
+
+FASE 4 — GARANTIR FEEDBACK CORRETO AO USUÁRIO
+Após corrigir o problema:
+
+Sucesso: só exibir mensagem de sucesso se transporter.sendMail() resolver sem erro
+Erro: exibir mensagem de erro com texto útil (não apenas "Erro"), sugerindo WhatsApp como alternativa
+Sem falso positivo: nunca retornar { success: true } antes de confirmar que o e-mail foi enviado
+Loading state: botão deve mostrar "Enviando..." enquanto o processo acontece
+
+
+FASE 5 — TESTAR O ENVIO REAL
+Após aplicar todas as correções:
+
+Submeter o formulário com dados de teste:
+
+Nome: Teste Site
+Empresa: Teste Empresa
+Telefone: 91999999999
+Mensagem: Teste de envio do formulário
+
+
+Verificar nos logs do servidor se o e-mail foi enviado com sucesso (messageId presente)
+Confirmar que a mensagem de sucesso aparece no frontend
+Se possível, verificar a caixa de entrada de contate.ilambiental@gmail.com
+
+
+FASE 6 — LIMPEZA
+Após confirmar funcionamento:
+
+Remover ou reduzir os console.log de debug adicionados na Fase 2
+Manter apenas logs essenciais de erro para monitoramento
+Garantir que nenhuma credencial está exposta nos logs
+
+
+RELATÓRIO FINAL
+No final da execução, informar de forma objetiva e clara:
+=== RELATÓRIO DE CORREÇÃO ===
+PROBLEMA ENCONTRADO: [descrever exatamente qual era o problema]
+CORREÇÃO APLICADA: [descrever o que foi feito]
+STATUS ATUAL: [Funcionando / Ainda requer ação manual]
+PASSO MANUAL NECESSÁRIO: [Se houver, descrever exatamente o que a proprietária precisa fazer. Se não houver, informar "Nenhum"]
