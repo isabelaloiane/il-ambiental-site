@@ -72,10 +72,6 @@ router.post("/contact", async (req, res) => {
 
   const { name, company, phone, message } = req.body as Record<string, unknown>;
 
-  console.log("[contact] Submission received — fields:", {
-    name: !!name, company: !!company, phone: !!phone, message: !!message,
-  });
-
   if (!String(name ?? "").trim() || !String(phone ?? "").trim() || !String(message ?? "").trim()) {
     res.status(400).json({
       success: false,
@@ -91,8 +87,6 @@ router.post("/contact", async (req, res) => {
 
   const emailUser = process.env.EMAIL_USER;
   const emailPass = process.env.EMAIL_PASS;
-
-  console.log("[contact] Credentials check — EMAIL_USER defined:", !!emailUser, "| EMAIL_PASS defined:", !!emailPass, "| EMAIL_PASS length:", emailPass?.length ?? 0);
 
   if (!emailUser || !emailPass) {
     console.error("[contact] Missing EMAIL_USER or EMAIL_PASS in environment.");
