@@ -2,8 +2,10 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Home() {
+  useScrollAnimation();
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -11,7 +13,7 @@ export function Home() {
       {/* HERO */}
       <section
         className="hero-animated-bg"
-        style={{ minHeight: "90vh", padding: "120px 24px 100px", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}
+        style={{ minHeight: "60vh", padding: "90px 24px 48px", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}
       >
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,15,8,0.55)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 720, marginLeft: "clamp(24px, 8vw, 120px)" }}>
@@ -67,7 +69,7 @@ export function Home() {
               { icon: "📋", title: "Estudos de Impacto", desc: "EIA/RIMA, PCA, RCA e PRAD elaborados por especialistas. Documentação que resiste a qualquer auditoria." },
               { icon: "✅", title: "Conformidade Regulatória", desc: "Auditorias preventivas para manter suas licenças em dia e evitar notificações surpresa dos órgãos fiscalizadores." },
             ].map((svc, i) => (
-              <div key={i} className="hover-card" style={{ background: "#fff", padding: 28, borderRadius: 12, borderTop: "4px solid transparent", boxShadow: "0 2px 8px rgba(69,40,22,0.07)", cursor: "default", border: "1px solid rgba(181,137,94,0.18)", borderTopWidth: 4 }}
+              <div key={i} className="hover-card animate-on-scroll" style={{ background: "#fff", padding: 28, borderRadius: 12, borderTop: "4px solid transparent", boxShadow: "0 2px 8px rgba(69,40,22,0.07)", cursor: "default", border: "1px solid rgba(181,137,94,0.18)", borderTopWidth: 4 }}
                 onMouseOver={e => { (e.currentTarget.style.borderTopColor = "#734120"); }}
                 onMouseOut={e => { (e.currentTarget.style.borderTopColor = "transparent"); }}
               >
@@ -135,7 +137,7 @@ export function Home() {
               { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino" },
               { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa" },
             ].map((c, i) => (
-              <div key={i} className="hover-card" style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <div key={i} className="hover-card animate-on-scroll" style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
                 <div style={{ width: 52, height: 52, background: "#734120", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", color: "#DFC49F", fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", flexShrink: 0 }}>{c.initials}</div>
                 <div>
                   <h4 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.1rem", marginBottom: 6 }}>{c.name}</h4>

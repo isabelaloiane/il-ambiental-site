@@ -3,9 +3,12 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Contato() {
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  useScrollAnimation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -189,7 +192,7 @@ export function Contato() {
           <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Dúvidas frequentes</span>
           <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 960, margin: "0 auto" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 720, margin: "0 auto" }}>
           {[
             { q: "Quanto tempo leva um licenciamento ambiental?", a: "O prazo varia conforme o tipo de licença, o órgão ambiental responsável e a complexidade do empreendimento. Com a documentação correta desde o início, é possível evitar atrasos e retrabalhos. Nossa equipe orienta cada caso de forma personalizada para garantir o andamento mais ágil possível." },
             { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção." },
@@ -198,9 +201,18 @@ export function Contato() {
             { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário." },
             { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial, sem custo e sem compromisso." },
           ].map((faq, i) => (
-            <div key={i} className="hover-card" style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(69,40,22,0.06)" }}>
-              <h3 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "0.95rem", margin: 0 }}>{faq.q}</h3>
-              <p style={{ fontSize: "0.875rem", color: "#8C7B6B", lineHeight: 1.65, marginTop: 8, marginBottom: 0 }}>{faq.a}</p>
+            <div key={i} className="faq-accordion-item animate-on-scroll">
+              <button
+                className="faq-accordion-trigger"
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                aria-expanded={openFaq === i}
+              >
+                {faq.q}
+                <span className={`faq-accordion-arrow${openFaq === i ? " open" : ""}`}>▼</span>
+              </button>
+              <div className={`faq-accordion-body${openFaq === i ? " open" : ""}`}>
+                <div className="faq-accordion-body-inner">{faq.a}</div>
+              </div>
             </div>
           ))}
         </div>

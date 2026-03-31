@@ -2,8 +2,10 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Servicos() {
+  useScrollAnimation();
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -73,7 +75,7 @@ export function Servicos() {
                 highlight: true
               },
             ].map((svc, i) => (
-              <div key={i} className="hover-card" style={{
+              <div key={i} className="hover-card animate-on-scroll" style={{
                 background: svc.highlight ? "rgba(115,65,32,0.04)" : "#fff",
                 border: `1px solid ${svc.highlight ? "#734120" : "rgba(181,137,94,0.25)"}`,
                 borderLeft: svc.highlight ? "3px solid #734120" : "1px solid rgba(181,137,94,0.25)",

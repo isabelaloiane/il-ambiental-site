@@ -50,6 +50,25 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 
 ## Packages
 
+### `artifacts/il-ambiental-site` (`@workspace/il-ambiental-site`)
+
+React + Vite website for **IL Ambiental — Engenharia e Consultoria Ambiental** (Belém, Pará, Brazil).
+
+**Pages:** Home (`/`), Serviços (`/servicos`), Sobre (`/sobre`), Contato (`/contato`)
+
+**Brand palette:** beige #DFC49F, caramel #B5895E, brown #734120, dark-brown #452816, olive-green #4D5140, cream #F5F0E8
+
+**Key design decisions:**
+- `.btn-primary` → olive green (#4D5140), white text, 17px/44px padding, 8px border-radius
+- `.nav-link` → caramel hover underline (border-bottom: 2px solid #B5895E); `.nav-link-active` → brown underline
+- `.hover-card` → base shadow 0 2px 8px rgba(0,0,0,0.08); hover lifts with larger shadow
+- Scroll animations via `src/hooks/useScrollAnimation.ts` (IntersectionObserver, adds `is-visible` class)
+- FAQ on `/contato` is an interactive accordion (useState-driven, faq-accordion-* CSS classes)
+- Mobile ≤768px: 48px min-height buttons, 24px lateral padding, sections breathing room
+- Logos: `Logo_principal.png` (navbar, 55px desktop/42px mobile), `Logo_rodape.png` (footer, 32px)
+
+**Contact:** +55 91 99250-3317, contate.ilambiental@gmail.com, https://wa.me/5591992503317
+
 ### `artifacts/api-server` (`@workspace/api-server`)
 
 Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` for request and response validation and `@workspace/db` for persistence.

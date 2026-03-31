@@ -132,10 +132,11 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 
 /* ===== CARDS ===== */
 .hover-card {
-  transition: box-shadow var(--t-base), transform var(--t-base);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .hover-card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   transform: translateY(-4px);
 }
 
@@ -169,16 +170,23 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 }
 
 .btn-primary {
-  background: var(--brand-brown);
-  color: var(--brand-beige);
-  border-color: var(--brand-brown);
+  background: var(--brand-green);
+  color: #fff;
+  border-color: var(--brand-green);
+  padding: 17px 44px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(77, 81, 64, 0.3);
 }
 .btn-primary:hover {
-  background: var(--brand-brown-dark);
-  border-color: var(--brand-brown-dark);
+  background: #3c4031;
+  border-color: #3c4031;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  color: var(--brand-beige);
+  box-shadow: 0 4px 16px rgba(77, 81, 64, 0.45);
+  color: #fff;
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(77, 81, 64, 0.2);
 }
 
 .btn-outline {
@@ -212,6 +220,74 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 .btn-ghost:hover {
   background: rgba(223, 196, 159, 0.12);
   border-color: var(--brand-beige);
+}
+
+.btn-outline:active,
+.btn-light:active,
+.btn-ghost:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== SECTION LABELS ===== */
+.section-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--brand-caramel);
+  margin-bottom: 10px;
+}
+
+/* ===== FAQ ACCORDION ===== */
+.faq-accordion-item {
+  background: #fff;
+  border: 1px solid rgba(181,137,94,0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(69,40,22,0.06);
+}
+.faq-accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2C1A0E;
+  text-align: left;
+  transition: background var(--t-fast);
+}
+.faq-accordion-trigger:hover { background: rgba(181,137,94,0.06); }
+.faq-accordion-arrow {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: #B5895E;
+  transition: transform 0.3s ease;
+}
+.faq-accordion-arrow.open { transform: rotate(180deg); }
+.faq-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+.faq-accordion-body.open {
+  max-height: 400px;
+}
+.faq-accordion-body-inner {
+  padding: 0 24px 20px;
+  font-size: 0.875rem;
+  color: #8C7B6B;
+  line-height: 1.65;
+  border-top: 1px solid rgba(181,137,94,0.15);
+  padding-top: 16px;
 }
 
 /* ===== LOGO ===== */
@@ -333,10 +409,12 @@ input:focus, textarea:focus, select:focus {
   font-weight: 500;
   color: #2C1A0E;
   text-decoration: none;
-  transition: color 150ms ease;
+  transition: color 200ms ease, border-color 200ms ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
-.nav-link:hover,
-.nav-link-active { color: #734120; }
+.nav-link:hover { color: #B5895E; border-bottom-color: #B5895E; }
+.nav-link-active { color: #734120; border-bottom-color: #734120; }
 
 .nav-cta-btn {
   background: #734120;
@@ -547,6 +625,12 @@ input:focus, textarea:focus, select:focus {
 /* ===== SMALL MOBILE (< 480px) ===== */
 @media (max-width: 480px) {
   .site-nav-inner { padding: 0 16px; }
+
+  .btn-primary {
+    width: 100%;
+    font-size: 16px;
+    justify-content: center;
+  }
 }
 
 /* ===== MOBILE SPACING & BREATHING REFINEMENTS (≤ 768px) ===== */
@@ -581,7 +665,16 @@ input:focus, textarea:focus, select:focus {
     font-size: 16px;
   }
 
-  /* — Hero — */
+  /* — Buttons: touch-friendly — */
+  .btn-primary,
+  .btn-outline,
+  .btn-light,
+  .btn-ghost {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  /* — Hero CTA — */
   .hero-cta-group a,
   .hero-cta-group button {
     padding: 16px 24px;

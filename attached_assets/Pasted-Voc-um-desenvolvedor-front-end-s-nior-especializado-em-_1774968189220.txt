@@ -1,0 +1,208 @@
+Você é um desenvolvedor front-end sênior especializado em design systems premium e UX de alta conversão.
+Sua tarefa é aplicar refinamentos visuais em TODO o site (todas as páginas), mantendo a identidade visual atual. NÃO altere nenhum texto, copy ou conteúdo. Apenas ajuste propriedades visuais: cores, espaçamentos, sombras, tamanhos, hover states, hierarquia tipográfica e responsividade.
+
+PALETA DE REFERÊNCIA (não alterar, apenas usar onde indicado)
+
+Bege: #DFC49F
+Caramelo: #B5895E
+Marrom: #734120
+Marrom escuro: #452816
+Verde oliva: #4D5140
+
+
+BLOCO 1 — CTAs (PRIORIDADE MÁXIMA)
+1.1 Botão "Solicite uma avaliação" (e variantes de CTA primário)
+
+Mudar background-color para #4D5140 (verde oliva)
+Mudar color do texto para #FFFFFF
+Aumentar padding em 20% em relação ao valor atual
+Border-radius: 8px
+Adicionar box-shadow: 0 2px 8px rgba(77, 81, 64, 0.3)
+Aplicar em TODAS as páginas onde esse botão aparece
+
+1.2 Hover em TODOS os botões do site
+
+Adicionar transição: transition: all 0.3s ease
+No :hover:
+
+transform: translateY(-2px)
+box-shadow: 0 4px 16px rgba(0,0,0,0.15)
+Escurecer background-color em 10%
+
+
+No :active:
+
+transform: translateY(0)
+box-shadow: 0 2px 4px rgba(0,0,0,0.1)
+
+
+
+1.3 Hover em links de navegação
+
+Adicionar transition: color 0.2s ease
+No :hover: mudar cor para #B5895E (caramelo)
+Adicionar border-bottom: 2px solid transparent no estado normal
+No :hover: border-bottom-color: #B5895E
+
+
+BLOCO 2 — ELEVAÇÃO E PROFUNDIDADE (CARDS)
+2.1 Todos os cards do site (serviços, diferenciais, depoimentos, formulário)
+
+Adicionar box-shadow: 0 2px 8px rgba(0,0,0,0.08)
+Adicionar border-radius: 12px
+Adicionar transition: box-shadow 0.3s ease, transform 0.3s ease
+No :hover:
+
+box-shadow: 0 8px 24px rgba(0,0,0,0.12)
+transform: translateY(-4px)
+
+
+
+2.2 Card do formulário de contato
+
+Adicionar box-shadow: 0 4px 16px rgba(0,0,0,0.1)
+border-radius: 16px
+padding: 40px (desktop) / padding: 24px (mobile)
+
+
+BLOCO 3 — HIERARQUIA TIPOGRÁFICA
+3.1 Escala tipográfica (aplicar globalmente)
+
+h1: font-size: 48px (desktop) / 32px (mobile) — font-weight: 700
+h2: font-size: 36px (desktop) / 26px (mobile) — font-weight: 600
+h3: font-size: 24px (desktop) / 20px (mobile) — font-weight: 600
+body/p: font-size: 16px (desktop) / 15px (mobile) — font-weight: 400
+Garantir que H1 e H2 tenham diferença visual clara (mínimo 12px de diferença)
+
+3.2 Line-height do texto body
+
+Mudar line-height de parágrafos para 1.75
+Aplicar em todas as seções com texto descritivo (Sobre, Serviços, Contato)
+
+3.3 Section labels (subtítulos como "QUEM SOMOS", "NOSSOS SERVIÇOS")
+
+Aumentar font-size em 25% em relação ao valor atual
+Adicionar letter-spacing: 2px
+Manter text-transform: uppercase
+Cor: #B5895E (caramelo)
+
+
+BLOCO 4 — HERO SECTIONS
+4.1 Reduzir altura dos heroes em todas as páginas
+
+Mudar de ~80vh para min-height: 60vh (desktop)
+Mobile: min-height: 50vh
+Isso traz o CTA para mais acima da dobra
+
+4.2 Garantir que o CTA esteja sempre visível sem scroll
+
+Verificar que o botão principal aparece dentro da viewport inicial
+Se necessário, reduzir padding-top do conteúdo do hero
+
+
+BLOCO 5 — ESPAÇAMENTO E WHITESPACE
+5.1 Padronizar espaçamento entre seções
+
+Desktop: padding: 80px 0 para todas as seções
+Mobile: padding: 48px 0 para todas as seções
+Garantir consistência — todas as seções devem ter o mesmo espaçamento vertical
+
+5.2 Espaçamento interno dos cards
+
+Desktop: padding: 32px
+Mobile: padding: 20px
+
+5.3 Gap entre cards em grid
+
+Desktop: gap: 32px
+Mobile: gap: 20px
+
+
+BLOCO 6 — BADGES E DESTAQUES VISUAIS
+6.1 Destacar "Avaliação Gratuita" e "Resposta em 24h"
+
+Onde essas frases aparecem, envolvê-las em um badge visual:
+
+background-color: rgba(77, 81, 64, 0.1) (verde oliva transparente)
+color: #4D5140
+padding: 6px 16px
+border-radius: 20px
+font-weight: 600
+font-size: 14px
+Adicionar um ícone de check (✓) antes do texto via CSS ::before
+
+
+
+
+BLOCO 7 — MICRO-INTERAÇÕES E ANIMAÇÕES
+7.1 Fade-in nas seções ao scroll
+
+Adicionar animação de entrada para cada seção:
+
+Estado inicial: opacity: 0; transform: translateY(20px)
+Quando visível: opacity: 1; transform: translateY(0)
+transition: opacity 0.6s ease, transform 0.6s ease
+
+
+Usar IntersectionObserver para detectar quando a seção entra no viewport
+Aplicar em todas as seções exceto o hero (que já está visível)
+
+7.2 Cards com entrada escalonada (stagger)
+
+Cards em grid devem aparecer com delay sequencial:
+
+Card 1: transition-delay: 0s
+Card 2: transition-delay: 0.15s
+Card 3: transition-delay: 0.3s
+Card 4: transition-delay: 0.45s
+
+
+
+
+BLOCO 8 — REFINAMENTO MOBILE
+8.1 CTAs mobile
+
+min-height: 48px (mínimo para touch)
+font-size: 16px
+width: 100% em telas < 480px
+
+8.2 Cards mobile
+
+Largura: 100% (uma coluna)
+Margem lateral: 16px
+
+8.3 Botão WhatsApp flutuante
+
+Verificar que não cobre conteúdo importante
+Posição: bottom: 20px; right: 20px
+z-index: 999
+Tamanho: 56px × 56px
+
+
+BLOCO 9 — FAQ (SE EXISTIR)
+9.1 Accordion premium
+
+Adicionar transition: max-height 0.3s ease na abertura/fechamento
+Ícone de seta com transition: transform 0.3s ease (rotação 180° ao abrir)
+Separar itens com border-bottom: 1px solid rgba(0,0,0,0.08)
+Padding: 20px 0 por item
+
+
+REGRAS GERAIS
+
+NÃO altere nenhum texto, copy, título ou conteúdo
+Mantenha todas as fontes atuais (Poppins para corpo e títulos)
+Mantenha a paleta de cores atual — apenas use verde oliva para CTAs primários
+Todas as alterações devem funcionar em desktop E mobile
+Use CSS custom properties (variáveis) quando possível para consistência
+Teste todas as páginas: Home, Sobre, Serviços, Contato
+Mantenha a acessibilidade (contraste mínimo WCAG AA)
+
+
+ORDEM DE IMPLEMENTAÇÃO
+
+Primeiro: Bloco 1 (CTAs) + Bloco 2 (Sombras) — impacto visual imediato
+Segundo: Bloco 3 (Tipografia) + Bloco 5 (Espaçamento) — hierarquia e respiração
+Terceiro: Bloco 4 (Hero) + Bloco 6 (Badges) — conversão
+Quarto: Bloco 7 (Animações) + Bloco 8 (Mobile) — polish final
+Quinto: Bloco 9 (FAQ) — se aplicável

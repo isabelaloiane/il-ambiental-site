@@ -2,8 +2,10 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Sobre() {
+  useScrollAnimation();
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -66,7 +68,7 @@ export function Sobre() {
             { icon: "👥", title: "Atendimento Personalizado", desc: "Cada cliente tem uma realidade diferente. Estudamos seu empreendimento antes de propor qualquer solução.", dark: false },
             { icon: "📊", title: "Rigor Técnico", desc: "Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos.", dark: false },
           ].map((d, i) => (
-            <div key={i} className="hover-card" style={{
+            <div key={i} className="hover-card animate-on-scroll" style={{
               background: d.dark ? "#452816" : "#F5F0E8",
               borderRadius: 16, padding: 28, color: d.dark ? "#DFC49F" : "#2C1A0E",
               border: d.dark ? "none" : "1px solid rgba(181,137,94,0.25)"
@@ -115,7 +117,7 @@ export function Sobre() {
             { icon: "🤝", title: "Atendimento Humano", desc: "Processos ambientais geram ansiedade. Mantemos comunicação clara e proativa em cada etapa." },
             { icon: "🌿", title: "Compromisso Ambiental", desc: "Acreditamos que conformidade e desenvolvimento sustentável caminham juntos." },
           ].map((v, i) => (
-            <div key={i} className="hover-card" style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 16, padding: 32 }}>
+            <div key={i} className="hover-card animate-on-scroll" style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 16, padding: 32 }}>
               <div style={{ width: 48, height: 48, background: "rgba(115,65,32,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", marginBottom: 16 }}>{v.icon}</div>
               <h3 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.05rem", margin: 0, marginBottom: 10 }}>{v.title}</h3>
               <p style={{ fontSize: "0.875rem", color: "#8C7B6B", lineHeight: 1.65, margin: 0 }}>{v.desc}</p>
