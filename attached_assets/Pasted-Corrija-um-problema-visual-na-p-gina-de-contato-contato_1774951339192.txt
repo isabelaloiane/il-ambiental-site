@@ -1,0 +1,104 @@
+Corrija um problema visual na página de contato (contato.html) que ocorre APENAS no mobile. NÃO altere a versão desktop. NÃO altere textos, design, cores, tipografia ou layout geral.
+
+PROBLEMA
+Na versão mobile, o bloco branco da seção que vem logo após a hero section está subindo e cobrindo parte do texto da hero. A frase "Respondemos em até 24 horas." fica cortada ou invisível no celular. No desktop está correto.
+
+CORREÇÃO
+Localizar a hero section da página de contato e a seção imediatamente seguinte (o bloco branco com o seletor "Como prefere entrar em contato?" ou o formulário).
+Aplicar as seguintes correções APENAS dentro de media query para mobile:
+css@media (max-width: 768px) {
+
+  /* HERO DA PÁGINA DE CONTATO: garantir espaço suficiente para todo o texto */
+  .contact-hero,
+  .contato-hero,
+  .hero-contato,
+  .page-contato .hero,
+  .page-contact .hero {
+    padding-bottom: 60px;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  /* SEÇÃO SEGUINTE: impedir que suba sobre a hero */
+  .contact-hero + section,
+  .contact-hero + div,
+  .contato-hero + section,
+  .contato-hero + div,
+  .hero-contato + section,
+  .hero-contato + div {
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+  }
+}
+SE a sobreposição for causada por margin-top negativo na seção seguinte, remover ou reduzir esse margin-top negativo no mobile:
+css@media (max-width: 768px) {
+  /* Remover margin-top negativo que puxa a seção para cima */
+  .contact-form-section,
+  .contact-selector,
+  .contact-content,
+  .contact-hero + section,
+  .contact-hero + div,
+  .hero + section,
+  .hero + div {
+    margin-top: 0 !important;
+    transform: translateY(0) !important;
+  }
+}
+SE a sobreposição for causada por posição absoluta ou transform translateY negativo no bloco branco, corrigir no mobile:
+css@media (max-width: 768px) {
+  .contact-card,
+  .contact-selector-card,
+  .contact-preference,
+  [class*="contact-selector"],
+  [class*="preference"] {
+    position: relative;
+    top: auto;
+    transform: none;
+    margin-top: 0;
+  }
+}
+SE a hero tiver altura fixa (height) que está cortando o conteúdo no mobile, trocar por min-height:
+css@media (max-width: 768px) {
+  /* Trocar altura fixa por mínima para permitir que o conteúdo defina a altura */
+  .contact-hero,
+  .contato-hero,
+  .hero-contato,
+  .page-contato .hero,
+  .page-contact .hero {
+    height: auto;
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+}
+
+INVESTIGAÇÃO ADICIONAL
+Inspecionar o CSS atual e identificar a causa exata da sobreposição. As causas mais comuns são:
+
+margin-top negativo na seção seguinte (para criar efeito de sobreposição no desktop)
+transform: translateY() negativo no bloco branco
+position: absolute ou relative com top negativo
+height fixa na hero que não comporta o conteúdo no mobile
+overflow: hidden na hero cortando o texto
+
+Qualquer uma dessas propriedades deve ser neutralizada no mobile para que o texto fique 100% visível.
+
+VERIFICAÇÃO
+Confirmar que no mobile (tela de 375px):
+
+O título "Fale com quem entende de licenciamento no Pará." aparece completo
+O subtítulo "Tire suas dúvidas, peça um orçamento ou solicite uma avaliação gratuita. Respondemos em até 24 horas." aparece completo, incluindo "Respondemos em até 24 horas."
+Nenhum bloco branco cobre ou corta qualquer texto da hero
+Existe espaçamento visível entre o final da hero e o início da próxima seção
+A versão desktop permanece inalterada
+
+
+REGRAS
+
+Corrigir APENAS no mobile (dentro de media query)
+NÃO alterar a versão desktop
+NÃO alterar textos
+NÃO alterar design ou cores
+NÃO remover seções
+NÃO redesenhar a página

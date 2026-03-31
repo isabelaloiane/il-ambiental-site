@@ -17,7 +17,7 @@ export function Contato() {
       <Navbar />
 
       {/* HERO */}
-      <section style={{
+      <section className="contact-hero-section" style={{
         height: 320,
         display: "flex", alignItems: "center", justifyContent: "center",
         padding: "80px 24px",
@@ -35,7 +35,7 @@ export function Contato() {
 
       {/* FLOATING ACTION CARD */}
       <section style={{ padding: "0 24px" }}>
-        <div style={{
+        <div className="contact-float-card" style={{
           maxWidth: 720, margin: "-64px auto 0", position: "relative", zIndex: 10,
           background: "#fff", borderRadius: 16, boxShadow: "0 16px 48px rgba(69,40,22,0.14)",
           padding: "48px 40px", textAlign: "center"
