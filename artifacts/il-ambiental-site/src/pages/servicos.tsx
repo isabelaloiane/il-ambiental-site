@@ -60,25 +60,21 @@ export function Servicos() {
                 title: "Licenciamento Ambiental",
                 desc: "Da DLA à LO, cuidamos de cada etapa junto à SEMAS-PA, ao IBAMA e demais órgãos ambientais competentes para que sua empresa opere dentro da lei, sem atrasos.",
                 items: ["Dispensa de Licenciamento (DLA)", "Licença Prévia (LP)", "Licença de Instalação (LI)", "Licença de Operação (LO)", "Licença de Regularização Ambiental (LAR)"],
-                highlight: false
               },
               {
                 title: "Estudos e Relatórios Técnicos",
                 desc: "Documentação técnica que atende as exigências dos órgãos fiscalizadores na primeira tentativa. Elaborada por especialistas.",
                 items: ["Relatório de Informação Ambiental Anual (RIAA)", "PDITS: Plano de Turismo Sustentável", "Relatório de Controle Ambiental (RCA)", "Relatório Ambiental Preliminar (RAP)", "Condicionantes Ambientais", "Certificação Ambiental"],
-                highlight: false
               },
               {
                 title: "Consultoria e Gestão Ambiental",
                 desc: "Gestão ambiental completa: ESG, resíduos, monitoramento e regularização fundiária. Do planejamento à execução contínua.",
                 items: ["Implantação de práticas de ESG", "Plano de Gerenciamento de Resíduos Sólidos (PGRS)", "Cadastro Ambiental Rural (CAR) e regularização fundiária", "Monitoramento e recuperação de áreas degradadas"],
-                highlight: true
               },
             ].map((svc, i) => (
               <div key={i} className="hover-card animate-on-scroll" style={{
-                background: svc.highlight ? "rgba(115,65,32,0.04)" : "#fff",
-                border: `1px solid ${svc.highlight ? "#734120" : "rgba(181,137,94,0.25)"}`,
-                borderLeft: svc.highlight ? "3px solid #734120" : "1px solid rgba(181,137,94,0.25)",
+                background: "#fff",
+                border: "1px solid rgba(181,137,94,0.25)",
                 borderRadius: 12,
                 padding: 32,
                 boxShadow: "0 2px 12px rgba(69,40,22,0.07)"

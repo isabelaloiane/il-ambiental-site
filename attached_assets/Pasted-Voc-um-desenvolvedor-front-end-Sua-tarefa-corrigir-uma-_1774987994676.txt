@@ -1,0 +1,67 @@
+Você é um desenvolvedor front-end. Sua tarefa é corrigir uma inconsistência visual nos cards da página de Serviços.
+NÃO altere textos, layout, cores gerais, tipografia ou estrutura do site. Apenas corrija a inconsistência descrita abaixo.
+
+PROBLEMA
+Na página de Serviços, existem três cards. O card "Consultoria e Gestão Ambiental" apresenta uma borda marrom visível permanente, como se estivesse selecionado ou em estado ativo. Os outros dois cards não possuem essa borda. Isso cria uma inconsistência visual.
+
+INSTRUÇÕES
+1. Localizar os três cards da seção de serviços
+
+Identificar todos os cards/containers da seção de serviços na página
+Mapear as classes CSS, IDs e estilos inline de cada card
+
+2. Identificar a origem da borda no card "Consultoria e Gestão Ambiental"
+Verificar todas as possíveis causas:
+
+Classe CSS diferente aplicada apenas nesse card (ex: .active, .selected, .highlighted, .featured)
+Estilo inline (style="border: ...") aplicado diretamente no HTML
+Pseudo-classes CSS (:first-child, :nth-child, :focus, :active) que estejam aplicando borda
+Variável CSS ou propriedade condicional que afete apenas esse card
+Estado JavaScript que adicione classe ou estilo dinamicamente
+
+3. Remover o estilo diferenciado
+
+Remover qualquer border, border-color, outline ou box-shadow que esteja aplicado exclusivamente ao card "Consultoria e Gestão Ambiental"
+Se houver uma classe especial (como .active, .selected, .featured), removê-la do HTML desse card
+Se houver estilo inline, removê-lo
+
+4. Padronizar todos os cards
+Após a remoção, garantir que todos os três cards compartilhem exatamente:
+
+Mesma border (ou ausência de borda)
+Mesma border-radius
+Mesmo box-shadow
+Mesmo background-color
+Mesmo padding
+Mesma transition
+
+5. Padronizar hover em todos os cards
+Se houver efeito :hover em algum card, aplicar igualmente a todos:
+css.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  /* mesmo efeito para todos — usar os valores que já existem no projeto */
+}
+Garantir que:
+
+O efeito de hover só aconteça ao passar o mouse
+Nenhum card tenha estado :active, :focus ou classe fixa que simule hover permanente
+Ao tirar o mouse, o card volta ao estado padrão
+
+6. Verificar estados JavaScript
+
+Procurar em arquivos JS/JSX/TSX por lógica que adicione classes condicionais aos cards
+Se houver algo como className={activeCard === 0 ? 'active' : ''} ou style={index === 0 ? {border: '...'} : {}}, remover essa diferenciação
+Nenhum card deve ter estado visual diferenciado por padrão
+
+
+CHECKLIST FINAL
+
+✅ O card "Consultoria e Gestão Ambiental" não tem mais borda/destaque permanente
+✅ Todos os três cards têm aparência visual idêntica no estado padrão
+✅ O efeito hover (se existir) é igual em todos os cards
+✅ Nenhum card parece selecionado ou ativo sem interação do usuário
+✅ Nenhum texto, layout ou estrutura foi alterado
+✅ O design permanece elegante e consistente
