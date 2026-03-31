@@ -18,7 +18,7 @@ export function Navbar() {
       <div className="site-nav-inner">
         <Link href="/" className="site-logo" aria-label="IL Engenharia e Consultoria Ambiental" onClick={close}>
           <img
-            src="/logo-principal.png"
+            src="/Logo_principal.png"
             alt="IL Engenharia e Consultoria Ambiental"
             className="site-logo-img"
             loading="eager"

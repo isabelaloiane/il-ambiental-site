@@ -1,0 +1,92 @@
+O arquivo de logo foi atualizado na pasta /assets. O novo arquivo se chama "Logo_principal" (com underline, sem espaço). A versão anterior foi removida. O novo arquivo possui fundo transparente.
+Faça o seguinte:
+
+1. IDENTIFICAR O ARQUIVO CORRETO
+Na pasta /assets, localizar o arquivo chamado "Logo_principal" (pode ser Logo_principal.png ou outra extensão). Esse é o ÚNICO arquivo de logo a ser usado em todo o site.
+
+2. ATUALIZAR O HEADER DE TODAS AS PÁGINAS
+Em TODAS as páginas (index.html, sobre.html, servicos.html, contato.html), atualizar o src da logo no header para apontar para o novo arquivo:
+html<img src="/assets/Logo_principal.png" alt="IL Engenharia e Consultoria Ambiental" class="site-logo">
+Ajustar a extensão no src conforme o arquivo real encontrado na pasta /assets.
+
+3. ATUALIZAR O FOOTER DE TODAS AS PÁGINAS
+Em TODAS as páginas, se existir uma logo no footer, atualizar também para o mesmo arquivo:
+html<img src="/assets/Logo_principal.png" alt="IL Engenharia e Consultoria Ambiental" class="footer-logo">
+
+4. REMOVER QUALQUER FUNDO OU CAIXA AO REDOR DA LOGO
+Como o novo arquivo tem fundo transparente, remover do CSS qualquer propriedade que adicione fundo à logo ou ao seu container:
+
+Remover background-color do elemento da logo e do container direto da logo
+Remover border-radius do elemento da logo
+Remover box-shadow do elemento da logo
+Remover qualquer borda (border) do elemento da logo
+Remover qualquer padding excessivo que criava aparência de "caixa"
+
+O CSS da logo deve ficar limpo:
+css.site-logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    height: 42px;
+  }
+}
+
+footer .site-logo,
+.footer-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+5. LIMPAR REFERÊNCIAS ANTIGAS
+Verificar se existe alguma referência no código a arquivos de logo antigos (como "Logo principal.png" com espaço, "logo-principal.png" com hífen, "logo-horizontal.png", "logo-submarca.png" ou qualquer outro). Se existir, substituir todas por "Logo_principal.png" (ou a extensão correta do novo arquivo).
+
+6. VERIFICAÇÃO
+Confirmar que:
+
+A logo aparece SEM caixa, SEM fundo colorido, SEM borda ao redor em TODAS as 4 páginas
+O fundo transparente está funcionando (a logo flutua sobre o fundo do header sem retângulo visível)
+O arquivo usado é exclusivamente "Logo_principal" da pasta /assets
+A logo está nítida, legível, proporcional e alinhada à esquerda no header
+No footer a logo também usa o novo arquivo sem caixa
+No mobile a logo mantém proporção e legibilidade
+Nenhuma referência a arquivos de logo antigos permanece no código
+
+
+REGRAS
+
+USAR exclusivamente o arquivo "Logo_principal" da pasta /assets
+NÃO alterar textos
+NÃO alterar layout geral
+NÃO alterar identidade visual
+NÃO alterar estrutura das páginas
+NÃO remover funcionalidades

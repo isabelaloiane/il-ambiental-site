@@ -220,17 +220,25 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 .site-logo-img {
   display: block;
   height: 55px;
   width: auto;
-  max-height: 65px;
-  min-height: 40px;
   object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 .footer-logo-img {
@@ -238,10 +246,15 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
   height: 32px;
   width: auto;
   object-fit: contain;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 @media (max-width: 768px) {
-  .site-logo-img { height: 42px; max-height: 50px; }
+  .site-logo-img { height: 42px; }
 }
 
 /* ===== WHATSAPP BUTTON (only allowed non-brand color) ===== */
