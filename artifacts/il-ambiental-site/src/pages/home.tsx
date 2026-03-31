@@ -107,7 +107,7 @@ export function Home() {
             <h3 style={{ fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", borderBottom: "1px solid rgba(181,137,94,0.25)", paddingBottom: 16, marginBottom: 28 }}>Por que empresas no Pará escolhem a IL</h3>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 20 }}>
               {[
-                { title: "Conhecimento Local Profundo", desc: "Conhecemos pessoalmente os processos da SEMAS-PA, IBAMA regional, SEMMA e demais órgãos competentes. Isso elimina idas e vindas que atrasam seu licenciamento." },
+                { title: "Conhecimento Local Profundo", desc: "Conhecemos pessoalmente os processos da SEMAS-PA, IBAMA, SEMMA e demais órgãos competentes. Isso elimina idas e vindas que atrasam seu licenciamento." },
                 { title: "Relacionamento Direto com os Órgãos", desc: "Dialogamos tecnicamente com fiscalizadores e analistas. Seu processo tramita com transparência e sem ruído." },
                 { title: "Gestão Integrada", desc: "Enxergamos seu empreendimento como um sistema: ambiental, jurídico, social e econômico. Nada fica de fora." },
                 { title: "Foco em Resultado", desc: "Não vendemos relatórios. Entregamos licenças emitidas, condicionantes cumpridas e operações regularizadas." },

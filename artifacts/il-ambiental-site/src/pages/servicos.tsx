@@ -30,8 +30,8 @@ export function Servicos() {
       <div style={{ background: "#fff", borderTop: "1px solid rgba(181,137,94,0.25)", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "16px 0", overflowX: "auto" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-around", gap: 12, padding: "0 24px" }}>
           {[
-            "SEMAS-PA credenciada",
-            "IBAMA certificado",
+            "SEMAS-PA",
+            "IBAMA",
             "SEMMA Municipal",
             "SESPA",
             "INCRA",

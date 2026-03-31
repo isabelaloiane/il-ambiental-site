@@ -1,0 +1,53 @@
+Você é um desenvolvedor front-end. Sua tarefa é aplicar correções específicas de texto no site existente.
+NÃO altere nada além dos textos indicados abaixo. Não modifique layout, design, cores, tipografia, espaçamento ou estrutura.
+
+CORREÇÃO 1 — Remover ano de fundação (Página "Sobre", seção "Nossa História")
+
+Localizar qualquer menção ao ano 2020 na seção "Nossa História" da página Sobre
+Remover completamente frases como "nasceu em 2020", "fundada em 2020", "desde 2020" ou qualquer variação
+Ajustar o texto ao redor para que continue fluindo naturalmente, sem quebra, frase incompleta ou espaço vazio
+Verificar se o ano 2020 aparece em qualquer OUTRA página do site e remover também
+
+
+CORREÇÃO 2 — Substituir "IBAMA regional" em TODO o site
+
+Fazer busca global em TODOS os arquivos do projeto
+Localizar TODAS as ocorrências de:
+
+IBAMA regional
+IBAMA Regional
+Ibama regional
+Ibama Regional
+
+
+Substituir por: IBAMA
+Em trechos onde o contexto menciona múltiplos órgãos, ajustar para: IBAMA e demais órgãos
+A palavra "regional" não deve aparecer em nenhum contexto relacionado ao IBAMA em nenhuma página do site
+Após as substituições, verificar que todas as frases continuam gramaticalmente corretas
+
+
+CORREÇÃO 3 — Remover qualificadores dos órgãos (Página "Serviços")
+
+Localizar a linha que contém os nomes dos órgãos ambientais na página de Serviços
+O texto atual contém algo como:
+SEMAS Pará credenciada, IBAMA certificado, SEMMA municipal, SESPA e INCRA
+Corrigir para:
+SEMAS Pará, IBAMA, SEMMA municipal, SESPA e INCRA
+Remover especificamente:
+
+A palavra "credenciada" após SEMAS Pará
+A palavra "certificado" após IBAMA
+
+
+Manter apenas os nomes dos órgãos, sem adjetivos qualificadores
+Verificar se essa mesma linha aparece em outras páginas e aplicar a mesma correção
+
+
+CHECKLIST FINAL
+Após aplicar todas as correções:
+
+✅ O ano 2020 não aparece em nenhum lugar do site
+✅ "IBAMA regional" não existe em nenhum arquivo do projeto
+✅ A linha de órgãos contém apenas: SEMAS Pará, IBAMA, SEMMA municipal, SESPA e INCRA
+✅ Nenhum layout, cor, fonte ou estrutura foi alterado
+✅ Todas as frases modificadas continuam gramaticalmente corretas e naturais
