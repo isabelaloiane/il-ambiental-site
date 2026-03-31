@@ -1,0 +1,96 @@
+Você é um desenvolvedor front-end. Sua tarefa é corrigir o comportamento de navegação do botão "Fale Conosco" que aparece no menu do site.
+NÃO altere layout, design, cores, tipografia ou textos. NÃO remova o botão. Apenas corrija o comportamento de navegação.
+
+PROBLEMA
+O botão "Fale Conosco" no menu atualmente:
+
+Se o usuário já está na página de contato e clica no botão, nada acontece
+Se o usuário está no final da página de contato e clica, a página não volta ao topo
+Não há resposta visual de navegação perceptível ao usuário
+
+
+COMPORTAMENTO ESPERADO
+Situação do usuárioAo clicar "Fale Conosco"Está em outra página (Home, Sobre, Serviços)Navega para a página de Contato e posiciona no topoEstá na página de Contato, no topoFaz um scroll suave até a seção hero/formulário (resposta visual perceptível)Está na página de Contato, mais abaixoFaz um scroll suave de volta ao topo da página
+O botão deve sempre produzir uma resposta de navegação visível, independentemente de onde o usuário esteja.
+
+IMPLEMENTAÇÃO
+1. Localizar o botão "Fale Conosco"
+
+Encontrar o elemento do botão "Fale Conosco" no menu/navbar
+Identificar o link ou evento atual atribuído a ele (href, onClick, router.push, etc.)
+
+2. Aplicar lógica de navegação inteligente
+Substituir o comportamento atual por esta lógica:
+javascript// Ao clicar no botão "Fale Conosco"
+faleConoscoButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const contactPagePath = '/contato'; // ajustar conforme rota real do projeto
+  const currentPath = window.location.pathname;
+
+  // Verificar se já está na página de contato
+  const isOnContactPage = currentPath === contactPagePath
+    || currentPath === contactPagePath + '/'
+    || currentPath.includes('contato')
+    || currentPath.includes('contact');
+
+  if (isOnContactPage) {
+    // Já está na página de contato → scroll suave para o topo
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  } else {
+    // Está em outra página → navegar para contato
+    // Definir flag para scroll ao topo após navegação
+    sessionStorage.setItem('scrollToTop', 'true');
+    window.location.href = contactPagePath;
+  }
+});
+3. Garantir scroll ao topo ao chegar na página de contato
+Na página de contato, adicionar lógica de inicialização:
+javascript// Executar quando a página de contato carrega
+document.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem('scrollToTop') === 'true') {
+    sessionStorage.removeItem('scrollToTop');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+});
+4. Se o site usar framework com router (React Router, Next.js, etc.)
+Adaptar a lógica para o sistema de rotas do projeto:
+javascript// React Router / Next.js — exemplo de lógica
+const handleFaleConosco = () => {
+  if (location.pathname.includes('contato') || location.pathname.includes('contact')) {
+    // Já na página → scroll suave ao topo
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    // Outra página → navegar e garantir topo
+    navigate('/contato'); // ou router.push('/contato')
+    // Após navegação, forçar topo
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 100);
+  }
+};
+5. Desativar scrollRestoration do navegador
+Para evitar que o navegador restaure a posição de scroll anterior:
+javascriptif ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+Aplicar isso globalmente no site (se ainda não estiver aplicado).
+6. Fechar menu mobile após clique (se aplicável)
+Se o site tiver menu hamburger mobile, garantir que ao clicar em "Fale Conosco":
+
+O menu feche antes da navegação
+O scroll aconteça após o menu fechar
+
+
+CHECKLIST FINAL
+
+✅ Clicando "Fale Conosco" de outra página → abre contato no topo
+✅ Clicando "Fale Conosco" já na página de contato → scroll suave ao topo
+✅ Clicando "Fale Conosco" no final da página de contato → scroll suave ao topo
+✅ O botão sempre produz resposta visual perceptível ao usuário
+✅ Funciona em desktop e mobile
+✅ Menu mobile fecha após o clique (se aplicável)
+✅ Layout, design, cores e textos não foram alterados

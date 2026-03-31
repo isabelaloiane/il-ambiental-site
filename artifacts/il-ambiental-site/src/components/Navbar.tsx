@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 
 export function Navbar() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
@@ -12,6 +12,17 @@ export function Navbar() {
   ];
 
   const close = () => setMenuOpen(false);
+
+  const handleFaleConosco = (andClose = false) => {
+    if (andClose) close();
+    const onContato = location === "/contato" || location.startsWith("/contato");
+    if (onContato) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/contato");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 50);
+    }
+  };
 
   return (
     <nav className="site-nav">
@@ -37,7 +48,13 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <Link href="/contato" className="nav-cta-btn">Fale Conosco</Link>
+          <a
+            href="/contato"
+            className="nav-cta-btn"
+            onClick={(e) => { e.preventDefault(); handleFaleConosco(); }}
+          >
+            Fale Conosco
+          </a>
         </div>
 
         <button
@@ -73,9 +90,13 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contato" className="nav-cta-btn nav-mobile-cta" onClick={close}>
+          <a
+            href="/contato"
+            className="nav-cta-btn nav-mobile-cta"
+            onClick={(e) => { e.preventDefault(); handleFaleConosco(true); }}
+          >
             Fale Conosco
-          </Link>
+          </a>
         </div>
       )}
     </nav>
