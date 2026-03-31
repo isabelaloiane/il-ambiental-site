@@ -1,0 +1,561 @@
+Refine a versão mobile do site para que ela tenha a mesma elegância, respiro visual e sofisticação do desktop. NÃO altere textos, cores, tipografia, identidade visual ou funcionalidades. NÃO redesenhe o site. Apenas refine espaçamentos, proporções e respiros no mobile para eliminar a aparência "apertada" e "amontoada".
+Todas as alterações abaixo aplicam-se APENAS dentro de media queries para telas de até 768px. NÃO alterar a versão desktop.
+
+ESPAÇAMENTOS GLOBAIS (mobile)
+css@media (max-width: 768px) {
+
+  /* Padding lateral global: conteúdo nunca colado nas bordas */
+  section,
+  .section,
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Espaçamento vertical entre seções */
+  section,
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  /* Gap entre elementos dentro de seções */
+  section > *,
+  .section > * {
+    margin-bottom: 20px;
+  }
+}
+
+HEADER / NAVBAR
+css@media (max-width: 768px) {
+  header,
+  .header,
+  .navbar,
+  nav {
+    padding: 16px 24px;
+  }
+
+  .site-logo {
+    height: 42px;
+  }
+
+  /* Menu mobile: respiro nos itens */
+  .nav-links a,
+  .mobile-menu a,
+  .nav-menu a {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+}
+
+HERO SECTIONS (todas as páginas)
+css@media (max-width: 768px) {
+  /* Mais respiro no hero */
+  .hero,
+  .hero-section,
+  [class*="hero"] {
+    padding: 48px 24px 40px 24px;
+    min-height: auto;
+  }
+
+  /* Headlines: tamanho confortável, não esmagado */
+  .hero h1,
+  .hero-section h1,
+  [class*="hero"] h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  /* Subheadlines com respiro */
+  .hero p,
+  .hero-section p,
+  [class*="hero"] p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  /* Botões no hero: respiro entre eles */
+  .hero .btn,
+  .hero-section .btn,
+  .hero button,
+  .hero a[class*="btn"] {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+}
+
+EYEBROWS E TÍTULOS DE SEÇÃO
+css@media (max-width: 768px) {
+  /* Eyebrows (textos pequenos acima dos títulos) */
+  .eyebrow,
+  [class*="eyebrow"],
+  .section-label,
+  .overline {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* Títulos de seção */
+  h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  /* Subtítulos de seção */
+  h2 + p,
+  .section-subtitle,
+  .section-description {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+}
+
+CARDS (serviços, diferenciais, valores, FAQ, clientes)
+css@media (max-width: 768px) {
+  /* Cards empilhados com respiro generoso */
+  .card,
+  [class*="card"],
+  .feature-card,
+  .service-card,
+  .value-card,
+  .faq-card,
+  .differential-card {
+    padding: 24px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  /* Títulos dentro de cards */
+  .card h3,
+  [class*="card"] h3 {
+    font-size: 17px;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  /* Textos dentro de cards */
+  .card p,
+  [class*="card"] p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Ícones dentro de cards */
+  .card-icon,
+  .card .icon,
+  [class*="card"] svg,
+  [class*="card"] .icon {
+    margin-bottom: 12px;
+  }
+
+  /* Grid de cards: coluna única com gap */
+  .cards-grid,
+  .card-grid,
+  .grid,
+  [class*="grid"] {
+    gap: 16px;
+  }
+}
+
+TRUST BAR / BARRA DE NÚMEROS
+css@media (max-width: 768px) {
+  .trust-bar,
+  .stats-bar,
+  [class*="trust"],
+  [class*="stats"] {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .trust-bar .stat,
+  .stats-bar .stat,
+  .trust-item,
+  .stat-item {
+    padding: 12px 8px;
+  }
+
+  .trust-bar .stat-number,
+  .stat-value,
+  .trust-number {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .trust-bar .stat-label,
+  .stat-label,
+  .trust-label {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+TRUST BADGES / BARRA DE CREDENCIAIS (servicos.html)
+css@media (max-width: 768px) {
+  .badges-bar,
+  .trust-badges,
+  [class*="badges"] {
+    padding: 16px 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .badge-item,
+  .trust-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+SEÇÃO DIFERENCIAIS (layout texto + lista)
+css@media (max-width: 768px) {
+  /* Quando empilhado, dar respiro entre texto e lista */
+  .differentials-section .content,
+  .about-section .content {
+    gap: 32px;
+  }
+
+  /* Lista de diferenciais com checkmarks */
+  .differential-item,
+  .check-item {
+    padding: 16px 0;
+    margin-bottom: 8px;
+  }
+
+  .differential-item h4,
+  .check-item h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .differential-item p,
+  .check-item p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+}
+
+SEÇÃO CLIENTES
+css@media (max-width: 768px) {
+  .clients-section .card,
+  .client-card {
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+}
+
+SEÇÃO DE URGÊNCIA / CTA ESCURO (servicos.html)
+css@media (max-width: 768px) {
+  .urgency-section,
+  .dark-section,
+  [class*="urgency"],
+  [class*="risk"] {
+    padding: 40px 24px;
+  }
+
+  .urgency-section h2,
+  .dark-section h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .urgency-section p,
+  .dark-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* Card de notificação simulado */
+  .notification-card,
+  [class*="notification"] {
+    padding: 20px;
+    margin-top: 24px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+}
+
+SERVIÇOS DETALHADOS (3 colunas → empilhado)
+css@media (max-width: 768px) {
+  .service-column,
+  .service-detail,
+  [class*="service-col"] {
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+
+  .service-column h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .service-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .service-column ul,
+  .service-column li {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+}
+
+MISSÃO E VISÃO (sobre.html)
+css@media (max-width: 768px) {
+  .mission-card,
+  .vision-card,
+  [class*="mission"],
+  [class*="vision"] {
+    padding: 28px 24px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  .mission-card p,
+  .vision-card p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}
+
+FORMULÁRIO DE CONTATO
+css@media (max-width: 768px) {
+  .contact-form,
+  form,
+  .form-section {
+    padding: 28px 24px;
+    border-radius: 12px;
+  }
+
+  .form-group,
+  .input-group {
+    margin-bottom: 16px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  form .btn,
+  form button[type="submit"],
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+}
+
+CARDS DE INFORMAÇÃO DE CONTATO
+css@media (max-width: 768px) {
+  .contact-info-card,
+  .info-card,
+  [class*="contact-info"] {
+    padding: 24px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  .contact-info-card h4,
+  .info-card h4 {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+
+  .contact-info-card p,
+  .info-card p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+FAQ
+css@media (max-width: 768px) {
+  .faq-card,
+  .faq-item,
+  [class*="faq"] {
+    padding: 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .faq-card h4,
+  .faq-item h4,
+  .faq-question {
+    font-size: 15px;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .faq-card p,
+  .faq-item p,
+  .faq-answer {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+ATUAÇÃO REGIONAL (contato.html)
+css@media (max-width: 768px) {
+  .regional-section,
+  [class*="regional"] {
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .regional-section img,
+  .regional-section svg,
+  .map-icon {
+    margin: 24px auto;
+    max-width: 120px;
+  }
+}
+
+CTA FINAL (seção escura, todas as páginas)
+css@media (max-width: 768px) {
+  .cta-section,
+  .final-cta,
+  [class*="cta-section"],
+  [class*="final-cta"] {
+    padding: 48px 28px;
+    text-align: center;
+  }
+
+  .cta-section h2,
+  .final-cta h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .cta-section p,
+  .final-cta p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .cta-section .btn,
+  .final-cta .btn,
+  .cta-section a[class*="btn"] {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 24px;
+    font-size: 15px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .cta-section .microcopy,
+  .final-cta .microcopy,
+  .cta-section small {
+    font-size: 12px;
+    margin-top: 12px;
+    display: block;
+  }
+}
+
+FOOTER
+css@media (max-width: 768px) {
+  footer,
+  .footer {
+    padding: 40px 24px 24px 24px;
+    text-align: center;
+  }
+
+  footer .footer-grid,
+  footer .footer-columns,
+  footer > div {
+    gap: 32px;
+  }
+
+  footer h4,
+  .footer h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  footer p,
+  footer a,
+  .footer p,
+  .footer a {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  footer .footer-bottom,
+  .copyright {
+    margin-top: 32px;
+    padding-top: 20px;
+    font-size: 12px;
+  }
+
+  .footer-logo {
+    margin: 0 auto 24px auto;
+    display: block;
+  }
+}
+
+BOTÃO FLUTUANTE DO WHATSAPP
+css@media (max-width: 768px) {
+  .whatsapp-float,
+  .whatsapp-btn,
+  [class*="whatsapp"] {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+PRINCÍPIOS APLICADOS
+Ao implementar essas alterações, seguir estes princípios em TODO o mobile:
+
+Padding lateral mínimo de 24px em todas as seções. Conteúdo nunca colado nas bordas.
+Espaçamento vertical generoso entre seções (mínimo 48px).
+Gap de pelo menos 16px entre cards empilhados.
+Fontes de corpo nunca abaixo de 13px. Headlines nunca abaixo de 22px.
+Line-height mínimo de 1.5 para textos corridos.
+Botões com padding vertical mínimo de 14px e largura confortável.
+Border-radius consistente: 8px para botões e inputs, 10-12px para cards e seções.
+O mobile deve parecer "respirar" como o desktop, apenas reorganizado verticalmente.
+
+Se qualquer classe CSS existente tiver valores que contradigam essas regras no mobile, sobrescrever dentro da media query.
+
+REGRAS
+
+NÃO alterar textos
+NÃO alterar cores
+NÃO alterar tipografia (fontes)
+NÃO alterar identidade visual
+NÃO remover funcionalidades
+NÃO alterar a versão desktop
+APENAS refinar espaçamentos, tamanhos e proporções no mobile
