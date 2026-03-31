@@ -1,0 +1,47 @@
+Você é um desenvolvedor front-end. Sua tarefa é adicionar um efeito de hover elegante e uniforme nos três cards da seção de serviços.
+NÃO altere cores, tipografia, conteúdo, textos ou estrutura do layout. Apenas adicione o efeito de hover.
+
+CARDS ALVO
+Os três cards da página de Serviços:
+
+Licenciamento Ambiental
+Estudos e Relatórios Técnicos
+Consultoria e Gestão Ambiental
+
+
+IMPLEMENTAÇÃO
+1. Localizar a classe CSS dos cards
+
+Identificar a classe compartilhada pelos três cards (ex: .card, .service-card, .services-card, ou equivalente)
+Se cada card tiver uma classe diferente, criar uma classe comum ou aplicar o estilo a todas as classes
+
+2. Garantir estado base uniforme
+Antes de adicionar o hover, garantir que os três cards tenham exatamente o mesmo estilo base. Remover qualquer estilo que esteja aplicado a apenas um dos cards (borda, sombra, destaque, classe .active, .selected, .featured, ou estilo inline diferenciado).
+css.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+3. Adicionar efeito de hover
+css@media (hover: hover) {
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+Usar @media (hover: hover) para garantir que o efeito só se aplique em dispositivos com mouse (desktop). Em dispositivos touch (mobile), o card permanece sem alteração visual ao toque.
+4. Remover estados indesejados
+
+Remover qualquer :focus, :active ou classe fixa que faça algum card parecer selecionado permanentemente
+Se houver JavaScript adicionando classes de estado a algum card, remover essa lógica
+Nenhum card deve ter aparência diferente dos outros no estado padrão (sem hover)
+
+
+CHECKLIST FINAL
+
+✅ Os três cards têm aparência idêntica no estado padrão
+✅ Ao passar o mouse, o card sobe 6px e ganha sombra suave
+✅ A transição é suave (0.3s ease)
+✅ O cursor muda para pointer ao passar sobre os cards
+✅ O efeito funciona igualmente nos três cards
+✅ Em mobile/touch, nenhum efeito de hover é aplicado
+✅ Cores, tipografia, conteúdo e layout não foram alterados

@@ -134,10 +134,13 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 .hover-card {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
 }
-.hover-card:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .hover-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
 }
 
 /* ===== SCROLL ANIMATIONS ===== */
