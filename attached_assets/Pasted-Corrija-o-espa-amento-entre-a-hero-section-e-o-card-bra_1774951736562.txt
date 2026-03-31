@@ -1,0 +1,72 @@
+Corrija o espaçamento entre a hero section e o card branco seguinte ("Como prefere entrar em contato?") na página de contato (contato.html), APENAS na versão mobile. NÃO altere a versão desktop. NÃO altere textos, design, cores ou tipografia.
+
+PROBLEMA
+No mobile, existe um espaço vazio excessivo entre o final da hero section escura e o card branco seguinte. O card ficou baixo demais. A transição entre as duas seções está visualmente desequilibrada.
+O QUE FAZER
+Reduzir a distância entre a hero e o card branco no mobile, mantendo todo o texto da hero visível e sem sobreposição.
+
+CORREÇÃO
+Localizar no CSS as regras mobile (media query max-width: 768px) que foram adicionadas anteriormente para a hero da página de contato e para a seção seguinte. Ajustar os valores para reduzir o espaço vazio.
+Aplicar APENAS dentro de media query para mobile:
+css@media (max-width: 768px) {
+
+  /* Hero da página de contato: reduzir padding inferior */
+  .contact-hero,
+  .contato-hero,
+  .hero-contato,
+  .page-contato .hero,
+  .page-contact .hero {
+    padding-bottom: 32px;
+  }
+
+  /* Seção seguinte (card branco): subir mais perto da hero */
+  .contact-hero + section,
+  .contact-hero + div,
+  .contato-hero + section,
+  .contato-hero + div,
+  .hero-contato + section,
+  .hero-contato + div {
+    margin-top: -16px;
+  }
+
+  /* Card branco "Como prefere entrar em contato?" */
+  .contact-selector,
+  .contact-selector-card,
+  .contact-preference,
+  .contact-card,
+  [class*="contact-selector"],
+  [class*="preference-card"] {
+    margin-top: 0;
+  }
+
+  /* Se a seção de conteúdo de contato (formulário + info) tiver margin-top excessivo */
+  .contact-content,
+  .contact-section,
+  .contact-form-section {
+    padding-top: 16px;
+  }
+}
+
+VERIFICAÇÃO VISUAL
+Inspecionar o resultado no mobile (375px) e confirmar que:
+
+Todo o texto da hero está visível, incluindo "Respondemos em até 24 horas."
+NÃO há sobreposição entre a hero e o card branco
+NÃO há corte de texto
+O espaço entre o final do texto da hero e o início do card branco é de aproximadamente 24px a 32px, visualmente equilibrado
+O card branco NÃO ficou baixo demais nem alto demais
+A transição entre a hero escura e o card branco parece natural e elegante
+A versão desktop permanece inalterada
+
+Se o espaço ainda estiver grande demais, reduzir mais o padding-bottom da hero (até mínimo 24px) ou aumentar levemente o margin-top negativo da seção seguinte (até máximo -24px).
+Se o espaço ficar pequeno demais e o texto começar a ser cortado, aumentar o padding-bottom da hero até que o texto fique 100% visível.
+O objetivo é encontrar o equilíbrio: texto completo visível + transição suave + sem espaço vazio excessivo.
+
+REGRAS
+
+Corrigir APENAS no mobile (dentro de media query)
+NÃO alterar a versão desktop
+NÃO alterar textos
+NÃO alterar design ou cores
+NÃO remover o card branco
+NÃO redesenhar a página

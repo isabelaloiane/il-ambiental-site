@@ -951,12 +951,12 @@ input:focus, textarea:focus, select:focus {
     height: 52px;
   }
 
-  /* — Contact page: fix hero overlap on mobile — */
+  /* — Contact page: hero spacing on mobile — */
   .contact-hero-section {
     height: auto !important;
     min-height: auto !important;
     padding-top: 48px !important;
-    padding-bottom: 72px !important;
+    padding-bottom: 32px !important;
   }
 
   .contact-float-card {
