@@ -1,0 +1,172 @@
+PROMPT PARA REPLIT AI — Implementar Envio Real do Formulário de Contato por E-mail
+Você é um desenvolvedor full-stack. Sua tarefa é fazer o formulário da página de contato/fale conosco funcionar de verdade, enviando os dados preenchidos pelo usuário para um e-mail real.
+E-mail de destino: contate.ilambiental@gmail.com
+NÃO altere layout, design, cores, tipografia ou estrutura do site. Apenas implemente a funcionalidade de envio.
+
+PASSO 1 — Localizar o formulário
+
+Encontrar o formulário da página de contato/fale conosco
+Identificar todos os campos existentes (nome, empresa, telefone/WhatsApp, mensagem/necessidade)
+Mapear os name e id de cada campo
+
+
+PASSO 2 — Criar o backend para envio de e-mail
+2.1 Instalar dependência
+bashnpm install nodemailer
+2.2 Criar endpoint de envio
+Criar um endpoint POST /api/contact (ou /api/send-email) no servidor do projeto que:
+
+Receba os dados do formulário via JSON:
+
+json   {
+     "name": "Nome completo",
+     "company": "Empresa",
+     "phone": "Telefone/WhatsApp",
+     "message": "Necessidade do usuário"
+   }
+
+Valide que todos os campos obrigatórios estão preenchidos (não vazios)
+Envie o e-mail usando Nodemailer com a seguinte configuração:
+
+javascript   const transporter = nodemailer.createTransport({
+     service: 'gmail',
+     auth: {
+       user: process.env.EMAIL_USER,
+       pass: process.env.EMAIL_PASS
+     }
+   });
+
+Monte o e-mail com formato organizado:
+
+Para: contate.ilambiental@gmail.com
+Assunto: Nova mensagem do site — [Nome do cliente]
+Corpo do e-mail (HTML):
+
+
+
+html   <h2>Nova mensagem recebida pelo site IL Ambiental</h2>
+   <table style="border-collapse: collapse; width: 100%;">
+     <tr>
+       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Nome Completo</td>
+       <td style="padding: 10px; border: 1px solid #ddd;">[valor do campo]</td>
+     </tr>
+     <tr>
+       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Empresa</td>
+       <td style="padding: 10px; border: 1px solid #ddd;">[valor do campo]</td>
+     </tr>
+     <tr>
+       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Telefone / WhatsApp</td>
+       <td style="padding: 10px; border: 1px solid #ddd;">[valor do campo]</td>
+     </tr>
+     <tr>
+       <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Necessidade</td>
+       <td style="padding: 10px; border: 1px solid #ddd;">[valor do campo]</td>
+     </tr>
+   </table>
+   <br>
+   <p style="color: #888; font-size: 12px;">Mensagem enviada automaticamente pelo formulário do site IL Ambiental.</p>
+
+Retorne resposta JSON:
+
+Sucesso: { "success": true, "message": "E-mail enviado com sucesso" }
+Erro: { "success": false, "message": "Erro ao enviar mensagem" }
+
+
+
+
+PASSO 3 — Conectar o frontend ao backend
+3.1 Interceptar o submit do formulário
+javascriptform.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+  submitButton.textContent = 'Enviando...';
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.querySelector('[name="name"]').value.trim(),
+        company: form.querySelector('[name="company"]').value.trim(),
+        phone: form.querySelector('[name="phone"]').value.trim(),
+        message: form.querySelector('[name="message"]').value.trim()
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // Mostrar mensagem de sucesso
+      showFeedback('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+      form.reset();
+    } else {
+      // Mostrar mensagem de erro
+      showFeedback('Erro ao enviar mensagem. Tente novamente ou entre em contato pelo WhatsApp.', 'error');
+    }
+  } catch (error) {
+    showFeedback('Erro de conexão. Verifique sua internet e tente novamente.', 'error');
+  } finally {
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+  }
+});
+3.2 Criar função de feedback visual
+Criar uma função showFeedback(message, type) que:
+
+Exiba uma mensagem logo abaixo do botão de envio (ou acima do formulário)
+Sucesso: fundo verde claro (#f0f8f0), borda verde (#4D5140), texto escuro
+Erro: fundo vermelho claro (#fef0f0), borda vermelha (#c0392b), texto escuro
+Estilo: padding: 16px, border-radius: 8px, border-left: 4px solid, margin-top: 16px
+A mensagem deve desaparecer automaticamente após 8 segundos
+Usar animação suave de fade-in e fade-out
+NÃO usar alert() — usar elemento HTML inserido no DOM
+
+3.3 Validação no frontend
+Antes de enviar, validar que:
+
+Nome não está vazio
+Telefone não está vazio
+Mensagem/necessidade não está vazia
+Se algum campo obrigatório estiver vazio, destacar o campo com borda vermelha e não enviar
+
+
+PASSO 4 — Configurar Secrets no Replit
+Criar duas variáveis nos Secrets do Replit:
+KeyValueEMAIL_USERcontate.ilambiental@gmail.comEMAIL_PASS(senha de app do Gmail — ver instrução abaixo)
+
+PASSO 5 — Segurança básica
+
+Adicionar rate limiting simples no endpoint (máximo 5 envios por minuto por IP)
+Sanitizar todos os inputs no backend (remover HTML/scripts)
+Não expor credenciais de e-mail no código — usar apenas process.env
+
+
+CONFIGURAÇÃO MANUAL NECESSÁRIA APÓS IMPLEMENTAÇÃO
+⚠️ IMPORTANTE — Ação obrigatória da proprietária do site:
+Para que o envio funcione com o Gmail, é necessário gerar uma Senha de App do Google:
+
+Acessar https://myaccount.google.com/security
+Ativar Verificação em duas etapas (se ainda não estiver ativa)
+Acessar https://myaccount.google.com/apppasswords
+Criar uma senha de app para "E-mail" > "Outro" > digitar "Site IL Ambiental"
+Copiar a senha de 16 caracteres gerada
+No Replit, ir em Secrets (cadeado no painel lateral)
+Criar o secret EMAIL_PASS com o valor da senha de 16 caracteres copiada
+
+Sem essa configuração, o envio de e-mail NÃO funcionará.
+Deixar essas instruções visíveis como comentário no código do endpoint, para que a proprietária possa consultar depois.
+
+CHECKLIST FINAL
+
+✅ Formulário envia dados reais para contate.ilambiental@gmail.com
+✅ E-mail chega formatado com nome, empresa, telefone e necessidade
+✅ Mensagem de sucesso aparece quando o envio funciona
+✅ Mensagem de erro aparece quando o envio falha
+✅ Botão mostra "Enviando..." durante o processo
+✅ Formulário limpa os campos após envio com sucesso
+✅ Credenciais estão nos Secrets, não no código
+✅ Layout e design do site não foram alterados
+✅ Instruções de configuração da senha de app estão documentadas no código

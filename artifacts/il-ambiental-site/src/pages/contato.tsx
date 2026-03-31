@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -8,11 +8,56 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 export function Contato() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
   useScrollAnimation();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (!feedback) return;
+    const t = setTimeout(() => setFeedback(null), 8000);
+    return () => clearTimeout(t);
+  }, [feedback]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = (data.get("name") as string)?.trim();
+    const company = (data.get("company") as string)?.trim();
+    const phone = (data.get("phone") as string)?.trim();
+    const message = (data.get("message") as string)?.trim();
+
+    const errors: Record<string, boolean> = {};
+    if (!name) errors.name = true;
+    if (!phone) errors.phone = true;
+    if (!message) errors.message = true;
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+
+    setFieldErrors({});
+    setSending(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, phone, message }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setFeedback({ type: "error", message: result.message || "Erro ao enviar. Tente pelo WhatsApp." });
+      }
+    } catch {
+      setFeedback({ type: "error", message: "Erro de conexão. Verifique sua internet e tente novamente." });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -76,34 +121,77 @@ export function Contato() {
                 </p>
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                   {[
-                    { label: "Nome completo", type: "text", required: true },
-                    { label: "Empresa", type: "text", required: false },
-                    { label: "Telefone / WhatsApp", type: "tel", required: true },
+                    { label: "Nome completo", type: "text", name: "name", required: true },
+                    { label: "Empresa", type: "text", name: "company", required: false },
+                    { label: "Telefone / WhatsApp", type: "tel", name: "phone", required: true },
                   ].map((field, i) => (
                     <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                      <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>{field.label}</label>
-                      <input required={field.required} type={field.type} style={{
-                        background: "rgba(255,255,255,0.06)", border: "1px solid rgba(223,196,159,0.25)",
-                        color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
-                        outline: "none", fontFamily: "'Poppins', sans-serif", width: "100%"
-                      }} />
+                      <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>
+                        {field.label}{field.required && <span style={{ color: "#e08080", marginLeft: 2 }}>*</span>}
+                      </label>
+                      <input
+                        required={field.required}
+                        type={field.type}
+                        name={field.name}
+                        style={{
+                          background: "rgba(255,255,255,0.06)",
+                          border: fieldErrors[field.name] ? "1px solid #e08080" : "1px solid rgba(223,196,159,0.25)",
+                          color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
+                          outline: "none", fontFamily: "'Poppins', sans-serif", width: "100%",
+                          transition: "border-color 200ms ease",
+                        }}
+                        onChange={() => {
+                          if (fieldErrors[field.name]) setFieldErrors(prev => ({ ...prev, [field.name]: false }));
+                        }}
+                      />
                     </div>
                   ))}
                   <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                    <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>Conte brevemente sua necessidade</label>
-                    <textarea required rows={4} style={{
-                      background: "rgba(255,255,255,0.06)", border: "1px solid rgba(223,196,159,0.25)",
-                      color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
-                      outline: "none", fontFamily: "'Poppins', sans-serif", width: "100%", resize: "vertical"
-                    }} />
+                    <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>
+                      Conte brevemente sua necessidade<span style={{ color: "#e08080", marginLeft: 2 }}>*</span>
+                    </label>
+                    <textarea
+                      required
+                      name="message"
+                      rows={4}
+                      style={{
+                        background: "rgba(255,255,255,0.06)",
+                        border: fieldErrors.message ? "1px solid #e08080" : "1px solid rgba(223,196,159,0.25)",
+                        color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
+                        outline: "none", fontFamily: "'Poppins', sans-serif", width: "100%", resize: "vertical",
+                        transition: "border-color 200ms ease",
+                      }}
+                      onChange={() => {
+                        if (fieldErrors.message) setFieldErrors(prev => ({ ...prev, message: false }));
+                      }}
+                    />
                   </div>
-                  <button type="submit" style={{
-                    background: "#DFC49F", color: "#452816", fontWeight: 700, padding: 14,
-                    borderRadius: 8, width: "100%", cursor: "pointer", border: "none",
-                    fontFamily: "'Poppins', sans-serif", fontSize: "0.95rem", marginTop: 4
-                  }}>
-                    Enviar e receber retorno em 24h
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    style={{
+                      background: sending ? "rgba(223,196,159,0.55)" : "#DFC49F",
+                      color: "#452816", fontWeight: 700, padding: 14,
+                      borderRadius: 8, width: "100%", cursor: sending ? "not-allowed" : "pointer", border: "none",
+                      fontFamily: "'Poppins', sans-serif", fontSize: "0.95rem", marginTop: 4,
+                      transition: "background 200ms ease",
+                    }}
+                  >
+                    {sending ? "Enviando..." : "Enviar e receber retorno em 24h"}
                   </button>
+                  {feedback && (
+                    <div style={{
+                      padding: "14px 16px",
+                      borderRadius: 8,
+                      borderLeft: `4px solid ${feedback.type === "error" ? "#e08080" : "#4D5140"}`,
+                      background: feedback.type === "error" ? "rgba(224,128,128,0.12)" : "rgba(77,81,64,0.2)",
+                      color: "#DFC49F",
+                      fontSize: "0.875rem",
+                      lineHeight: 1.55,
+                    }}>
+                      {feedback.message}
+                    </div>
+                  )}
                 </form>
               </>
             ) : (
