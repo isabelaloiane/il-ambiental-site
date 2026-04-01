@@ -1,0 +1,67 @@
+Você é um especialista em engenharia de prompt para o Replit e em microinterações visuais para sites institucionais premium.
+
+Sua tarefa é gerar um prompt técnico, direto e executável para o Replit AI.
+
+Objetivo:
+Adicionar efeito visual de hover com sombreamento nos cards da página Serviços e da página Sobre.
+
+Contexto:
+
+Já foi tentado implementar esse efeito antes, mas o resultado não apareceu corretamente
+Atualmente, ao passar o cursor do mouse sobre os cards, não acontece o sombreamento desejado
+Quero que esses cards transmitam sensação de movimento, fluidez e sofisticação ao passar o mouse
+
+Cards que devem receber o efeito:
+
+Página Serviços:
+Licenciamento Ambiental
+Estudos e Relatórios Técnicos
+Consultoria e Gestão Ambiental
+Página Sobre:
+Rigor Técnico
+Atendimento Humano
+Compromisso Ambiental
+
+Comportamento desejado ao passar o cursor:
+
+Adicionar sombra suave e visível atrás do card
+Criar sensação de leve elevação/movimento
+Aplicar transição suave
+O efeito deve aparecer claramente no desktop ao passar o mouse
+O efeito deve ser igual para todos os cards citados
+Nenhum card deve ficar sem hover
+Nenhum card deve ficar com hover permanente
+
+Especificação visual sugerida:
+
+transition: all 0.3s ease;
+box-shadow suave e perceptível
+leve elevação com transform: translateY(-4px) ou equivalente
+cursor: pointer
+
+Regras obrigatórias:
+
+Não alterar textos
+Não alterar layout
+Não alterar cores da marca
+Não alterar tipografia
+Não redesenhar os cards
+Apenas adicionar o efeito de hover com sombreamento e leve movimento
+Garantir consistência entre a página Serviços e a página Sobre
+Garantir que o efeito funcione no desktop sem quebrar o mobile
+
+Importante:
+
+O Replit deve verificar se existe alguma regra CSS anterior removendo ou anulando o hover
+O Replit deve corrigir isso, se necessário
+O hover precisa ficar realmente visível, elegante e funcional
+
+Entrega:
+
+Gere apenas o prompt final para o Replit AI
+Não explique
+Não resuma
+Não acrescente comentários
+O resultado deve vir pronto para copiar e colar no Replit
+
+Agora gere o prompt final.
