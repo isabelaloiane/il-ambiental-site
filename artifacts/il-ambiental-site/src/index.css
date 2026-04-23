@@ -1151,20 +1151,31 @@ input:focus, textarea:focus, select:focus {
   to   { transform: scaleX(1); }
 }
 
-/* ─── STAT NUMBERS (large hero-style stats) ─────────────────── */
+/* ─── STAT ITEM / NUMBER / LABEL ────────────────────────────── */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
 .stat-number {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 700;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
   color: #DFC49F;
   line-height: 1;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .stat-label {
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(223,196,159,0.65);
-  margin-top: 6px;
+  color: rgba(223,196,159,0.60);
+  margin-top: 2px;
+  font-weight: 500;
 }
 
 /* ─── FLOATING LABEL FORM ───────────────────────────────────── */

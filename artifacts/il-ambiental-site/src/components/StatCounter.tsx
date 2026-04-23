@@ -1,18 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-function parseStat(stat: string): { prefix: string; target: number; suffix: string } {
-  const match = stat.match(/^([+]?)(\d+)([%h]?)$/);
-  if (!match) return { prefix: "", target: 0, suffix: stat };
-  return { prefix: match[1], target: parseInt(match[2]), suffix: match[3] };
-}
-
 interface StatCounterProps {
-  stat: string;
+  target: number;
+  label: string;
+  prefix?: string;
+  suffix?: string;
   style?: React.CSSProperties;
 }
 
-export function StatCounter({ stat, style }: StatCounterProps) {
-  const { prefix, target, suffix } = parseStat(stat);
+export function StatCounter({ target, label, prefix = "", suffix = "", style }: StatCounterProps) {
   const [count, setCount] = useState(0);
   const [triggered, setTriggered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -27,7 +23,7 @@ export function StatCounter({ stat, style }: StatCounterProps) {
           observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -49,8 +45,11 @@ export function StatCounter({ stat, style }: StatCounterProps) {
   }, [triggered, target]);
 
   return (
-    <div ref={ref} style={style}>
-      {prefix}{count}{suffix}
+    <div ref={ref} className="stat-item" style={style}>
+      <span className="stat-number" data-target={target}>
+        {prefix}{count}{suffix}
+      </span>
+      <span className="stat-label">{label}</span>
     </div>
   );
 }
