@@ -1069,61 +1069,85 @@ input:focus, textarea:focus, select:focus {
 /* ============================================================
    MOBILE PREMIUM REFINEMENTS
    Uses !important to override inline styles in JSX.
-   Covers all four pages at 768px / 480px / 375px.
+   Goal: preserve desktop proportions, spaciousness, and visual rhythm on mobile.
+   Uses !important to override JSX inline styles.
    ============================================================ */
 
+/* ─── ≤ 768px: tablet / large mobile ─────────────────────── */
 @media (max-width: 768px) {
 
-  /* --- H1: cap large clamp() minimums at mobile-appropriate size --- */
+  /* Headings: generous sizes — closer to desktop proportions */
   h1 {
-    font-size: 28px !important;
-    line-height: 1.3 !important;
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
   }
 
-  /* --- H3 --- */
+  h2 {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+  }
+
   h3 {
-    font-size: 20px !important;
+    font-size: 21px !important;
     line-height: 1.3 !important;
   }
 
-  /* --- Body paragraphs --- */
+  /* Body text: readable and spacious */
   p {
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.8;
   }
 
-  /* --- Uniform section spacing (excludes about-strip whose padding is on inner divs) --- */
+  /* Section spacing: preserve the desktop breathing rhythm */
   section:not(.about-strip) {
-    padding-top: 48px !important;
-    padding-bottom: 48px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
   }
 
-  /* --- About-strip: keep full-bleed panels, only tighten vertical padding --- */
+  /* About-strip inner panels: close to desktop 72px */
   .about-strip > div {
-    padding-top: 48px !important;
-    padding-bottom: 48px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
   }
 
-  /* --- Hero min-height: never taller than 50vh --- */
+  /* Hero: spacious, presença forte */
   .hero-animated-bg,
   .page-hero {
-    min-height: 50vh !important;
+    min-height: 60vh !important;
   }
 
-  /* --- Contato hero: let content determine height --- */
+  /* Contato hero */
   .contact-hero-section {
     height: auto !important;
-    min-height: 220px !important;
+    min-height: 280px !important;
   }
 
-  /* --- Contact float card: tighter padding on small screens --- */
+  /* Contact float card: generous padding */
   .contact-float-card {
-    padding: 28px 20px !important;
+    padding: 40px 32px !important;
+    margin-top: 0 !important;
+    transform: none !important;
   }
 
-  /* --- Form inputs: 16px prevents iOS auto-zoom on focus --- */
+  /* Cards: desktop-scale internal padding */
+  .hover-card {
+    padding: 28px !important;
+  }
+
+  /* Card grids: more gap for breathing */
+  .grid-6-services,
+  .grid-3-cols,
+  .grid-2-cols,
+  .faq-grid {
+    gap: 20px !important;
+  }
+
+  /* Form inputs: 16px prevents iOS auto-zoom */
   input,
   textarea,
   select {
@@ -1131,37 +1155,51 @@ input:focus, textarea:focus, select:focus {
     padding: 14px 16px !important;
   }
 
-  /* --- CTA section buttons: centred, capped width --- */
+  /* CTA buttons: centred with generous max-width */
   .cta-section .btn-light,
   .cta-section .btn-primary,
   .cta-section .btn-outline {
     display: flex !important;
-    max-width: 340px !important;
+    max-width: 380px !important;
     width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
-  /* --- WhatsApp float: hug corner on small screens --- */
+  /* WhatsApp float */
   .wa-float {
     bottom: 16px !important;
     right: 16px !important;
   }
 
-  /* --- Footer bottom clearance so WA button never overlaps last line --- */
+  /* Footer: clearance for WA button */
   footer {
     padding-bottom: 72px !important;
   }
 }
 
-/* --- 480px: small mobile --- */
+/* ─── ≤ 480px: standard smartphone ──────────────────────── */
 @media (max-width: 480px) {
 
-  h1 { font-size: 26px !important; }
-  h2 { font-size: 22px !important; }
-  h3 { font-size: 18px !important; }
+  h1 { font-size: 28px !important; line-height: 1.25 !important; }
+  h2 { font-size: 24px !important; }
+  h3 { font-size: 19px !important; }
 
-  /* All buttons full-width for single-thumb tap */
+  section:not(.about-strip) {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .about-strip > div {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* CTA buttons full-width */
   .btn-primary,
   .btn-outline,
   .btn-light,
@@ -1177,29 +1215,34 @@ input:focus, textarea:focus, select:focus {
     max-width: 100% !important;
   }
 
-  /* FAQ trigger comfortable tap area */
   .faq-accordion-trigger {
     font-size: 15px !important;
     padding: 18px 16px !important;
   }
 
-  /* Nav mobile menu items: larger tap area */
   .nav-mobile-link {
-    font-size: 18px !important;
+    font-size: 17px !important;
     padding: 16px 8px !important;
   }
 }
 
-/* --- 375px: iPhone SE / small Android --- */
+/* ─── ≤ 375px: iPhone SE / compact Android ──────────────── */
 @media (max-width: 375px) {
 
-  h1 { font-size: 24px !important; }
-  h2 { font-size: 20px !important; }
-  h3 { font-size: 17px !important; }
+  h1 { font-size: 26px !important; line-height: 1.25 !important; }
+  h2 { font-size: 22px !important; }
+  h3 { font-size: 18px !important; }
 
   section:not(.about-strip) {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .about-strip > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
   .site-nav-inner {
@@ -1208,5 +1251,9 @@ input:focus, textarea:focus, select:focus {
 
   .nav-mobile-menu {
     padding: 12px 16px 20px !important;
+  }
+
+  .contact-float-card {
+    padding: 28px 20px !important;
   }
 }

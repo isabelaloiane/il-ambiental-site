@@ -1,0 +1,74 @@
+I want you to refine the smartphone version of the site so that it looks as close as possible to the notebook/desktop version, while still remaining readable and usable on a phone.
+
+Important:
+
+* Do not redesign the site
+* Do not change texts
+* Do not change colors
+* Do not change typography
+* Do not change branding
+* Do not remove sections
+* Do not alter the general structure of the pages
+* Only improve the mobile presentation so it feels much closer to the desktop/notebook visual experience
+
+Main goal:
+Make the mobile version preserve the same visual proportions, spacing feel, section rhythm, and premium appearance of the notebook version as much as possible.
+
+What I want:
+
+1. Make the smartphone layout look as close as possible to the desktop/notebook version
+2. Preserve the same feeling of spaciousness and visual breathing
+3. Avoid the “compressed”, “cramped”, or “rough” mobile look
+4. Keep the footer, sections, cards, hero blocks, and spacing visually consistent with the desktop feel
+5. Increase the sense of horizontal and vertical space on mobile wherever possible without breaking readability
+6. Keep the mobile version elegant, proportional, and professional
+
+Please review and refine the mobile CSS for:
+
+* header
+* navigation
+* hero sections
+* all page sections
+* cards
+* text blocks
+* forms
+* buttons
+* footer
+* spacing between sections
+* margins and paddings
+* widths and max-widths of content containers
+
+Specific implementation goals:
+
+* Reduce the feeling that the mobile layout is too narrow or too stacked
+* Preserve the desktop-style composition as much as possible
+* Improve whitespace on mobile
+* Make sections breathe more
+* Keep content aligned and balanced
+* Prevent elements from feeling oversized, squeezed, or awkwardly broken
+* Keep the mobile layout visually premium and closer to the notebook experience
+
+If necessary:
+
+* refine container widths
+* refine max-widths
+* refine padding and spacing scales
+* refine heading sizes and line breaks
+* refine card widths and internal spacing
+* refine section gaps
+* refine visual balance without changing the design system
+
+Very important:
+
+* Do not make arbitrary visual changes
+* Do not create a new mobile design
+* Do not simplify the layout unnecessarily
+* The objective is to preserve the notebook look as much as possible on smartphone, with only the minimum adjustments needed for readability and usability
+
+After applying the changes, verify that:
+
+* the site remains fully readable on smartphone
+* nothing is cut off
+* nothing overlaps
+* the mobile version feels significantly closer to the notebook version
+* the overall result looks more premium and professional
