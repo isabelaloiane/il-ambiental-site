@@ -83,16 +83,15 @@ export function Contato() {
       <section style={{ padding: "0 24px" }}>
         <div
           className="contact-float-card"
-          data-aos="fade-up"
           style={{
             maxWidth: 720, margin: "-64px auto 0", position: "relative", zIndex: 10,
             background: "#fff", borderRadius: 16, boxShadow: "0 16px 48px rgba(69,40,22,0.14)",
             padding: "48px 40px", textAlign: "center"
           }}
         >
-          <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Fale Conosco</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", color: "#2C1A0E", margin: 0 }}>Como prefere entrar em contato?</h2>
-          <p style={{ fontSize: "0.95rem", color: "#8C7B6B", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.65 }}>
+          <span className="section-caption" data-aos="fade-up" style={{ color: "#B5895E" }}>Fale Conosco</span>
+          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", color: "#2C1A0E", margin: 0 }}>Como prefere entrar em contato?</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style={{ fontSize: "0.95rem", color: "#8C7B6B", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.65 }}>
             Escolha a opção mais cômoda. Nossa equipe está pronta para responder: seja por formulário, e-mail ou WhatsApp.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 14, marginTop: 24, flexWrap: "wrap" }}>
@@ -253,13 +252,13 @@ export function Contato() {
 
       {/* REGIONAL CARD */}
       <section style={{ maxWidth: 900, margin: "20px auto 0", padding: "0 24px" }}>
-        <div data-aos="fade-up" style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
+        <div style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
           <div style={{ flex: "1 1 280px" }}>
-            <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 10 }}>Atuação regional</span>
-            <h2 style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#DFC49F", fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
+            <span className="section-caption" data-aos="fade-up" style={{ color: "#B5895E" }}>Atuação regional</span>
+            <h2 data-aos="fade-up" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#DFC49F", fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
               Da capital ao interior: presença em todo o Pará
             </h2>
-            <p style={{ fontSize: "0.95rem", color: "rgba(223,196,159,0.7)", lineHeight: 1.7, marginTop: 14, maxWidth: 400, marginBottom: 0 }}>
+            <p data-aos="fade-up" data-aos-delay="100" style={{ fontSize: "0.95rem", color: "rgba(223,196,159,0.7)", lineHeight: 1.7, marginTop: 14, maxWidth: 400, marginBottom: 0 }}>
               Atendemos empresas em mais de 40 municípios do Pará. Conhecemos o contexto regulatório de cada região, da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
             </p>
           </div>
@@ -273,9 +272,9 @@ export function Contato() {
 
       {/* FAQ */}
       <section style={{ padding: "72px 24px 60px", background: "#F5F0E8", marginTop: 20 }}>
-        <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 40 }}>
-          <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Dúvidas frequentes</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <span className="section-caption" data-aos="fade-up">Dúvidas frequentes</span>
+          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 720, margin: "0 auto" }}>
           {[

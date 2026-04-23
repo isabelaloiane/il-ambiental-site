@@ -47,10 +47,11 @@ export function Servicos() {
       {/* SERVICE CARDS */}
       <section style={{ padding: "72px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto" }}>
-          <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 48 }}>
-            <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Nossos Serviços</span>
-            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
-            <p style={{ color: "#8C7B6B", maxWidth: 520, margin: "12px auto 0", lineHeight: 1.65 }}>Da licença prévia à operação contínua: cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <span className="section-caption" data-aos="fade-up">Nossos Serviços</span>
+            <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
+            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
+            <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", maxWidth: 520, margin: "0 auto", lineHeight: 1.65 }}>Da licença prévia à operação contínua: cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
             {[
@@ -102,7 +103,7 @@ export function Servicos() {
       <section className="cta-section" style={{ background: "#452816", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 60, alignItems: "center" }}>
           <div data-aos="fade-right">
-            <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Por que isso importa</span>
+            <span className="section-caption" style={{ color: "#B5895E" }}>Por que isso importa</span>
             <h2 style={{ color: "#DFC49F", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0 }}>
               Empresa sem licença ambiental é empresa em risco.
             </h2>

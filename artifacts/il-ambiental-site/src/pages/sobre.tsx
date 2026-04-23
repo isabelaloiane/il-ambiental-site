@@ -59,9 +59,9 @@ export function Sobre() {
 
       {/* DIFFERENTIALS */}
       <section style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px 72px" }}>
-        <div data-aos="fade-up">
-          <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Por que a IL</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#2C1A0E", margin: 0, marginBottom: 32 }}>O que nos diferencia</h2>
+        <div>
+          <span className="section-caption" data-aos="fade-up">Por que a IL</span>
+          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#2C1A0E", margin: 0, marginBottom: 32 }}>O que nos diferencia</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {[
@@ -74,7 +74,7 @@ export function Sobre() {
               key={i}
               className="hover-card"
               data-aos="fade-up"
-              data-aos-delay={i * 90}
+              data-aos-delay={i * 100}
               style={{
                 background: d.dark ? "#452816" : "#F5F0E8",
                 borderRadius: 16, padding: 28, color: d.dark ? "#DFC49F" : "#2C1A0E",
@@ -115,9 +115,9 @@ export function Sobre() {
 
       {/* VALUES */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 36 }}>
-          <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Nossos Valores</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>O que guia cada decisão que tomamos</h2>
+        <div style={{ textAlign: "center", marginBottom: 36 }}>
+          <span className="section-caption" data-aos="fade-up">Nossos Valores</span>
+          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>O que guia cada decisão que tomamos</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, maxWidth: 900, margin: "0 auto" }}>
           {[

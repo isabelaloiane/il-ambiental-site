@@ -53,13 +53,13 @@ export function Home() {
       {/* SERVICES OVERVIEW */}
       <section style={{ padding: "80px 24px", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 48 }}>
-            <span className="section-caption">O QUE FAZEMOS</span>
-            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#2C1A0E", margin: 0 }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <span className="section-caption" data-aos="fade-up">O QUE FAZEMOS</span>
+            <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#2C1A0E", margin: 0 }}>
               Do licenciamento à gestão: tudo que sua empresa precisa para <span style={{ color: "#734120" }}>operar legal</span>
             </h2>
-            <span className="section-title-line" style={{ margin: "14px auto 18px" }} />
-            <p style={{ color: "#8C7B6B", fontSize: "1.05rem", maxWidth: 580, margin: "0 auto", lineHeight: 1.7 }}>
+            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
+            <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", fontSize: "1.05rem", maxWidth: 580, margin: "0 auto", lineHeight: 1.7 }}>
               Cada serviço foi desenhado para eliminar riscos regulatórios e acelerar sua conformidade.
             </p>
           </div>
@@ -76,7 +76,7 @@ export function Home() {
                 key={i}
                 className="hover-card"
                 data-aos="fade-up"
-                data-aos-delay={i * 80}
+                data-aos-delay={i * 100}
                 style={{ background: "#fff", padding: 28, borderRadius: 12, borderTop: "4px solid transparent", boxShadow: "0 2px 8px rgba(69,40,22,0.07)", cursor: "default", border: "1px solid rgba(181,137,94,0.18)", borderTopWidth: 4 }}
                 onMouseOver={e => { (e.currentTarget.style.borderTopColor = "#734120"); }}
                 onMouseOut={e => { (e.currentTarget.style.borderTopColor = "transparent"); }}
@@ -136,17 +136,17 @@ export function Home() {
       {/* CLIENTS */}
       <section style={{ padding: "80px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 40 }}>
-            <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Empresas que confiam na IL</h2>
-            <span className="section-title-line" style={{ margin: "14px auto 18px" }} />
-            <p style={{ color: "#8C7B6B", fontSize: "1rem", lineHeight: 1.6, marginTop: 0 }}>De multinacionais a empresas locais, regularizamos operações de todos os portes no Pará.</p>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Empresas que confiam na IL</h2>
+            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
+            <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", fontSize: "1rem", lineHeight: 1.6, marginTop: 0 }}>De multinacionais a empresas locais, regularizamos operações de todos os portes no Pará.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 680, margin: "0 auto" }}>
             {[
               { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino" },
               { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa" },
             ].map((c, i) => (
-              <div key={i} className="hover-card" data-aos="fade-up" data-aos-delay={i * 120} style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <div key={i} className="hover-card" data-aos="fade-up" data-aos-delay={i * 100} style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
                 <div style={{ width: 52, height: 52, background: "#734120", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", color: "#DFC49F", fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", flexShrink: 0 }}>{c.initials}</div>
                 <div>
                   <h4 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.1rem", marginBottom: 6 }}>{c.name}</h4>
