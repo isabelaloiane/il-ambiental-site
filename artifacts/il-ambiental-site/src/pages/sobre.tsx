@@ -45,8 +45,9 @@ export function Sobre() {
       {/* INTRO */}
       <section id="historia" style={{ maxWidth: 720, margin: "0 auto", padding: "72px 24px 40px" }}>
         <div data-aos="fade-up">
-          <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>Nossa História</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", color: "#2C1A0E", lineHeight: 1.2, margin: 0, marginBottom: 24 }}>Uma consultoria feita por quem vive o Pará.</h2>
+          <span className="section-caption">Nossa História</span>
+          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", color: "#2C1A0E", lineHeight: 1.2, margin: 0, marginBottom: 10 }}>Uma consultoria feita por quem vive o Pará.</h2>
+          <span className="section-title-line" />
         </div>
         <p data-aos="fade-up" data-aos-delay="80" style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, marginBottom: 20, marginTop: 0 }}>
           A IL nasceu com um propósito: tornar o licenciamento ambiental no Pará mais ágil, transparente e acessível. Combinamos rigor técnico com atendimento próximo, porque cada empresa tem suas particularidades e merece uma solução sob medida.

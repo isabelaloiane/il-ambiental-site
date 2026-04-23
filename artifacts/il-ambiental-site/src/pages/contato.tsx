@@ -121,52 +121,47 @@ export function Contato() {
                 <p style={{ fontSize: "0.9rem", color: "rgba(223,196,159,0.7)", marginTop: 8, lineHeight: 1.6, marginBottom: 24 }}>
                   Preencha o formulário e nossa equipe responderá em até 24 horas.
                 </p>
-                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
                   {[
                     { label: "Nome completo", type: "text", name: "name", required: true },
                     { label: "Empresa", type: "text", name: "company", required: false },
                     { label: "Telefone / WhatsApp", type: "tel", name: "phone", required: true },
                   ].map((field, i) => (
-                    <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                      <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>
-                        {field.label}{field.required && <span style={{ color: "#e08080", marginLeft: 2 }}>*</span>}
-                      </label>
+                    <div key={i} className="form-group">
                       <input
                         required={field.required}
                         type={field.type}
                         name={field.name}
+                        placeholder=" "
                         style={{
-                          background: "rgba(255,255,255,0.06)",
-                          border: fieldErrors[field.name] ? "1px solid #e08080" : "1px solid rgba(223,196,159,0.25)",
-                          color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
-                          outline: "none", fontFamily: "'Poppins', sans-serif", width: "100%",
-                          transition: "border-color 200ms ease",
+                          borderBottomColor: fieldErrors[field.name] ? "#e08080" : undefined,
                         }}
                         onChange={() => {
                           if (fieldErrors[field.name]) setFieldErrors(prev => ({ ...prev, [field.name]: false }));
                         }}
                       />
+                      <label>
+                        {field.label}{field.required && <span style={{ color: "#e08080", marginLeft: 2 }}>*</span>}
+                      </label>
                     </div>
                   ))}
-                  <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                    <label style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.65)", fontWeight: 500 }}>
-                      Conte brevemente sua necessidade<span style={{ color: "#e08080", marginLeft: 2 }}>*</span>
-                    </label>
+                  <div className="form-group" style={{ marginBottom: 20 }}>
                     <textarea
                       required
                       name="message"
                       rows={4}
+                      placeholder=" "
                       style={{
-                        background: "rgba(255,255,255,0.06)",
-                        border: fieldErrors.message ? "1px solid #e08080" : "1px solid rgba(223,196,159,0.25)",
-                        color: "#DFC49F", borderRadius: 8, padding: "11px 14px", fontSize: "0.9rem",
-                        outline: "none", fontFamily: "'Poppins', sans-serif", width: "100%", resize: "vertical",
-                        transition: "border-color 200ms ease",
+                        borderBottomColor: fieldErrors.message ? "#e08080" : undefined,
+                        resize: "vertical",
                       }}
                       onChange={() => {
                         if (fieldErrors.message) setFieldErrors(prev => ({ ...prev, message: false }));
                       }}
                     />
+                    <label>
+                      Conte brevemente sua necessidade<span style={{ color: "#e08080", marginLeft: 2 }}>*</span>
+                    </label>
                   </div>
                   <button
                     type="submit"
