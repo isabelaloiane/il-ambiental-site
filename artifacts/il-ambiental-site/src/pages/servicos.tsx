@@ -11,7 +11,7 @@ export function Servicos() {
       <Navbar />
 
       {/* HERO */}
-      <section style={{ padding: "100px 24px 60px", textAlign: "center", background: "#F5F0E8" }}>
+      <section className="page-hero" style={{ padding: "100px 24px 60px", textAlign: "center", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <h1 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
             Sua conformidade ambiental no Pará, do início ao fim.

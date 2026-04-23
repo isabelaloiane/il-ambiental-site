@@ -1065,3 +1065,148 @@ input:focus, textarea:focus, select:focus {
     transform: none !important;
   }
 }
+
+/* ============================================================
+   MOBILE PREMIUM REFINEMENTS
+   Uses !important to override inline styles in JSX.
+   Covers all four pages at 768px / 480px / 375px.
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* --- H1: cap large clamp() minimums at mobile-appropriate size --- */
+  h1 {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* --- H3 --- */
+  h3 {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* --- Body paragraphs --- */
+  p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* --- Uniform section spacing (excludes about-strip whose padding is on inner divs) --- */
+  section:not(.about-strip) {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* --- About-strip: keep full-bleed panels, only tighten vertical padding --- */
+  .about-strip > div {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* --- Hero min-height: never taller than 50vh --- */
+  .hero-animated-bg,
+  .page-hero {
+    min-height: 50vh !important;
+  }
+
+  /* --- Contato hero: let content determine height --- */
+  .contact-hero-section {
+    height: auto !important;
+    min-height: 220px !important;
+  }
+
+  /* --- Contact float card: tighter padding on small screens --- */
+  .contact-float-card {
+    padding: 28px 20px !important;
+  }
+
+  /* --- Form inputs: 16px prevents iOS auto-zoom on focus --- */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    padding: 14px 16px !important;
+  }
+
+  /* --- CTA section buttons: centred, capped width --- */
+  .cta-section .btn-light,
+  .cta-section .btn-primary,
+  .cta-section .btn-outline {
+    display: flex !important;
+    max-width: 340px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* --- WhatsApp float: hug corner on small screens --- */
+  .wa-float {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  /* --- Footer bottom clearance so WA button never overlaps last line --- */
+  footer {
+    padding-bottom: 72px !important;
+  }
+}
+
+/* --- 480px: small mobile --- */
+@media (max-width: 480px) {
+
+  h1 { font-size: 26px !important; }
+  h2 { font-size: 22px !important; }
+  h3 { font-size: 18px !important; }
+
+  /* All buttons full-width for single-thumb tap */
+  .btn-primary,
+  .btn-outline,
+  .btn-light,
+  .btn-ghost {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .cta-section .btn-light,
+  .cta-section .btn-primary,
+  .cta-section .btn-outline {
+    max-width: 100% !important;
+  }
+
+  /* FAQ trigger comfortable tap area */
+  .faq-accordion-trigger {
+    font-size: 15px !important;
+    padding: 18px 16px !important;
+  }
+
+  /* Nav mobile menu items: larger tap area */
+  .nav-mobile-link {
+    font-size: 18px !important;
+    padding: 16px 8px !important;
+  }
+}
+
+/* --- 375px: iPhone SE / small Android --- */
+@media (max-width: 375px) {
+
+  h1 { font-size: 24px !important; }
+  h2 { font-size: 20px !important; }
+  h3 { font-size: 17px !important; }
+
+  section:not(.about-strip) {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .site-nav-inner {
+    padding: 0 16px !important;
+  }
+
+  .nav-mobile-menu {
+    padding: 12px 16px 20px !important;
+  }
+}

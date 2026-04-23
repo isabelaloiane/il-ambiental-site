@@ -86,7 +86,7 @@ export function Home() {
       </section>
 
       {/* ABOUT STRIP */}
-      <section style={{ display: "flex", flexWrap: "wrap" }}>
+      <section className="about-strip" style={{ display: "flex", flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 400px", background: "#452816", color: "#DFC49F", padding: "72px clamp(24px, 5vw, 80px)", display: "flex", alignItems: "center" }}>
           <div style={{ maxWidth: 480 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Nossa História</span>

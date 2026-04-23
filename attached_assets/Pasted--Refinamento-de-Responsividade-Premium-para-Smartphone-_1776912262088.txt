@@ -1,0 +1,162 @@
+ Refinamento de Responsividade Premium para Smartphone
+Você é um desenvolvedor front-end sênior especialista em responsividade refinada e design premium. Sua tarefa é ajustar a versão mobile do site para que ela reproduza, o mais fielmente possível, a mesma sensação visual, proporção e elegância da versão desktop.
+NÃO altere textos, cores, tipografia, identidade visual, estrutura de páginas ou funcionalidades. NÃO redesenhe o site. Apenas refine a exibição no smartphone.
+
+PRINCÍPIO GERAL
+O desktop está bom. O mobile deve parecer a mesma experiência em tela menor — não uma versão inferior. Cada ajuste deve preservar hierarquia visual, respiração entre elementos e sensação premium.
+
+BREAKPOINTS DE REFERÊNCIA
+css/* Tablet */
+@media (max-width: 1024px) { ... }
+
+/* Mobile grande */
+@media (max-width: 768px) { ... }
+
+/* Mobile padrão */
+@media (max-width: 480px) { ... }
+
+/* Mobile pequeno */
+@media (max-width: 375px) { ... }
+Testar todas as alterações em 375px (iPhone SE), 390px (iPhone 14) e 430px (iPhone 14 Pro Max).
+
+SEÇÃO 1 — HEADER / NAVBAR
+
+Logo: altura máxima 36px em mobile, centralizada ou alinhada à esquerda conforme o layout atual
+Menu hamburger (se existir): ícone com 44px × 44px de área de toque mínima
+Menu aberto: ocupar tela cheia com fundo sólido, itens com padding: 16px 24px, font-size: 18px
+Espaçamento interno do header: padding: 12px 20px
+Garantir que header não ocupe mais de 64px de altura em mobile
+
+
+SEÇÃO 2 — HERO SECTIONS (todas as páginas)
+
+min-height: 50vh (não 80vh ou 100vh — evitar hero gigante no mobile)
+Padding interno: padding: 40px 24px
+Título H1: font-size: 28px, line-height: 1.3
+Subtítulo/descrição: font-size: 15px, line-height: 1.7
+CTA principal: width: 100%, padding: 16px, font-size: 16px, min-height: 48px
+Centralizar conteúdo do hero verticalmente
+Garantir que o CTA esteja visível sem precisar fazer scroll
+Se houver imagem de fundo, verificar que o texto permanece legível (overlay adequado)
+
+
+SEÇÃO 3 — TÍTULOS E SUBTÍTULOS (global)
+
+H1: font-size: 28px → mobile pequeno 26px
+H2: font-size: 24px → mobile pequeno 22px
+H3: font-size: 20px → mobile pequeno 18px
+Section labels (ex: "QUEM SOMOS", "NOSSOS SERVIÇOS"): font-size: 12px, letter-spacing: 1.5px
+Todos os títulos: line-height: 1.3
+Parágrafos: font-size: 15px, line-height: 1.75
+Margem entre título e parágrafo: margin-bottom: 16px
+
+
+SEÇÃO 4 — CARDS (serviços, diferenciais, depoimentos)
+
+Layout: 1 coluna em telas ≤ 768px
+Largura: 100% com margem lateral de 20px de cada lado (ou padding: 0 20px no container)
+Padding interno: 24px
+border-radius: 12px
+Gap entre cards: 20px
+Garantir que todos os cards tenham mesma altura visual (não forçar height fixa, usar conteúdo natural)
+Imagens dentro de cards: width: 100%, border-radius: 8px, object-fit: cover
+
+
+SEÇÃO 5 — ESPAÇAMENTO ENTRE SEÇÕES
+Padronizar em mobile:
+css@media (max-width: 768px) {
+  section,
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+Todas as seções devem ter o mesmo espaçamento vertical
+Container interno: padding-left: 20px, padding-right: 20px
+Nunca ter conteúdo colado na borda da tela
+
+
+SEÇÃO 6 — BOTÕES (global)
+
+Todos os botões em mobile: min-height: 48px (padrão de toque)
+CTAs principais: width: 100% em telas ≤ 480px
+font-size: 16px (nunca menor que 14px)
+padding: 14px 24px
+border-radius: 8px
+Espaço entre botões (se houver mais de um): gap: 12px
+Botões lado a lado no desktop → empilhados verticalmente no mobile
+
+
+SEÇÃO 7 — FORMULÁRIO DE CONTATO
+
+Container: padding: 24px, border-radius: 12px
+Inputs: width: 100%, padding: 14px 16px, font-size: 16px (16px evita zoom automático no iOS)
+Gap entre campos: 16px
+Labels: font-size: 14px, margin-bottom: 6px
+Botão de envio: width: 100%, min-height: 48px, font-size: 16px
+Mensagem de feedback (sucesso/erro): font-size: 14px, padding: 12px 16px
+
+
+SEÇÃO 8 — RODAPÉ (FOOTER)
+
+Layout: todos os blocos empilhados em 1 coluna no mobile
+padding: 40px 20px
+Logo do rodapé: max-height: 32px
+Texto: font-size: 14px, line-height: 1.6
+Links: font-size: 14px, padding: 8px 0 (espaço de toque entre cada link)
+Separação entre blocos do footer: margin-bottom: 32px
+Centralizar conteúdo do footer no mobile
+
+
+SEÇÃO 9 — BOTÃO WHATSAPP FLUTUANTE
+
+Posição: bottom: 16px, right: 16px
+Tamanho: 56px × 56px
+z-index: 9999
+Verificar que não cobre o último conteúdo da página (adicionar padding-bottom: 80px ao body ou última seção se necessário)
+Verificar que não cobre botões de formulário ou CTAs
+
+
+SEÇÃO 10 — IMAGENS E MÍDIA
+
+Todas as imagens: max-width: 100%, height: auto
+Imagens decorativas que ocupam muito espaço no mobile: reduzir ou ocultar com display: none se não agregarem valor
+Ícones: mínimo 24px × 24px, máximo 48px × 48px
+Se houver grid de logos ou ícones: 2 colunas no mobile, gap: 16px
+
+
+SEÇÃO 11 — FAQ (se existir)
+
+Container: padding: 0 20px
+Cada item: padding: 20px 0, border-bottom: 1px solid rgba(0,0,0,0.08)
+Pergunta: font-size: 16px, font-weight: 600
+Resposta: font-size: 15px, line-height: 1.75
+Ícone de abrir/fechar: 24px × 24px, com área de toque de 44px × 44px
+
+
+SEÇÃO 12 — CORREÇÕES GERAIS DE MOBILE
+
+Impedir scroll horizontal: html, body { overflow-x: hidden; }
+Verificar que nenhum elemento ultrapassa a largura da tela (100vw)
+Tabelas (se existirem): overflow-x: auto no container, com scroll horizontal
+Textos longos: word-break: break-word para evitar overflow
+Garantir que nenhum font-size no site inteiro seja menor que 13px no mobile
+Garantir que nenhum elemento com position: absolute saia da viewport no mobile
+
+
+VALIDAÇÃO FINAL
+Após todas as alterações, percorrer cada página (Home, Sobre, Serviços, Contato) em viewport de 375px e verificar:
+
+✅ Conteúdo não está cortado nem sobreposto
+✅ Não há scroll horizontal
+✅ Títulos têm hierarquia clara (H1 > H2 > H3)
+✅ Espaçamento entre seções é consistente (48px)
+✅ Margens laterais são consistentes (20px)
+✅ Todos os botões têm 48px de altura mínima
+✅ Cards estão em 1 coluna com respiração adequada
+✅ Formulário é usável (inputs grandes, sem zoom no iOS)
+✅ Footer está empilhado e centralizado
+✅ WhatsApp flutuante não cobre conteúdo
+✅ O site no celular transmite a mesma sensação premium do desktop
+✅ Nenhum texto, cor, fonte ou estrutura foi alterado
