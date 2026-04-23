@@ -393,6 +393,13 @@ input:focus, textarea:focus, select:focus {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(181, 137, 94, 0.25);
   box-shadow: 0 2px 12px rgba(69,40,22,0.07);
+  transition: background 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.site-nav.scrolled {
+  background: rgba(245, 240, 232, 0.98);
+  box-shadow: 0 6px 28px rgba(69,40,22,0.13);
+  border-bottom-color: rgba(181, 137, 94, 0.45);
 }
 
 .site-nav-inner {

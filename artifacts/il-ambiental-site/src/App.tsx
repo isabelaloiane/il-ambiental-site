@@ -34,10 +34,10 @@ function Router() {
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 650,
-      easing: "ease-out-cubic",
+      duration: 600,
+      easing: "ease-out",
       once: true,
-      offset: 72,
+      offset: 80,
     });
   }, []);
 

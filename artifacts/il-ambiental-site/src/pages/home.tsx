@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { StatCounter } from "@/components/StatCounter";
 
 export function Home() {
   return (
@@ -39,7 +40,10 @@ export function Home() {
             { stat: "24h", label: "Resposta em até 24h" },
           ].map((item, i, arr) => (
             <div key={i} style={{ textAlign: "center", borderRight: i < arr.length - 1 ? "1px solid rgba(181,137,94,0.25)" : "none", padding: "8px 12px" }}>
-              <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "#734120", lineHeight: 1 }}>{item.stat}</div>
+              <StatCounter
+                stat={item.stat}
+                style={{ fontSize: "1.4rem", fontWeight: 700, color: "#734120", lineHeight: 1 }}
+              />
               <div style={{ fontSize: "0.72rem", color: "#8C7B6B", marginTop: 6, lineHeight: 1.3 }}>{item.label}</div>
             </div>
           ))}

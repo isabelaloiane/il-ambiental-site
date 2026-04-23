@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 
 export function Navbar() {
   const [location, navigate] = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
     { href: "/sobre", label: "Sobre" },
@@ -25,7 +32,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="site-nav">
+    <nav className={`site-nav${scrolled ? " scrolled" : ""}`}>
       <div className="site-nav-inner">
         <Link href="/" className="site-logo" aria-label="IL Engenharia e Consultoria Ambiental" onClick={close}>
           <img
