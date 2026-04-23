@@ -276,26 +276,33 @@ export function Contato() {
           <span className="section-caption" data-aos="fade-up">Dúvidas frequentes</span>
           <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 720, margin: "0 auto" }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
           {[
-            { q: "Quanto tempo leva um licenciamento ambiental?", a: "O prazo varia conforme o tipo de licença, o órgão ambiental responsável e a complexidade do empreendimento. Com a documentação correta desde o início, é possível evitar atrasos e retrabalhos. Nossa equipe orienta cada caso de forma personalizada para garantir o andamento mais ágil possível." },
+            { q: "Qual o prazo médio para licenciamento no Pará?", a: "O prazo varia conforme a modalidade e o porte do empreendimento. Com documentação correta desde a primeira entrada, evitamos idas e vindas aos órgãos. Nossa equipe orienta cada caso individualmente para garantir o andamento mais ágil possível." },
             { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção." },
-            { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto." },
-            { q: "O que é ESG e por que minha empresa precisa?", a: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar." },
-            { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário." },
+            { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto. Já trabalhamos com mais de 40 municípios paraenses." },
+            { q: "O que é ESG e por que minha empresa precisa?", a: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar e se tornar mais atrativa para o mercado." },
+            { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário, sem burocracia." },
             { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial, sem custo e sem compromisso." },
           ].map((faq, i) => (
-            <div key={i} className="faq-accordion-item" data-aos="fade-up" data-aos-delay={i * 60}>
-              <button
-                className="faq-accordion-trigger"
+            <div
+              key={i}
+              className={`faq-item${openFaq === i ? " open" : ""}`}
+              data-aos="fade-up"
+              data-aos-delay={i * 60}
+            >
+              <div
+                className="faq-question"
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                aria-expanded={openFaq === i}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setOpenFaq(openFaq === i ? null : i)}
               >
                 {faq.q}
-                <span className={`faq-accordion-arrow${openFaq === i ? " open" : ""}`}>▼</span>
-              </button>
-              <div className={`faq-accordion-body${openFaq === i ? " open" : ""}`}>
-                <div className="faq-accordion-body-inner">{faq.a}</div>
+                <span className="faq-icon">+</span>
+              </div>
+              <div className="faq-answer">
+                {faq.a}
               </div>
             </div>
           ))}

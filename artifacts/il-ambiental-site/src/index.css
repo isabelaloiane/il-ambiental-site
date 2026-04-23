@@ -944,27 +944,28 @@ input:focus, textarea:focus, select:focus {
   }
 
   /* — FAQ — */
-  .faq-card,
-  .faq-item,
-  [class*="faq"] {
+  .faq-card {
     padding: 20px;
     margin-bottom: 12px;
     border-radius: 10px;
   }
 
-  .faq-card h4,
-  .faq-item h4,
-  .faq-question {
-    font-size: 15px;
-    line-height: 1.35;
-    margin-bottom: 8px;
+  /* flat accordion – no card chrome on mobile */
+  .faq-item {
+    padding: 0;
+    margin-bottom: 0;
+    border-radius: 0;
   }
 
-  .faq-card p,
-  .faq-item p,
+  .faq-question {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 16px 0;
+  }
+
   .faq-answer {
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   /* — Regional section — */
@@ -1228,6 +1229,67 @@ input:focus, textarea:focus, select:focus {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+/* ─── FAQ ANIMADO ───────────────────────────────────────────── */
+.faq-item {
+  border-bottom: 1px solid rgba(181,137,94,0.22);
+  overflow: hidden;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(181,137,94,0.22);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2C1A0E;
+  user-select: none;
+  gap: 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  width: 100%;
+  transition: color 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-question:hover {
+  color: #734120;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+  color: #B5895E;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding-bottom 0.3s ease;
+  padding-bottom: 0;
+  color: #8C7B6B;
+  line-height: 1.78;
+  font-size: 0.9rem;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 400px;
+  padding-bottom: 20px;
 }
 
 /* ─── GLOBAL LINE HEIGHT ────────────────────────────────────── */
