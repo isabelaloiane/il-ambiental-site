@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/il-engenharia-lp/"
+title = "IL Engenharia - Landing Page"
+version = "1.0.0"
+id = "artifacts/il-engenharia-lp"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/il-engenharia-lp/" ]
+localPort = 23411
+
+[services.development]
+run = "pnpm --filter @workspace/il-engenharia-lp run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/il-engenharia-lp", "run", "build" ]
+publicDir = "artifacts/il-engenharia-lp/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23411"
+BASE_PATH = "/il-engenharia-lp/"
