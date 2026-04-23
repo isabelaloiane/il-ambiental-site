@@ -2,10 +2,8 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Home() {
-  useScrollAnimation();
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -51,7 +49,7 @@ export function Home() {
       {/* SERVICES OVERVIEW */}
       <section style={{ padding: "80px 24px", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 48 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>O QUE FAZEMOS</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#2C1A0E", margin: 0 }}>
               Do licenciamento à gestão: tudo que sua empresa precisa para <span style={{ color: "#734120" }}>operar legal</span>
@@ -69,7 +67,12 @@ export function Home() {
               { icon: "📋", title: "Estudos de Impacto", desc: "EIA/RIMA, PCA, RCA e PRAD elaborados por especialistas. Documentação que resiste a qualquer auditoria." },
               { icon: "✅", title: "Conformidade Regulatória", desc: "Auditorias preventivas para manter suas licenças em dia e evitar notificações surpresa dos órgãos fiscalizadores." },
             ].map((svc, i) => (
-              <div key={i} className="hover-card animate-on-scroll" style={{ background: "#fff", padding: 28, borderRadius: 12, borderTop: "4px solid transparent", boxShadow: "0 2px 8px rgba(69,40,22,0.07)", cursor: "default", border: "1px solid rgba(181,137,94,0.18)", borderTopWidth: 4 }}
+              <div
+                key={i}
+                className="hover-card"
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                style={{ background: "#fff", padding: 28, borderRadius: 12, borderTop: "4px solid transparent", boxShadow: "0 2px 8px rgba(69,40,22,0.07)", cursor: "default", border: "1px solid rgba(181,137,94,0.18)", borderTopWidth: 4 }}
                 onMouseOver={e => { (e.currentTarget.style.borderTopColor = "#734120"); }}
                 onMouseOut={e => { (e.currentTarget.style.borderTopColor = "transparent"); }}
               >
@@ -79,7 +82,7 @@ export function Home() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 40 }}>
+          <div data-aos="fade-up" data-aos-delay="100" style={{ textAlign: "center", marginTop: 40 }}>
             <Link href="/servicos" className="btn-primary">Ver detalhes de cada serviço →</Link>
           </div>
         </div>
@@ -88,7 +91,7 @@ export function Home() {
       {/* ABOUT STRIP */}
       <section className="about-strip" style={{ display: "flex", flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 400px", background: "#452816", color: "#DFC49F", padding: "72px clamp(24px, 5vw, 80px)", display: "flex", alignItems: "center" }}>
-          <div style={{ maxWidth: 480 }}>
+          <div data-aos="fade-right" style={{ maxWidth: 480 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Nossa História</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0, color: "#DFC49F" }}>
               Porque quem conhece o contexto regulatório local resolve mais rápido, sem retrabalho.
@@ -103,7 +106,7 @@ export function Home() {
           </div>
         </div>
         <div style={{ flex: "1 1 400px", background: "#fff", padding: "72px clamp(24px, 5vw, 80px)", display: "flex", alignItems: "center" }}>
-          <div style={{ maxWidth: 480 }}>
+          <div data-aos="fade-left" style={{ maxWidth: 480 }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", borderBottom: "1px solid rgba(181,137,94,0.25)", paddingBottom: 16, marginBottom: 28 }}>Por que empresas no Pará escolhem a IL</h3>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 20 }}>
               {[
@@ -128,7 +131,7 @@ export function Home() {
       {/* CLIENTS */}
       <section style={{ padding: "80px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 40 }}>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Empresas que confiam na IL</h2>
             <p style={{ color: "#8C7B6B", fontSize: "1rem", marginTop: 10, lineHeight: 1.6 }}>De multinacionais a empresas locais, regularizamos operações de todos os portes no Pará.</p>
           </div>
@@ -137,7 +140,7 @@ export function Home() {
               { initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino" },
               { initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa" },
             ].map((c, i) => (
-              <div key={i} className="hover-card animate-on-scroll" style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <div key={i} className="hover-card" data-aos="fade-up" data-aos-delay={i * 120} style={{ background: "#F5F0E8", padding: "36px 28px", borderRadius: 12, border: "1px solid rgba(181,137,94,0.25)", display: "flex", gap: 20, alignItems: "flex-start" }}>
                 <div style={{ width: 52, height: 52, background: "#734120", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", color: "#DFC49F", fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", flexShrink: 0 }}>{c.initials}</div>
                 <div>
                   <h4 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.1rem", marginBottom: 6 }}>{c.name}</h4>
@@ -151,16 +154,18 @@ export function Home() {
 
       {/* CTA BANNER */}
       <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", color: "#DFC49F", margin: 0 }}>
+        <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", color: "#DFC49F", margin: 0 }}>
           Sua empresa precisa de licença ambiental no Pará?
         </h2>
-        <p style={{ color: "rgba(223,196,159,0.78)", fontSize: "1.1rem", maxWidth: 600, margin: "16px auto 32px", lineHeight: 1.7 }}>
+        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.78)", fontSize: "1.1rem", maxWidth: 600, margin: "16px auto 32px", lineHeight: 1.7 }}>
           Conte sua situação e receba uma orientação técnica inicial sem compromisso. Respondemos em até 24 horas.
         </p>
-        <Link href="/contato" className="btn-light" style={{ fontSize: "1.05rem", padding: "16px 40px" }}>
-          Solicitar orientação gratuita →
-        </Link>
-        <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <Link href="/contato" className="btn-light" style={{ fontSize: "1.05rem", padding: "16px 40px" }}>
+            Solicitar orientação gratuita →
+          </Link>
+          <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
+        </div>
       </section>
 
       <Footer />

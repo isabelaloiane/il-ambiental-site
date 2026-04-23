@@ -2,10 +2,8 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Servicos() {
-  useScrollAnimation();
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -49,7 +47,7 @@ export function Servicos() {
       {/* SERVICE CARDS */}
       <section style={{ padding: "72px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 48 }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Nossos Serviços</span>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
             <p style={{ color: "#8C7B6B", maxWidth: 520, margin: "12px auto 0", lineHeight: 1.65 }}>Da licença prévia à operação contínua: cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
@@ -72,13 +70,19 @@ export function Servicos() {
                 items: ["Implantação de práticas de ESG", "Plano de Gerenciamento de Resíduos Sólidos (PGRS)", "Cadastro Ambiental Rural (CAR) e regularização fundiária", "Monitoramento e recuperação de áreas degradadas"],
               },
             ].map((svc, i) => (
-              <div key={i} className="hover-card animate-on-scroll" style={{
-                background: "#fff",
-                border: "1px solid rgba(181,137,94,0.25)",
-                borderRadius: 12,
-                padding: 32,
-                boxShadow: "0 2px 12px rgba(69,40,22,0.07)"
-              }}>
+              <div
+                key={i}
+                className="hover-card"
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+                style={{
+                  background: "#fff",
+                  border: "1px solid rgba(181,137,94,0.25)",
+                  borderRadius: 12,
+                  padding: 32,
+                  boxShadow: "0 2px 12px rgba(69,40,22,0.07)"
+                }}
+              >
                 <h3 style={{ fontWeight: 700, fontSize: "1.2rem", color: "#2C1A0E", marginBottom: 12, marginTop: 0 }}>{svc.title}</h3>
                 <p style={{ color: "#8C7B6B", lineHeight: 1.65, fontSize: "0.9rem", marginBottom: 14, marginTop: 0 }}>{svc.desc}</p>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 4 }}>
@@ -97,7 +101,7 @@ export function Servicos() {
       {/* URGENCY SECTION */}
       <section className="cta-section" style={{ background: "#452816", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 60, alignItems: "center" }}>
-          <div>
+          <div data-aos="fade-right">
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>Por que isso importa</span>
             <h2 style={{ color: "#DFC49F", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0 }}>
               Empresa sem licença ambiental é empresa em risco.
@@ -114,7 +118,7 @@ export function Servicos() {
               ))}
             </div>
           </div>
-          <div style={{ background: "rgba(26,15,8,0.5)", border: "1px solid rgba(223,196,159,0.15)", borderRadius: 12, padding: "28px 32px", maxWidth: 400, margin: "0 auto", width: "100%" }}>
+          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "rgba(26,15,8,0.5)", border: "1px solid rgba(223,196,159,0.15)", borderRadius: 12, padding: "28px 32px", maxWidth: 400, margin: "0 auto", width: "100%" }}>
             <div style={{ background: "rgba(181,137,94,0.2)", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "10px 0", marginBottom: 20 }}>
               <span style={{ color: "#DFC49F", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.1em" }}>⚠ NOTIFICAÇÃO AMBIENTAL</span>
             </div>
@@ -139,14 +143,16 @@ export function Servicos() {
 
       {/* FINAL CTA */}
       <section className="cta-section" style={{ background: "#F5F0E8", padding: "80px 24px", textAlign: "center" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Sua empresa está regularizada?</h2>
-        <p style={{ color: "#8C7B6B", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.6 }}>
+        <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Sua empresa está regularizada?</h2>
+        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.6 }}>
           Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.
         </p>
-        <Link href="/contato" className="btn-primary" style={{ marginTop: 28, display: "inline-flex" }}>
-          Solicite uma avaliação gratuita
-        </Link>
-        <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 12 }}>Sem compromisso. Nossa equipe responde em até 24 horas.</p>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <Link href="/contato" className="btn-primary" style={{ marginTop: 28, display: "inline-flex" }}>
+            Solicite uma avaliação gratuita
+          </Link>
+          <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 12 }}>Sem compromisso. Nossa equipe responde em até 24 horas.</p>
+        </div>
       </section>
 
       <Footer />

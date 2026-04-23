@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function Contato() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,7 +10,6 @@ export function Contato() {
   const [sending, setSending] = useState(false);
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
-  useScrollAnimation();
 
   useEffect(() => {
     if (!feedback) return;
@@ -83,11 +81,15 @@ export function Contato() {
 
       {/* FLOATING ACTION CARD */}
       <section style={{ padding: "0 24px" }}>
-        <div className="contact-float-card" style={{
-          maxWidth: 720, margin: "-64px auto 0", position: "relative", zIndex: 10,
-          background: "#fff", borderRadius: 16, boxShadow: "0 16px 48px rgba(69,40,22,0.14)",
-          padding: "48px 40px", textAlign: "center"
-        }}>
+        <div
+          className="contact-float-card"
+          data-aos="fade-up"
+          style={{
+            maxWidth: 720, margin: "-64px auto 0", position: "relative", zIndex: 10,
+            background: "#fff", borderRadius: 16, boxShadow: "0 16px 48px rgba(69,40,22,0.14)",
+            padding: "48px 40px", textAlign: "center"
+          }}
+        >
           <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Fale Conosco</span>
           <h2 style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", color: "#2C1A0E", margin: 0 }}>Como prefere entrar em contato?</h2>
           <p style={{ fontSize: "0.95rem", color: "#8C7B6B", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.65 }}>
@@ -112,7 +114,7 @@ export function Contato() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
 
           {/* Form Card */}
-          <div style={{ background: "#452816", borderRadius: 16, padding: 36, color: "#DFC49F" }}>
+          <div data-aos="fade-right" style={{ background: "#452816", borderRadius: 16, padding: 36, color: "#DFC49F" }}>
             {!submitted ? (
               <>
                 <h3 style={{ fontWeight: 700, fontSize: "1.3rem", margin: 0, color: "#DFC49F" }}>Envie uma mensagem</h3>
@@ -204,7 +206,7 @@ export function Contato() {
           </div>
 
           {/* Info Card */}
-          <div style={{ background: "#452816", borderRadius: 16, padding: 36, color: "#DFC49F", display: "flex", flexDirection: "column" }}>
+          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "#452816", borderRadius: 16, padding: 36, color: "#DFC49F", display: "flex", flexDirection: "column" }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.3rem", margin: 0, color: "#DFC49F" }}>Informações de Contato</h3>
             <p style={{ fontSize: "0.9rem", color: "rgba(223,196,159,0.7)", marginTop: 8, marginBottom: 28, lineHeight: 1.6 }}>
               Prefere falar diretamente? Aqui estão todos os nossos canais.
@@ -256,7 +258,7 @@ export function Contato() {
 
       {/* REGIONAL CARD */}
       <section style={{ maxWidth: 900, margin: "20px auto 0", padding: "0 24px" }}>
-        <div style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
+        <div data-aos="fade-up" style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
           <div style={{ flex: "1 1 280px" }}>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 10 }}>Atuação regional</span>
             <h2 style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#DFC49F", fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
@@ -276,7 +278,7 @@ export function Contato() {
 
       {/* FAQ */}
       <section style={{ padding: "72px 24px 60px", background: "#F5F0E8", marginTop: 20 }}>
-        <div style={{ textAlign: "center", marginBottom: 40 }}>
+        <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: 40 }}>
           <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 8 }}>Dúvidas frequentes</span>
           <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>
         </div>
@@ -289,7 +291,7 @@ export function Contato() {
             { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário." },
             { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial, sem custo e sem compromisso." },
           ].map((faq, i) => (
-            <div key={i} className="faq-accordion-item animate-on-scroll">
+            <div key={i} className="faq-accordion-item" data-aos="fade-up" data-aos-delay={i * 60}>
               <button
                 className="faq-accordion-trigger"
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -308,16 +310,18 @@ export function Contato() {
 
       {/* FINAL CTA */}
       <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
+        <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
           Sua empresa está regularizada?
         </h2>
-        <p style={{ color: "rgba(223,196,159,0.68)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "16px auto 0" }}>
+        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.68)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "16px auto 0" }}>
           Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.
         </p>
-        <Link href="/contato" className="btn-light" style={{ marginTop: 32, display: "inline-flex" }}>
-          Solicitar avaliação gratuita →
-        </Link>
-        <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <Link href="/contato" className="btn-light" style={{ marginTop: 32, display: "inline-flex" }}>
+            Solicitar avaliação gratuita →
+          </Link>
+          <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
+        </div>
       </section>
 
       <Footer />

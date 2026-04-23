@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import AOS from "aos";
 import { Home } from "@/pages/home";
 import { Servicos } from "@/pages/servicos";
 import { Contato } from "@/pages/contato";
@@ -10,6 +11,7 @@ function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.refresh();
   }, [location]);
   return null;
 }
@@ -30,6 +32,15 @@ function Router() {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 650,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 72,
+    });
+  }, []);
+
   return (
     <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <Router />

@@ -73,5 +73,9 @@
     "vite": "catalog:",
     "wouter": "^3.3.5",
     "zod": "catalog:"
+  },
+  "dependencies": {
+    "@types/aos": "^3.0.7",
+    "aos": "^2.3.4"
   }
 }
