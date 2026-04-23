@@ -18,5 +18,47 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      function animateCounter(element, target, duration) {
+        duration = duration || 1800;
+        var start = 0;
+        var step = target / (duration / 16);
+        var prefix = element.dataset.prefix || "";
+        var suffix = element.dataset.suffix || "";
+        var timer = setInterval(function () {
+          start += step;
+          if (start >= target) {
+            element.textContent = prefix + target + suffix;
+            clearInterval(timer);
+          } else {
+            element.textContent = prefix + Math.floor(start) + suffix;
+          }
+        }, 16);
+      }
+
+      var counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            animateCounter(el, parseInt(el.dataset.target));
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      function observeCounters() {
+        document.querySelectorAll(".stat-number[data-target]:not([data-observed])").forEach(function (el) {
+          el.dataset.observed = "1";
+          counterObserver.observe(el);
+        });
+      }
+
+      // Run on initial load
+      document.addEventListener("DOMContentLoaded", observeCounters);
+
+      // Re-run whenever React mounts new elements (SPA navigation)
+      var domWatcher = new MutationObserver(observeCounters);
+      domWatcher.observe(document.body, { childList: true, subtree: true });
+    </script>
   </body>
 </html>
