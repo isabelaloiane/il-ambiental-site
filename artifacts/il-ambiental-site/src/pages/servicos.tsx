@@ -11,9 +11,10 @@ export function Servicos() {
       {/* HERO */}
       <section className="page-hero" style={{ padding: "100px 24px 60px", textAlign: "center", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          <h1 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
+          <span className="section-caption fade-1" style={{ color: "#B5895E" }}>Nossos Serviços</span>
+          <h2 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
             Sua conformidade ambiental no Pará, do início ao fim.
-          </h1>
+          </h2>
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "#8C7B6B", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.7 }}>
             Licenciamento, gestão ambiental e ESG: a IL assume a burocracia para que você foque no seu negócio. Segurança jurídica do início à operação.
           </p>
@@ -48,7 +49,7 @@ export function Servicos() {
       <section style={{ padding: "72px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <span className="section-caption" data-aos="fade-up">Nossos Serviços</span>
+            <span className="section-caption" data-aos="fade-up">O que entregamos</span>
             <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
             <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", maxWidth: 520, margin: "0 auto", lineHeight: 1.65 }}>Da licença prévia à operação contínua: cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
