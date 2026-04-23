@@ -631,6 +631,15 @@ input:focus, textarea:focus, select:focus {
   .grid-2-cols     { grid-template-columns: 1fr; }
   .faq-grid        { grid-template-columns: 1fr; }
 
+  /* — About strip: empilha verticalmente — */
+  .about-strip {
+    flex-direction: column !important;
+  }
+  .about-strip > div {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
   /* — CTA dark sections — */
   .cta-section h2  { font-size: clamp(1.5rem, 7vw, 1.85rem) !important; }
   .cta-section p   { font-size: 0.95rem !important; }
@@ -1326,8 +1335,8 @@ a {
 
   /* Headings: generous sizes — closer to desktop proportions */
   h1 {
-    font-size: 32px !important;
-    line-height: 1.2 !important;
+    font-size: 36px !important;
+    line-height: 1.15 !important;
     letter-spacing: -0.02em !important;
   }
 
@@ -1347,20 +1356,26 @@ a {
     line-height: 1.8;
   }
 
-  /* Section spacing: preserve the desktop breathing rhythm */
+  /* Section spacing: proporcional ao mobile */
   section:not(.about-strip) {
-    padding-top: 72px !important;
-    padding-bottom: 72px !important;
-    padding-left: 28px !important;
-    padding-right: 28px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
   }
 
-  /* About-strip inner panels: close to desktop 72px */
+  /* About-strip inner panels */
   .about-strip > div {
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
-    padding-left: 28px !important;
-    padding-right: 28px !important;
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* Footer: 2 colunas em tablet */
+  .footer-cols {
+    grid-template-columns: repeat(2, 1fr) !important;
+    text-align: left !important;
   }
 
   /* Hero: spacious, presença forte */
@@ -1429,23 +1444,53 @@ a {
 /* ─── ≤ 480px: standard smartphone ──────────────────────── */
 @media (max-width: 480px) {
 
-  h1 { font-size: 28px !important; line-height: 1.25 !important; }
-  h2 { font-size: 24px !important; }
-  h3 { font-size: 19px !important; }
+  /* H1 hero: 36–38px — hierarquia forte sem overflow */
+  h1 { font-size: 36px !important; line-height: 1.2 !important; }
+  h2 { font-size: 22px !important; }
+  h3 { font-size: 18px !important; }
 
+  /* Section padding: compacto mas com respiro */
   section:not(.about-strip) {
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
   .about-strip > div {
-    padding-top: 52px !important;
-    padding-bottom: 52px !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
+
+  /* Trust bar: coluna única no mobile */
+  .trust-bar-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .trust-bar-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(181,137,94,0.18) !important;
+    padding: 14px 16px !important;
+  }
+  .trust-bar-grid > div:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Impact stats: 2×2 no mobile */
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px 16px !important;
+  }
+
+  /* Footer: 1 coluna no mobile */
+  .footer-cols {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  .footer-cols ul  { align-items: center !important; }
+  .footer-cols li  { justify-content: center !important; }
 
   /* CTA buttons full-width */
   .btn-primary,
@@ -1463,11 +1508,6 @@ a {
     max-width: 100% !important;
   }
 
-  .faq-accordion-trigger {
-    font-size: 15px !important;
-    padding: 18px 16px !important;
-  }
-
   .nav-mobile-link {
     font-size: 17px !important;
     padding: 16px 8px !important;
@@ -1477,9 +1517,9 @@ a {
 /* ─── ≤ 375px: iPhone SE / compact Android ──────────────── */
 @media (max-width: 375px) {
 
-  h1 { font-size: 26px !important; line-height: 1.25 !important; }
-  h2 { font-size: 22px !important; }
-  h3 { font-size: 18px !important; }
+  h1 { font-size: 32px !important; line-height: 1.2 !important; }
+  h2 { font-size: 20px !important; }
+  h3 { font-size: 17px !important; }
 
   section:not(.about-strip) {
     padding-top: 52px !important;

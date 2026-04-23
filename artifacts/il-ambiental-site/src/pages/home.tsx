@@ -140,6 +140,7 @@ export function Home() {
             </h2>
           </div>
           <div
+            className="stat-grid"
             data-aos="fade-up"
             data-aos-delay="100"
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 40 }}
