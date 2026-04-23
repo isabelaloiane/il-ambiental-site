@@ -56,8 +56,11 @@
       // Run on initial load
       document.addEventListener("DOMContentLoaded", observeCounters);
 
-      // Re-run whenever React mounts new elements (SPA navigation)
-      var domWatcher = new MutationObserver(observeCounters);
+      // Re-run only when React adds new DOM nodes (SPA navigation), not on text changes
+      var domWatcher = new MutationObserver(function (mutations) {
+        var hasNewNodes = mutations.some(function (m) { return m.addedNodes.length > 0; });
+        if (hasNewNodes) observeCounters();
+      });
       domWatcher.observe(document.body, { childList: true, subtree: true });
     </script>
   </body>

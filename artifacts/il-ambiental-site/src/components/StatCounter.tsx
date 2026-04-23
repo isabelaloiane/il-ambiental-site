@@ -14,9 +14,8 @@ export function StatCounter({ target, label, prefix = "", suffix = "", style }: 
         data-target={target}
         data-prefix={prefix || undefined}
         data-suffix={suffix || undefined}
-      >
-        0
-      </span>
+        dangerouslySetInnerHTML={{ __html: "0" }}
+      />
       <span className="stat-label">{label}</span>
     </div>
   );
