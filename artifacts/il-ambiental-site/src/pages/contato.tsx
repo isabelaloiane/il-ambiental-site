@@ -109,7 +109,7 @@ export function Contato() {
       </section>
 
       {/* CONTACT FORMS & INFO */}
-      <section style={{ maxWidth: 900, margin: "40px auto 0", padding: "0 24px" }}>
+      <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
 
           {/* Form Card */}
@@ -251,7 +251,7 @@ export function Contato() {
       </section>
 
       {/* REGIONAL CARD */}
-      <section style={{ maxWidth: 900, margin: "20px auto 0", padding: "0 24px" }}>
+      <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
           <div style={{ flex: "1 1 280px" }}>
             <span className="section-caption" data-aos="fade-up" style={{ color: "#B5895E" }}>Atuação regional</span>

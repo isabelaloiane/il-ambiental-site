@@ -63,7 +63,7 @@ export function Sobre() {
           <span className="section-caption" data-aos="fade-up">Por que a IL</span>
           <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#2C1A0E", margin: 0, marginBottom: 32 }}>O que nos diferencia</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
           {[
             { icon: "🌿", title: "Especialização Regional", desc: "Conhecemos as exigências da SEMAS-PA, do IBAMA e dos demais órgãos ambientais em profundidade. O resultado: menos erros, menos atrasos.", dark: true },
             { icon: "⚡", title: "Agilidade no Processo", desc: "Documentação correta desde o início significa menos idas e vindas aos órgãos. Resposta em 24h.", dark: true },

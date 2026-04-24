@@ -1792,3 +1792,24 @@ a {
   }
 
 }
+
+/* ============================================
+   DESKTOP FIXES — IL AMBIENTAL
+   Correções de sobreposição e layout
+   ============================================ */
+
+/* 1. Contato: padding-bottom para o card não cobrir o subtítulo */
+.contact-hero-section {
+  padding-bottom: 140px !important;
+}
+
+/* 5. About-strip: prevenir margin collapse + alinhar filhos */
+.about-strip {
+  overflow: hidden !important;
+}
+
+.about-strip > div {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}

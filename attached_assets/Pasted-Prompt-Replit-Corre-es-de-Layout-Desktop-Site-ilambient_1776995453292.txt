@@ -1,0 +1,127 @@
+Prompt Replit — Correções de Layout Desktop
+Site: ilambiental.com.br
+Cole o texto abaixo diretamente no chat do Replit:
+
+Preciso corrigir erros de sobreposição e layout no site em versão desktop. Todos os problemas foram diagnosticados com medição técnica precisa. Aplique as correções abaixo sem alterar textos, identidade visual ou estrutura geral das páginas.
+
+PROBLEMA 1 — CRÍTICO: Card de contato sobrepõe e oculta o subtítulo do hero (/contato)
+O que acontece: Na página /contato, o elemento .contact-float-card tem margin-top: -64px, o que puxa o card branco 64px para cima, cobrindo a segunda linha do subtítulo do hero ("avaliação gratuita. Respondemos em até 24 horas."). O texto fica oculto atrás do card branco.
+Causa raiz: O padding-bottom do .contact-hero-section (80px) é insuficiente para acomodar o título + subtítulo antes que o card com margem negativa comece a sobrepor.
+Fix:
+css/* Aumentar padding-bottom do hero de contato para acomodar o card sem cobrir o texto */
+.contact-hero-section {
+  padding-bottom: 140px !important;
+}
+Se quiser reduzir o overlap em vez de aumentar o hero, use esta alternativa (escolha uma das duas):
+css/* Alternativa: reduzir a sobreposição do card */
+.contact-float-card {
+  margin-top: -32px !important;
+}
+
+PROBLEMA 2 — ALTO: Faixa branca incongruente entre hero e seção de serviços (homepage)
+O que acontece: A trust-bar (barra com as estatísticas: +30, 100%, 5, 24h) tem fundo branco puro (rgb(255, 255, 255)), enquanto todas as seções do site usam o fundo creme (rgb(245, 240, 232)). Isso cria uma faixa branca visualmente inconsistente entre o hero escuro e a seção de serviços.
+Fix: Alterar o background do container da trust-bar para usar a cor creme do site:
+css/* Corrigir background da trust-bar para creme (não branco) */
+.trust-bar-grid,
+.trust-bar-grid + *,
+.trust-bar-grid ~ * {
+  /* já herdado */
+}
+
+/* Encontrar o div pai da .trust-bar-grid e corrigir seu background */
+/* O container da trust-bar (div pai direto da .trust-bar-grid) */
+.trust-bar-grid {
+  background-color: transparent !important;
+}
+Ação necessária no HTML/JSX também:
+Encontre o elemento pai direto da .trust-bar-grid (um <div> sem classe) e adicione a ele:
+htmlstyle="background-color: rgb(245, 240, 232);"
+Ou adicione uma classe e defina via CSS:
+css.trust-bar-wrapper {
+  background-color: rgb(245, 240, 232) !important;
+}
+
+PROBLEMA 3 — ALTO: 4 cards em grid de 3 colunas — card isolado na segunda linha (/sobre)
+O que acontece: Na página /sobre, a seção "O que nos diferencia" tem 4 cards em um grid de 3 colunas. O quarto card ("Rigor Técnico") fica sozinho na segunda linha, gerando um layout assimétrico e pouco profissional.
+Fix opção A — Mudar para grid de 2 colunas (2 linhas de 2 cards):
+css/* Na página /sobre, seção "O que nos diferencia" */
+.sobre-diferenciais-grid,
+[class*="diferencia"] .grid,
+.sobre-page .grid-6-services,
+/* ou pelo seletor correto do grid desses cards */
+.sobre-page section .grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+Fix opção B — Identificar no código HTML/JSX o grid que contém os 4 cards (Especialização Regional, Agilidade no Processo, Atendimento Personalizado, Rigor Técnico) e alterar seu grid-template-columns de repeat(3, 1fr) para repeat(2, 1fr).
+Ação necessária: Localizar no código da página /sobre o componente ou seção "O que nos diferencia" e mudar o grid de 3 para 2 colunas, ou adicionar um 5º card vazio para balancear. A solução mais elegante é 2 colunas × 2 linhas.
+
+PROBLEMA 4 — MÉDIO: Gaps brancos entre seções na página /contato
+O que acontece: Entre as seções da página /contato existem gaps de 20 a 40px que criam faixas brancas visíveis na transição entre blocos de conteúdo.
+Seções afetadas (medidas):
+
+Entre seção de cards "Envie uma mensagem" e "Informações de Contato" e a seção seguinte: 40px de gap
+Entre as demais seções: 20px de gap
+
+Fix:
+css/* Remover gaps inesperados entre seções na página de contato */
+.contact-page section,
+body.contato section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+Se o gap vier de margin de elementos filhos (margin collapsing), adicionar ao container pai:
+css.contact-page,
+.contato-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+PROBLEMA 5 — MÉDIO: About-strip sem padding vertical (homepage)
+O que acontece: A seção .about-strip tem padding: 0px em todos os lados. As colunas internas têm padding próprio (72px 76.8px), mas a seção em si não tem, causando cortes visuais bruscos nas bordas.
+Impacto: A transição entre a seção de serviços (acima) e o about-strip parece abrupta; o conteúdo vai até a borda sem respiro.
+Fix:
+css/* Não adicionar padding na seção pois os filhos já têm padding interno suficiente */
+/* Garantir que não há margin collapse */
+.about-strip {
+  overflow: hidden !important;
+}
+
+/* Garantir que os filhos do about-strip estão alinhados corretamente */
+.about-strip > div {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+RESUMO: Todo o CSS de uma vez (para colar em uma única regra)
+css/* ============================================
+   DESKTOP FIXES — IL AMBIENTAL
+   Correções de sobreposição e layout
+   ============================================ */
+
+/* 1. Contato: corrigir sobreposição do card sobre o hero */
+.contact-hero-section {
+  padding-bottom: 140px !important;
+}
+
+/* 2. Trust-bar: background creme em vez de branco */
+/* Adicionar ao container pai da .trust-bar-grid a cor de fundo correta */
+/* (ver instrução HTML acima no Problema 2) */
+
+/* 3. About-strip: prevenir margin collapse */
+.about-strip {
+  overflow: hidden !important;
+}
+
+.about-strip > div {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/* 4. Contato: remover gaps entre seções */
+.contact-page section,
+[class*="contato"] section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}

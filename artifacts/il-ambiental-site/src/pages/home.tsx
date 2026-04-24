@@ -28,7 +28,7 @@ export function Home() {
       </section>
 
       {/* TRUST BAR */}
-      <div style={{ background: "#fff", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "20px 0" }}>
+      <div style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "20px 0" }}>
         <div className="trust-bar-grid">
           {[
             { value: "+30", label: "empresas regularizadas" },
