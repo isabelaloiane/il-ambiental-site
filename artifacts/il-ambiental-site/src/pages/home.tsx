@@ -131,7 +131,7 @@ export function Home() {
       <section style={{ background: "#452816", padding: "80px 24px" }}>
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 52 }}>
-            <span className="section-caption" data-aos="fade-up" style={{ color: "#B5895E" }}>Nosso Impacto</span>
+            <span className="section-caption" data-aos="fade-up">Nosso Impacto</span>
             <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.6rem, 3vw, 2.4rem)", color: "#DFC49F", margin: 0 }}>
               Números que comprovam nosso resultado
             </h2>

@@ -89,7 +89,7 @@ export function Contato() {
             padding: "48px 40px", textAlign: "center"
           }}
         >
-          <span className="section-caption" data-aos="fade-up" style={{ color: "#B5895E" }}>Fale Conosco</span>
+          <span className="section-caption" data-aos="fade-up">Fale Conosco</span>
           <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", color: "#2C1A0E", margin: 0 }}>Como prefere entrar em contato?</h2>
           <p data-aos="fade-up" data-aos-delay="100" style={{ fontSize: "0.95rem", color: "#8C7B6B", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.65 }}>
             Escolha a opção mais cômoda. Nossa equipe está pronta para responder: seja por formulário, e-mail ou WhatsApp.
@@ -254,7 +254,7 @@ export function Contato() {
       <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
           <div style={{ flex: "1 1 280px" }}>
-            <span className="section-caption" data-aos="fade-up" style={{ color: "#B5895E" }}>Atuação regional</span>
+            <span className="section-caption" data-aos="fade-up">Atuação regional</span>
             <h2 data-aos="fade-up" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#DFC49F", fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
               Da capital ao interior: presença em todo o Pará
             </h2>

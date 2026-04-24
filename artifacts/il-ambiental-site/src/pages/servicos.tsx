@@ -11,8 +11,8 @@ export function Servicos() {
       {/* HERO */}
       <section className="page-hero" style={{ padding: "100px 24px 60px", textAlign: "center", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          <span className="section-caption fade-1" style={{ color: "#B5895E" }}>Nossos Serviços</span>
-          <h2 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
+          <span className="section-caption">Nossos Serviços</span>
+          <h2 style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
             Sua conformidade ambiental no Pará, do início ao fim.
           </h2>
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "#8C7B6B", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.7 }}>
@@ -104,7 +104,7 @@ export function Servicos() {
       <section className="cta-section" style={{ background: "#452816", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 60, alignItems: "center" }}>
           <div data-aos="fade-right">
-            <span className="section-caption" style={{ color: "#B5895E" }}>Por que isso importa</span>
+            <span className="section-caption">Por que isso importa</span>
             <h2 style={{ color: "#DFC49F", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0 }}>
               Empresa sem licença ambiental é empresa em risco.
             </h2>
