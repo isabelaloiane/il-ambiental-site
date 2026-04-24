@@ -1,0 +1,220 @@
+O site ilambiental.com.br acumulou múltiplas rodadas de correções CSS mobile que estão em conflito entre si. O resultado é que a versão mobile continua com problemas de sobreposição do header fixo sobre o conteúdo. Você vai resolver isso de forma definitiva com uma única abordagem: adicionar um bloco CSS limpo e consolidado NO FINAL do arquivo de estilos principal, que sobrescreva todos os conflitos anteriores.
+ 
+NÃO altere textos, cores, tipografia, estrutura, animações, hovers, formulário, links ou integrações. NÃO altere o desktop. NÃO remova regras antigas — apenas adicione o novo bloco ao final do arquivo CSS para garantir precedência.
+ 
+---
+ 
+DIAGNÓSTICO TÉCNICO CONFIRMADO:
+ 
+Header fixo: .site-nav | position: fixed | top: 0 | z-index: 9999 | height: 73px
+CSS variable: --nav-height: 73px
+ 
+Problemas identificados no mobile (max-width: 767px):
+1. .hero-animated-bg e .page-hero: padding-top oscila entre 88px e calc(var(--nav-height)+40px) por conflito de regras — resultado real: apenas 15px de respiro abaixo do nav. CRÍTICO.
+2. .contact-hero-section: padding-top: 88px — mesmo problema. CRÍTICO.
+3. .hero-content-inner: margin-left: 120px do desktop pode não estar sendo sobrescrito corretamente por conflito de especificidade. CRÍTICO.
+4. .about-strip > div: width: 421px fixa do desktop vaza da tela. ALTO.
+5. .contact-float-card: margin-top: -64px cria sobreposição no mobile. ALTO.
+6. section h2, h1, p: font-sizes do desktop (44-64px) podem não estar sendo reduzidos consistentemente. MÉDIO.
+ 
+---
+ 
+SOLUÇÃO: Adicionar o bloco abaixo no FINAL do arquivo CSS principal (style.css, globals.css, main.css ou equivalente). Posicionado ao final, tem precedência sobre todas as regras anteriores conflitantes.
+ 
+@media (max-width: 767px) {
+ 
+  /* =============================================
+     MOBILE FIX DEFINITIVO — IL AMBIENTAL
+     Adicionar ao FINAL do arquivo CSS principal
+     ============================================= */
+ 
+  /* 1. HERO — todas as páginas: espaçamento acima do conteúdo */
+  /* nav: 73px + 56px de respiro = 129px total — confortável e profissional */
+  .hero-animated-bg,
+  .page-hero,
+  .contact-hero-section {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+ 
+  /* Home hero: padding-bottom para respiro antes da próxima seção */
+  .hero-animated-bg {
+    padding-bottom: 56px !important;
+    min-height: auto !important;
+  }
+ 
+  /* Sobre e Serviços hero: padding-bottom equilibrado */
+  .page-hero {
+    padding-bottom: 48px !important;
+    min-height: auto !important;
+  }
+ 
+  /* Contato hero: espaço suficiente para título + subtítulo antes do card */
+  .contact-hero-section {
+    padding-bottom: 80px !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+ 
+  /* 2. HERO CONTENT INNER — corrigir margin-left: 120px do desktop */
+  .hero-content-inner,
+  .hero-animated-bg > div,
+  .hero-animated-bg > div > div,
+  .page-hero > div,
+  .page-hero > div > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+ 
+  /* 3. H1 — tamanho proporcional ao mobile */
+  .hero-animated-bg h1,
+  .page-hero h1,
+  .contact-hero-section h1 {
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    hyphens: auto !important;
+  }
+ 
+  /* 4. PARÁGRAFO DO HERO — proporcional ao mobile */
+  .hero-animated-bg p,
+  .page-hero p,
+  .contact-hero-section p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    opacity: 1 !important;
+  }
+ 
+  /* 5. BOTÕES DO HERO — empilhados verticalmente */
+  .hero-cta-group,
+  .hero-animated-bg .hero-cta-group,
+  .page-hero .hero-cta-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+ 
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 16px 24px !important;
+    box-sizing: border-box !important;
+    min-height: 52px !important;
+  }
+ 
+  /* 6. ABOUT-STRIP — corrigir overflow dos filhos com width fixa */
+  .about-strip,
+  .about-strip > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+ 
+  .about-strip > div {
+    padding: 48px 20px !important;
+    flex-direction: column !important;
+  }
+ 
+  /* 7. CONTACT FLOAT CARD — remover margin negativo no mobile */
+  .contact-float-card {
+    margin-top: 0 !important;
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    border-radius: 12px !important;
+  }
+ 
+  /* 8. TÍTULOS H2 DE SEÇÕES — proporcionar para mobile */
+  section h2,
+  .cta-section h2,
+  .about-strip h2 {
+    font-size: clamp(22px, 6vw, 30px) !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+ 
+  /* 9. SEÇÕES — padding vertical reduzido */
+  section:not(.hero-animated-bg):not(.page-hero):not(.contact-hero-section) {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+ 
+  /* 10. FOOTER — padding reduzido */
+  footer,
+  .site-footer {
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+ 
+  /* 11. OVERFLOW GLOBAL — segurança contra vazamento horizontal */
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+ 
+  * {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+ 
+  /* Exceção: elementos que precisam de largura irrestrita */
+  img, svg, canvas, video {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+ 
+}
+ 
+---
+ 
+VERIFICAÇÃO OBRIGATÓRIA APÓS APLICAR:
+ 
+Simular viewport de 390px (iPhone 14 Pro) no DevTools do Replit ou browser e confirmar em cada página:
+ 
+HOME (/):
+- Header visível no topo
+- H1 "Sem licença ambiental, sua operação no Pará está em risco." completamente visível, sem corte
+- Pelo menos 50px de espaço entre o nav e o início do H1
+- Botões "Fale com um especialista" e "Ver como funciona" empilhados verticalmente
+- Sem scroll horizontal
+ 
+SOBRE (/sobre):
+- Label "Quem Somos" e H1 completamente visíveis abaixo do header
+- Sem texto cortado ou escondido
+- Pelo menos 50px de espaço entre nav e conteúdo
+ 
+SERVIÇOS (/servicos):
+- H2 da hero completamente visível abaixo do header
+- Cards de serviço em coluna única ou 2 colunas responsivas
+- Sem scroll horizontal
+ 
+CONTATO (/contato):
+- H1 "Fale com quem entende de licenciamento no Pará." completamente visível
+- Card "Como prefere entrar em contato?" posicionado abaixo da hero, sem sobreposição
+- Formulário, informações de contato e FAQ acessíveis e sem corte
+ 
+GERAL:
+- Nenhuma página com scroll horizontal
+- Header sempre visível e fixo
+- WhatsApp flutuante visível e funcional
+- Animações AOS funcionando (elementos aparecem ao rolar)
+- Desktop em 1280px+ sem nenhuma alteração visual
