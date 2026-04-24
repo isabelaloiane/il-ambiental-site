@@ -1703,3 +1703,92 @@ a {
 * {
   scroll-margin-top: calc(var(--nav-height) + 8px);
 }
+
+/* ============================================
+   MOBILE PREMIUM — IL AMBIENTAL
+   Correções UX/UI mobile (max-width: 767px)
+   ============================================ */
+
+@media (max-width: 767px) {
+
+  /* 1. Hero: corrigir margin-left do conteúdo */
+  .hero-content-inner {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. About-strip: corrigir overflow dos filhos */
+  .about-strip > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 40px 24px !important;
+  }
+
+  /* 3. Hero botões: empilhar verticalmente */
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hero-cta-group a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 15px 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 4. Títulos: proporcionar para mobile */
+  section h2 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .about-strip h2,
+  .about-strip h3 {
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* 5. Seções: reduzir espaçamento vertical */
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .cta-section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .hero-animated-bg {
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+  }
+
+  /* 6. Footer: reduzir padding */
+  footer,
+  .site-footer {
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+
+  /* 7. Segurança geral contra overflow */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden !important;
+  }
+
+}
