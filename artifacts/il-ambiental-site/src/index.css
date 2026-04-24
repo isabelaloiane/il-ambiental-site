@@ -418,13 +418,15 @@ input:focus, textarea:focus, select:focus {
 
 /* ===== NAVBAR ===== */
 .site-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  z-index: 9999;
   width: 100%;
-  background: rgba(245, 240, 232, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(245, 240, 232, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(181, 137, 94, 0.25);
   box-shadow: 0 2px 12px rgba(69,40,22,0.07);
   transition: background 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
@@ -636,7 +638,7 @@ input:focus, textarea:focus, select:focus {
   /* — Hero: padding reduzido no mobile — */
   .hero-animated-bg,
   .page-hero {
-    padding-top: 72px !important;
+    padding-top: 88px !important;
     padding-bottom: 40px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -1153,7 +1155,7 @@ input:focus, textarea:focus, select:focus {
   .contact-hero-section {
     height: auto !important;
     min-height: auto !important;
-    padding-top: 48px !important;
+    padding-top: 88px !important;
     padding-bottom: 32px !important;
   }
 
@@ -1609,7 +1611,7 @@ a {
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   .hero-animated-bg {
-    padding: 80px 20px 40px 20px;
+    padding: 88px 20px 40px 20px;
     min-height: auto;
     align-items: flex-start;
     overflow: hidden;
