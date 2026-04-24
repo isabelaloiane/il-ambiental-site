@@ -1589,3 +1589,39 @@ a {
     padding: 28px 20px !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   HERO H1 MOBILE — REGRA FINAL, MÁXIMA PRIORIDADE
+   Deve ficar no final do arquivo para vencer qualquer
+   !important anterior de menor ou igual especificidade.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .hero-animated-bg h1,
+  .hero-animated-bg .fade-1 {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-animated-bg {
+    padding-top: 72px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .hero-animated-bg > div:last-child {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .hero-animated-bg p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+  }
+}
