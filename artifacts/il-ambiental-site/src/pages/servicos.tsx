@@ -38,7 +38,7 @@ export function Servicos() {
             "Resposta em 24h",
             "Atuação em todo o Pará"
           ].map((label, i) => (
-            <span key={i} style={{ fontSize: "0.82rem", fontWeight: 500, color: "#8C7B6B", display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
+            <span key={i} data-aos="fade-in" data-aos-delay={i * 60} style={{ fontSize: "0.82rem", fontWeight: 500, color: "#8C7B6B", display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
               <span style={{ color: "#B5895E", fontSize: "0.7rem" }}>●</span> {label}
             </span>
           ))}

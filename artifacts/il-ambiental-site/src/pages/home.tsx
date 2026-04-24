@@ -36,7 +36,7 @@ export function Home() {
             { value: "5", label: "órgãos ambientais" },
             { value: "24h", label: "tempo de resposta" },
           ].map((item, i, arr) => (
-            <div key={i} style={{ textAlign: "center", borderRight: i < arr.length - 1 ? "1px solid rgba(181,137,94,0.25)" : "none", padding: "8px 12px" }}>
+            <div key={i} data-aos="fade-up" data-aos-delay={i * 80} style={{ textAlign: "center", borderRight: i < arr.length - 1 ? "1px solid rgba(181,137,94,0.25)" : "none", padding: "8px 12px" }}>
               <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "#734120", lineHeight: 1 }}>{item.value}</div>
               <div style={{ fontSize: "0.72rem", color: "#8C7B6B", marginTop: 6, lineHeight: 1.3 }}>{item.label}</div>
             </div>
@@ -114,7 +114,7 @@ export function Home() {
                 { title: "Gestão Integrada", desc: "Enxergamos seu empreendimento como um sistema: ambiental, jurídico, social e econômico. Nada fica de fora." },
                 { title: "Foco em Resultado", desc: "Não vendemos relatórios. Entregamos licenças emitidas, condicionantes cumpridas e operações regularizadas." },
               ].map((item, i) => (
-                <li key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <li key={i} data-aos="fade-up" data-aos-delay={i * 80} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
                   <span style={{ color: "#734120", fontSize: "1.2rem", marginTop: 1, flexShrink: 0 }}>✓</span>
                   <div>
                     <strong style={{ color: "#2C1A0E", display: "block", marginBottom: 2 }}>{item.title}</strong>
