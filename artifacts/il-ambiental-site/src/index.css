@@ -1813,3 +1813,213 @@ a {
   flex-direction: column !important;
   justify-content: center !important;
 }
+
+/* ══════════════════════════════════════════════════════
+   IL ENGENHARIA — PREMIUM UI UPGRADES
+   ══════════════════════════════════════════════════════ */
+
+/* ─── NAVBAR SCROLL ──────────────────────────────────── */
+nav, header, .navbar, .nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+  z-index: 100;
+}
+
+nav.scrolled, header.scrolled, .navbar.scrolled, .nav.scrolled {
+  background: #2E1A0E !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── CARDS — HOVER COM ELEVAÇÃO ─────────────────────── */
+.card, [class*="card"], [class*="service"], [class*="servico"] {
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover, [class*="card"]:hover, [class*="service"]:hover, [class*="servico"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  border-color: #B5895E;
+}
+
+/* ─── BOTÕES CTA — EFEITO SWEEP ──────────────────────── */
+.btn, button, [class*="btn"], [class*="cta"], a[class*="button"] {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn::before, button::before, [class*="btn"]::before, [class*="cta"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(181, 137, 94, 0.2);
+  transition: left 0.35s ease;
+  z-index: 0;
+}
+
+.btn:hover::before, button:hover::before, [class*="btn"]:hover::before, [class*="cta"]:hover::before {
+  left: 0;
+}
+
+.btn > *, button > *, [class*="btn"] > *, [class*="cta"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── CAPTION DE SEÇÃO DOURADO ───────────────────────── */
+.section-caption {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B5895E;
+  margin-bottom: 12px;
+}
+
+/* ─── ESPAÇAMENTO GENEROSO NAS SEÇÕES ───────────────── */
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* ─── LINHA DECORATIVA NOS TÍTULOS ──────────────────── */
+.section-title-line {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #B5895E;
+  margin: 16px 0 24px;
+  transform-origin: left;
+  animation: expandLine 0.6s ease forwards;
+}
+
+@keyframes expandLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ─── CONTAGEM NOS STATS ─────────────────────────────── */
+.stat-number {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: #DFC49F;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(223, 196, 159, 0.65);
+  margin-top: 6px;
+}
+
+/* ─── CAMPOS DE FORMULÁRIO PREMIUM ──────────────────── */
+.form-group {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(223, 196, 159, 0.25);
+  padding: 14px 0;
+  color: #DFC49F;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: #B5895E;
+}
+
+.form-group label {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  font-size: 14px;
+  color: rgba(223, 196, 159, 0.5);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+  top: -14px;
+  font-size: 11px;
+  color: #B5895E;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── FAQ ANIMADO ────────────────────────────────────── */
+.faq-item {
+  border-bottom: 1px solid rgba(223, 196, 159, 0.12);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+  color: #B5895E;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding-bottom: 0;
+  color: rgba(223, 196, 159, 0.72);
+  line-height: 1.78;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 400px;
+  padding-bottom: 20px;
+}
+
+/* ─── LINKS COM HOVER DOURADO ───────────────────────── */
+a {
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #DFC49F;
+}
+
+/* ─── LINHA HEIGHT GLOBAL APRIMORADA ────────────────── */
+p, li {
+  line-height: 1.8;
+}
