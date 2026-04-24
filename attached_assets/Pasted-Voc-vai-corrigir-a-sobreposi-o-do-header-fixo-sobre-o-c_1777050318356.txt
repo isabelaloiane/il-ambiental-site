@@ -1,0 +1,128 @@
+Você vai corrigir a sobreposição do header fixo sobre o conteúdo das páginas na versão mobile do site ilambiental.com.br. O desktop está correto e NÃO deve ser tocado. Aplique as correções SOMENTE dentro de media queries @media (max-width: 767px). Não altere textos, cores, tipografia, estrutura de nenhuma página, animações, hovers, formulário, links ou integrações. Não desfaça nenhum ajuste anterior.
+ 
+---
+ 
+CONTEXTO TÉCNICO (medições reais do site):
+ 
+- Header fixo: .site-nav | position: fixed | top: 0 | z-index: 9999 | height: 73px
+- CSS variable definida: --nav-height: 73px
+- scroll-margin-top global: calc(var(--nav-height) + 8px) — já aplicado corretamente
+ 
+SITUAÇÃO ATUAL DAS HEROES NO MOBILE:
+ 
+- Home (.hero-animated-bg): padding-top: calc(var(--nav-height) + 40px) = 113px — conteúdo inicia apenas 40px abaixo do header. Insuficiente.
+- Sobre (.page-hero): padding-top: 88px — conteúdo inicia apenas 15px abaixo do header (73px nav + 15px = 88px). CRÍTICO.
+- Serviços (.page-hero): padding-top: 88px — mesmo problema do /sobre. CRÍTICO.
+- Contato (.contact-hero-section): padding-top: calc(var(--nav-height) + 40px) = 113px — 40px de respiro. Insuficiente.
+ 
+CAUSA RAIZ: As regras mobile de .page-hero usam valor fixo 88px em vez de usar a variável --nav-height como referência. As demais usam calc() mas com offset insuficiente (+40px), resultando em conteúdo muito próximo do header fixo.
+ 
+---
+ 
+CORREÇÃO 1 — Home, Sobre, Serviços e Contato: aumentar padding-top das heroes no mobile
+ 
+Localizar no arquivo de estilos global (style.css, main.css, globals.css ou equivalente) o bloco @media (max-width: 767px) existente e ADICIONAR ou SOBRESCREVER as seguintes regras:
+ 
+@media (max-width: 767px) {
+ 
+  /* Home — hero principal */
+  .hero-animated-bg {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+    /* resultado: 73px + 56px = 129px — respiro confortável e elegante */
+  }
+ 
+  /* Sobre e Serviços — hero de páginas internas */
+  .page-hero {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+    /* resultado: 73px + 56px = 129px — corrige o gap crítico de apenas 15px */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    /* preservar o padding lateral já aplicado */
+  }
+ 
+  /* Contato — hero de contato */
+  .contact-hero-section {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+    /* resultado: 73px + 56px = 129px */
+  }
+ 
+}
+ 
+---
+ 
+CORREÇÃO 2 — Garantir que H1 e subtítulos das páginas não fiquem cortados no mobile
+ 
+Verificar se as seguintes regras já existem no bloco @media (max-width: 767px). Se não existirem, adicionar:
+ 
+@media (max-width: 767px) {
+ 
+  .hero-animated-bg h1,
+  .page-hero h1,
+  .contact-hero-section h1 {
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+ 
+  .hero-animated-bg p,
+  .page-hero p,
+  .contact-hero-section p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+ 
+}
+ 
+---
+ 
+CORREÇÃO 3 — Garantir que nenhum conteúdo fique escondido atrás do header no scroll
+ 
+Se ainda não existir, adicionar no CSS global (fora de media query, pois afeta comportamento de scroll em todas as telas):
+ 
+html {
+  scroll-padding-top: calc(var(--nav-height) + 16px);
+}
+ 
+Se essa regra já existir, verificar que o valor usa --nav-height como base e não um valor fixo.
+ 
+---
+ 
+CORREÇÃO 4 — Verificação específica por página após aplicar as correções
+ 
+Após aplicar as correções acima, verificar manualmente cada uma das 4 páginas simulando viewport de 390px de largura:
+ 
+PÁGINA HOME (/):
+- O H1 "Sem licença ambiental, sua operação no Pará está em risco" deve aparecer completamente abaixo do header, com pelo menos 48px de respiro acima.
+- Os botões do hero devem estar empilhados verticalmente e completamente visíveis.
+- A trust-bar abaixo do hero deve continuar em 2 colunas.
+ 
+PÁGINA SOBRE (/sobre):
+- O label "Quem Somos" e o H1 devem aparecer completamente abaixo do header.
+- Nenhum texto deve estar cortado ou parcialmente escondido atrás da nav.
+ 
+PÁGINA SERVIÇOS (/servicos):
+- O H2 da hero deve aparecer completamente abaixo do header.
+- Os cards de serviço devem continuar responsivos.
+ 
+PÁGINA CONTATO (/contato):
+- O H1 "Fale com quem entende de licenciamento no Pará" deve aparecer completamente abaixo do header.
+- O float card (.contact-float-card) deve continuar posicionado abaixo da hero.
+- Formulário, cards de informação e FAQ não devem ser afetados.
+ 
+---
+ 
+REGRAS ABSOLUTAS:
+ 
+- Todas as alterações devem estar dentro de @media (max-width: 767px) ou ser globalmente seguras (como scroll-padding-top que não afeta layout visual).
+- NÃO alterar nenhuma regra fora de media query mobile.
+- NÃO alterar padding-bottom, margin, cores, fontes ou estrutura HTML.
+- NÃO remover !important de regras mobile já existentes.
+- NÃO alterar as páginas no breakpoint acima de 768px.
+- Se houver conflito entre a nova regra e uma existente, a nova deve ter !important e estar posicionada APÓS a regra existente no arquivo CSS para garantir precedência.
+- Confirmar ao final que desktop em 1280px+ continua sem alterações visuais em nenhuma página.
+ 

@@ -81,6 +81,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100%;
+  scroll-padding-top: calc(var(--nav-height) + 16px);
 }
 body {
   overflow-x: hidden;
@@ -634,10 +635,10 @@ input:focus, textarea:focus, select:focus {
     border-bottom: none;
   }
 
-  /* — Hero: padding reduzido no mobile — */
+  /* — Hero: padding mobile com offset do header fixo — */
   .hero-animated-bg,
   .page-hero {
-    padding-top: 88px !important;
+    padding-top: calc(var(--nav-height) + 56px) !important;
     padding-bottom: 40px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -1154,7 +1155,7 @@ input:focus, textarea:focus, select:focus {
   .contact-hero-section {
     height: auto !important;
     min-height: auto !important;
-    padding-top: 88px !important;
+    padding-top: calc(var(--nav-height) + 56px) !important;
     padding-bottom: 32px !important;
   }
 
@@ -1692,11 +1693,11 @@ a {
 
 @media (max-width: 767px) {
   .contact-hero-section {
-    padding-top: calc(var(--nav-height) + 40px) !important;
+    padding-top: calc(var(--nav-height) + 56px) !important;
   }
 
   .hero-animated-bg {
-    padding-top: calc(var(--nav-height) + 40px) !important;
+    padding-top: calc(var(--nav-height) + 56px) !important;
   }
 }
 
@@ -1999,4 +2000,54 @@ a:hover {
 /* ─── LINHA HEIGHT GLOBAL APRIMORADA ────────────────── */
 p, li {
   line-height: 1.8;
+}
+
+/* ============================================================
+   MOBILE HEADER OVERLAP FIXES — IL AMBIENTAL
+   Corrige sobreposição do header fixo sobre heroes no mobile.
+   Todas as regras dentro de max-width: 767px.
+   NÃO altera desktop (768px+).
+   ============================================================ */
+
+@media (max-width: 767px) {
+
+  /* Home — hero principal: 73px nav + 56px offset = 129px */
+  .hero-animated-bg {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+  }
+
+  /* Sobre e Serviços — hero de páginas internas */
+  .page-hero {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Contato — hero de contato */
+  .contact-hero-section {
+    padding-top: calc(var(--nav-height) + 56px) !important;
+  }
+
+  /* H1 das heroes: tamanho legível, sem quebra ou corte */
+  .hero-animated-bg h1,
+  .page-hero h1,
+  .contact-hero-section h1 {
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Subtítulos das heroes */
+  .hero-animated-bg p,
+  .page-hero p,
+  .contact-hero-section p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
 }
