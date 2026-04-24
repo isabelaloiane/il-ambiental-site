@@ -1799,10 +1799,10 @@ a {
    Correções de sobreposição e layout
    ============================================ */
 
-/* 1. Contato: padding vertical para dar respiro ao H1 e subtítulo */
+/* 1. Contato: padding controlado — H1 visível, card sobrepõe apenas 32px */
 .contact-hero-section {
-  padding-top: 140px !important;
-  padding-bottom: 160px !important;
+  padding-top: calc(var(--nav-height) + 48px) !important;
+  padding-bottom: 80px !important;
 }
 
 /* 5. About-strip: prevenir margin collapse + alinhar filhos */

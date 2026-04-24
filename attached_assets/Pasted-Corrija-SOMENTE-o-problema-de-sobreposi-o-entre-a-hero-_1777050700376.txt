@@ -1,0 +1,50 @@
+Corrija SOMENTE o problema de sobreposição entre a hero section e o card "Como prefere entrar em contato?" na página /contato do site ilambiental.com.br. Não toque em nenhuma outra página, seção, componente, texto, cor, fonte, animação, hover, formulário, header ou menu.
+ 
+---
+ 
+DIAGNÓSTICO TÉCNICO (medições reais):
+ 
+- .contact-hero-section → padding-bottom atual: entre 100px e 140px (variou entre ajustes anteriores)
+- .contact-float-card → margin-top: -64px (margem negativa que puxa o card 64px para dentro da hero)
+- .contact-float-card → background: rgb(255, 255, 255) | height: 310px | width: 720px
+- O card branco invade a área escura da hero em 64px por causa do margin-top negativo
+- A hero tem background com gradiente escuro — o card branco sobre esse fundo cria sobreposição visual indesejada
+ 
+CAUSA RAIZ: O margin-top: -64px do .contact-float-card é excessivo em relação ao padding-bottom atual da hero, fazendo o card invadir o espaço escuro da hero section.
+ 
+---
+ 
+CORREÇÃO — aplicar exatamente o seguinte:
+ 
+/* Hero da página Contato: padding-bottom controlado para criar espaço antes do card */
+.contact-hero-section {
+  padding-top: calc(var(--nav-height) + 48px) !important;
+  padding-bottom: 80px !important;
+}
+ 
+/* Card branco: reduzir a margem negativa para sobreposição elegante e controlada */
+.contact-float-card {
+  margin-top: -32px !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+ 
+---
+ 
+RESULTADO ESPERADO:
+ 
+- A hero mostra o H1 "Fale com quem entende de licenciamento no Pará." e o subtítulo completamente visíveis, sem corte
+- O card branco sobe 32px (em vez de 64px) sobre o fim da hero — sobreposição elegante e controlada, sem invadir a área do título
+- Não há espaço vazio exagerado entre a hero e o card
+- A composição fica distribuída, profissional e alinhada com o padrão visual premium do site
+ 
+---
+ 
+VERIFICAÇÃO OBRIGATÓRIA APÓS APLICAR:
+ 
+1. Abrir /contato no desktop (1280px+): confirmar que o H1 e subtítulo da hero estão completamente visíveis e sem corte
+2. Confirmar que o card "Como prefere entrar em contato?" começa logo abaixo da hero, com sobreposição de no máximo 32px sobre o fundo escuro
+3. Confirmar que não há gap branco ou espaço vazio exagerado entre hero e card
+4. Abrir /contato no mobile (390px): confirmar que hero e card não se sobrepõem de forma problemática. Se necessário, adicionar dentro de @media (max-width: 767px): .contact-float-card { margin-top: 0 !important; } para eliminar qualquer sobreposição no mobile
+5. Confirmar que nenhuma outra página (home, sobre, serviços) foi alterada
+6. Confirmar que formulário, cards de informação, seção de FAQ e CTA da página /contato continuam sem alterações

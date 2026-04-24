@@ -84,7 +84,7 @@ export function Contato() {
         <div
           className="contact-float-card"
           style={{
-            maxWidth: 720, margin: "-40px auto 0", position: "relative", zIndex: 10,
+            maxWidth: 720, margin: "-32px auto 0", position: "relative", zIndex: 10,
             background: "#F5F0E8", borderRadius: 16, boxShadow: "0 8px 40px rgba(69,40,22,0.15)",
             padding: "48px 40px", textAlign: "center"
           }}
