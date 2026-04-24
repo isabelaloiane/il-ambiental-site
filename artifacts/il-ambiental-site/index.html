@@ -64,5 +64,41 @@
       });
       domWatcher.observe(document.body, { childList: true, subtree: true });
     </script>
+
+    <!-- AOS.js -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      // ─── INICIALIZA AOS ───────────────────────────────────────────────
+      document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+          duration: 600,
+          easing: 'ease-out',
+          once: true,
+          offset: 80
+        });
+
+        // ─── NAVBAR COM FUNDO AO ROLAR ───────────────────────────────────
+        var navbar = document.querySelector('nav, header, .navbar, .nav');
+        if (navbar) {
+          window.addEventListener('scroll', function () {
+            if (window.scrollY > 60) {
+              navbar.classList.add('scrolled');
+            } else {
+              navbar.classList.remove('scrolled');
+            }
+          });
+        }
+
+        // ─── FAQ COM ANIMAÇÃO ────────────────────────────────────────────
+        document.querySelectorAll('.faq-question').forEach(function (question) {
+          question.addEventListener('click', function () {
+            var item = question.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+            if (!isOpen) item.classList.add('open');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
