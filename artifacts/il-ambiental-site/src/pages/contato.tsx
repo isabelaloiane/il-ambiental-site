@@ -84,8 +84,8 @@ export function Contato() {
         <div
           className="contact-float-card"
           style={{
-            maxWidth: 720, margin: "-64px auto 0", position: "relative", zIndex: 10,
-            background: "#fff", borderRadius: 16, boxShadow: "0 16px 48px rgba(69,40,22,0.14)",
+            maxWidth: 720, margin: "-40px auto 0", position: "relative", zIndex: 10,
+            background: "#F5F0E8", borderRadius: 16, boxShadow: "0 8px 40px rgba(69,40,22,0.15)",
             padding: "48px 40px", textAlign: "center"
           }}
         >
@@ -109,7 +109,7 @@ export function Contato() {
       </section>
 
       {/* CONTACT FORMS & INFO */}
-      <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
+      <section className="contact-form-section" style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
 
           {/* Form Card */}
@@ -251,7 +251,7 @@ export function Contato() {
       </section>
 
       {/* REGIONAL CARD */}
-      <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
+      <section className="contact-regional-section" style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 48px" }}>
         <div style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
           <div style={{ flex: "1 1 280px" }}>
             <span className="section-caption" data-aos="fade-up">Atuação regional</span>
@@ -271,7 +271,7 @@ export function Contato() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: "72px 24px 60px", background: "#F5F0E8", marginTop: 20 }}>
+      <section className="contact-faq-section" style={{ padding: "48px 24px 60px", background: "#F5F0E8" }}>
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <span className="section-caption" data-aos="fade-up">Dúvidas frequentes</span>
           <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>

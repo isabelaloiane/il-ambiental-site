@@ -1,0 +1,226 @@
+════════════════════════════════════════════════════════════
+DIAGNÓSTICO TÉCNICO — TODOS OS PROBLEMAS ENCONTRADOS
+════════════════════════════════════════════════════════════
+ 
+PROBLEMA 1 — CRÍTICO: Card flutuante com fundo BRANCO sobre hero ESCURO
+ 
+Medição: .contact-float-card { background-color: rgb(255, 255, 255) }
+O hero usa um gradiente escuro complexo:
+  linear-gradient(rgba(26,15,8,0.55), rgba(26,15,8,0.72))
+  + radial-gradient(at 60% 50%, rgba(115,65,32,0.35), transparent)
+  + linear-gradient(135deg, rgb(46,26,14), rgb(26,15,8))
+ 
+O card branco puro destoa completamente do esquema visual escuro/creme do site.
+É o elemento mais dissonante da página.
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PROBLEMA 2 — ALTO: Float card com margin-top negativa criando sobreposição no hero
+ 
+Medição: .contact-float-card { margin-top: -64px }
+A section que contém o float card começa em y=256px na página.
+O hero termina em y=320px. Isso cria 64px de sobreposição.
+O card "invade" a área do hero, criando uma transição abrupta.
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PROBLEMA 3 — ALTO: Section do formulário sem padding — cards escuros "soltos" no fundo creme
+ 
+Medição: section (formulário) { padding-top: 0px; padding-bottom: 0px }
+A section que contém os cards "Envie uma mensagem" e "Informações de Contato"
+não tem nenhum padding. Os cards escuros (rgb(69,40,22), border-radius:16px)
+aparecem diretamente sobre o fundo creme da página sem espaçamento.
+O grid interno tem apenas gap:20px entre os dois cards (nenhum padding externo).
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PROBLEMA 4 — ALTO: Section "Atuação Regional" sem padding vertical
+ 
+Medição: section (Atuação Regional) { padding-top: 0px; padding-bottom: 0px }
+O card escuro "Da capital ao interior: presença em todo o Pará" (h=323px)
+aparece colado à section anterior sem espaçamento vertical.
+Isso cria um ritmo visual irregular — os blocos parecem empilhados sem intenção.
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PROBLEMA 5 — MÉDIO: Gap de 20px entre "Atuação Regional" e seção de FAQ
+ 
+Medição: section Atuação Regional bottom: 1527px | section FAQ top: 1547px
+Gap = 20px de fundo creme visível entre os dois blocos.
+A seção FAQ além disso tem padding-top: 72px, criando um espaço creme grande
+antes das perguntas. O conjunto cria uma área branca excessiva nessa transição.
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PROBLEMA 6 — MÉDIO: Hero muito comprimido verticalmente
+ 
+Medição: .contact-hero-section { height: 320px; padding-top: 121px; padding-bottom: 140px }
+Área de conteúdo real = 320 - 121 - 140 = apenas 59px livres para o h1 + subtítulo.
+O h1 e subtítulo ficam espremidos porque o padding-bottom (140px) é excessivo.
+Reduzir o padding-bottom para ~100px libera mais espaço para o conteúdo do hero.
+ 
+════════════════════════════════════════════════════════════
+PROMPT PARA COLAR NO REPLIT — TODOS OS FIXES
+════════════════════════════════════════════════════════════
+ 
+Preciso corrigir a página /contato do site. Todos os problemas foram
+diagnosticados com medição técnica precisa. Aplique as correções abaixo
+sem alterar textos, identidade visual ou estrutura de conteúdo.
+ 
+────────────────────────────────────────────────────────────
+CORREÇÃO 1 — Float card: trocar fundo branco por creme
+ 
+O .contact-float-card tem background-color: rgb(255,255,255) — branco puro.
+Deve ser alterado para o creme do site rgb(245,240,232) para harmonizar
+com o restante da identidade visual.
+ 
+CSS:
+.contact-float-card {
+  background-color: rgb(245, 240, 232) !important;
+  box-shadow: 0 8px 40px rgba(69, 40, 22, 0.15) !important;
+}
+ 
+────────────────────────────────────────────────────────────
+CORREÇÃO 2 — Float card: suavizar a sobreposição com o hero
+ 
+O card tem margin-top: -64px, invadindo 64px dentro do hero escuro.
+Reduzir para -40px diminui a invasão e melhora a transição visual.
+ 
+CSS:
+.contact-float-card {
+  margin-top: -40px !important;
+}
+ 
+────────────────────────────────────────────────────────────
+CORREÇÃO 3 — Hero: reduzir padding-bottom excessivo
+ 
+O hero tem padding-bottom: 140px que comprime o h1 e subtítulo para
+apenas 59px de área de conteúdo. Reduzir para 100px equilibra melhor.
+ 
+CSS:
+.contact-hero-section {
+  padding-bottom: 100px !important;
+}
+ 
+────────────────────────────────────────────────────────────
+CORREÇÃO 4 — Section do formulário: adicionar padding vertical
+ 
+A section que contém os cards "Envie uma mensagem" e "Informações de
+Contato" tem padding: 0. Os cards ficam colados à borda sem respiro.
+ 
+Para identificar essa section no código: é a section que contém o
+formulário (<form>) e os dados de contato (WhatsApp, e-mail, localização).
+ 
+CSS — adicionar ao elemento section que envolve os cards de formulário:
+padding-top: 48px !important;
+padding-bottom: 48px !important;
+ 
+OU, se essa section tiver uma classe, adicionar ao CSS:
+section:has(form) {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+ 
+AÇÃO NO JSX/HTML: Localizar a <section> pai do grid com os dois cards
+escuros (Envie uma mensagem + Informações de Contato) e adicionar
+className ou style com padding: 48px 0.
+ 
+────────────────────────────────────────────────────────────
+CORREÇÃO 5 — Section "Atuação Regional": adicionar padding vertical
+ 
+A section que contém o card "Da capital ao interior" tem padding: 0.
+Adicionar padding traz ritmo visual consistente com o restante da página.
+ 
+Para identificar: é a section com o h2 "Da capital ao interior: presença
+em todo o Pará" e o ícone de folha verde + "+40 municípios atendidos".
+ 
+CSS:
+section:has([class*="regional"]),
+section:has([class*="atuacao"]) {
+  padding-top: 0 !important;
+  padding-bottom: 48px !important;
+}
+ 
+AÇÃO NO JSX/HTML: Localizar a <section> que contém o card da "Atuação
+Regional" e adicionar padding-bottom: 48px.
+ 
+────────────────────────────────────────────────────────────
+CORREÇÃO 6 — FAQ: reduzir padding-top excessivo
+ 
+A section de FAQ tem padding-top: 72px, gerando uma área creme grande
+antes das perguntas. Reduzir para 48px melhora o ritmo.
+ 
+CSS:
+section:has([class*="faq"]),
+section:has(details),
+section:has([class*="accordion"]) {
+  padding-top: 48px !important;
+}
+ 
+AÇÃO NO JSX/HTML: Localizar a <section> de perguntas frequentes
+("Perguntas que recebemos com frequência") e alterar padding-top para 48px.
+ 
+════════════════════════════════════════════════════════════
+TODO O CSS CONSOLIDADO — COLAR EM UMA ÚNICA VEZ
+════════════════════════════════════════════════════════════
+ 
+/* =====================================================
+   CORREÇÕES /CONTATO — IL AMBIENTAL
+   Diagnóstico técnico preciso — Abril 2025
+   ===================================================== */
+ 
+/* 1. Float card — substituir branco por creme + sombra suave */
+.contact-float-card {
+  background-color: rgb(245, 240, 232) !important;
+  box-shadow: 0 8px 40px rgba(69, 40, 22, 0.15) !important;
+  margin-top: -40px !important;
+}
+ 
+/* 2. Hero — reduzir padding-bottom para liberar área de conteúdo */
+.contact-hero-section {
+  padding-bottom: 100px !important;
+}
+ 
+/* 3. Section do formulário — adicionar padding vertical */
+/* ATENÇÃO: se essa section tiver uma classe, substituir o seletor abaixo */
+section:has(form) {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+ 
+/* 4. Section Atuação Regional — adicionar padding inferior */
+/* ATENÇÃO: substituir pelo seletor correto da section "Da capital ao interior" */
+section:has([class*="regional"]),
+section:has([class*="atuacao"]) {
+  padding-bottom: 48px !important;
+}
+ 
+/* 5. FAQ — reduzir padding-top */
+/* ATENÇÃO: substituir pelo seletor correto da section de FAQ */
+section:has([class*="faq"]),
+section:has(details),
+section:has([class*="accordion"]) {
+  padding-top: 48px !important;
+}
+ 
+════════════════════════════════════════════════════════════
+AÇÕES OBRIGATÓRIAS NO JSX/HTML (não resolvíveis só com CSS)
+════════════════════════════════════════════════════════════
+ 
+Os seletores CSS acima usam :has() que pode não estar disponível em todos
+os compiladores. As ações abaixo garantem os fixes mesmo sem suporte ao :has():
+ 
+1. Localizar a <section> que contém o <form> (formulário de contato).
+   Adicionar className="contact-form-section" e no CSS:
+   .contact-form-section { padding-top: 48px; padding-bottom: 48px; }
+ 
+2. Localizar a <section> que contém o card "Da capital ao interior".
+   Adicionar className="contact-regional-section" e no CSS:
+   .contact-regional-section { padding-bottom: 48px; }
+ 
+3. Localizar a <section> de FAQ ("Perguntas que recebemos com frequência").
+   Adicionar className="contact-faq-section" e no CSS:
+   .contact-faq-section { padding-top: 48px; }
+ 
+4. O .contact-float-card e o .contact-hero-section já têm classes definidas —
+   as correções CSS funcionam diretamente sem alteração no HTML.

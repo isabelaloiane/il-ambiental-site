@@ -1798,9 +1798,9 @@ a {
    Correções de sobreposição e layout
    ============================================ */
 
-/* 1. Contato: padding-bottom para o card não cobrir o subtítulo */
+/* 1. Contato: padding-bottom equilibrado — hero com respiro, card sem invadir */
 .contact-hero-section {
-  padding-bottom: 140px !important;
+  padding-bottom: 100px !important;
 }
 
 /* 5. About-strip: prevenir margin collapse + alinhar filhos */
