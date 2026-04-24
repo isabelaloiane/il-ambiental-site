@@ -1970,21 +1970,6 @@ section {
 }
 
 /* ─── FAQ ANIMADO ────────────────────────────────────── */
-.faq-item {
-  border-bottom: 1px solid rgba(223, 196, 159, 0.12);
-  overflow: hidden;
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-  cursor: pointer;
-  font-weight: 500;
-  user-select: none;
-}
-
 .faq-icon {
   transition: transform 0.3s ease;
   color: #B5895E;
@@ -1994,15 +1979,6 @@ section {
 
 .faq-item.open .faq-icon {
   transform: rotate(45deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding-bottom: 0;
-  color: rgba(223, 196, 159, 0.72);
-  line-height: 1.78;
 }
 
 .faq-item.open .faq-answer {
