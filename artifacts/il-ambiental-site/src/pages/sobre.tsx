@@ -9,7 +9,7 @@ export function Sobre() {
       <Navbar />
 
       {/* HERO */}
-      <section className="page-hero" style={{ minHeight: 360, background: "#452816", display: "flex", alignItems: "center", padding: "80px 24px" }}>
+      <section className="page-hero" style={{ minHeight: 360, background: "#452816", display: "flex", alignItems: "center", padding: "110px 24px 80px" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48, alignItems: "center", width: "100%" }}>
           <div>
             <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "rgba(223,196,159,0.55)", fontWeight: 500, display: "block", marginBottom: 16 }}>Quem Somos</span>

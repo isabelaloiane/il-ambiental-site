@@ -1,0 +1,83 @@
+Você vai aplicar ajustes visuais pontuais no site ilambiental.com.br. O site está praticamente pronto. NÃO faça redesign, NÃO altere textos, NÃO altere cores principais, NÃO altere tipografia, NÃO altere estrutura de nenhuma página, NÃO remova animações, hovers, links, formulários ou integrações existentes, NÃO desfaça nenhum ajuste anterior de mobile, header fixo, formulário ou navegação. Aplique SOMENTE os 4 ajustes descritos abaixo, de forma cirúrgica. Após cada alteração, verifique se nenhum outro elemento foi afetado. Ao final, confirme que todos os 4 ajustes foram aplicados e que nenhuma melhoria anterior foi perdida.
+ 
+---
+ 
+AJUSTE 1 — Página /sobre: espaçamento do topo da hero section
+ 
+Problema: O label "Quem Somos" e o H1 da página /sobre estão a apenas 7px abaixo do header fixo (nav height: 73px; conteúdo inicia no viewport y=80px). Falta respiro visual entre o header e o início da seção.
+ 
+O que fazer: Na página /sobre, localizar a section com a classe `.page-hero` e aumentar o `padding-top` de `80px` para `110px`. Apenas isso. Não alterar padding-bottom, não alterar nenhum outro valor da section nem dos elementos internos.
+ 
+CSS a aplicar (escopado para a página /sobre):
+.sobre-page .page-hero,
+body.sobre .page-hero {
+  padding-top: 110px !important;
+}
+ 
+Se a página /sobre não tiver uma classe específica no body, localizar o arquivo de componente da página Sobre e aplicar diretamente no elemento `.page-hero` daquela página via style inline ou classe local.
+ 
+---
+ 
+AJUSTE 2 — Página /servicos: presença visual da hero section
+ 
+Problema: A hero da página /servicos tem fundo creme liso (`background-color: rgb(245, 240, 232)`) sem qualquer gradiente, textura ou profundidade. O H2 (`color: rgb(44, 26, 14)`) e o subtítulo (`color: rgb(140, 123, 107)`) têm contraste adequado mas a seção fica visualmente plana e sem presença.
+ 
+O que fazer: Adicionar um gradiente sutil de profundidade ao fundo da `.page-hero` na página /servicos, sem alterar nenhum texto, cor de tipografia, padding ou estrutura. O gradiente deve ser discreto e permanecer dentro da paleta da marca.
+ 
+CSS a aplicar (escopado para a página /servicos):
+.servicos-page .page-hero,
+body.servicos .page-hero {
+  background: linear-gradient(
+    135deg,
+    rgb(238, 231, 220) 0%,
+    rgb(245, 240, 232) 45%,
+    rgb(240, 234, 225) 100%
+  ) !important;
+  border-bottom: 1px solid rgba(181, 137, 94, 0.18) !important;
+}
+ 
+Se a página /servicos não tiver classe no body, localizar o arquivo de componente da página Serviços e aplicar diretamente no `.page-hero` daquela página. Não alterar a `.page-hero` de nenhuma outra página.
+ 
+---
+ 
+AJUSTE 3 — Página /servicos: padding interno do card "Notificação Ambiental"
+ 
+Problema: O card de simulação "⚠ NOTIFICAÇÃO AMBIENTAL" (fundo `rgba(26, 15, 8, 0.5)`, `width: 400px`, `height: 320px`) tem `padding-left: 32px` e `padding-top: 28px`. O ícone ⚠ e o título "NOTIFICAÇÃO AMBIENTAL" ficam muito próximos da borda esquerda e superior do card, sem respiro adequado.
+ 
+O que fazer: Aumentar o `padding-left` desse card específico de `32px` para `44px` e o `padding-top` de `28px` para `40px`. Não alterar nenhum outro card da página. Não alterar texto, ícone, cores ou estrutura interna.
+ 
+Para identificar o card no código: é o único elemento da página /servicos com `background: rgba(26, 15, 8, 0.5)` e texto começando com "⚠ NOTIFICAÇÃO AMBIENTAL". Localizar esse elemento no JSX/HTML e ajustar o padding diretamente nele (style inline ou classe dedicada).
+ 
+CSS se tiver classe identificável:
+[class containing the notification card selector] {
+  padding-left: 44px !important;
+  padding-top: 40px !important;
+}
+ 
+---
+ 
+AJUSTE 4 — Página /contato: espaçamento interno da hero section
+ 
+Problema: A `.contact-hero-section` tem `padding-top: 121px` e `padding-bottom: 140px` com `height: 320px`, resultando em apenas ~59px de área de conteúdo. O H1 "Fale com quem entende de licenciamento no Pará" e o subtítulo ficam comprimidos sem respiro vertical entre header, título, subtítulo e próxima seção.
+ 
+O que fazer: Ajustar SOMENTE o `padding-top` e `padding-bottom` da `.contact-hero-section` para dar mais respiro ao conteúdo. Não mexer no `.contact-float-card`, não mexer em nenhum card, ícone, formulário ou seção abaixo da hero. Apenas a hero section.
+ 
+CSS:
+.contact-hero-section {
+  padding-top: 140px !important;
+  padding-bottom: 160px !important;
+}
+ 
+Isso aumenta o espaço vertical da hero de 320px para aproximadamente 400px, dando ao H1 e subtítulo o respiro necessário sem afetar o restante da página.
+ 
+---
+ 
+VERIFICAÇÃO FINAL OBRIGATÓRIA
+ 
+Após aplicar os 4 ajustes acima, verificar:
+ 
+1. No desktop (1280px+): as 4 páginas afetadas (/sobre, /servicos, /contato) abrem sem sobreposições, textos cortados ou desalinhamentos.
+2. No mobile (390px): os mesmos 4 ajustes não quebram o layout mobile. Se necessário, adicionar media query `@media (max-width: 767px)` revertendo para os valores originais nas páginas afetadas.
+3. Confirmar que as páginas não afetadas (homepage /) continuam sem alterações.
+4. Confirmar que animações AOS, hovers dos cards, formulário de contato, botão flutuante do WhatsApp e navegação continuam funcionando normalmente.
+5. Confirmar que ajustes anteriores de mobile (hero-content-inner, about-strip, hero-cta-group) não foram removidos.

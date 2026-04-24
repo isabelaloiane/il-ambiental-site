@@ -9,7 +9,7 @@ export function Servicos() {
       <Navbar />
 
       {/* HERO */}
-      <section className="page-hero" style={{ padding: "100px 24px 60px", textAlign: "center", background: "#F5F0E8" }}>
+      <section className="page-hero" style={{ padding: "100px 24px 60px", textAlign: "center", background: "linear-gradient(135deg, rgb(238, 231, 220) 0%, rgb(245, 240, 232) 45%, rgb(240, 234, 225) 100%)", borderBottom: "1px solid rgba(181, 137, 94, 0.18)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <span className="section-caption">Nossos Serviços</span>
           <h2 style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
@@ -120,7 +120,7 @@ export function Servicos() {
               ))}
             </div>
           </div>
-          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "rgba(26,15,8,0.5)", border: "1px solid rgba(223,196,159,0.15)", borderRadius: 12, padding: "28px 32px", maxWidth: 400, margin: "0 auto", width: "100%" }}>
+          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "rgba(26,15,8,0.5)", border: "1px solid rgba(223,196,159,0.15)", borderRadius: 12, padding: "40px 32px 28px 44px", maxWidth: 400, margin: "0 auto", width: "100%" }}>
             <div style={{ background: "rgba(181,137,94,0.2)", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "10px 0", marginBottom: 20 }}>
               <span style={{ color: "#DFC49F", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.1em" }}>⚠ NOTIFICAÇÃO AMBIENTAL</span>
             </div>
