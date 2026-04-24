@@ -1,0 +1,263 @@
+ FIX MOBILE DEFINITIVO v2: LOCALIZAR E REMOVER REGRAS CONFLITANTES
+Site: ilambiental.com.br
+Problema confirmado por prints reais no iPhone (390px) — header fixo de 73px sobrepõe o H1 das heroes.
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+CAUSA RAIZ CONFIRMADA — LEIA ANTES DE QUALQUER AÇÃO:
+ 
+Existem múltiplas rodadas de correções CSS mobile acumuladas no arquivo de estilos.
+O resultado é um conflito de cascade onde regras antigas com `padding-top: 88px !important`
+para `.hero-animated-bg` e `.page-hero` continuam vencendo porque estão posicionadas
+APÓS qualquer tentativa de override anterior no arquivo.
+ 
+A regra conflitante tem esta forma (pode estar dentro de um @media (max-width: 767px)):
+ 
+  .hero-animated-bg,
+  .page-hero {
+    padding: 88px 20px 40px !important;
+    /* ou */
+    padding-top: 88px !important;
+  }
+ 
+Com o header fixo de 73px, padding-top de 88px dá apenas 15px de respiro — INSUFICIENTE.
+O target correto é padding-top: calc(var(--nav-height) + 56px) = 129px.
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PASSO 1 — LOCALIZAR AS REGRAS CONFLITANTES NO CSS:
+ 
+Abrir o arquivo de estilos principal (style.css, globals.css, main.css ou equivalente).
+Usar Ctrl+F (busca) e pesquisar pelos seguintes termos, um por vez:
+ 
+  Busca 1: "padding: 88px"
+  Busca 2: "padding-top: 88px"
+  Busca 3: ".hero-animated-bg" dentro de um bloco @media (max-width: 767px)
+  Busca 4: ".page-hero" dentro de um bloco @media (max-width: 767px)
+ 
+Para CADA ocorrência encontrada dentro de @media (max-width: 767px):
+→ Verificar se define padding-top ou padding com valor fixo em px (ex: 88px, 80px, 100px, 110px)
+→ Se sim: COMENTAR a linha ou o bloco inteiro usando /* ... */
+→ NÃO deletar — apenas comentar para preservar o histórico
+ 
+EXEMPLO de como comentar:
+ 
+ANTES:
+  .hero-animated-bg,
+  .page-hero {
+    padding: 88px 20px 40px !important;
+  }
+ 
+DEPOIS:
+  /* DESATIVADO — conflito com fix mobile v2
+  .hero-animated-bg,
+  .page-hero {
+    padding: 88px 20px 40px !important;
+  }
+  */
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PASSO 2 — ADICIONAR O BLOCO DEFINITIVO NO FINAL DO ARQUIVO CSS:
+ 
+Após comentar os conflitos, ir até o FINAL ABSOLUTO do arquivo de estilos principal
+e adicionar o bloco abaixo. Ele deve ser a última coisa no arquivo para garantir
+precedência máxima no cascade.
+ 
+/* ============================================================
+   MOBILE FIX DEFINITIVO v2 — IL AMBIENTAL
+   Adicionado ao FINAL do CSS para máxima precedência
+   Resolve: header fixo 73px sobrepondo hero sections no mobile
+   ============================================================ */
+ 
+@media (max-width: 767px) {
+ 
+  /* HEROES — todas as páginas
+     73px nav + 56px respiro = 129px total
+     Garante que o H1 sempre aparece ABAIXO do header, com respiro visual */
+  .hero-animated-bg,
+  .page-hero,
+  .contact-hero-section {
+    padding-top: calc(var(--nav-height, 73px) + 56px) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+ 
+  /* Padding inferior por tipo de página */
+  .hero-animated-bg {
+    padding-bottom: 56px !important;
+    min-height: auto !important;
+  }
+ 
+  .page-hero {
+    padding-bottom: 48px !important;
+    min-height: auto !important;
+  }
+ 
+  .contact-hero-section {
+    padding-bottom: 80px !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+ 
+  /* HERO CONTENT INNER — corrigir margin-left: 120px do desktop */
+  .hero-content-inner,
+  .hero-animated-bg > div,
+  .hero-animated-bg > div > div,
+  .page-hero > div,
+  .page-hero > div > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+ 
+  /* H1 — legível e responsivo no mobile */
+  .hero-animated-bg h1,
+  .page-hero h1,
+  .contact-hero-section h1 {
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    hyphens: auto !important;
+  }
+ 
+  /* PARÁGRAFOS DO HERO */
+  .hero-animated-bg p,
+  .page-hero p,
+  .contact-hero-section p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+ 
+  /* BOTÕES DO HERO — empilhados no mobile */
+  .hero-cta-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+ 
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 16px 24px !important;
+    box-sizing: border-box !important;
+    min-height: 52px !important;
+  }
+ 
+  /* CONTACT FLOAT CARD — sem margem negativa no mobile */
+  .contact-float-card {
+    margin-top: 0 !important;
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+  }
+ 
+  /* ABOUT-STRIP — corrigir overflow de width fixa do desktop */
+  .about-strip,
+  .about-strip > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+ 
+  .about-strip > div {
+    padding: 48px 20px !important;
+    flex-direction: column !important;
+  }
+ 
+  /* TÍTULOS H2 DE SEÇÃO */
+  section h2,
+  .cta-section h2,
+  .about-strip h2 {
+    font-size: clamp(22px, 6vw, 30px) !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+ 
+  /* OVERFLOW GLOBAL — prevenir scroll horizontal */
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+ 
+  img, svg, canvas, video {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+ 
+}
+/* FIM DO MOBILE FIX DEFINITIVO v2 */
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+PASSO 3 — VERIFICAÇÃO OBRIGATÓRIA (DevTools Mobile):
+ 
+Após salvar o arquivo CSS, abrir o navegador no Preview do Replit e:
+ 
+1. Pressionar F12 para abrir DevTools
+2. Clicar no ícone de "Toggle Device Toolbar" (celular/tablet)
+3. Selecionar "iPhone 14 Pro" ou digitar largura 390px manualmente
+4. Verificar CADA página:
+ 
+HOME (/):
+✓ Header visível no topo (73px de altura)
+✓ H1 "Sem licença ambiental..." começa com PELO MENOS 50px abaixo do header
+✓ O espaço entre o fundo do nav e o início do H1 deve ser visível — não colado
+✓ Botões empilhados verticalmente
+✓ Sem scroll horizontal
+ 
+SOBRE (/sobre):
+✓ Label "Quem Somos" e H1 completamente visíveis abaixo do header
+✓ Nenhum texto cortado ou parcialmente escondido
+ 
+SERVIÇOS (/servicos):
+✓ H2 da hero completamente visível com respiro acima
+✓ Sem scroll horizontal
+ 
+CONTATO (/contato):
+✓ H1 "Fale com quem entende de licenciamento no Pará." completamente visível
+✓ Card "Como prefere entrar em contato?" posicionado ABAIXO da hero sem sobreposição
+ 
+GERAL:
+✓ Desktop em 1280px+ sem nenhuma alteração visual
+✓ Animações AOS funcionando
+✓ WhatsApp flutuante visível
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+REGRAS ABSOLUTAS — NÃO VIOLAR:
+ 
+✗ NÃO alterar textos, cores, tipografia ou estrutura HTML
+✗ NÃO remover regras antigas — apenas comentar com /* ... */
+✗ NÃO alterar nada acima de 768px (desktop intocado)
+✗ NÃO remover animações AOS, hovers, formulário ou links
+✗ O bloco novo DEVE estar no final absoluto do arquivo CSS
+ 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 
+SE O PROBLEMA PERSISTIR MESMO APÓS ESSES PASSOS:
+ 
+O conflito pode estar em um arquivo CSS separado (ex: um arquivo de componente como
+Hero.module.css, hero.css, index.css, ou estilos inline no JSX).
+ 
+Nesse caso, buscar nos arquivos de componente pelo texto "88px" ou "padding-top" dentro
+de media queries e aplicar o mesmo processo de comentar + substituir com o valor
+calc(var(--nav-height, 73px) + 56px).

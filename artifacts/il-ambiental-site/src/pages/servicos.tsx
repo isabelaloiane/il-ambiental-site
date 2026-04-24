@@ -9,7 +9,7 @@ export function Servicos() {
       <Navbar />
 
       {/* HERO */}
-      <section className="page-hero" style={{ padding: "100px 24px 60px", textAlign: "center", background: "linear-gradient(135deg, rgb(238, 231, 220) 0%, rgb(245, 240, 232) 45%, rgb(240, 234, 225) 100%)", borderBottom: "1px solid rgba(181, 137, 94, 0.18)" }}>
+      <section className="page-hero" style={{ textAlign: "center", background: "linear-gradient(135deg, rgb(238, 231, 220) 0%, rgb(245, 240, 232) 45%, rgb(240, 234, 225) 100%)", borderBottom: "1px solid rgba(181, 137, 94, 0.18)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <span className="section-caption">Nossos Serviços</span>
           <h2 style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>

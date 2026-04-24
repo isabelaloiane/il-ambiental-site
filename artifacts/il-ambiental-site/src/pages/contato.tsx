@@ -64,9 +64,7 @@ export function Contato() {
 
       {/* HERO */}
       <section className="contact-hero-section" style={{
-        height: 320,
         display: "flex", alignItems: "center", justifyContent: "center",
-        padding: "80px 24px",
         background: "linear-gradient(to bottom, rgba(26,15,8,0.55) 0%, rgba(26,15,8,0.72) 100%), radial-gradient(ellipse at 60% 50%, rgba(115,65,32,0.35) 0%, transparent 65%), linear-gradient(135deg, #2e1a0e 0%, #1a0f08 100%)"
       }}>
         <div style={{ maxWidth: 640, textAlign: "center" }}>

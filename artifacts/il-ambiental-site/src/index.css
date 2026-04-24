@@ -1610,12 +1610,14 @@ a {
    Posição: final do arquivo — máxima prioridade na cascade.
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
+  /* DESATIVADO — conflito com fix mobile v2 (padding-top insuficiente: 88px < 129px)
   .hero-animated-bg {
     padding: 88px 20px 40px 20px;
     min-height: auto;
     align-items: flex-start;
     overflow: hidden;
   }
+  */
 
   .hero-content-inner,
   .hero-animated-bg > div,
@@ -1689,6 +1691,10 @@ a {
 
 .hero-animated-bg {
   padding-top: calc(var(--nav-height) + 48px) !important;
+}
+
+.page-hero {
+  padding: calc(var(--nav-height) + 48px) 24px 80px !important;
 }
 
 @media (max-width: 767px) {
@@ -1803,6 +1809,8 @@ a {
 .contact-hero-section {
   padding-top: calc(var(--nav-height) + 48px) !important;
   padding-bottom: 80px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
 
 /* 5. About-strip: prevenir margin collapse + alinhar filhos */
@@ -2052,20 +2060,21 @@ p, li {
 
 }
 
-/* =============================================
-   MOBILE FIX DEFINITIVO — IL AMBIENTAL
-   Bloco consolidado final — máxima precedência.
-   Sobrescreve todos os conflitos anteriores.
-   NÃO alterar desktop (regras dentro de 767px).
-   ============================================= */
+/* ============================================================
+   MOBILE FIX DEFINITIVO v2 — IL AMBIENTAL
+   Adicionado ao FINAL do CSS para máxima precedência
+   Resolve: header fixo 73px sobrepondo hero sections no mobile
+   ============================================================ */
 
 @media (max-width: 767px) {
 
-  /* 1. HERO — todas as páginas: espaçamento correto abaixo do header fixo */
+  /* HEROES — todas as páginas
+     73px nav + 56px respiro = 129px total
+     Garante que o H1 sempre aparece ABAIXO do header, com respiro visual */
   .hero-animated-bg,
   .page-hero,
   .contact-hero-section {
-    padding-top: calc(var(--nav-height) + 56px) !important;
+    padding-top: calc(var(--nav-height, 73px) + 56px) !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
     box-sizing: border-box !important;
@@ -2073,6 +2082,7 @@ p, li {
     overflow-x: hidden !important;
   }
 
+  /* Padding inferior por tipo de página */
   .hero-animated-bg {
     padding-bottom: 56px !important;
     min-height: auto !important;
@@ -2089,7 +2099,7 @@ p, li {
     height: auto !important;
   }
 
-  /* 2. HERO CONTENT INNER — garantir que margin-left do desktop é zerado */
+  /* HERO CONTENT INNER — corrigir margin-left: 120px do desktop */
   .hero-content-inner,
   .hero-animated-bg > div,
   .hero-animated-bg > div > div,
@@ -2102,7 +2112,7 @@ p, li {
     box-sizing: border-box !important;
   }
 
-  /* 3. H1 — tamanho proporcional ao mobile */
+  /* H1 — legível e responsivo no mobile */
   .hero-animated-bg h1,
   .page-hero h1,
   .contact-hero-section h1 {
@@ -2115,7 +2125,7 @@ p, li {
     hyphens: auto !important;
   }
 
-  /* 4. PARÁGRAFO DO HERO */
+  /* PARÁGRAFOS DO HERO */
   .hero-animated-bg p,
   .page-hero p,
   .contact-hero-section p {
@@ -2123,13 +2133,10 @@ p, li {
     line-height: 1.55 !important;
     width: 100% !important;
     max-width: 100% !important;
-    opacity: 1 !important;
   }
 
-  /* 5. BOTÕES DO HERO — empilhados verticalmente */
-  .hero-cta-group,
-  .hero-animated-bg .hero-cta-group,
-  .page-hero .hero-cta-group {
+  /* BOTÕES DO HERO — empilhados no mobile */
+  .hero-cta-group {
     flex-direction: column !important;
     align-items: stretch !important;
     width: 100% !important;
@@ -2146,7 +2153,18 @@ p, li {
     min-height: 52px !important;
   }
 
-  /* 6. ABOUT-STRIP — corrigir filhos com width fixa */
+  /* CONTACT FLOAT CARD — sem margem negativa no mobile */
+  .contact-float-card {
+    margin-top: 0 !important;
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+  }
+
+  /* ABOUT-STRIP — corrigir overflow de width fixa do desktop */
   .about-strip,
   .about-strip > div {
     width: 100% !important;
@@ -2160,18 +2178,7 @@ p, li {
     flex-direction: column !important;
   }
 
-  /* 7. CONTACT FLOAT CARD — sem margin negativa no mobile */
-  .contact-float-card {
-    margin-top: 0 !important;
-    width: calc(100% - 32px) !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    margin-left: 16px !important;
-    margin-right: 16px !important;
-    border-radius: 12px !important;
-  }
-
-  /* 8. TÍTULOS H2 DE SEÇÕES */
+  /* TÍTULOS H2 DE SEÇÃO */
   section h2,
   .cta-section h2,
   .about-strip h2 {
@@ -2180,20 +2187,7 @@ p, li {
     word-break: break-word !important;
   }
 
-  /* 9. SEÇÕES — padding vertical reduzido */
-  section:not(.hero-animated-bg):not(.page-hero):not(.contact-hero-section) {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
-  }
-
-  /* 10. FOOTER */
-  footer,
-  .site-footer {
-    padding-top: 48px !important;
-    padding-bottom: 24px !important;
-  }
-
-  /* 11. OVERFLOW GLOBAL */
+  /* OVERFLOW GLOBAL — prevenir scroll horizontal */
   html,
   body {
     overflow-x: hidden !important;
@@ -2201,3 +2195,4 @@ p, li {
   }
 
 }
+/* FIM DO MOBILE FIX DEFINITIVO v2 */
