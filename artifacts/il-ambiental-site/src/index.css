@@ -2197,16 +2197,38 @@ p, li {
 }
 /* FIM DO MOBILE FIX DEFINITIVO v2 */
 
-/* MOBILE — fix sobreposição header fixo (73px) sobre heroes */
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE — CORREÇÃO DEFINITIVA: header fixo não sobrepõe heroes
+   Seletores element+class (0,1,1) vencem todos os blocos anteriores
+   que usam class-only (0,1,0) ou element-only (0,0,1).
+   Valor fixo 120px: nav 72px + 48px respiro. Sem custom property.
+   align-items: flex-start ancora o conteúdo na posição do padding.
+   ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
-  .hero-animated-bg,
-  .page-hero,
-  .contact-hero-section {
-    padding-top: calc(var(--nav-height, 73px) + 56px) !important;
+
+  section.hero-animated-bg {
+    padding-top: 120px !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
   }
-  .hero-content-inner,
-  .hero-animated-bg > div,
-  .page-hero > div {
+
+  section.page-hero {
+    padding-top: 120px !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+  }
+
+  section.contact-hero-section {
+    padding-top: 120px !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-content-inner {
     margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
