@@ -1591,37 +1591,51 @@ a {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO H1 MOBILE — REGRA FINAL, MÁXIMA PRIORIDADE
-   Deve ficar no final do arquivo para vencer qualquer
-   !important anterior de menor ou igual especificidade.
+   HERO MOBILE — CORREÇÃO CAUSA RAIZ — REGRA FINAL ABSOLUTA
+   Corrige o container interno (max-width: 720px) que não
+   respeita os limites do mobile, causando overflow.
+   Posição: final do arquivo — vence qualquer !important anterior.
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
+  .hero-animated-bg {
+    overflow: hidden !important;
+    padding: 80px 20px 40px 20px !important;
+  }
+
+  .hero-animated-bg > div,
+  .hero-animated-bg > div > div {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
   .hero-animated-bg h1,
   .hero-animated-bg .fade-1 {
     font-size: 32px !important;
     line-height: 1.2 !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
-    width: 100% !important;
     max-width: 100% !important;
-  }
-
-  .hero-animated-bg {
-    padding-top: 72px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    padding-bottom: 40px !important;
-  }
-
-  .hero-animated-bg > div:last-child {
-    max-width: 100% !important;
-    margin-left: 0 !important;
     width: 100% !important;
   }
 
-  .hero-animated-bg p {
+  .hero-animated-bg p,
+  .hero-animated-bg .fade-2 {
     font-size: 15px !important;
-    line-height: 1.6 !important;
     max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .hero-animated-bg .hero-cta-group,
+  .hero-animated-bg .fade-3 {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hero-animated-bg .btn-primary,
+  .hero-animated-bg .btn-outline {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 }
