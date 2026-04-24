@@ -145,6 +145,18 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
     linear-gradient(160deg, #1a0f08 0%, #2e1a0e 50%, #1a0f08 100%);
   background-size: 200% 200%;
   animation: heroShift 12s ease-in-out infinite alternate;
+  min-height: 60vh;
+  padding: 90px 24px 48px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content-inner {
+  max-width: 720px;
+  margin-left: clamp(24px, 8vw, 120px);
+  width: 100%;
 }
 
 .fade-1 { animation: fadeUpIn 0.6s ease-out both; }
@@ -1592,50 +1604,49 @@ a {
 
 /* ═══════════════════════════════════════════════════════════
    HERO MOBILE — CORREÇÃO CAUSA RAIZ — REGRA FINAL ABSOLUTA
-   Corrige o container interno (max-width: 720px) que não
-   respeita os limites do mobile, causando overflow.
-   Posição: final do arquivo — vence qualquer !important anterior.
+   Inline styles removidos do JSX; layout controlado por CSS.
+   Posição: final do arquivo — máxima prioridade na cascade.
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   .hero-animated-bg {
-    overflow: hidden !important;
-    padding: 80px 20px 40px 20px !important;
+    padding: 80px 20px 40px 20px;
+    min-height: auto;
+    align-items: flex-start;
+    overflow: hidden;
   }
 
+  .hero-content-inner,
   .hero-animated-bg > div,
   .hero-animated-bg > div > div {
-    max-width: 100% !important;
-    width: 100% !important;
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
   }
 
-  .hero-animated-bg h1,
-  .hero-animated-bg .fade-1 {
+  .hero-animated-bg h1 {
     font-size: 32px !important;
     line-height: 1.2 !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
+    width: 100% !important;
     max-width: 100% !important;
-    width: 100% !important;
   }
 
-  .hero-animated-bg p,
-  .hero-animated-bg .fade-2 {
-    font-size: 15px !important;
-    max-width: 100% !important;
-    width: 100% !important;
+  .hero-animated-bg p {
+    font-size: 15px;
+    width: 100%;
+    max-width: 100%;
   }
 
-  .hero-animated-bg .hero-cta-group,
-  .hero-animated-bg .fade-3 {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 12px !important;
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
   }
 
-  .hero-animated-bg .btn-primary,
-  .hero-animated-bg .btn-outline {
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-outline {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 }

@@ -10,12 +10,9 @@ export function Home() {
       <Navbar />
 
       {/* HERO */}
-      <section
-        className="hero-animated-bg"
-        style={{ minHeight: "60vh", padding: "90px 24px 48px", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}
-      >
+      <section className="hero-animated-bg">
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,15,8,0.55)", pointerEvents: "none" }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 720, marginLeft: "clamp(24px, 8vw, 120px)" }}>
+        <div className="hero-content-inner" style={{ position: "relative", zIndex: 1 }}>
           <h1 className="fade-1" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(2.4rem, 5.5vw, 4rem)", lineHeight: 1.1, color: "#fff", margin: 0 }}>
             Sem licença ambiental, sua operação no{" "}
             <span style={{ color: "#DFC49F" }}>Pará</span> pode parar amanhã.
