@@ -144,7 +144,7 @@ export function Home() {
           >
             <StatCounter target={127} label="Projetos concluídos" />
             <StatCounter target={30} prefix="+" label="Empresas regularizadas" />
-            <StatCounter target={40} prefix="+" label="Municípios atendidos" />
+            <StatCounter target={15} prefix="+" label="Municípios atendidos" />
             <StatCounter target={5} label="Órgãos ambientais" />
           </div>
         </div>
