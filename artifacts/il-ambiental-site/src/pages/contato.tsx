@@ -257,13 +257,13 @@ export function Contato() {
               Da capital ao interior: presença em todo o Pará
             </h2>
             <p data-aos="fade-up" data-aos-delay="100" style={{ fontSize: "0.95rem", color: "rgba(223,196,159,0.7)", lineHeight: 1.7, marginTop: 14, maxWidth: 400, marginBottom: 0 }}>
-              Atendemos empresas em mais de 40 municípios do Pará. Conhecemos o contexto regulatório de cada região, da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
+              Atendemos empresas em mais de 15 municípios do Pará. Conhecemos o contexto regulatório de cada região, da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
             </p>
           </div>
           <div style={{ flex: "1 1 160px", textAlign: "center" }}>
             <div style={{ fontSize: "4rem", lineHeight: 1 }}>🌿</div>
             <div style={{ color: "#DFC49F", fontWeight: 700, fontSize: "1.1rem", marginTop: 8 }}>Pará</div>
-            <div style={{ color: "rgba(223,196,159,0.5)", fontSize: "0.8rem", marginTop: 4 }}>+40 municípios atendidos</div>
+            <div style={{ color: "rgba(223,196,159,0.5)", fontSize: "0.8rem", marginTop: 4 }}>+15 municípios atendidos</div>
           </div>
         </div>
       </section>
@@ -278,7 +278,7 @@ export function Contato() {
           {[
             { q: "Qual o prazo médio para licenciamento no Pará?", a: "O prazo varia conforme a modalidade e o porte do empreendimento. Com documentação correta desde a primeira entrada, evitamos idas e vindas aos órgãos. Nossa equipe orienta cada caso individualmente para garantir o andamento mais ágil possível." },
             { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção." },
-            { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto. Já trabalhamos com mais de 40 municípios paraenses." },
+            { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto. Já trabalhamos com mais de 15 municípios paraenses." },
             { q: "O que é ESG e por que minha empresa precisa?", a: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar e se tornar mais atrativa para o mercado." },
             { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário, sem burocracia." },
             { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial, sem custo e sem compromisso." },
