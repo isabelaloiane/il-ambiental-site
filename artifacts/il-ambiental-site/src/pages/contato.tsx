@@ -93,7 +93,7 @@ export function Contato() {
             Escolha a opção mais cômoda. Nossa equipe está pronta para responder: seja por formulário, e-mail ou WhatsApp.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 14, marginTop: 24, flexWrap: "wrap" }}>
-            <button className="btn-primary">Enviar mensagem</button>
+            <button className="btn-primary" onClick={() => { document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' }); }}>Enviar mensagem</button>
             <a
               href="https://wa.me/5591992503317?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
               target="_blank" rel="noopener noreferrer"
@@ -107,7 +107,7 @@ export function Contato() {
       </section>
 
       {/* CONTACT FORMS & INFO */}
-      <section className="contact-form-section" style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px" }}>
+      <section id="formulario" className="contact-form-section" style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
 
           {/* Form Card */}
