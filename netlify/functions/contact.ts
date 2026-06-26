@@ -1,21 +1,21 @@
 /**
- * Netlify Function — POST /api/contact
- * Recebe o formulário de contato e envia e-mail via Gmail SMTP.
+ * Netlify Function â POST /api/contact
+ * Recebe o formulÃ¡rio de contato e envia e-mail via Gmail SMTP.
  *
- * Variáveis de ambiente necessárias (configurar no painel do Netlify):
+ * VariÃ¡veis de ambiente necessÃ¡rias (configurar no painel do Netlify):
  *   EMAIL_USER = contate.ilambiental@gmail.com
- *   EMAIL_PASS = <senha de app de 16 dígitos gerada no Google>
+ *   EMAIL_PASS = <senha de app de 16 dÃ­gitos gerada no Google>
  *
  * Como gerar a senha de app:
- *   1. https://myaccount.google.com/security → ativar verificação em 2 etapas
- *   2. https://myaccount.google.com/apppasswords → criar senha para "Site IL Ambiental"
+ *   1. https://myaccount.google.com/security â ativar verificaÃ§Ã£o em 2 etapas
+ *   2. https://myaccount.google.com/apppasswords â criar senha para "Site IL Ambiental"
  *   3. Copiar os 16 caracteres e configurar como EMAIL_PASS no painel do Netlify
  */
 
 import type { Handler } from "@netlify/functions";
 import nodemailer from "nodemailer";
 
-// Rate limiter em memória: máx 5 requisições por IP por minuto
+// Rate limiter em memÃ³ria: mÃ¡x 5 requisiÃ§Ãµes por IP por minuto
 const rateMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 60_000;
@@ -94,13 +94,13 @@ export const handler: Handler = async (event) => {
       headers,
       body: JSON.stringify({
         success: false,
-        message: "Preencha todos os campos obrigatórios.",
+        message: "Preencha todos os campos obrigatÃ³rios.",
       }),
     };
   }
 
   const cleanName = sanitize(name);
-  const cleanCompany = sanitize(company) || "Não informada";
+  const cleanCompany = sanitize(company) || "NÃ£o informada";
   const cleanPhone = sanitize(phone);
   const cleanMessage = sanitize(message);
 
@@ -108,14 +108,14 @@ export const handler: Handler = async (event) => {
   const emailPass = process.env.EMAIL_PASS;
 
   if (!emailUser || !emailPass) {
-    console.error("[contact] EMAIL_USER ou EMAIL_PASS não configurados.");
+    console.error("[contact] EMAIL_USER ou EMAIL_PASS nÃ£o configurados.");
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
         success: false,
         message:
-          "Erro de configuração no servidor. Entre em contato diretamente pelo WhatsApp.",
+          "Erro de configuraÃ§Ã£o no servidor. Entre em contato diretamente pelo WhatsApp.",
       }),
     };
   }
@@ -151,15 +151,15 @@ export const handler: Handler = async (event) => {
     </table>
     <br>
     <p style="color:#888;font-size:12px;font-family:sans-serif;">
-      Mensagem enviada automaticamente pelo formulário do site IL Ambiental.
+      Mensagem enviada automaticamente pelo formulÃ¡rio do site IL Ambiental.
     </p>
   `;
 
   try {
     const info = await transporter.sendMail({
       from: `"Site IL Ambiental" <${emailUser}>`,
-      to: "contate.ilambiental@gmail.com",
-      subject: `Nova mensagem do site — ${cleanName}`,
+      to: "contato@ilambiental.com.br",
+      subject: `Nova mensagem do site â ${cleanName}`,
       html: htmlBody,
     });
 
