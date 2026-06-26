@@ -212,7 +212,7 @@ export function Contato() {
                 },
                 {
                   icon: "✉", label: "E-mail",
-                  main: <a href="mailto:contate.ilambiental@gmail.com" style={{ color: "#DFC49F", textDecoration: "none" }}>contate.ilambiental@gmail.com</a>,
+                  main: <a href="mailto:contato@ilambiental.com.br" style={{ color: "#DFC49F", textDecoration: "none" }}>contato@ilambiental.com.br</a>,
                   sub: null
                 },
                 {
