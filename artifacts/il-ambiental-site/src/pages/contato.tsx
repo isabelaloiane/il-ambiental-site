@@ -5,6 +5,11 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export function Contato() {
+  useEffect(() => {
+    document.title = "Contato | IL Engenharia e Consultoria Ambiental";
+    return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
+  }, []);
+
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [sending, setSending] = useState(false);

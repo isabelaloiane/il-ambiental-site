@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export function Servicos() {
+  useEffect(() => {
+    document.title = "Serviços | IL Engenharia e Consultoria Ambiental";
+    return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
+  }, []);
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -12,9 +18,9 @@ export function Servicos() {
       <section className="page-hero" style={{ textAlign: "center", background: "linear-gradient(135deg, rgb(238, 231, 220) 0%, rgb(245, 240, 232) 45%, rgb(240, 234, 225) 100%)", borderBottom: "1px solid rgba(181, 137, 94, 0.18)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <span className="section-caption">Nossos Serviços</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
+          <h1 style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
             Sua conformidade ambiental no Pará, do início ao fim.
-          </h2>
+          </h1>
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "#8C7B6B", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.7 }}>
             Licenciamento, gestão ambiental e ESG: a IL assume a burocracia para que você foque no seu negócio. Segurança jurídica do início à operação.
           </p>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -5,6 +6,10 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { StatCounter } from "@/components/StatCounter";
 
 export function Home() {
+  useEffect(() => {
+    document.title = "IL Ambiental | Engenharia e Consultoria Ambiental no Pará";
+  }, []);
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
@@ -23,6 +28,30 @@ export function Home() {
           <div className="fade-3 hero-cta-group" style={{ marginTop: 36 }}>
             <Link href="/contato" className="btn-primary">Fale com um especialista</Link>
             <Link href="/servicos" className="btn-outline">Ver como funciona</Link>
+          </div>
+
+          {/* Scroll indicator */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              bottom: 28,
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 4,
+              opacity: 0.45,
+              animation: "fadeUpIn 0.6s ease-out 1.2s both",
+              cursor: "pointer",
+            }}
+            onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: "smooth" })}
+          >
+            <span style={{ fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#DFC49F", fontWeight: 500 }}>scroll</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DFC49F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </div>
         </div>
       </section>
