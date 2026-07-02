@@ -11,7 +11,8 @@ function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-    AOS.refresh();
+    // refreshHard re-evaluates all elements (needed after route change)
+    setTimeout(() => AOS.refreshHard(), 50);
   }, [location]);
   return null;
 }
@@ -33,12 +34,16 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    AOS.init({
-      duration: 600,
-      easing: "ease-out",
-      once: true,
-      offset: 80,
-    });
+    // Delay init slightly so React finishes painting before AOS measures elements
+    const timer = setTimeout(() => {
+      AOS.init({
+        duration: 600,
+        easing: "ease-out",
+        once: true,
+        offset: 80,
+      });
+    }, 120);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
