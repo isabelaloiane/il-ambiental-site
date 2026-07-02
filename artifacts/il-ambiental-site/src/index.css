@@ -110,17 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 p { line-height: 1.7; }
 strong { font-weight: 600; color: var(--color-text-secondary); }
 
-/* ─── AOS SAFETY — conteúdo sempre visível ─────────────────── */
-[data-aos] {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-[data-aos].aos-animate {
-  opacity: 1 !important;
-  transform: none !important;
-}
+/* AOS animations enabled — no overrides */
 
 a { color: var(--color-link); text-decoration: none; transition: color var(--t-fast); }
 a:hover { color: var(--color-link-hover); }
@@ -376,6 +366,11 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
   .site-logo-img { height: 42px; }
 }
 
+@keyframes wa-pulse {
+  0%   { transform: scale(1); opacity: 0.65; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
 /* ===== WHATSAPP BUTTON (only allowed non-brand color) ===== */
 .wa-float {
   position: fixed;
@@ -396,6 +391,15 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 .wa-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+}
+.wa-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  animation: wa-pulse 2.4s ease-out infinite;
+  z-index: -1;
 }
 
 /* ===== FORM INPUTS ===== */
@@ -1311,7 +1315,7 @@ input:focus, textarea:focus, select:focus {
   font-weight: 600;
 }
 
-/* ─── FAQ ANIMADO ───────────────────────────────────────────── */
+/* ─── FAQ ANIMADE ───────────────────────────────────────────── */
 .faq-item {
   border-bottom: 1px solid rgba(181,137,94,0.22);
   overflow: hidden;
@@ -1608,7 +1612,7 @@ a {
 /* ═══════════════════════════════════════════════════════════
    HERO MOBILE — CORREÇÃO CAUSA RAIZ — REGRA FINAL ABSOLUTA
    Inline styles removidos do JSX; layout controlado por CSS.
-   Posição: final do arquivo — máxima prioridade na cascade.
+   Posição: final do arquivo — táxima prioridade na cascade.
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   /* DESATIVADO — conflito com fix mobile v2 (padding-top insuficiente: 88px < 129px)
@@ -1671,20 +1675,7 @@ a {
   }
 }
 
-.site-nav {
-  background: rgba(237, 226, 208, 0.95) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-.site-nav.scrolled {
-  background: rgba(237, 226, 208, 1) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  box-shadow:
-    0 1px 0 rgba(181, 137, 94, 0.25),
-    0 4px 24px rgba(69, 40, 22, 0.08) !important;
-}
+/* .site-nav glassmorphism handled above at main nav styles */
 
 .contact-hero-section {
   padding-top: calc(var(--nav-height) + 48px) !important;
