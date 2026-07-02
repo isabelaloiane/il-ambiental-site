@@ -44,66 +44,6 @@ export function Sobre() {
             </a>
           </div>
 
-          {/* Right: photo card */}
-          <div data-aos="fade-left" style={{ display: "flex", justifyContent: "center" }}>
-            <div style={{
-              position: "relative",
-              width: "100%",
-              maxWidth: 320,
-            }}>
-              {/* Photo */}
-              <div style={{
-                borderRadius: 16,
-                overflow: "hidden",
-                border: "1px solid rgba(223,196,159,0.2)",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
-                aspectRatio: "3/4",
-                background: "rgba(255,255,255,0.05)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}>
-                <img
-                  src="/isabela-loiane.jpg"
-                  alt="Isabela Loiane — CEO da IL Engenharia e Consultoria Ambiental"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "top center",
-                    display: "block",
-                    filter: "grayscale(100%) contrast(1.05)",
-                  }}
-                  onError={(e) => {
-                    // Fallback if photo not uploaded yet
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      e.currentTarget.style.display = "none";
-                      parent.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;padding:32px;text-align:center"><div style="width:80px;height:80px;border-radius:50%;background:rgba(223,196,159,0.15);border:2px solid rgba(223,196,159,0.3);display:flex;align-items:center;justify-content:center"><svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='rgba(223,196,159,0.5)' stroke-width='1.5'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg></div><span style='font-size:0.78rem;color:rgba(223,196,159,0.4);line-height:1.5'>Foto da Isabela<br/>em breve</span></div>`;
-                    }
-                  }}
-                />
-              </div>
-              {/* Credential tag */}
-              <div style={{
-                position: "absolute",
-                bottom: -16,
-                left: "50%",
-                transform: "translateX(-50%)",
-                background: "#DFC49F",
-                color: "#452816",
-                borderRadius: 40,
-                padding: "8px 20px",
-                whiteSpace: "nowrap",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
-                letterSpacing: "0.02em",
-              }}>
-                Isabela Loiane · CEO &amp; Consultora Ambiental
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
