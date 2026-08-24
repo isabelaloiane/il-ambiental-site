@@ -25,10 +25,10 @@ export function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
               <li style={{ fontSize: "0.85rem", display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ color: "#B5895E" }}>✆</span>
-                <a href="tel:+5591992503317" style={{ color: "rgba(223,196,159,0.72)", textDecoration: "none" }}
+                <a href="tel:+5591992723570" style={{ color: "rgba(223,196,159,0.72)", textDecoration: "none" }}
                   onMouseOver={e => (e.currentTarget.style.color = "#DFC49F")}
                   onMouseOut={e => (e.currentTarget.style.color = "rgba(223,196,159,0.72)")}
-                >+55 91 99250-3317</a>
+                >+55 91 99272-3570</a>
               </li>
               <li style={{ fontSize: "0.85rem", display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ color: "#B5895E" }}>✉</span>
