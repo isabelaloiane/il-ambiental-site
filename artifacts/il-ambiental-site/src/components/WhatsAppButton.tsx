@@ -1,7 +1,7 @@
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5591992503317?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
+      href="https://wa.me/5591992723570?text=Olá! Gostahria de saber mais sobre os serviços da IL Ambiental."
       target="_blank"
       rel="noopener noreferrer"
       className="wa-float"
