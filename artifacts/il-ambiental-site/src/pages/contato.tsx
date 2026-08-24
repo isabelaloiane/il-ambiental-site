@@ -100,7 +100,7 @@ export function Contato() {
           <div style={{ display: "flex", justifyContent: "center", gap: 14, marginTop: 24, flexWrap: "wrap" }}>
             <button className="btn-primary" onClick={() => { document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' }); }}>Enviar mensagem</button>
             <a
-              href="https://wa.me/5591992503317?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
+              href="https://wa.me/5591992723570?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
               target="_blank" rel="noopener noreferrer"
               style={{ background: "#fff", border: "1.5px solid rgba(181,137,94,0.4)", color: "#2C1A0E", padding: "14px 28px", borderRadius: 8, fontWeight: 500, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "'Poppins', sans-serif", fontSize: "1rem", textDecoration: "none" }}
             >
@@ -212,7 +212,7 @@ export function Contato() {
               {[
                 {
                   icon: "📞", label: "WhatsApp",
-                  main: <a href="tel:+5591992503317" style={{ color: "#DFC49F", textDecoration: "none" }}>+55 91 99250-3317</a>,
+                  main: <a href="tel:+5591992723570" style={{ color: "#DFC49F", textDecoration: "none" }}>+55 91 99272-3570</a>,
                   sub: "Atendimento preferencial"
                 },
                 {
@@ -242,7 +242,7 @@ export function Contato() {
               ))}
             </div>
             <a
-              href="https://wa.me/5591992503317?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
+              href="https://wa.me/5591992723570?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
               target="_blank" rel="noopener noreferrer"
               style={{ background: "transparent", border: "1.5px solid rgba(223,196,159,0.3)", color: "#DFC49F", padding: "12px", borderRadius: 8, width: "100%", fontWeight: 500, cursor: "pointer", display: "block", textAlign: "center", fontFamily: "'Poppins', sans-serif", textDecoration: "none", marginTop: 28 }}
             >
