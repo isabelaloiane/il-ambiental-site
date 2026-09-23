@@ -4,162 +4,313 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+const WA_NUMBER = "5591992723570";
+const wa = (msg: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+const WA_AGUA = wa("Olá! Vim pelo site e preciso de ajuda com outorga ou uso de água da minha empresa.");
+const WA_LICENCA = wa("Olá! Vim pelo site e preciso de ajuda com licença de operação ou renovação.");
+const WA_RELATORIOS = wa("Olá! Vim pelo site e preciso de ajuda com relatórios ambientais, RIAA ou PGRS.");
+const WA_PGRS = wa("Olá! Vim pelo site e preciso de ajuda com relatórios ambientais, RIAA ou PGRS.");
+const WA_NOTIFICACAO = wa("Olá! Vim pelo site e recebi uma notificação ou exigência de órgão ambiental.");
+const WA_VERTICE = wa("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.");
+
 export function Servicos() {
   useEffect(() => {
-    document.title = "Serviços | IL Engenharia e Consultoria Ambiental";
-    return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
+    document.title = "Outorga, Licença de Operação, PGRS e RIAA | IL Ambiental";
+    return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
   }, []);
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
 
-      {/* HERO */}
+      {/* SV-01 TOPO */}
       <section className="page-hero" style={{ textAlign: "center", background: "linear-gradient(135deg, rgb(238, 231, 220) 0%, rgb(245, 240, 232) 45%, rgb(240, 234, 225) 100%)", borderBottom: "1px solid rgba(181, 137, 94, 0.18)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <span className="section-caption">Nossos Serviços</span>
-          <h1 style={{ fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)", lineHeight: 1.12, color: "#2C1A0E", margin: 0 }}>
-            Sua conformidade ambiental no Pará, do início ao fim.
+          <h1
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
+              lineHeight: 1.15,
+              color: "#2C1A0E",
+              margin: 0,
+            }}
+          >
+            Serviços ambientais para empresas da Região Metropolitana de Belém.
           </h1>
-          <p className="fade-2" style={{ fontSize: "1.05rem", color: "#8C7B6B", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.7 }}>
-            Licenciamento, gestão ambiental e ESG: a IL assume a burocracia para que você foque no seu negócio. Segurança jurídica do início à operação.
+          <p className="fade-2" style={{ fontSize: "1.05rem", color: "#6B5443", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.75 }}>
+            Recursos hídricos, licenciamento, relatórios e planos ambientais conduzidos pela responsável técnica, do levantamento ao protocolo no órgão.
           </p>
-          <div className="fade-3 hero-cta-group" style={{ marginTop: 32, justifyContent: "center" }}>
-            <Link href="/contato" className="btn-primary">Solicite uma avaliação gratuita</Link>
-            <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 10, width: "100%", textAlign: "center" }}>Sem compromisso. Resposta em até 24h.</p>
+          <div className="fade-3 hero-cta-group" style={{ marginTop: 32, justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/contato?assunto=vertice" className="btn-primary">Solicitar Diagnóstico Vértice</Link>
+            <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline">Falar pelo WhatsApp</a>
           </div>
+          <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 12, textAlign: "center" }}>
+            Não sabe qual serviço sua empresa precisa? O Diagnóstico Vértice identifica isso, sem custo.
+          </p>
         </div>
       </section>
 
-      {/* TRUST BAR */}
+      {/* SV-02 FAIXA DE FATOS */}
       <div style={{ background: "#fff", borderTop: "1px solid rgba(181,137,94,0.25)", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "16px 0", overflowX: "auto" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-around", gap: 12, padding: "0 24px" }}>
           {[
-            "SEMAS-PA",
-            "IBAMA",
-            "SEMMA Municipal",
-            "SESPA",
-            "INCRA",
-            "+30 empresas regularizadas",
-            "Resposta em 24h",
-            "Atuação em todo o Pará"
+            "SEMAS-PA e secretarias municipais",
+            "Belém e região metropolitana até Castanhal",
+            "Retorno em até 1 dia útil",
           ].map((label, i) => (
-            <span key={i} data-aos="fade-in" data-aos-delay={i * 60} style={{ fontSize: "0.82rem", fontWeight: 500, color: "#8C7B6B", display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
+            <span key={i} data-aos="fade-in" data-aos-delay={i * 60} style={{ fontSize: "0.82rem", fontWeight: 500, color: "#6B5443", display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
               <span style={{ color: "#B5895E", fontSize: "0.7rem" }}>●</span> {label}
             </span>
           ))}
         </div>
       </div>
 
-      {/* SERVICE CARDS */}
+      {/* SV-03 BLOCOS DE SERVIÇO */}
       <section style={{ padding: "72px 24px", background: "#fff" }}>
-        <div style={{ maxWidth: 1040, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <span className="section-caption" data-aos="fade-up">O que entregamos</span>
-            <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Serviços especializados para cada fase do seu empreendimento</h2>
-            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
-            <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", maxWidth: 520, margin: "0 auto", lineHeight: 1.65 }}>Da licença prévia à operação contínua: cada entrega foi pensada para proteger sua empresa e acelerar seu projeto.</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
-            {[
-              {
-                title: "Licenciamento Ambiental",
-                desc: "Da DLA à LO, cuidamos de cada etapa junto à SEMAS-PA, ao IBAMA e demais órgãos ambientais competentes para que sua empresa opere dentro da lei, sem atrasos.",
-                items: ["Dispensa de Licenciamento (DLA)", "Licença Prévia (LP)", "Licença de Instalação (LI)", "Licença de Operação (LO)", "Licença de Regularização Ambiental (LAR)"],
-              },
-              {
-                title: "Estudos e Relatórios Técnicos",
-                desc: "Documentação técnica que atende as exigências dos órgãos fiscalizadores na primeira tentativa. Elaborada por especialistas.",
-                items: ["Relatório de Informação Ambiental Anual (RIAA)", "PDITS: Plano de Turismo Sustentável", "Relatório de Controle Ambiental (RCA)", "Relatório Ambiental Preliminar (RAP)", "Condicionantes Ambientais", "Certificação Ambiental"],
-              },
-              {
-                title: "Consultoria e Gestão Ambiental",
-                desc: "Gestão ambiental completa: ESG, resíduos, monitoramento e regularização fundiária. Do planejamento à execução contínua.",
-                items: ["Implantação de práticas de ESG", "Plano de Gerenciamento de Resíduos Sólidos (PGRS)", "Cadastro Ambiental Rural (CAR) e regularização fundiária", "Monitoramento e recuperação de áreas degradadas"],
-              },
-            ].map((svc, i) => (
-              <div
-                key={i}
-                className="hover-card"
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-                style={{
-                  background: "#fff",
-                  border: "1px solid rgba(181,137,94,0.25)",
-                  borderRadius: 12,
-                  padding: 32,
-                  boxShadow: "0 2px 12px rgba(69,40,22,0.07)"
-                }}
-              >
-                <h3 style={{ fontWeight: 700, fontSize: "1.2rem", color: "#2C1A0E", marginBottom: 12, marginTop: 0 }}>{svc.title}</h3>
-                <p style={{ color: "#8C7B6B", lineHeight: 1.65, fontSize: "0.9rem", marginBottom: 14, marginTop: 0 }}>{svc.desc}</p>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 4 }}>
-                  {svc.items.map((item, j) => (
-                    <li key={j} style={{ fontSize: "0.85rem", color: "#2C1A0E", display: "flex", gap: 8 }}>
-                      <span style={{ color: "#B5895E" }}>•</span> {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
 
-      {/* URGENCY SECTION */}
-      <section className="cta-section" style={{ background: "#452816", padding: "80px 24px" }}>
-        <div style={{ maxWidth: 1040, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 60, alignItems: "center" }}>
-          <div data-aos="fade-right">
-            <span className="section-caption">Por que isso importa</span>
-            <h2 style={{ color: "#DFC49F", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", lineHeight: 1.15, margin: 0 }}>
-              Empresa sem licença ambiental é empresa em risco.
+          {/* Card destaque: Programa Sentinela */}
+          <div
+            data-aos="fade-up"
+            style={{
+              background: "#452816",
+              borderRadius: 14,
+              padding: "36px 40px",
+              marginBottom: 48,
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 32,
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <span style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 10 }}>
+                Programa Sentinela · gestão ambiental contínua
+              </span>
+              <h2 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#DFC49F", margin: "0 0 14px" }}>
+                Gestão ambiental contínua para empresas que querem tirar esse assunto da rotina.
+              </h2>
+              <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.75, fontSize: "0.9rem", margin: 0 }}>
+                Um contrato anual em que a IL Ambiental acompanha licenças, prazos, condicionantes e documentos da sua empresa e organiza o que precisa ser feito ao longo do ano.
+              </p>
+            </div>
+            <div>
+              <Link href="/gestao-ambiental" className="btn-light" style={{ display: "block", textAlign: "center", marginBottom: 10 }}>
+                Conhecer o Programa Sentinela
+              </Link>
+              <p style={{ fontSize: "0.75rem", color: "rgba(223,196,159,0.4)", margin: 0, textAlign: "center" }}>
+                Começa pelo Diagnóstico Vértice, sem custo.
+              </p>
+            </div>
+          </div>
+
+          {/* Serviços pontuais */}
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="section-caption" data-aos="fade-up">Serviços pontuais</span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              Para quando a necessidade é específica
             </h2>
-            <p style={{ color: "rgba(223,196,159,0.72)", fontSize: "1rem", lineHeight: 1.75, maxWidth: 480, marginTop: 16, marginBottom: 0 }}>
-              Empresas sem licença ambiental estão sujeitas a multas, embargo e paralisação das atividades. Não espere a notificação chegar. Regularize agora.
-            </p>
-            <Link href="/contato" className="btn-light" style={{ marginTop: 28, display: "inline-flex" }}>
-              Quero evitar multas: falar com especialista
-            </Link>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 18 }}>
-              {["⚠ Multas de até R$ 50 milhões", "🔒 Paralisação imediata", "⚖ Processo criminal para gestores"].map((r, i) => (
-                <span key={i} style={{ fontSize: "0.8rem", color: "rgba(223,196,159,0.72)", display: "flex", alignItems: "center", gap: 4 }}>{r}</span>
-              ))}
-            </div>
+            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
           </div>
-          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "rgba(26,15,8,0.5)", border: "1px solid rgba(223,196,159,0.15)", borderRadius: 12, padding: "40px 32px 28px 44px", maxWidth: 400, margin: "0 auto", width: "100%" }}>
-            <div style={{ background: "rgba(181,137,94,0.2)", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "10px 0", marginBottom: 20 }}>
-              <span style={{ color: "#DFC49F", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.1em" }}>⚠ NOTIFICAÇÃO AMBIENTAL</span>
-            </div>
-            {[
-              { key: "Órgão:", val: "SEMAS-PA", valColor: "#DFC49F" },
-              { key: "Situação:", val: "Licença vencida", valColor: "#B5895E" },
-              { key: "Prazo para regularização:", val: "30 dias", valColor: "#DFC49F" },
-              { key: "Penalidade prevista:", val: "R$ 50.000+", valColor: "#B5895E" },
-            ].map((row, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid rgba(223,196,159,0.12)" }}>
-                <span style={{ color: "rgba(223,196,159,0.5)", fontSize: "0.8rem" }}>{row.key}</span>
-                <span style={{ color: row.valColor, fontSize: "0.8rem", fontWeight: 600 }}>{row.val}</span>
-              </div>
-            ))}
-            <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 20 }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#B5895E" }} />
-              <span style={{ color: "#B5895E", fontSize: "0.75rem", fontWeight: 700 }}>PENDENTE</span>
-            </div>
+
+          {/* Bloco 1: Outorga */}
+          <div id="agua" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Outorga e uso da água</h3>
+            <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
+              <strong>Para quem é:</strong> Empresas que captam água de poço ou rio, ou que lançam efluentes em corpo hídrico.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                "Outorga de captação de água subberrânea ou superficial.",
+                "Outorga de lançamento de efluentes.",
+                "Renovação de outorgas e cumprimento das condicionantes da outorga.",
+                "Autorização e regularização de uso de recursos hídricos junto à SEMAS-PA.",
+              ].map((item, j) => (
+                <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
+                  <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={WA_AGUA} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
+              Falar sobre outorga
+            </a>
+          </div>
+
+          {/* Bloco 2: Licenciamento */}
+          <div id="licenciamento" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Licenciamento ambiental</h3>
+            <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
+              <strong>Para quem é:</strong> Empresas que vão iniciar, ampliar ou manter uma atividade sujeita a licenciamento.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                "Licença de Operação e renovação dentro do prazo legal.",
+                "Licença Prévia e Licença de Instalação.",
+                "Licença de Regularização (LAR) e dispensa de licenciamento (DLA).",
+                "Enquadramento da atividade e definição do órgão competente.",
+              ].map((item, j) => (
+                <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
+                  <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={WA_LICENCA} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
+              Falar sobre licença
+            </a>
+          </div>
+
+          {/* Bloco 3: Relatórios */}
+          <div id="relatorios" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Relatórios ambientais</h3>
+            <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
+              <strong>Para quem é:</strong> Empresas licenciadas com relatórios periódicos ou condicionantes a comprovar.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                "Relatório de Informação Ambiental Anual (RIAA).",
+                "Relatórios de cumprimento de condicionantes.",
+                "Relatório de Controle Ambiental (RCA) e outros relatórios técnicos exigidos pelo órgão.",
+              ].map((item, j) => (
+                <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
+                  <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={WA_RELATORIOS} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
+              Falar sobre relatórios
+            </a>
+          </div>
+
+          {/* Bloco 4: PGRS */}
+          <div id="pgrs" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>PGRS e gestão de resíduos</h3>
+            <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
+              <strong>Para quem é:</strong> Empresas que geram resíduos e precisam do plano como condicionante de licença.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                "Elaboração e atualização do PGRS conforme a operação atual.",
+                "Orientação sobre armazenamento, destinação e registros (MTR).",
+                "Verificação das licenças de transportadores e destinadores.",
+              ].map((item, j) => (
+                <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
+                  <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={WA_PGRS} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
+              Falar sobre PGRS
+            </a>
+          </div>
+
+          {/* PENDENTE 6: Bloco de Notificações - confirmar com Isabela se deve aparecer */}
+          <div id="notificacoes" data-aos="fade-up" style={{ marginBottom: 40, border: "1px dashed rgba(181,137,94,0.4)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Notificações e exigências de órgão</h3>
+            <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
+              <strong>Para quem é:</strong> Empresas que receberam notificação, exigência ou auto de infração de órgão ambiental.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                "Análise técnica do documento recebido.",
+                "Levantamento do que precisa ser apresentado ou corrigido.",
+                "Resposta técnica dentro do prazo.",
+              ].map((item, j) => (
+                <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
+                  <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={WA_NOTIFICACAO} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
+              Recebi uma notificação
+            </a>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="cta-section" style={{ background: "#F5F0E8", padding: "80px 24px", textAlign: "center" }}>
-        <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#2C1A0E", margin: 0 }}>Sua empresa está regularizada?</h2>
-        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#8C7B6B", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.6 }}>
-          Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.
+      {/* SV-04 O CUSTO DE NÃO ACOMPANHAR */}
+      <section className="cta-section" style={{ background: "#452816", padding: "80px 24px" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+          <span className="section-caption" data-aos="fade-up">Por que isso importa</span>
+          <h2
+            data-aos="fade-up"
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
+              color: "#DFC49F",
+              margin: 0,
+            }}
+          >
+            O custo de não acompanhar.
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.72)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 560, margin: "16px auto 32px" }}>
+            A irregularidade ambiental não gera só multa. Pode gerar embargo, suspensão de atividades e responsabilidade pessoal do gestor. Prevenir custa menos e dá previsibilidade à operação.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 32 }}>
+            {[
+              { icon: "⚠", text: "Multas de R$ 50 a R$ 50 milhões (Lei 9.605/1998, art. 75)." },
+              { icon: "⛔", text: "Embargo e suspensão de atividades (Decreto 6.514/2008, art. 3º)." },
+              { icon: "⚖", text: "Responsabilidade penal de dirigentes (Lei 9.605/1998, art. 2º)." },
+            ].map((r, i) => (
+              <div key={i} data-aos="fade-up" data-aos-delay={i * 80} style={{ background: "rgba(26,15,8,0.4)", border: "1px solid rgba(223,196,159,0.12)", borderRadius: 10, padding: "16px 20px", maxWidth: 260, textAlign: "left" }}>
+                <p style={{ color: "rgba(223,196,159,0.75)", fontSize: "0.85rem", lineHeight: 1.6, margin: 0 }}>{r.text}</p>
+              </div>
+            ))}
+          </div>
+          <Link href="/contato?assunto=vertice" className="btn-light" data-aos="fade-up">
+            Solicitar Diagnóstico Vértice
+          </Link>
+        </div>
+      </section>
+
+      {/* SV-05 CTA FINAL */}
+      <section className="cta-section" style={{ background: "#F5F0E8", padding: "72px 24px", textAlign: "center" }}>
+        <h2
+          data-aos="fade-up"
+          style={{
+            fontFamily: "'Comfortaa', cursive",
+            fontWeight: 700,
+            fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
+            color: "#2C1A0E",
+            margin: 0,
+          }}
+        >
+          Sua empresa está regularizada?
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#6B5443", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.7 }}>
+          Se a resposta não é "sim, com certeza", o Diagnóstico Vértice mostra exatamente o que falta. Sem custo e sem compromisso.
         </p>
         <div data-aos="fade-up" data-aos-delay="200">
-          <Link href="/contato" className="btn-primary" style={{ marginTop: 28, display: "inline-flex" }}>
-            Solicite uma avaliação gratuita
+          <Link href="/contato?assunto=vertice" className="btn-primary" style={{ marginTop: 28, display: "inline-flex" }}>
+            Solicitar Diagnóstico Vértice
           </Link>
-          <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 12 }}>Sem compromisso. Nossa equipe responde em até 24 horas.</p>
         </div>
       </section>
 
