@@ -4,229 +4,290 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+const WA_NUMBER = "5591992723570";
+const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
+
 export function Sobre() {
   useEffect(() => {
-    document.title = "Sobre a IL | Engenharia e Consultoria Ambiental no Pará";
-    return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
+    document.title = "Sobre | IL Ambiental";
+    return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
   }, []);
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
 
-      {/* HERO — photo + credentials */}
-      <section className="page-hero" style={{
-        background: "#452816",
-        display: "flex",
-        alignItems: "center",
-        minHeight: 400,
-      }}>
-        <div style={{
-          maxWidth: 1040,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: 48,
-          alignItems: "center",
-          width: "100%",
-        }}>
-          {/* Left: text */}
-          <div>
-            <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "rgba(223,196,159,0.55)", fontWeight: 500, display: "block", marginBottom: 16 }}>Quem Somos</span>
-            <h1 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#DFC49F", lineHeight: 1.1, margin: 0 }}>
-              Rigor técnico. Atendimento humano. Resultado garantido.
-            </h1>
-            <p className="fade-2" style={{ fontSize: "1rem", color: "rgba(223,196,159,0.72)", lineHeight: 1.65, maxWidth: 440, marginTop: 16, marginBottom: 0 }}>
-              Nascemos em Belém para servir empresas que precisam de conformidade ambiental com agilidade e sem burocracia.
-            </p>
-            <a href="#historia" className="fade-3" style={{ background: "#DFC49F", color: "#452816", padding: "12px 28px", borderRadius: 8, fontWeight: 600, fontSize: "0.9rem", display: "inline-block", marginTop: 28, textDecoration: "none", transition: "background 200ms ease" }}>
-              Conheça a IL ↓
-            </a>
+      {/* Topo */}
+      <section
+        className="page-hero"
+        style={{
+          textAlign: "center",
+          background: "linear-gradient(135deg, rgb(238,231,220) 0%, rgb(245,240,232) 45%, rgb(240,234,225) 100%)",
+          borderBottom: "1px solid rgba(181,137,94,0.18)",
+          padding: "72px 24px",
+        }}
+      >
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <span className="section-caption">Sobre a IL Ambiental</span>
+          <h1
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
+              lineHeight: 1.15,
+              color: "#2C1A0E",
+              margin: 0,
+            }}
+          >
+            Especialista em conformidade ambiental para empresas da Região Metropolitana de Belém.
+          </h1>
+        </div>
+      </section>
+
+      {/* Quem conduz */}
+      <section style={{ padding: "72px 24px", background: "#fff" }}>
+        <div
+          style={{
+            maxWidth: 960,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 56,
+            alignItems: "center",
+          }}
+        >
+          {/* Foto */}
+          <div data-aos="fade-right" style={{ textAlign: "center" }}>
+            <img
+              src="/isabela-loiane.jpg"
+              alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
+              style={{
+                width: "100%",
+                maxWidth: 340,
+                height: 380,
+                objectFit: "cover",
+                objectPosition: "top center",
+                borderRadius: 14,
+                display: "block",
+                margin: "0 auto",
+              }}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+            />
           </div>
 
-        </div>
-      </section>
-
-      {/* INTRO */}
-      <section id="historia" style={{ maxWidth: 720, margin: "0 auto", padding: "88px 24px 48px" }}>
-        <div data-aos="fade-up">
-          <span className="section-caption">Nossa História</span>
-          <h2 style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", color: "#2C1A0E", lineHeight: 1.2, margin: 0, marginBottom: 10 }}>Uma consultoria feita por quem vive o Pará.</h2>
-          <span className="section-title-line" />
-        </div>
-        <p data-aos="fade-up" data-aos-delay="80" style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, marginBottom: 20, marginTop: 0 }}>
-          A IL nasceu com um propósito: tornar o licenciamento ambiental no Pará mais ágil, transparente e acessível. Combinamos rigor técnico com atendimento próximo, porque cada empresa tem suas particularidades e merece uma solução sob medida.
-        </p>
-        <p data-aos="fade-up" data-aos-delay="160" style={{ fontSize: "1.05rem", color: "#8C7B6B", lineHeight: 1.8, margin: 0 }}>
-          Com foco exclusivo no estado do Pará, dominamos o contexto regulatório local: os prazos da SEMAS-PA, as exigências do IBAMA e dos demais órgãos ambientais competentes, e as particularidades de cada setor produtivo. O resultado? Menos erros, menos idas e vindas aos órgãos, e um caminho mais curto até a sua licença.
-        </p>
-      </section>
-
-      {/* DIFFERENTIALS */}
-      <section style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px 80px" }}>
-        <div>
-          <span className="section-caption" data-aos="fade-up">Por que a IL</span>
-          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", color: "#2C1A0E", margin: 0, marginBottom: 32 }}>O que nos diferencia</h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
-          {[
-            {
-              icon: (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              ),
-              title: "Especialização Regional",
-              desc: "Conhecemos as exigências da SEMAS-PA, do IBAMA e dos demais órgãos ambientais em profundidade. O resultado: menos erros, menos atrasos.",
-              dark: true,
-            },
-            {
-              icon: (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-              ),
-              title: "Agilidade no Processo",
-              desc: "Documentação correta desde o início significa menos idas e vindas aos órgãos. Resposta em 24h.",
-              dark: true,
-            },
-            {
-              icon: (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              ),
-              title: "Atendimento Personalizado",
-              desc: "Cada cliente tem uma realidade diferente. Estudamos seu empreendimento antes de propor qualquer solução.",
-              dark: false,
-            },
-            {
-              icon: (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
-                  <line x1="6" y1="20" x2="6" y2="14"/>
-                </svg>
-              ),
-              title: "Rigor Técnico",
-              desc: "Laudos, relatórios e estudos elaborados com metodologia rigorosa, para atender qualquer exigência dos órgãos.",
-              dark: false,
-            },
-          ].map((d, i) => (
-            <div
-              key={i}
-              className="hover-card"
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
+          {/* Texto */}
+          <div data-aos="fade-left">
+            <span className="section-caption">Responsável técnica</span>
+            <h2
               style={{
-                background: d.dark ? "#452816" : "#F5F0E8",
-                borderRadius: 16,
-                padding: 28,
-                color: d.dark ? "#DFC49F" : "#2C1A0E",
-                border: d.dark ? "none" : "1px solid rgba(181,137,94,0.25)",
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                color: "#2C1A0E",
+                margin: "0 0 6px",
               }}
             >
-              <div style={{ color: d.dark ? "#DFC49F" : "#734120", marginBottom: 14, opacity: 0.9 }}>{d.icon}</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", margin: 0, marginBottom: 8 }}>{d.title}</h3>
-              <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: d.dark ? "rgba(223,196,159,0.7)" : "#8C7B6B", margin: 0 }}>{d.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* MISSION & VISION */}
-      <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 80px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
-          <div data-aos="fade-right" style={{ background: "#452816", borderRadius: 16, padding: 40, position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: -10, left: 16, fontSize: 120, color: "rgba(223,196,159,0.06)", fontFamily: "serif", lineHeight: 1, pointerEvents: "none" }}>❝</div>
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(223,196,159,0.55)", fontWeight: 600 }}>Nossa Missão</span>
-              <p style={{ fontSize: "1.05rem", color: "#DFC49F", lineHeight: 1.75, marginTop: 16, marginBottom: 0 }}>
-                Garantir que empresas de todos os portes operem em conformidade ambiental no Pará, com eficiência, segurança jurídica e sem burocracia desnecessária.
-              </p>
-            </div>
-          </div>
-          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "#F5F0E8", borderRadius: 16, padding: 40, position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: -10, left: 16, fontSize: 120, color: "rgba(115,65,32,0.1)", fontFamily: "serif", lineHeight: 1, pointerEvents: "none" }}>❝</div>
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600 }}>Nossa Visão</span>
-              <p style={{ fontSize: "1.05rem", color: "#2C1A0E", lineHeight: 1.75, marginTop: 16, marginBottom: 0 }}>
-                Ser a primeira escolha em consultoria ambiental no Pará, reconhecida pelo rigor técnico, pela agilidade e pelo impacto positivo nas operações dos nossos clientes.
-              </p>
-            </div>
+              Isabela Loiane
+            </h2>
+            <p style={{ color: "#B5895E", fontSize: "0.85rem", fontWeight: 600, marginBottom: 20 }}>
+              Engenheira Florestal · CREA-PA 1521301735
+            </p>
+            <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
+              Isabela é engenheira florestal com atuação em licenciamento ambiental, outorga de recursos hídricos e gestão de conformidade. Trabalha diretamente com cada cliente desde o primeiro diagnóstico até o protocolo junto ao órgão.
+            </p>
+            <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
+              A IL Ambiental foi fundada com foco exclusivo nas empresas da Região Metropolitana de Belém e Castanhal, com atendimento direto pela responsável técnica e sem intermediários.
+            </p>
+            <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 0 }}>
+              Cada empresa tem uma realidade ambiental diferente. O trabalho começa entendendo essa realidade antes de propor qualquer solução.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section style={{ padding: "0 24px 96px" }}>
-        <div style={{ textAlign: "center", marginBottom: 36 }}>
-          <span className="section-caption" data-aos="fade-up">Nossos Valores</span>
-          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>O que guia cada decisão que tomamos</h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, maxWidth: 900, margin: "0 auto" }}>
-          {[
-            {
-              icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#734120" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              ),
-              title: "Rigor Técnico",
-              desc: "Cada documento que sai da IL foi elaborado para resistir a qualquer auditoria.",
-            },
-            {
-              icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#734120" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              ),
-              title: "Atendimento Humano",
-              desc: "Processos ambientais geram ansiedade. Mantemos comunicação clara e proativa em cada etapa.",
-            },
-            {
-              icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#734120" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
-              ),
-              title: "Compromisso Ambiental",
-              desc: "Acreditamos que conformidade e desenvolvimento sustentável caminham juntos.",
-            },
-          ].map((v, i) => (
-            <div
-              key={i}
-              className="hover-card"
+      {/* Órgãos e atuação */}
+      <section style={{ padding: "64px 24px", background: "#F5F0E8" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="section-caption" data-aos="fade-up">Atuação</span>
+            <h2
               data-aos="fade-up"
-              data-aos-delay={i * 100}
-              style={{ background: "#fff", border: "1px solid rgba(181,137,94,0.25)", borderRadius: 16, padding: 32 }}
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
             >
-              <div style={{ width: 48, height: 48, background: "rgba(115,65,32,0.08)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                {v.icon}
+              Órgãos e área geográfica
+            </h2>
+            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 0" }} />
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: 20,
+            }}
+          >
+            {[
+              {
+                titulo: "Órgãos ambientais",
+                itens: ["SEMAS-PA", "IBAMA", "SEMMA Municipal", "SESPA"],
+              },
+              {
+                titulo: "Área geográfica",
+                itens: ["Belém", "Ananindeua", "Marituba", "Benevides", "Santa Isabel do Pará", "Castanhal"],
+              },
+              {
+                titulo: "Atividades atendidas",
+                // PENDENTE 5: confirmar lista de atividades com Isabela
+                itens: ["Comércio e varejo", "Postos de combustível", "Frigoríficos e alimentício", "Mineração", "Construção civil", "Outros — verificar com Isabela"],
+              },
+              {
+                titulo: "Registro e habilitação",
+                itens: ["CREA-PA 1521301735", "Engenharia Florestal", "Habilitada para outorga e licenciamento", "Atuação desde Belém"],
+              },
+            ].map((bloco, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                style={{
+                  background: "#fff",
+                  borderRadius: 10,
+                  padding: "22px 20px",
+                  border: "1px solid rgba(181,137,94,0.2)",
+                }}
+              >
+                <h4 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "0.95rem", color: "#452816", marginBottom: 12 }}>
+                  {bloco.titulo}
+                </h4>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+                  {bloco.itens.map((item, j) => (
+                    <li key={j} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: "0.83rem", color: "#4B3728" }}>
+                      <span style={{ color: "#B5895E", flexShrink: 0 }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                          <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1.05rem", margin: 0, marginBottom: 10 }}>{v.title}</h3>
-              <p style={{ fontSize: "0.875rem", color: "#8C7B6B", lineHeight: 1.65, margin: 0 }}>{v.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* O que diferencia */}
+      <section style={{ padding: "72px 24px", background: "#fff" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="section-caption" data-aos="fade-up">Como trabalhamos</span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              Como a IL Ambiental trabalha
+            </h2>
+            <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 0" }} />
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            {[
+              {
+                n: "01",
+                titulo: "Atendimento direto pela responsável técnica",
+                texto: "Não há intermediário entre sua empresa e a engenheira responsável. Do diagnóstico ao protocolo, Isabela acompanha cada etapa.",
+              },
+              {
+                n: "02",
+                titulo: "Diagnóstico antes de qualquer proposta",
+                texto: "Toda relação começa pelo Diagnóstico Vértice: um levantamento da situação ambiental real da empresa antes de qualquer serviço ser proposto.",
+              },
+              {
+                n: "03",
+                titulo: "Foco em Belém e região metropolitana",
+                texto: "A atuação é concentrada geograficamente para garantir conhecimento profundo dos órgãos, prazos e exigências locais.",
+              },
+              {
+                n: "04",
+                titulo: "Clareza sobre o que precisa ser feito e quando",
+                texto: "Nenhuma empresa deveria descobrir que está irregular quando já virou autuação. O trabalho é manter a conformidade como parte da rotina operacional.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                style={{
+                  display: "flex",
+                  gap: 20,
+                  alignItems: "flex-start",
+                  padding: "20px 0",
+                  borderBottom: i < 3 ? "1px solid rgba(181,137,94,0.15)" : "none",
+                }}
+              >
+                <span
+                  style={{
+                    flexShrink: 0,
+                    fontFamily: "'Comfortaa', cursive",
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    color: "#DFC49F",
+                    minWidth: 36,
+                  }}
+                >
+                  {item.n}
+                </span>
+                <div>
+                  <h4 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", marginBottom: 6 }}>
+                    {item.titulo}
+                  </h4>
+                  <p style={{ color: "#6B5443", lineHeight: 1.7, margin: 0, fontSize: "0.9rem" }}>
+                    {item.texto}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
-        <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
-          Quer conversar sobre a situação ambiental da sua empresa?
+        <h2
+          data-aos="fade-up"
+          style={{
+            fontFamily: "'Comfortaa', cursive",
+            fontWeight: 700,
+            fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
+            color: "#DFC49F",
+            margin: 0,
+          }}
+        >
+          Pronto para organizar a situação ambiental da sua empresa?
         </h2>
-        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.68)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "16px auto 0" }}>
-          Fale com a IL e receba uma orientação técnica inicial sem custo. Respondemos em até 24 horas.
+        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.72)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 480, margin: "14px auto 28px" }}>
+          Comece pelo Diagnóstico Vértice. Uma conversa com Isabela para entender exatamente o que sua empresa precisa cumprir.
         </p>
-        <div data-aos="fade-up" data-aos-delay="200">
-          <Link href="/contato" className="btn-light" style={{ marginTop: 32, display: "inline-flex" }}>
-            Fale com um especialista
+        <div data-aos="fade-up" data-aos-delay="200" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+          <Link href="/contato?assunto=vertice" className="btn-light">
+            Solicitar Diagnóstico Vértice
           </Link>
-          <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
+          <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ borderColor: "rgba(223,196,159,0.4)", color: "#DFC49F" }}>
+            Falar pelo WhatsApp
+          </a>
         </div>
       </section>
 
