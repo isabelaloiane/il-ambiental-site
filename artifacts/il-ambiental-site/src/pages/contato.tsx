@@ -1,330 +1,396 @@
-import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { useEffect, useState, useRef } from "react";
+import { useLocation } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+const WA_NUMBER = "5591992723570";
+const WA_GENERAL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo site da IL Ambiental e gostaria de falar sobre a situação ambiental da minha empresa.")}`;
+
+// Municípios da Região Metropolitana de Belém e Castanhal
+const MUNICIPIOS = [
+  "Belém",
+  "Ananindeua",
+  "Marituba",
+  "Benevides",
+  "Santa Isabel do Pará",
+  "Castanhal",
+  "Outro",
+];
+
+const ASSUNTOS = [
+  { value: "vertice", label: "Diagnóstico Vértice (gratuito)" },
+  { value: "sentinela", label: "Programa Sentinela (gestão contínua)" },
+  { value: "outorga", label: "Outorga e uso da água" },
+  { value: "licenciamento", label: "Licenciamento ambiental" },
+  { value: "relatorios", label: "Relatórios ambientais (RIAA, RCA)" },
+  { value: "pgrs", label: "PGRS e gestão de resíduos" },
+  { value: "notificacao", label: "Notificação ou exigência de órgão" },
+  { value: "outro", label: "Outro assunto" },
+];
+
+function useQueryParam(key: string) {
+  const [location] = useLocation();
+  const params = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
+  return params.get(key) ?? "";
+}
+
 export function Contato() {
+  const assuntoParam = useQueryParam("assunto");
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [form, setForm] = useState({
+    nome: "",
+    empresa: "",
+    municipio: "",
+    email: "",
+    telefone: "",
+    assunto: assuntoParam === "vertice" ? "vertice" : "",
+    mensagem: "",
+  });
+
+  // Pre-fill assunto from URL param
   useEffect(() => {
-    document.title = "Contato | IL Engenharia e Consultoria Ambiental";
-    return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
+    if (assuntoParam) {
+      setForm((prev) => ({ ...prev, assunto: assuntoParam }));
+    }
+  }, [assuntoParam]);
+
+  useEffect(() => {
+    document.title = "Contato | IL Ambiental";
+    return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
   }, []);
 
-  const [submitted, setSubmitted] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [sending, setSending] = useState(false);
-  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
-  const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-  useEffect(() => {
-    if (!feedback) return;
-    const t = setTimeout(() => setFeedback(null), 8000);
-    return () => clearTimeout(t);
-  }, [feedback]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = (data.get("name") as string)?.trim();
-    const company = (data.get("company") as string)?.trim();
-    const phone = (data.get("phone") as string)?.trim();
-    const message = (data.get("message") as string)?.trim();
-
-    const errors: Record<string, boolean> = {};
-    if (!name) errors.name = true;
-    if (!phone) errors.phone = true;
-    if (!message) errors.message = true;
-
-    if (Object.keys(errors).length > 0) {
-      setFieldErrors(errors);
-      return;
-    }
-
-    setFieldErrors({});
     setSending(true);
+    setError("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, company, phone, message }),
+        body: JSON.stringify(form),
       });
-      const result = await res.json();
-      if (result.success) {
+      if (res.ok) {
         setSubmitted(true);
+        formRef.current?.reset();
+        setForm({ nome: "", empresa: "", municipio: "", email: "", telefone: "", assunto: "", mensagem: "" });
       } else {
-        setFeedback({ type: "error", message: result.message || "Erro ao enviar. Tente pelo WhatsApp." });
+        setError("Não foi possível enviar. Tente pelo WhatsApp ou e-mail.");
       }
     } catch {
-      setFeedback({ type: "error", message: "Erro de conexão. Verifique sua internet e tente novamente." });
+      setError("Não foi possível enviar. Tente pelo WhatsApp ou e-mail.");
     } finally {
       setSending(false);
     }
+  };
+
+  const isVertice = form.assunto === "vertice";
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "11px 14px",
+    border: "1px solid rgba(181,137,94,0.35)",
+    borderRadius: 8,
+    fontSize: "0.9rem",
+    fontFamily: "'Poppins', sans-serif",
+    color: "#2C1A0E",
+    background: "#fff",
+    outline: "none",
+    boxSizing: "border-box",
+    transition: "border-color 0.15s",
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontSize: "0.8rem",
+    fontWeight: 600,
+    color: "#452816",
+    marginBottom: 5,
   };
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
       <Navbar />
 
-      {/* HERO */}
-      <section className="contact-hero-section" style={{
-        display: "flex", alignItems: "center", justifyContent: "center",
-        background: "linear-gradient(to bottom, rgba(26,15,8,0.55) 0%, rgba(26,15,8,0.72) 100%), radial-gradient(ellipse at 60% 50%, rgba(115,65,32,0.35) 0%, transparent 65%), linear-gradient(135deg, #2e1a0e 0%, #1a0f08 100%)"
-      }}>
-        <div style={{ maxWidth: 640, textAlign: "center" }}>
-          <h1 className="fade-1" style={{ fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#DFC49F", lineHeight: 1.15, margin: 0 }}>
-            Fale com quem entende de licenciamento no Pará.
-          </h1>
-          <p className="fade-2" style={{ fontSize: "1.05rem", color: "rgba(223,196,159,0.75)", maxWidth: 500, margin: "16px auto 0", lineHeight: 1.7 }}>
-            Tire suas dúvidas, peça um orçamento ou solicite uma avaliação gratuita. Respondemos em até 24 horas.
-          </p>
-        </div>
-      </section>
-
-      {/* FLOATING ACTION CARD */}
-      <section style={{ padding: "0 24px" }}>
-        <div
-          className="contact-float-card"
+      {/* Topo */}
+      <section
+        className="page-hero"
+        style={{
+          textAlign: "center",
+          background: "linear-gradient(135deg, rgb(238,231,220) 0%, rgb(245,240,232) 45%, rgb(240,234,225) 100%)",
+          borderBottom: "1px solid rgba(181,137,94,0.18)",
+        }}
+      >
+        <span className="section-caption">Fale com a IL Ambiental</span>
+        <h1
           style={{
-            maxWidth: 720, margin: "-32px auto 0", position: "relative", zIndex: 10,
-            background: "#F5F0E8", borderRadius: 16, boxShadow: "0 8px 40px rgba(69,40,22,0.15)",
-            padding: "48px 40px", textAlign: "center"
+            fontFamily: "'Comfortaa', cursive",
+            fontWeight: 700,
+            fontSize: "clamp(1.9rem, 4vw, 3rem)",
+            color: "#2C1A0E",
+            margin: 0,
           }}
         >
-          <span className="section-caption" data-aos="fade-up">Fale Conosco</span>
-          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", color: "#2C1A0E", margin: 0 }}>Como prefere entrar em contato?</h2>
-          <p data-aos="fade-up" data-aos-delay="100" style={{ fontSize: "0.95rem", color: "#8C7B6B", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.65 }}>
-            Escolha a opção mais cômoda. Nossa equipe está pronta para responder: seja por formulário, e-mail ou WhatsApp.
+          {isVertice
+            ? "Solicitar o Diagnóstico Vértice"
+            : "Fale com a responsável técnica"}
+        </h1>
+        {isVertice && (
+          <p style={{ fontSize: "0.95rem", color: "#6B5443", maxWidth: 520, margin: "14px auto 0", lineHeight: 1.7 }}>
+            Preencha o formulário abaixo. Isabela entrará em contato para agendar uma conversa e entender a situação ambiental da sua empresa. Sem custo e sem compromisso.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: 14, marginTop: 24, flexWrap: "wrap" }}>
-            <button className="btn-primary" onClick={() => { document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' }); }}>Enviar mensagem</button>
-            <a
-              href="https://wa.me/5591992723570?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
-              target="_blank" rel="noopener noreferrer"
-              style={{ background: "#fff", border: "1.5px solid rgba(181,137,94,0.4)", color: "#2C1A0E", padding: "14px 28px", borderRadius: 8, fontWeight: 500, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "'Poppins', sans-serif", fontSize: "1rem", textDecoration: "none" }}
-            >
-              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#25D366", display: "inline-block", flexShrink: 0 }} />
-              Fale pelo WhatsApp
-            </a>
-          </div>
-        </div>
+        )}
       </section>
 
-      {/* CONTACT FORMS & INFO */}
-      <section id="formulario" className="contact-form-section" style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
-
-          {/* Form Card */}
-          <div data-aos="fade-right" style={{ background: "#452816", borderRadius: 16, padding: 36, color: "#DFC49F" }}>
-            {!submitted ? (
-              <>
-                <h3 style={{ fontWeight: 700, fontSize: "1.3rem", margin: 0, color: "#DFC49F" }}>Envie uma mensagem</h3>
-                <p style={{ fontSize: "0.9rem", color: "rgba(223,196,159,0.7)", marginTop: 8, lineHeight: 1.6, marginBottom: 24 }}>
-                  Preencha o formulário e nossa equipe responderá em até 24 horas.
+      {/* Formulário + Dados laterais */}
+      <section style={{ padding: "64px 24px", background: "#fff" }}>
+        <div
+          style={{
+            maxWidth: 900,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 48,
+            alignItems: "start",
+          }}
+        >
+          {/* Formulário */}
+          <div>
+            {submitted ? (
+              <div
+                style={{
+                  background: "#F0F7F0",
+                  border: "1px solid #9EC9A0",
+                  borderRadius: 12,
+                  padding: "32px 28px",
+                  textAlign: "center",
+                }}
+              >
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3A7D44" strokeWidth="2" strokeLinecap="round" style={{ marginBottom: 12 }}>
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <h3 style={{ fontFamily: "'Comfortaa', cursive", color: "#2C1A0E", marginBottom: 8 }}>Mensagem recebida</h3>
+                <p style={{ color: "#4B6B4E", fontSize: "0.9rem", margin: 0 }}>
+                  Isabela retornará em até 1 dia útil. Se precisar falar agora, use o WhatsApp abaixo.
                 </p>
-                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
-                  {[
-                    { label: "Nome completo", type: "text", name: "name", required: true },
-                    { label: "Empresa", type: "text", name: "company", required: false },
-                    { label: "Telefone / WhatsApp", type: "tel", name: "phone", required: true },
-                  ].map((field, i) => (
-                    <div key={i} className="form-group">
-                      <input
-                        required={field.required}
-                        type={field.type}
-                        name={field.name}
-                        placeholder=" "
-                        style={{
-                          borderBottomColor: fieldErrors[field.name] ? "#e08080" : undefined,
-                        }}
-                        onChange={() => {
-                          if (fieldErrors[field.name]) setFieldErrors(prev => ({ ...prev, [field.name]: false }));
-                        }}
-                      />
-                      <label>
-                        {field.label}{field.required && <span style={{ color: "#e08080", marginLeft: 2 }}>*</span>}
-                      </label>
-                    </div>
-                  ))}
-                  <div className="form-group" style={{ marginBottom: 20 }}>
-                    <textarea
-                      required
-                      name="message"
-                      rows={4}
-                      placeholder=" "
-                      style={{
-                        borderBottomColor: fieldErrors.message ? "#e08080" : undefined,
-                        resize: "vertical",
-                      }}
-                      onChange={() => {
-                        if (fieldErrors.message) setFieldErrors(prev => ({ ...prev, message: false }));
-                      }}
-                    />
-                    <label>
-                      Conte brevemente sua necessidade<span style={{ color: "#e08080", marginLeft: 2 }}>*</span>
-                    </label>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    style={{
-                      background: sending ? "rgba(223,196,159,0.55)" : "#DFC49F",
-                      color: "#452816", fontWeight: 700, padding: 14,
-                      borderRadius: 8, width: "100%", cursor: sending ? "not-allowed" : "pointer", border: "none",
-                      fontFamily: "'Poppins', sans-serif", fontSize: "0.95rem", marginTop: 4,
-                      transition: "background 200ms ease",
-                    }}
-                  >
-                    {sending ? "Enviando..." : "Enviar e receber retorno em 24h"}
-                  </button>
-                  {feedback && (
-                    <div style={{
-                      padding: "14px 16px",
-                      borderRadius: 8,
-                      borderLeft: `4px solid ${feedback.type === "error" ? "#e08080" : "#4D5140"}`,
-                      background: feedback.type === "error" ? "rgba(224,128,128,0.12)" : "rgba(77,81,64,0.2)",
-                      color: "#DFC49F",
-                      fontSize: "0.875rem",
-                      lineHeight: 1.55,
-                    }}>
-                      {feedback.message}
-                    </div>
-                  )}
-                </form>
-              </>
-            ) : (
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", minHeight: 300 }}>
-                <div style={{ fontSize: "2.5rem", marginBottom: 16 }}>✓</div>
-                <h3 style={{ fontWeight: 700, fontSize: "1.3rem", margin: 0, color: "#DFC49F" }}>Mensagem enviada!</h3>
-                <p style={{ color: "rgba(223,196,159,0.7)", fontSize: "0.9rem", marginTop: 8 }}>Nossa equipe responderá em até 24 horas.</p>
+                <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", marginTop: 20 }}>
+                  Abrir WhatsApp
+                </a>
               </div>
+            ) : (
+              <form ref={formRef} onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+
+                {/* Assunto (CT-03 — dropdown com pré-seleção por param) */}
+                <div>
+                  <label htmlFor="assunto" style={labelStyle}>Como podemos ajudar? *</label>
+                  <select
+                    id="assunto"
+                    name="assunto"
+                    required
+                    value={form.assunto}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, color: form.assunto ? "#2C1A0E" : "#9B8878" }}
+                  >
+                    <option value="" disabled>Selecione o assunto</option>
+                    {ASSUNTOS.map((a) => (
+                      <option key={a.value} value={a.value}>{a.label}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Nome */}
+                <div>
+                  <label htmlFor="nome" style={labelStyle}>Nome *</label>
+                  <input
+                    id="nome"
+                    name="nome"
+                    type="text"
+                    required
+                    placeholder="Seu nome"
+                    value={form.nome}
+                    onChange={handleChange}
+                    style={inputStyle}
+                  />
+                </div>
+
+                {/* Empresa */}
+                <div>
+                  <label htmlFor="empresa" style={labelStyle}>Empresa *</label>
+                  <input
+                    id="empresa"
+                    name="empresa"
+                    type="text"
+                    required
+                    placeholder="Nome da empresa"
+                    value={form.empresa}
+                    onChange={handleChange}
+                    style={inputStyle}
+                  />
+                </div>
+
+                {/* Município (CT-02 — novo campo dropdown) */}
+                <div>
+                  <label htmlFor="municipio" style={labelStyle}>Município *</label>
+                  <select
+                    id="municipio"
+                    name="municipio"
+                    required
+                    value={form.municipio}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, color: form.municipio ? "#2C1A0E" : "#9B8878" }}
+                  >
+                    <option value="" disabled>Selecione o município</option>
+                    {MUNICIPIOS.map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* E-mail e Telefone em linha */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                  <div>
+                    <label htmlFor="email" style={labelStyle}>E-mail *</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="seu@email.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      style={inputStyle}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="telefone" style={labelStyle}>WhatsApp</label>
+                    <input
+                      id="telefone"
+                      name="telefone"
+                      type="tel"
+                      placeholder="(91) 9 9999-9999"
+                      value={form.telefone}
+                      onChange={handleChange}
+                      style={inputStyle}
+                    />
+                  </div>
+                </div>
+
+                {/* Mensagem */}
+                <div>
+                  <label htmlFor="mensagem" style={labelStyle}>Mensagem</label>
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows={4}
+                    placeholder={isVertice
+                      ? "Descreva brevemente a atividade da sua empresa e sua principal dúvida ambiental."
+                      : "Descreva sua necessidade ou dúvida."}
+                    value={form.mensagem}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, resize: "vertical" }}
+                  />
+                </div>
+
+                {error && (
+                  <p style={{ color: "#C0392B", fontSize: "0.85rem", margin: 0 }}>{error}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="btn-primary"
+                  style={{ width: "100%", justifyContent: "center", opacity: sending ? 0.7 : 1 }}
+                >
+                  {sending ? "Enviando..." : isVertice ? "Solicitar Diagnóstico Vértice" : "Enviar mensagem"}
+                </button>
+
+                <p style={{ fontSize: "0.75rem", color: "#9B8878", margin: 0, textAlign: "center" }}>
+                  Respondemos em até 1 dia útil.
+                </p>
+              </form>
             )}
           </div>
 
-          {/* Info Card */}
-          <div data-aos="fade-left" data-aos-delay="100" style={{ background: "#452816", borderRadius: 16, padding: 36, color: "#DFC49F", display: "flex", flexDirection: "column" }}>
-            <h3 style={{ fontWeight: 700, fontSize: "1.3rem", margin: 0, color: "#DFC49F" }}>Informações de Contato</h3>
-            <p style={{ fontSize: "0.9rem", color: "rgba(223,196,159,0.7)", marginTop: 8, marginBottom: 28, lineHeight: 1.6 }}>
-              Prefere falar diretamente? Aqui estão todos os nossos canais.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 20, flex: 1 }}>
-              {[
-                {
-                  icon: "📞", label: "WhatsApp",
-                  main: <a href="tel:+5591992723570" style={{ color: "#DFC49F", textDecoration: "none" }}>+55 91 99272-3570</a>,
-                  sub: "Atendimento preferencial"
-                },
-                {
-                  icon: "✉", label: "E-mail",
-                  main: <a href="mailto:contato@ilambiental.com.br" style={{ color: "#DFC49F", textDecoration: "none" }}>contato@ilambiental.com.br</a>,
-                  sub: null
-                },
-                {
-                  icon: "📍", label: "Localização",
-                  main: <span>Belém, Pará, Brasil</span>,
-                  sub: "Belém, PA. Atendimento em todo o estado"
-                },
-                {
-                  icon: "🕐", label: "Horário",
-                  main: <span>Segunda a sexta-feira, das 08h às 18h</span>,
-                  sub: null
-                },
-              ].map((info, i, arr) => (
-                <div key={i} style={{ display: "flex", gap: 14, paddingBottom: i < arr.length - 1 ? 20 : 0, borderBottom: i < arr.length - 1 ? "1px solid rgba(223,196,159,0.12)" : "none" }}>
-                  <span style={{ fontSize: "1.1rem", flexShrink: 0, marginTop: 1 }}>{info.icon}</span>
-                  <div>
-                    <div style={{ fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(223,196,159,0.45)", fontWeight: 600, marginBottom: 4 }}>{info.label}</div>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 500 }}>{info.main}</div>
-                    {info.sub && <div style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.5)", marginTop: 2 }}>{info.sub}</div>}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <a
-              href="https://wa.me/5591992723570?text=Olá! Gostaria de saber mais sobre os serviços da IL Ambiental."
-              target="_blank" rel="noopener noreferrer"
-              style={{ background: "transparent", border: "1.5px solid rgba(223,196,159,0.3)", color: "#DFC49F", padding: "12px", borderRadius: 8, width: "100%", fontWeight: 500, cursor: "pointer", display: "block", textAlign: "center", fontFamily: "'Poppins', sans-serif", textDecoration: "none", marginTop: 28 }}
-            >
-              Abrir WhatsApp agora
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-      {/* REGIONAL CARD */}
-      <section className="contact-regional-section" style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 48px" }}>
-        <div style={{ background: "#452816", borderRadius: 16, padding: "48px clamp(28px, 5vw, 56px)", display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
-          <div style={{ flex: "1 1 280px" }}>
-            <span className="section-caption" data-aos="fade-up">Atuação regional</span>
-            <h2 data-aos="fade-up" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#DFC49F", fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
-              Da capital ao interior: presença em todo o Pará
-            </h2>
-            <p data-aos="fade-up" data-aos-delay="100" style={{ fontSize: "0.95rem", color: "rgba(223,196,159,0.7)", lineHeight: 1.7, marginTop: 14, maxWidth: 400, marginBottom: 0 }}>
-              Atendemos empresas em mais de 15 municípios do Pará. Conhecemos o contexto regulatório de cada região, da zona metropolitana de Belém aos polos industriais e agropecuários do interior.
-            </p>
-          </div>
-          <div style={{ flex: "1 1 160px", textAlign: "center" }}>
-            <div style={{ fontSize: "4rem", lineHeight: 1 }}>🌿</div>
-            <div style={{ color: "#DFC49F", fontWeight: 700, fontSize: "1.1rem", marginTop: 8 }}>Pará</div>
-            <div style={{ color: "rgba(223,196,159,0.5)", fontSize: "0.8rem", marginTop: 4 }}>+15 municípios atendidos</div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="contact-faq-section" style={{ padding: "48px 24px 60px", background: "#F5F0E8" }}>
-        <div style={{ textAlign: "center", marginBottom: 40 }}>
-          <span className="section-caption" data-aos="fade-up">Dúvidas frequentes</span>
-          <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#2C1A0E", margin: 0 }}>Perguntas que recebemos com frequência</h2>
-        </div>
-        <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          {[
-            { q: "Qual o prazo médio para licenciamento no Pará?", a: "O prazo varia conforme a modalidade e o porte do empreendimento. Com documentação correta desde a primeira entrada, evitamos idas e vindas aos órgãos. Nossa equipe orienta cada caso individualmente para garantir o andamento mais ágil possível." },
-            { q: "Minha empresa pode ser multada sem licença?", a: "Sim. Empresas sem licença ambiental estão sujeitas a multas de até R$ 50 milhões, embargo e paralisação imediata das atividades. A regularização preventiva é sempre mais barata que a correção." },
-            { q: "Vocês atendem fora de Belém?", a: "Sim. Atendemos em todo o estado do Pará, de forma presencial ou remota, dependendo da necessidade do projeto. Já trabalhamos com mais de 15 municípios paraenses." },
-            { q: "O que é ESG e por que minha empresa precisa?", a: "ESG (Environmental, Social and Governance) é um conjunto de práticas que grandes empresas e investidores exigem dos seus fornecedores e parceiros. A IL ajuda sua empresa a se adequar e se tornar mais atrativa para o mercado." },
-            { q: "Quais documentos preciso para iniciar o licenciamento?", a: "Em geral: contrato social, matrícula do imóvel, projeto de implantação e documentos do responsável técnico. Nossa equipe avalia seu caso e orienta sobre tudo que é necessário, sem burocracia." },
-            { q: "Como funciona a avaliação gratuita?", a: "Você entra em contato pelo formulário ou WhatsApp, descreve sua situação e nossa equipe retorna em até 24h com uma orientação técnica inicial, sem custo e sem compromisso." },
-          ].map((faq, i) => (
+          {/* Dados de contato */}
+          <div>
             <div
-              key={i}
-              className={`faq-item${openFaq === i ? " open" : ""}`}
-              data-aos="fade-up"
-              data-aos-delay={i * 60}
+              style={{
+                background: "#F5F0E8",
+                borderRadius: 12,
+                padding: "28px",
+                marginBottom: 20,
+              }}
             >
-              <div
-                className="faq-question"
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && setOpenFaq(openFaq === i ? null : i)}
-              >
-                {faq.q}
-                <span className="faq-icon">+</span>
-              </div>
-              <div className="faq-answer">
-                {faq.a}
-              </div>
+              <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.1rem", color: "#2C1A0E", margin: "0 0 16px" }}>
+                Fale diretamente
+              </h3>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+                <li>
+                  <a
+                    href={WA_GENERAL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: "flex", gap: 12, alignItems: "flex-start", textDecoration: "none", color: "#2C1A0E" }}
+                  >
+                    <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.116 1.522 5.849L.058 23.5a.5.5 0 0 0 .604.635l5.825-1.527A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.809 9.809 0 0 1-5.005-1.372l-.359-.214-3.723.976.994-3.629-.234-.373A9.818 9.818 0 0 1 2.182 12c0-5.413 4.405-9.818 9.818-9.818 5.413 0 9.818 4.405 9.818 9.818 0 5.413-4.405 9.818-9.818 9.818z"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <span style={{ fontWeight: 600, fontSize: "0.85rem", display: "block" }}>(91) 99272-3570</span>
+                      <span style={{ fontSize: "0.78rem", color: "#6B5443" }}>WhatsApp</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:contato@ilambiental.com.br"
+                    style={{ display: "flex", gap: 12, alignItems: "flex-start", textDecoration: "none", color: "#2C1A0E" }}
+                  >
+                    <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <span style={{ fontWeight: 600, fontSize: "0.85rem", display: "block" }}>contato@ilambiental.com.br</span>
+                      <span style={{ fontSize: "0.78rem", color: "#6B5443" }}>E-mail</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* FINAL CTA */}
-      <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
-        <h2 data-aos="fade-up" style={{ fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#DFC49F", margin: 0 }}>
-          Sua empresa está regularizada?
-        </h2>
-        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.68)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "16px auto 0" }}>
-          Se a resposta não é "sim com certeza", fale com a IL. Avaliamos sua situação gratuitamente em até 24 horas.
-        </p>
-        <div data-aos="fade-up" data-aos-delay="200">
-          <Link href="/contato" className="btn-light" style={{ marginTop: 32, display: "inline-flex" }}>
-            Solicitar avaliação gratuita →
-          </Link>
-          <p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.4)", marginTop: 14 }}>Sem compromisso. Resposta em até 24 horas.</p>
+            <div
+              style={{
+                background: "#452816",
+                borderRadius: 12,
+                padding: "24px",
+              }}
+            >
+              <h4 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", color: "#DFC49F", margin: "0 0 10px" }}>
+                Atendimento
+              </h4>
+              <p style={{ color: "rgba(223,196,159,0.72)", fontSize: "0.85rem", lineHeight: 1.65, margin: 0 }}>
+                Belém, Ananindeua, Marituba, Benevides,<br />
+                Santa Isabel do Pará e Castanhal.<br />
+                <br />
+                Retorno em até 1 dia útil.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
