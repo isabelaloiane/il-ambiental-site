@@ -110,7 +110,7 @@ export function Home() {
         <div className="trust-bar-grid">
           {[
             { value: "CREA-PA", label: "Responsável técnica registrada — nº 1521301735" },
-            { value: "Florestal", label: "Engenharia Florestal e especialização em Direito Agroambiental" },
+            { value: "+50 processos", label: "Mais de 50 processos protocolados junto à SEMAS e outros órgãos" },
             { value: "SEMAS-PA", label: "Atuação junto à SEMAS-PA e secretarias municipais de meio ambiente" },
             { value: "1 dia útil", label: "Retorno em até 1 dia útil" },
           ].map((item, i, arr) => (
@@ -412,8 +412,7 @@ export function Home() {
               Engenheira Florestal · Especialista em Direito Agroambiental · CREA-PA 1521301735
             </p>
             <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: 24 }}>
-              Fundei a IL Ambiental para oferecer às empresas da região um acompanhamento ambiental técnico, próximo e com visão jurídica. Cada processo é analisado e conduzido por mim, do primeiro levantamento ao protocolo no órgão.
-              {/* PENDENTE 7: Adicionar uma frase sobre trajetória (formação, anos de atuação ou tipo de empreendimento já atendido) */}
+              Formada em Engenharia Florestal pela UFPA (2021), com atuação no mercado ambiental desde 2022. Experiência em órgãos públicos — SEMMA e Emater — e no setor privado. Fundei a IL Ambiental para oferecer às empresas da região um acompanhamento técnico, próximo e com visão jurídica. Cada processo é analisado e conduzido por mim, do primeiro levantamento ao protocolo no órgão.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
               {["Engenharia Florestal", "Direito Agroambiental", "CREA-PA 1521301735"].map((tag, i) => (
