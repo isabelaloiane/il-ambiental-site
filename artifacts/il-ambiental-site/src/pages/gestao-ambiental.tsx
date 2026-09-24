@@ -97,7 +97,7 @@ export function GestaoAmbiental() {
         </div>
       </section>
 
-      {/* BLOCO 3 · O QUE ESTA INCLUÍDO */}
+      {/* BLOCO 3 · O QUE ESTÁ INCLUÍDO */}
       <section style={{ padding: "72px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
@@ -139,13 +139,12 @@ export function GestaoAmbiental() {
                 }}
               >
                 <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 112"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </span>
                 <p style={{ color: "#2C1A0E", fontSize: "0.9rem", lineHeight: 1.6, margin: 0 }}>{item}</p>
               </div>
             ))}
           </div>
-          {/* PENDENTE 4: Confirmar se serviços específicos como renovações são incluídos ou orçados à parte */}
           <div
             data-aos="fade-up"
             style={{

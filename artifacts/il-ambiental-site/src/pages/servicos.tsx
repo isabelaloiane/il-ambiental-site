@@ -133,7 +133,7 @@ export function Servicos() {
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
               {[
-                "Outorga de captação de água subberrânea ou superficial.",
+                "Outorga de captação de água subterrânea ou superficial.",
                 "Outorga de lançamento de efluentes.",
                 "Renovação de outorgas e cumprimento das condicionantes da outorga.",
                 "Autorização e regularização de uso de recursos hídricos junto à SEMAS-PA.",
@@ -227,11 +227,38 @@ export function Servicos() {
             </a>
           </div>
 
-          {/* PENDENTE 6: Bloco de Notificações - confirmar com Isabela se deve aparecer */}
-          <div id="notificacoes" data-aos="fade-up" style={{ marginBottom: 40, border: "1px dashed rgba(181,137,94,0.4)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
-            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Notificações e exigências de órgão</h3>
+          {/* CONDICIONANTES */}
+          <div id="condicionantes" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de Condicionantes</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
-              <strong>Para quem é:</strong> Empresas que receberam notificação, exigência ou auto de infração de órgão ambiental.
+              <strong>Para quem é:</strong> Empresas com licenças ou outorgas vigentes que precisam cumprir condicionantes estabelecidas pelo órgão ambiental.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+              {[
+                "Levantamento de todas as condicionantes da licença ou outorga.",
+                "Verificação do status de cumprimento de cada exigência.",
+                "Elaboração de relatórios e documentos comprobatórios.",
+                "Protocolo junto ao órgão dentro dos prazos estabelecidos.",
+                "Acompanhamento até a regularização completa.",
+              ].map((item, j) => (
+                <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
+                  <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={wa("Olá! Vim pelo site e preciso de ajuda com atendimento de condicionantes da minha licença ambiental.")} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
+              Falar sobre Condicionantes
+            </a>
+          </div>
+
+          {/* AUTOS DE INFRAÇÃO / NOTIFICAÇÕES */}
+          <div id="notificacoes" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de Autos de Infração</h3>
+            <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
+              <strong>Para quem é:</strong> Empresas que receberam auto de infração, notificação ou exigência de órgão ambiental e precisam responder no prazo.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
               {[

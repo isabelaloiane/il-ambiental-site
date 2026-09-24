@@ -93,13 +93,13 @@ export function Sobre() {
               Engenheira Florestal · CREA-PA 1521301735
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              Isabela é engenheira florestal com atuação em licenciamento ambiental, outorga de recursos hídricos e gestão de conformidade. Trabalha diretamente com cada cliente desde o primeiro diagnóstico até o protocolo junto ao órgão.
+              Formada em Engenharia Florestal pela UFPA (2021), com atuação no mercado ambiental desde 2022. Antes de fundar a IL Ambiental, atuou na SEMMA e na Emater, além de empresas privadas do setor. Essa trajetória entre órgãos públicos e iniciativa privada permite enxergar o processo ambiental pelos dois lados — o da exigência técnica e o da realidade de quem opera.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              A IL Ambiental foi fundada com foco exclusivo nas empresas da Região Metropolitana de Belém e Castanhal, com atendimento direto pela responsável técnica e sem intermediários.
+              Palestrante em eventos da área, com facilidade de comunicação para traduzir a complexidade da legislação ambiental em linguagem objetiva para gestores e empresários.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 0 }}>
-              Cada empresa tem uma realidade ambiental diferente. O trabalho começa entendendo essa realidade antes de propor qualquer solução.
+              A IL Ambiental foi fundada com foco exclusivo nas empresas da Região Metropolitana de Belém e Castanhal. Cada processo é analisado e conduzido diretamente por Isabela, sem intermediários, do primeiro levantamento ao protocolo no órgão.
             </p>
           </div>
         </div>
@@ -143,8 +143,7 @@ export function Sobre() {
               },
               {
                 titulo: "Atividades atendidas",
-                // PENDENTE 5: confirmar lista de atividades com Isabela
-                itens: ["Comércio e varejo", "Postos de combustível", "Frigoríficos e alimentício", "Mineração", "Construção civil", "Outros — verificar com Isabela"],
+                itens: ["Comércio e varejo", "Postos de combustível", "Frigoríficos e alimentício", "Mineração", "Construção civil", "Transportes e logística", "Serviços e pequenas indústrias"],
               },
               {
                 titulo: "Registro e habilitação",

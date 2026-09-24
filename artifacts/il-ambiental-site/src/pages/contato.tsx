@@ -313,7 +313,9 @@ export function Contato() {
                   {sending ? "Enviando..." : isVertice ? "Solicitar Diagnóstico Vértice" : "Enviar mensagem"}
                 </button>
 
-                <p style={{ fontSize: "0.75rem", color: "#9B8878", margin: 0, textAlign: "center" }}>
+                <p style={{ fontSize: "0.72rem", color: "#9B8878", margin: 0, textAlign: "center", lineHeight: 1.5 }}>
+                  Ao enviar este formulário, você concorda com o tratamento dos dados fornecidos para fins de atendimento, conforme nossa{" "}
+                  <a href="/privacidade" style={{ color: "#B5895E", textDecoration: "underline" }}>Política de Privacidade</a>.
                   Respondemos em até 1 dia útil.
                 </p>
               </form>
