@@ -10,6 +10,7 @@ import { Contato } from "@/pages/contato";
 import { Sobre } from "@/pages/sobre";
 import { GestaoAmbiental } from "@/pages/gestao-ambiental";
 import { Privacidade } from "@/pages/privacidade";
+import { CookieBanner } from "@/components/CookieBanner";
 
 function NotFound() {
   return (
@@ -70,6 +71,7 @@ export function App() {
 
   return (
     <WouterRouter base={import.meta.env.BASE_URL}>
+      <CookieBanner />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/servicos" component={Servicos} />
