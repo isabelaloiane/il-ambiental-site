@@ -20,88 +20,60 @@ export function Home() {
           style={{
             position: "relative",
             zIndex: 1,
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "48px",
-            alignItems: "center",
+            maxWidth: 760,
+            margin: "0 auto",
+            textAlign: "center",
           }}
         >
-          {/* Left: text */}
-          <div>
-            <span className="fade-1" style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>
-              Engenharia e consultoria ambiental · Região Metropolitana de Belém
-            </span>
-            <h1
-              className="fade-1"
-              style={{
-                fontFamily: "'Comfortaa', cursive",
-                fontWeight: 700,
-                fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
-                lineHeight: 1.1,
-                color: "#fff",
-                margin: 0,
-              }}
-            >
-              As obrigações ambientais da sua empresa em dia,{" "}
-              <span style={{ color: "#DFC49F" }}>o ano inteiro.</span>
-            </h1>
-            <p
-              className="fade-2"
-              style={{
-                fontSize: "clamp(0.95rem, 1.7vw, 1.1rem)",
-                color: "rgba(223,196,159,0.82)",
-                fontWeight: 400,
-                maxWidth: 540,
-                lineHeight: 1.8,
-                marginTop: 20,
-              }}
-            >
-              Licenças, outorga de água, PGRS, relatórios anuais e condicionantes acompanhados por uma engenheira florestal especialista em Direito Agroambiental. Para empresas de Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.
-            </p>
-            <div className="fade-3 hero-cta-group" style={{ marginTop: 36, flexWrap: "wrap" }}>
-              <Link href="/contato?assunto=vertice" className="btn-primary">
-                Solicitar Diagnóstico Vértice
-              </Link>
-              <a
-                href={WA_VERTICE}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                Falar pelo WhatsApp
-              </a>
-            </div>
-            <p
-              className="fade-3"
-              style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.45)", marginTop: 14 }}
-            >
-              Diagnóstico inicial sem custo e sem compromisso de contratação.
-            </p>
-          </div>
-
-          {/* Right: photo */}
-          <div
-            className="fade-2"
+          <span className="fade-1" style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>
+            Engenharia e consultoria ambiental · Região Metropolitana de Belém
+          </span>
+          <h1
+            className="fade-1"
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-end",
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(2.4rem, 5.5vw, 4rem)",
+              lineHeight: 1.1,
+              color: "#fff",
+              margin: 0,
             }}
           >
-            <img
-              src="/isabela-loiane.jpg"
-              alt="Isabela Loiane, Engenheira Florestal e responsável técnica da IL Ambiental"
-              style={{
-                width: "100%",
-                maxWidth: 340,
-                borderRadius: 12,
-                objectFit: "cover",
-                filter: "grayscale(30%)",
-                boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
-              }}
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-            />
+            As obrigações ambientais da sua empresa em dia,{" "}
+            <span style={{ color: "#DFC49F" }}>o ano inteiro.</span>
+          </h1>
+          <p
+            className="fade-2"
+            style={{
+              fontSize: "clamp(0.95rem, 1.7vw, 1.1rem)",
+              color: "rgba(223,196,159,0.82)",
+              fontWeight: 400,
+              maxWidth: 580,
+              margin: "20px auto 0",
+              lineHeight: 1.8,
+            }}
+          >
+            Licenças, outorga de água, PGRS, relatórios anuais e condicionantes acompanhados por uma engenheira florestal especialista em Direito Agroambiental. Para empresas de Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.
+          </p>
+          <div className="fade-3 hero-cta-group" style={{ marginTop: 36, flexWrap: "wrap", justifyContent: "center" }}>
+            <Link href="/contato?assunto=vertice" className="btn-primary">
+              Solicitar Diagnóstico Vértice
+            </Link>
+            <a
+              href={WA_VERTICE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              Falar pelo WhatsApp
+            </a>
           </div>
+          <p
+            className="fade-3"
+            style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.45)", marginTop: 14 }}
+          >
+            Diagnóstico inicial sem custo e sem compromisso de contratação.
+          </p>
         </div>
       </section>
 
