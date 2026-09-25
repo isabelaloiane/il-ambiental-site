@@ -59,17 +59,16 @@ export function Sobre() {
           {/* Foto */}
           <div data-aos="fade-right" style={{ textAlign: "center" }}>
             <img
-              src="/isabela-loiane.jpg"
+              src="/isabela-sobre.jpg"
               alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
               style={{
                 width: "100%",
-                maxWidth: 340,
-                height: 380,
-                objectFit: "cover",
-                objectPosition: "top center",
+                maxWidth: 300,
+                height: "auto",
                 borderRadius: 14,
                 display: "block",
                 margin: "0 auto",
+                boxShadow: "0 4px 24px rgba(69,40,22,0.15)",
               }}
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
             />
