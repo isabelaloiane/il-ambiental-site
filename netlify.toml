@@ -1,23 +1,25 @@
 [build]
   command = "pnpm install --no-frozen-lockfile && pnpm --filter @workspace/il-ambiental-site run build"
-    publish = "artifacts/il-ambiental-site/dist/public"
+  publish = "artifacts/il-ambiental-site/dist/public"
 
-    [build.environment]
-      NODE_VERSION = "20"
+[build.environment]
+  NODE_VERSION = "20"
 
-        [functions]
-          directory = "netlify/functions"
-            node_bundler = "esbuild"
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
-            # Redireciona /api/contact para a Netlify Function
-            [[redirects]]
-              from = "/api/contact"
-                to = "/.netlify/functions/contact"
-                  status = 200
+[[redirects]]
+  from = "/api/contact"
+  to = "/.netlify/functions/contact"
+  status = 200
 
-                  # SPA fallback
-                  [[redirects]]
-                    from = "/*"
-                      to = "/index.html"
-                        status = 200
-                        
+[[redirects]]
+  from = "/api/contato"
+  to = "/.netlify/functions/contact"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
