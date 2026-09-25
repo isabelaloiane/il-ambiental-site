@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -8,6 +8,8 @@ const WA_NUMBER = "5591992723570";
 const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
 
 export function Sobre() {
+  const [photoVisible, setPhotoVisible] = useState(true);
+
   useEffect(() => {
     document.title = "Sobre | IL Ambiental";
     return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
@@ -51,28 +53,30 @@ export function Sobre() {
             maxWidth: 960,
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: photoVisible ? "repeat(auto-fit, minmax(280px, 1fr))" : "1fr",
             gap: 56,
             alignItems: "center",
           }}
         >
           {/* Foto */}
-          <div data-aos="fade-right" style={{ textAlign: "center" }}>
-            <img
-              src="/isabela-sobre.jpg"
-              alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
-              style={{
-                width: "100%",
-                maxWidth: 300,
-                height: "auto",
-                borderRadius: 14,
-                display: "block",
-                margin: "0 auto",
-                boxShadow: "0 4px 24px rgba(69,40,22,0.15)",
-              }}
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-            />
-          </div>
+          {photoVisible && (
+            <div data-aos="fade-right" style={{ textAlign: "center" }}>
+              <img
+                src="/isabela-sobre.jpg"
+                alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
+                style={{
+                  width: "100%",
+                  maxWidth: 300,
+                  height: "auto",
+                  borderRadius: 14,
+                  display: "block",
+                  margin: "0 auto",
+                  boxShadow: "0 4px 24px rgba(69,40,22,0.15)",
+                }}
+                onError={() => setPhotoVisible(false)}
+              />
+            </div>
+          )}
 
           {/* Texto */}
           <div data-aos="fade-left">
@@ -185,7 +189,7 @@ export function Sobre() {
       <section style={{ padding: "72px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="section-caption" data-aos="fade-up">Como trabalhamos</span>
+            <span className="section-caption" data-aos="fade-up">O que diferencia</span>
             <h2
               data-aos="fade-up"
               style={{
@@ -196,7 +200,7 @@ export function Sobre() {
                 margin: 0,
               }}
             >
-              Como a IL Ambiental trabalha
+              Por que a IL Ambiental
             </h2>
             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 0" }} />
           </div>
@@ -204,24 +208,24 @@ export function Sobre() {
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {[
               {
-                n: "01",
-                titulo: "Atendimento direto pela responsável técnica",
-                texto: "Não há intermediário entre sua empresa e a engenheira responsável. Do diagnóstico ao protocolo, Isabela acompanha cada etapa.",
+                num: "01",
+                title: "Responsável técnica com atuação em órgão público",
+                desc: "Antes de fundar a IL, Isabela atuou diretamente em secretarias de meio ambiente. Conhece o processo de dentro — os formulários, os prazos reais, os critérios de análise.",
               },
               {
-                n: "02",
-                titulo: "Diagnóstico antes de qualquer proposta",
-                texto: "Toda relação começa pelo Diagnóstico Vértice: um levantamento da situação ambiental real da empresa antes de qualquer serviço ser proposto.",
+                num: "02",
+                title: "Foco exclusivo na Região Metropolitana de Belém",
+                desc: "Não atendemos todo o Pará. O foco geográfico garante conhecimento real dos órgãos locais, dos técnicos, das exigências e dos prazos praticados.",
               },
               {
-                n: "03",
-                titulo: "Foco em Belém e região metropolitana",
-                texto: "A atuação é concentrada geograficamente para garantir conhecimento profundo dos órgãos, prazos e exigências locais.",
+                num: "03",
+                title: "Acompanhamento direto — sem terceirizar",
+                desc: "Cada processo é conduzido pela Isabela, do levantamento ao protocolo. O cliente fala diretamente com quem analisa e assina tecnicamente.",
               },
               {
-                n: "04",
-                titulo: "Clareza sobre o que precisa ser feito e quando",
-                texto: "Nenhuma empresa deveria descobrir que está irregular quando já virou autuação. O trabalho é manter a conformidade como parte da rotina operacional.",
+                num: "04",
+                title: "Transparência de processo e prazo",
+                desc: "O cliente sabe em que etapa está o processo, o que falta e o que está pendente no órgão. Nada fica sem explicação.",
               },
             ].map((item, i) => (
               <div
@@ -229,7 +233,8 @@ export function Sobre() {
                 data-aos="fade-up"
                 data-aos-delay={i * 80}
                 style={{
-                  display: "flex",
+                  display: "grid",
+                  gridTemplateColumns: "56px 1fr",
                   gap: 20,
                   alignItems: "flex-start",
                   padding: "20px 0",
@@ -238,22 +243,21 @@ export function Sobre() {
               >
                 <span
                   style={{
-                    flexShrink: 0,
                     fontFamily: "'Comfortaa', cursive",
                     fontWeight: 700,
-                    fontSize: "1.1rem",
+                    fontSize: "1.5rem",
                     color: "#DFC49F",
-                    minWidth: 36,
+                    lineHeight: 1,
                   }}
                 >
-                  {item.n}
+                  {item.num}
                 </span>
                 <div>
-                  <h4 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", marginBottom: 6 }}>
-                    {item.titulo}
-                  </h4>
-                  <p style={{ color: "#6B5443", lineHeight: 1.7, margin: 0, fontSize: "0.9rem" }}>
-                    {item.texto}
+                  <h3 style={{ fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", margin: "0 0 8px" }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: "#6B5443", lineHeight: 1.7, fontSize: "0.9rem", margin: 0 }}>
+                    {item.desc}
                   </p>
                 </div>
               </div>
@@ -262,30 +266,35 @@ export function Sobre() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>
-        <h2
-          data-aos="fade-up"
-          style={{
-            fontFamily: "'Comfortaa', cursive",
-            fontWeight: 700,
-            fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
-            color: "#DFC49F",
-            margin: 0,
-          }}
-        >
-          Pronto para organizar a situação ambiental da sua empresa?
-        </h2>
-        <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.72)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 480, margin: "14px auto 28px" }}>
-          Comece pelo Diagnóstico Vértice. Uma conversa com Isabela para entender exatamente o que sua empresa precisa cumprir.
-        </p>
-        <div data-aos="fade-up" data-aos-delay="200" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href="/contato?assunto=vertice" className="btn-light">
-            Solicitar Diagnóstico Vértice
-          </Link>
-          <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ borderColor: "rgba(223,196,159,0.4)", color: "#DFC49F" }}>
-            Falar pelo WhatsApp
-          </a>
+      {/* CTA final */}
+      <section style={{ padding: "72px 24px", background: "#452816", textAlign: "center" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <span style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>
+            Próximo passo
+          </span>
+          <h2
+            data-aos="fade-up"
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(1.7rem, 3vw, 2.3rem)",
+              color: "#DFC49F",
+              margin: "0 0 20px",
+            }}
+          >
+            Pronto para regularizar sua empresa?
+          </h2>
+          <p data-aos="fade-up" style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.75, marginBottom: 32 }}>
+            Comece pelo Diagnóstico Vértice — um levantamento da situação ambiental da sua empresa, sem custo e sem compromisso.
+          </p>
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/contato?assunto=vertice" className="btn-light">
+              Solicitar Diagnóstico Vértice
+            </Link>
+            <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline-light">
+              Falar pelo WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
