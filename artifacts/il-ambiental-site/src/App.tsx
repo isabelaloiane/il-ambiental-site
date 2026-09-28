@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import { Router as WouterRouter } from "wouter";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -39,7 +39,7 @@ function NotFound() {
         404
       </h1>
       <p style={{ color: "#6B5443", margin: "16px 0 28px", fontSize: "1.1rem" }}>
-        Página não encontrada.
+        PÃ¡gina nÃ£o encontrada.
       </p>
       <a
         href="/"
@@ -53,10 +53,18 @@ function NotFound() {
           fontSize: "0.9rem",
         }}
       >
-        Voltar ao início
+        Voltar ao inÃ­cio
       </a>
     </div>
   );
+}
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
+  return null;
 }
 
 export function App() {
@@ -71,6 +79,7 @@ export function App() {
 
   return (
     <WouterRouter base={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <CookieBanner />
       <Switch>
         <Route path="/" component={Home} />
