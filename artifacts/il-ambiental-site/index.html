@@ -34,7 +34,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-     <!-- Google tag (gtag.js) — GA4 com Consent Mode v2 (LGPD) -->     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('consent', 'default', {         analytics_storage: 'denied',         ad_storage: 'denied',         wait_for_update: 500       });     </script>     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1S9ZBQGL4W"></script>     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('js', new Date());       gtag('config', 'G-1S9ZBQGL4W', { send_page_view: false });        function ilAtualizarGA4() {         var c = localStorage.getItem('il_cookie_consent');         if (c === 'all') {           gtag('consent', 'update', { analytics_storage: 'granted' });           gtag('event', 'page_view');         }       }       if (document.readyState === 'loading') {         document.addEventListener('DOMContentLoaded', ilAtualizarGA4);       } else {         ilAtualizarGA4();       }       window.addEventListener('il_consent_updated', ilAtualizarGA4);     </script>   </head>
+     <!-- Google tag (gtag.js) — GA4 com Consent Mode v2 (LGPD) -->     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('consent', 'default', {         analytics_storage: 'denied',         ad_storage: 'denied',         wait_for_update: 500       });     </script>     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1S9ZBQGL4W"></script>     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('js', new Date());       gtag('config', 'G-1S9ZBQGL4W', { send_page_view: false });        function ilAtualizarGA4() {         var c = localStorage.getItem('il_cookie_consent');         if (c === 'all') {           gtag('consent', 'update', { analytics_storage: 'granted' });           gtag('event', 'page_view');         }       }       if (document.readyState === 'loading') {         document.addEventListener('DOMContentLoaded', ilAtualizarGA4);       } else {         ilAtualizarGA4();       }       window.addEventListener('il_consent_updated', ilAtualizarGA4);     </script>
+
+    <!-- Meta Pixel (Facebook) — ID 1919173311484899 -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1919173311484899');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1919173311484899&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel -->
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
