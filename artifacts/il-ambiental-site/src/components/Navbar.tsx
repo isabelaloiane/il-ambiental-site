@@ -6,19 +6,23 @@ export function Navbar() {
   const [location] = useLocation();
 
   const navLinks = [
-    { label: "Início", href: "/" },
-    { label: "Gestão Ambiental", href: "/gestao-ambiental" },
-    { label: "Serviços", href: "/servicos" },
+    { label: "InÃ­cio", href: "/" },
+    { label: "GestÃ£o Ambiental", href: "/gestao-ambiental" },
+    { label: "ServiÃ§os", href: "/servicos" },
     { label: "Sobre", href: "/sobre" },
     { label: "Contato", href: "/contato" },
   ];
 
   return (
+    <>
     <nav
       style={{
-        position: "sticky",
+        position: "fixed",
+      left: 0,
+      right: 0,
+      width: "100%",
         top: 0,
-        zIndex: 100,
+        zIndex: 1000,
         background: "#fff",
         borderBottom: "1px solid rgba(181,137,94,0.2)",
         boxShadow: "0 1px 8px rgba(69,40,22,0.06)",
@@ -100,7 +104,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/contato?assunto=vertice"
-          className="btn-primary"
+          className="desktop-cta btn-primary"
           style={{
             fontSize: "0.82rem",
             padding: "9px 20px",
@@ -108,7 +112,7 @@ export function Navbar() {
             display: "inline-flex",
           }}
         >
-          Diagnóstico Vértice
+          DiagnÃ³stico VÃ©rtice
         </Link>
 
         {/* Mobile hamburger */}
@@ -170,7 +174,7 @@ export function Navbar() {
             onClick={() => setMenuOpen(false)}
             style={{ display: "block", textAlign: "center", marginTop: 20 }}
           >
-            Diagnóstico Vértice
+            DiagnÃ³stico VÃ©rtice
           </Link>
         </div>
       )}
@@ -179,11 +183,14 @@ export function Navbar() {
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
+  .desktop-cta { display: none !important; }
         }
         @media (min-width: 769px) {
           .mobile-nav { display: none !important; }
         }
       `}</style>
     </nav>
+      <div style={{ height: 65 }} aria-hidden="true" />
+    </>
   );
 }
