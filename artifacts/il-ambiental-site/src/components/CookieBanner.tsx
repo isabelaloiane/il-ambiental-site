@@ -17,7 +17,7 @@ export function CookieBanner() {
   };
 
   const acceptAll = () => {
-    localStorage.setItem(STORAGE_KEY, "all");
+    localStorage.setItem(STORAGE_KEY, "all");     window.dispatchEvent(new Event('il_consent_updated'));
     setVisible(false);
   };
 
