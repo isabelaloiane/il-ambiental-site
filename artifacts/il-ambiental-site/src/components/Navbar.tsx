@@ -6,9 +6,9 @@ export function Navbar() {
   const [location] = useLocation();
 
   const navLinks = [
-    { label: "InÃ­cio", href: "/" },
-    { label: "GestÃ£o Ambiental", href: "/gestao-ambiental" },
-    { label: "ServiÃ§os", href: "/servicos" },
+    { label: "Início", href: "/" },
+    { label: "Gestão Ambiental", href: "/gestao-ambiental" },
+    { label: "Serviços", href: "/servicos" },
     { label: "Sobre", href: "/sobre" },
     { label: "Contato", href: "/contato" },
   ];
@@ -65,7 +65,7 @@ export function Navbar() {
               color: "#452816",
             }}
           >
-            IL Ambiental
+            <img src="/logo-horizontal.png" alt="IL Ambiental" style={{ height: 40, display: "block", maxWidth: 180 }} />
           </span>
         </Link>
 
@@ -112,7 +112,7 @@ export function Navbar() {
             display: "inline-flex",
           }}
         >
-          DiagnÃ³stico VÃ©rtice
+          Diagnóstico Vértice
         </Link>
 
         {/* Mobile hamburger */}
@@ -174,7 +174,7 @@ export function Navbar() {
             onClick={() => setMenuOpen(false)}
             style={{ display: "block", textAlign: "center", marginTop: 20 }}
           >
-            DiagnÃ³stico VÃ©rtice
+            Diagnóstico Vértice
           </Link>
         </div>
       )}
