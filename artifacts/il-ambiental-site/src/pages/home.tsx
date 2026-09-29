@@ -53,7 +53,7 @@ export function Home() {
               lineHeight: 1.8,
             }}
           >
-            Licenças, outorga de água, PGRS, relatórios anuais e condicionantes acompanhados por uma engenheira florestal especialista em Direito Agroambiental. Para empresas de Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.
+            Licenças, outorga de água, PGRS, relatórios anuais e condicionantes acompanhados por uma engenheira florestal com pós-graduação em Direito Ambiental pelo CESUPA. Para empresas de Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.
           </p>
           <div className="fade-3 hero-cta-group" style={{ marginTop: 36, flexWrap: "wrap", justifyContent: "center" }}>
             <Link href="/contato?assunto=vertice" className="btn-primary">
@@ -429,13 +429,13 @@ export function Home() {
               Isabela Loiane
             </h2>
             <p style={{ color: "#B5895E", fontSize: "0.9rem", marginBottom: 20 }}>
-              Engenheira Florestal · Especialista em Direito Agroambiental · CREA-PA 1521301735
+              Engenheira Florestal · Pós-graduação em Direito Ambiental (CESUPA) · CREA-PA 1521301735
             </p>
             <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: 24 }}>
-              Formada em Engenharia Florestal pela UFPA (2021), com atuação no mercado ambiental desde 2022. Experiência em órgãos públicos — SEMMA e Emater — e no setor privado. Fundei a IL Ambiental para oferecer às empresas da região um acompanhamento técnico, próximo e com visão jurídica. Cada processo é analisado e conduzido por mim, do primeiro levantamento ao protocolo no órgão.
+              Formada em Engenharia Florestal pela UEPA (2021), com pós-graduação em Direito Ambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022 e experiência em órgãos públicos — SEMMA e Emater — e no setor privado. Fundei a IL Ambiental para oferecer às empresas da região um acompanhamento técnico, próximo e com visão jurídica. Cada processo é analisado e conduzido por mim, do primeiro levantamento ao protocolo no órgão.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
-              {["Engenharia Florestal", "Direito Agroambiental", "CREA-PA 1521301735"].map((tag, i) => (
+              {["Engenharia Florestal", "Direito Ambiental (CESUPA)", "CREA-PA 1521301735"].map((tag, i) => (
                 <span
                   key={i}
                   style={{
@@ -481,7 +481,7 @@ export function Home() {
             {[
               {
                 title: "Técnica e jurídica no mesmo ponto de contato",
-                desc: "Formação em Engenharia Florestal com especialização em Direito Agroambiental. Cada decisão técnica já considera o respaldo legal.",
+                desc: "Formação em Engenharia Florestal pela UEPA, com pós-graduação em Direito Ambiental pelo CESUPA. Cada decisão técnica já considera o respaldo legal.",
               },
               {
                 title: "Conhecimento local",
