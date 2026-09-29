@@ -289,6 +289,33 @@ export function Sobre() {
           </a>
         </div>
       </section>
+      {/* SC-19: Missão, Visão e Valores */}
+      <section className="py-16 bg-amber-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-3xl font-bold text-stone-800 mb-10 text-center">Nossa Missão, Visão e Valores</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100">
+              <h3 className="text-lg font-semibold text-amber-700 mb-3">Missão</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Oferecer soluções ambientais de alta precisão técnica que permitam que empresas operem em plena conformidade legal, reduzindo riscos, protegendo ativos e preservando o futuro.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100">
+              <h3 className="text-lg font-semibold text-amber-700 mb-3">Visão</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Ser reconhecida como a consultoria de engenharia ambiental de maior autoridade técnica e credibilidade na região, com atendimento próximo e resultados comprovados.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100">
+              <h3 className="text-lg font-semibold text-amber-700 mb-3">Valores</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Precisão técnica · Credibilidade · Responsabilidade ambiental · Excelência no atendimento · Inovação
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <Footer />
       <WhatsAppButton />
