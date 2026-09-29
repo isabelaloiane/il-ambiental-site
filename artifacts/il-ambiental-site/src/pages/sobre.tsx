@@ -291,28 +291,56 @@ export function Sobre() {
       </section>
 
       {/* Missão, Visão e Valores */}
-      <section className="py-16 bg-amber-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-stone-800 mb-10 text-center">Nossa Missão, Visão e Valores</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100">
-              <h3 className="text-lg font-semibold text-amber-700 mb-3">Missão</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Oferecer soluções ambientais de alta precisão técnica que permitam que empresas operem em plena conformidade legal, reduzindo riscos, protegendo ativos e preservando o futuro.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100">
-              <h3 className="text-lg font-semibold text-amber-700 mb-3">Visão</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Ser reconhecida como a consultoria de engenharia ambiental de maior autoridade técnica e credibilidade na região, com atendimento próximo e resultados comprovados.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100">
-              <h3 className="text-lg font-semibold text-amber-700 mb-3">Valores</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Precisão técnica · Credibilidade · Responsabilidade ambiental · Excelência no atendimento · Inovação
-              </p>
-            </div>
+      <section style={{ padding: "72px 24px", background: "#F5F0E8" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <h2
+            data-aos="fade-up"
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+              color: "#2C1A0E",
+              textAlign: "center",
+              marginBottom: 40,
+            }}
+          >
+            Nossa Missão, Visão e Valores
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+            {[
+              {
+                titulo: "Missão",
+                texto: "Oferecer soluções ambientais de alta precisão técnica que permitam que empresas operem em plena conformidade legal, reduzindo riscos, protegendo ativos e preservando o futuro.",
+              },
+              {
+                titulo: "Visão",
+                texto: "Ser reconhecida como a consultoria de engenharia ambiental de maior autoridade técnica e credibilidade na região, com atendimento próximo e resultados comprovados.",
+              },
+              {
+                titulo: "Valores",
+                texto: "Precisão técnica · Credibilidade · Responsabilidade ambiental · Excelência no atendimento · Inovação",
+              },
+            ].map((card, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                style={{
+                  background: "#fff",
+                  borderRadius: 12,
+                  padding: "28px 24px",
+                  border: "1px solid rgba(181,137,94,0.2)",
+                  boxShadow: "0 2px 8px rgba(69,40,22,0.06)",
+                }}
+              >
+                <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1rem", color: "#734120", marginBottom: 12 }}>
+                  {card.titulo}
+                </h3>
+                <p style={{ color: "#6B5443", fontSize: "0.875rem", lineHeight: 1.7, margin: 0 }}>
+                  {card.texto}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
