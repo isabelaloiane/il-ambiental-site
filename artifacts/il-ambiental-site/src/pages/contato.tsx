@@ -19,7 +19,7 @@ const MUNICIPIOS = [
 ];
 
 const ASSUNTOS = [
-  { value: "vertice", label: "Diagnóstico Vértice (gratuito)" },
+  { value: "vertice", label: "Diagnóstico Vértice (sem custo)" },
   { value: "sentinela", label: "Programa Sentinela (gestão contínua)" },
   { value: "outorga", label: "Outorga e uso da água" },
   { value: "licenciamento", label: "Licenciamento ambiental" },
@@ -142,7 +142,7 @@ export function Contato() {
         >
           {isVertice
             ? "Solicitar o Diagnóstico Vértice"
-            : "Fale com a responsável técnica"}
+            : "Fale com a IL Ambiental"}
         </h1>
         {isVertice && (
           <p style={{ fontSize: "0.95rem", color: "#6B5443", maxWidth: 520, margin: "14px auto 0", lineHeight: 1.7 }}>
@@ -395,6 +395,49 @@ export function Contato() {
           </div>
         </div>
       </section>
+      {/* SR-07: O que acontece depois */}
+      <section className="py-16 bg-amber-50">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-2xl font-bold text-stone-800 mb-8 text-center">O que acontece depois do contato?</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { step: "1", title: "Retorno em até 1 dia útil", desc: "Nossa equipe analisa sua mensagem e entra em contato pelo WhatsApp ou e-mail informado." },
+              { step: "2", title: "Diagnóstico inicial", desc: "Realizamos uma conversa rápida para entender sua situação e identificar as necessidades ambientais da sua empresa." },
+              { step: "3", title: "Proposta personalizada", desc: "Com base no diagnóstico, enviamos uma proposta técnica clara, com escopo, prazo e investimento." }
+            ].map((item) => (
+              <div key={item.step} className="bg-white rounded-xl p-6 shadow-sm border border-amber-100 text-center">
+                <div className="w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">{item.step}</div>
+                <h3 className="font-semibold text-stone-800 mb-2">{item.title}</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SC-18: FAQ */}
+      <section className="py-16 bg-stone-50">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-2xl font-bold text-stone-800 mb-8 text-center">Perguntas Frequentes</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Quanto tempo leva para obter uma licença ambiental?", a: "O prazo varia conforme o tipo de licença e o órgão responsável. Licenças de baixo impacto (LAU/LAS) podem ser emitidas em 30 a 90 dias. Licenças de médio e alto impacto (LO, LP, LI) costumam levar de 6 meses a 2 anos, dependendo da complexidade do empreendimento e da demanda do órgão." },
+              { q: "Minha empresa precisa de outorga de recursos hídricos?", a: "Sim, se sua atividade capta água de poço artesiano, rios, lagos ou lança efluentes em corpos hídricos. A outorga é exigida independentemente de já possuir licença ambiental. A IL Ambiental avalia sua situação gratuitamente antes de iniciar qualquer processo." },
+              { q: "O Diagnóstico Vértice é realmente sem custo?", a: "Sim. O Diagnóstico Vértice é uma avaliação inicial gratuita onde identificamos todas as pendências ambientais da sua empresa — licenças vencidas, condicionantes abertas, outorgas necessárias. Ao final, você recebe um relatório claro com as prioridades e os próximos passos recomendados." },
+              { q: "A IL Ambiental atende fora de Belém?", a: "Sim. Atendemos empresas em toda a Região Metropolitana de Belém e em outros municípios do Pará, conforme a demanda do cliente e o tipo de processo ambiental envolvido." }
+            ].map((item, i) => (
+              <details key={i} className="bg-white rounded-xl p-6 shadow-sm border border-stone-100 group">
+                <summary className="font-semibold text-stone-800 cursor-pointer list-none flex justify-between items-center">
+                  {item.q}
+                  <span className="text-amber-600 ml-4 text-xl">+</span>
+                </summary>
+                <p className="mt-3 text-stone-600 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       <Footer />
       <WhatsAppButton />
