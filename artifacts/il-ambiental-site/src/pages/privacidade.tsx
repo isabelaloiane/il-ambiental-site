@@ -56,7 +56,7 @@ export function Privacidade() {
           Política de Privacidade
         </h1>
         <p style={{ color: "#6B5443", fontSize: "0.85rem", marginTop: 10 }}>
-          Última atualização: setembro de 2025
+          Última atualização: setembro de 2026
         </p>
       </section>
 
