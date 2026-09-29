@@ -396,19 +396,44 @@ export function Contato() {
         </div>
       </section>
       {/* SR-07: O que acontece depois */}
-      <section className="py-16 bg-amber-50">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-2xl font-bold text-stone-800 mb-8 text-center">O que acontece depois do contato?</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+      <section style={{ padding: "72px 24px", background: "#F5F0E8" }}>
+        <div style={{ maxWidth: 860, margin: "0 auto" }}>
+          <h2
+            data-aos="fade-up"
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+              color: "#2C1A0E",
+              textAlign: "center",
+              margin: "0 0 40px",
+            }}
+          >
+            O que acontece depois do contato?
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 24 }}>
             {[
               { step: "1", title: "Retorno em até 1 dia útil", desc: "Nossa equipe analisa sua mensagem e entra em contato pelo WhatsApp ou e-mail informado." },
               { step: "2", title: "Diagnóstico inicial", desc: "Realizamos uma conversa rápida para entender sua situação e identificar as necessidades ambientais da sua empresa." },
               { step: "3", title: "Proposta personalizada", desc: "Com base no diagnóstico, enviamos uma proposta técnica clara, com escopo, prazo e investimento." }
             ].map((item) => (
-              <div key={item.step} className="bg-white rounded-xl p-6 shadow-sm border border-amber-100 text-center">
-                <div className="w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">{item.step}</div>
-                <h3 className="font-semibold text-stone-800 mb-2">{item.title}</h3>
-                <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
+              <div
+                key={item.step}
+                data-aos="fade-up"
+                style={{
+                  background: "#fff",
+                  borderRadius: 12,
+                  padding: "28px 24px",
+                  border: "1px solid rgba(181,137,94,0.2)",
+                  textAlign: "center",
+                  boxShadow: "0 2px 8px rgba(69,40,22,0.06)",
+                }}
+              >
+                <div style={{ width: 40, height: 40, background: "#734120", color: "#DFC49F", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: "1rem", margin: "0 auto 16px", fontFamily: "'Comfortaa', cursive" }}>
+                  {item.step}
+                </div>
+                <h3 style={{ fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", marginBottom: 8 }}>{item.title}</h3>
+                <p style={{ color: "#6B5443", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -416,30 +441,45 @@ export function Contato() {
       </section>
 
       {/* SC-18: FAQ */}
-      <section className="py-16 bg-stone-50">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-2xl font-bold text-stone-800 mb-8 text-center">Perguntas Frequentes</h2>
-          <div className="space-y-4">
+      <section style={{ padding: "72px 24px", background: "#fff" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <h2
+            data-aos="fade-up"
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+              color: "#2C1A0E",
+              textAlign: "center",
+              marginBottom: 40,
+            }}
+          >
+            Perguntas Frequentes
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
               { q: "Quanto tempo leva para obter uma licença ambiental?", a: "O prazo varia conforme o tipo de licença e o órgão responsável. Licenças de baixo impacto (LAU/LAS) podem ser emitidas em 30 a 90 dias. Licenças de médio e alto impacto (LO, LP, LI) costumam levar de 6 meses a 2 anos, dependendo da complexidade do empreendimento e da demanda do órgão." },
               { q: "Minha empresa precisa de outorga de recursos hídricos?", a: "Sim, se sua atividade capta água de poço artesiano, rios, lagos ou lança efluentes em corpos hídricos. A outorga é exigida independentemente de já possuir licença ambiental. A IL Ambiental avalia sua situação gratuitamente antes de iniciar qualquer processo." },
               { q: "O Diagnóstico Vértice é realmente sem custo?", a: "Sim. O Diagnóstico Vértice é uma avaliação inicial gratuita onde identificamos todas as pendências ambientais da sua empresa — licenças vencidas, condicionantes abertas, outorgas necessárias. Ao final, você recebe um relatório claro com as prioridades e os próximos passos recomendados." },
               { q: "A IL Ambiental atende fora de Belém?", a: "Sim. Atendemos empresas em toda a Região Metropolitana de Belém e em outros municípios do Pará, conforme a demanda do cliente e o tipo de processo ambiental envolvido." }
             ].map((item, i) => (
-              <details key={i} className="bg-white rounded-xl p-6 shadow-sm border border-stone-100 group">
-                <summary className="font-semibold text-stone-800 cursor-pointer list-none flex justify-between items-center">
+              <details
+                key={i}
+                data-aos="fade-up"
+                style={{ padding: "24px 0", borderBottom: "1px solid rgba(181,137,94,0.18)" }}
+              >
+                <summary style={{ fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   {item.q}
-                  <span className="text-amber-600 ml-4 text-xl">+</span>
+                  <span style={{ color: "#B5895E", marginLeft: 16, fontSize: "1.2rem", flexShrink: 0 }}>+</span>
                 </summary>
-                <p className="mt-3 text-stone-600 leading-relaxed">{item.a}</p>
+                <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, margin: "12px 0 0" }}>{item.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-
-      <Footer />
+            <Footer />
       <WhatsAppButton />
     </div>
   );
