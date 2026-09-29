@@ -46,14 +46,50 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1919173311484899');
+      fbq('consent', 'revoke');
+    fbq('init', '1919173311484899');
       fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1919173311484899&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel -->
-  </head>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "IL Ambiental",
+    "description": "Consultoria e licenciamento ambiental em Belém, Pará. Outorga de recursos hídricos, PGRS, RIAA e gestão ambiental para empresas da região metropolitana.",
+    "url": "https://ilambiental.com.br",
+    "telephone": "+559192723570",
+    "email": "contato@ilambiental.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Belém",
+      "addressRegion": "PA",
+      "addressCountry": "BR"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Pará"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Isabela Loiane",
+      "jobTitle": "Engenheira Florestal",
+      "hasCredential": "CREA-PA 1521301735"
+    },
+    "serviceType": [
+      "Licenciamento Ambiental",
+      "Outorga de Recursos Hídricos",
+      "PGRS",
+      "RIAA",
+      "Gestão Ambiental"
+    ]
+  }
+  </script>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
