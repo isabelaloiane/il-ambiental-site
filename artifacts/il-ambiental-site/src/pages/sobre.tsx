@@ -5,12 +5,12 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const WA_NUMBER = "5591992723570";
-const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("OlÃ¡, Isabela! Vim pelo site e gostaria de solicitar o DiagnÃ³stico VÃ©rtice para a minha empresa.")}`;
+const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
 
 export function Sobre() {
   useEffect(() => {
     document.title = "Sobre | IL Ambiental";
-    return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em BelÃ©m"; };
+    return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
   }, []);
 
   return (
@@ -39,7 +39,7 @@ export function Sobre() {
               margin: 0,
             }}
           >
-            Especialista em conformidade ambiental para empresas da RegiÃ£o Metropolitana de BelÃ©m.
+            Especialista em conformidade ambiental para empresas da Região Metropolitana de Belém.
           </h1>
         </div>
       </section>
@@ -60,7 +60,7 @@ export function Sobre() {
           <div data-aos="fade-right" style={{ textAlign: "center" }}>
             <img
               src="/isabela-quem-conduz.jpg"
-              alt="Isabela Loiane, engenheira florestal e responsÃ¡vel tÃ©cnica da IL Ambiental"
+              alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
               style={{
                 width: "100%",
                 maxWidth: 340,
@@ -77,7 +77,7 @@ export function Sobre() {
 
           {/* Texto */}
           <div data-aos="fade-left">
-            <span className="section-caption">ResponsÃ¡vel tÃ©cnica</span>
+            <span className="section-caption">Responsável técnica</span>
             <h2
               style={{
                 fontFamily: "'Comfortaa', cursive",
@@ -90,26 +90,26 @@ export function Sobre() {
               Isabela Loiane
             </h2>
             <p style={{ color: "#B5895E", fontSize: "0.85rem", fontWeight: 600, marginBottom: 20 }}>
-              Engenheira Florestal Â· CREA-PA 1521301735
+              Engenheira Florestal · CREA-PA 1521301735
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              Formada em Engenharia Florestal pela UFPA (2021), com atuaÃ§Ã£o no mercado ambiental desde 2022. Antes de fundar a IL Ambiental, atuou na SEMMA e na Emater, alÃ©m de empresas privadas do setor. Essa trajetÃ³ria entre Ã³rgÃ£os pÃºblicos e iniciativa privada permite enxergar o processo ambiental pelos dois lados â o da exigÃªncia tÃ©cnica e o da realidade de quem opera.
+              Formada em Engenharia Florestal pela UEPA (2021), com pós-graduação em Direito Ambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022. Antes de fundar a IL Ambiental, atuou na SEMMA e na Emater, além de empresas privadas do setor. Essa trajetória entre órgãos públicos e iniciativa privada permite enxergar o processo ambiental pelos dois lados — o da exigência técnica e o da realidade de quem opera.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              Palestrante em eventos da Ã¡rea, com facilidade de comunicaÃ§Ã£o para traduzir a complexidade da legislaÃ§Ã£o ambiental em linguagem objetiva para gestores e empresÃ¡rios.
+              Palestrante em eventos da área, com facilidade de comunicação para traduzir a complexidade da legislação ambiental em linguagem objetiva para gestores e empresários.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 0 }}>
-              A IL Ambiental foi fundada com foco exclusivo nas empresas da RegiÃ£o Metropolitana de BelÃ©m e Castanhal. Cada processo Ã© analisado e conduzido diretamente por Isabela, sem intermediÃ¡rios, do primeiro levantamento ao protocolo no Ã³rgÃ£o.
+              A IL Ambiental foi fundada com foco exclusivo nas empresas da Região Metropolitana de Belém e Castanhal. Cada processo é analisado e conduzido diretamente por Isabela, sem intermediários, do primeiro levantamento ao protocolo no órgão.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ÃrgÃ£os e atuaÃ§Ã£o */}
+      {/* Órgãos e atuação */}
       <section style={{ padding: "64px 24px", background: "#F5F0E8" }}>
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="section-caption" data-aos="fade-up">AtuaÃ§Ã£o</span>
+            <span className="section-caption" data-aos="fade-up">Atuação</span>
             <h2
               data-aos="fade-up"
               style={{
@@ -120,7 +120,7 @@ export function Sobre() {
                 margin: 0,
               }}
             >
-              ÃrgÃ£os e Ã¡rea geogrÃ¡fica
+              Órgãos e área geográfica
             </h2>
             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 0" }} />
           </div>
@@ -134,20 +134,20 @@ export function Sobre() {
           >
             {[
               {
-                titulo: "ÃrgÃ£os ambientais",
+                titulo: "Órgãos ambientais",
                 itens: ["SEMAS-PA", "IBAMA", "SEMMA Municipal", "SESPA"],
               },
               {
-                titulo: "Ãrea geogrÃ¡fica",
-                itens: ["BelÃ©m", "Ananindeua", "Marituba", "Benevides", "Santa Isabel do ParÃ¡", "Castanhal"],
+                titulo: "Área geográfica",
+                itens: ["Belém", "Ananindeua", "Marituba", "Benevides", "Santa Isabel do Pará", "Castanhal"],
               },
               {
                 titulo: "Atividades atendidas",
-                itens: ["ComÃ©rcio e varejo", "Postos de combustÃ­vel", "FrigorÃ­ficos e alimentÃ­cio", "MineraÃ§Ã£o", "ConstruÃ§Ã£o civil", "Transportes e logÃ­stica", "ServiÃ§os e pequenas indÃºstrias"],
+                itens: ["Comércio e varejo", "Postos de combustível", "Frigoríficos e alimentício", "Mineração", "Construção civil", "Transportes e logística", "Serviços e pequenas indústrias"],
               },
               {
-                titulo: "Registro e habilitaÃ§Ã£o",
-                itens: ["CREA-PA 1521301735", "Engenharia Florestal", "Habilitada para outorga e licenciamento", "AtuaÃ§Ã£o desde BelÃ©m"],
+                titulo: "Registro e habilitação",
+                itens: ["CREA-PA 1521301735", "Engenharia Florestal", "Habilitada para outorga e licenciamento", "Atuação desde Belém"],
               },
             ].map((bloco, i) => (
               <div
@@ -206,23 +206,23 @@ export function Sobre() {
             {[
               {
                 n: "01",
-                titulo: "Atendimento direto pela responsÃ¡vel tÃ©cnica",
-                texto: "NÃ£o hÃ¡ intermediÃ¡rio entre sua empresa e a engenheira responsÃ¡vel. Do diagnÃ³stico ao protocolo, Isabela acompanha cada etapa.",
+                titulo: "Atendimento direto pela responsável técnica",
+                texto: "Não há intermediário entre sua empresa e a engenheira responsável. Do diagnóstico ao protocolo, Isabela acompanha cada etapa.",
               },
               {
                 n: "02",
-                titulo: "DiagnÃ³stico antes de qualquer proposta",
-                texto: "Toda relaÃ§Ã£o comeÃ§a pelo DiagnÃ³stico VÃ©rtice: um levantamento da situaÃ§Ã£o ambiental real da empresa antes de qualquer serviÃ§o ser proposto.",
+                titulo: "Diagnóstico antes de qualquer proposta",
+                texto: "Toda relação começa pelo Diagnóstico Vértice: um levantamento da situação ambiental real da empresa antes de qualquer serviço ser proposto.",
               },
               {
                 n: "03",
-                titulo: "Foco em BelÃ©m e regiÃ£o metropolitana",
-                texto: "A atuaÃ§Ã£o Ã© concentrada geograficamente para garantir conhecimento profundo dos Ã³rgÃ£os, prazos e exigÃªncias locais.",
+                titulo: "Foco em Belém e região metropolitana",
+                texto: "A atuação é concentrada geograficamente para garantir conhecimento profundo dos órgãos, prazos e exigências locais.",
               },
               {
                 n: "04",
                 titulo: "Clareza sobre o que precisa ser feito e quando",
-                texto: "Nenhuma empresa deveria descobrir que estÃ¡ irregular quando jÃ¡ virou autuaÃ§Ã£o. O trabalho Ã© manter a conformidade como parte da rotina operacional.",
+                texto: "Nenhuma empresa deveria descobrir que está irregular quando já virou autuação. O trabalho é manter a conformidade como parte da rotina operacional.",
               },
             ].map((item, i) => (
               <div
@@ -275,21 +275,22 @@ export function Sobre() {
             margin: 0,
           }}
         >
-          Pronto para organizar a situaÃ§Ã£o ambiental da sua empresa?
+          Pronto para organizar a situação ambiental da sua empresa?
         </h2>
         <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.72)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 480, margin: "14px auto 28px" }}>
-          Comece pelo DiagnÃ³stico VÃ©rtice. Uma conversa com Isabela para entender exatamente o que sua empresa precisa cumprir.
+          Comece pelo Diagnóstico Vértice. Uma conversa com Isabela para entender exatamente o que sua empresa precisa cumprir.
         </p>
         <div data-aos="fade-up" data-aos-delay="200" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/contato?assunto=vertice" className="btn-light">
-            Solicitar DiagnÃ³stico VÃ©rtice
+            Solicitar Diagnóstico Vértice
           </Link>
           <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ borderColor: "rgba(223,196,159,0.4)", color: "#DFC49F" }}>
             Falar pelo WhatsApp
           </a>
         </div>
       </section>
-      {/* SC-19: Missão, Visão e Valores */}
+
+      {/* Missão, Visão e Valores */}
       <section className="py-16 bg-amber-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold text-stone-800 mb-10 text-center">Nossa Missão, Visão e Valores</h2>
@@ -315,7 +316,6 @@ export function Sobre() {
           </div>
         </div>
       </section>
-
 
       <Footer />
       <WhatsAppButton />
