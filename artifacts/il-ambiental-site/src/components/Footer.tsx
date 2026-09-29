@@ -55,7 +55,7 @@ export function Footer() {
           <p style={{ margin: 0, fontSize: "0.78rem", color: "rgba(223,196,159,0.45)" }}>
             Responsável técnica: Isabela Loiane<br />
             Engenheira Florestal · CREA-PA 1521301735<br />
-            CREA-PA · Belém, Pará
+            Belém, Pará · Região Metropolitana e entorno
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export function Footer() {
           </h4>
           <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
             <li>
-              <a href="https://wa.me/5591992723570" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/5591992723570?text=Olá!%20Gostaria%20de%20informações%20sobre%20consultoria%20ambiental." target="_blank" rel="noopener noreferrer"
                 style={{ color: "rgba(223,196,159,0.65)", textDecoration: "none", display: "flex", alignItems: "center", gap: 8, fontSize: "0.83rem" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#DFC49F")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(223,196,159,0.65)")}
@@ -141,7 +141,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/il.ambiental" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/ilambiental/" target="_blank" rel="noopener noreferrer"
                 style={{ color: "rgba(223,196,159,0.65)", textDecoration: "none", display: "flex", alignItems: "center", gap: 8, fontSize: "0.83rem" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#DFC49F")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(223,196,159,0.65)")}
