@@ -61,7 +61,7 @@ export function Home() {
             </Link>
             <a
               href={WA_VERTICE}
-              target="_blank"
+              onClick={() => { window.gtag && window.gtag("event","whatsapp_click",{event_category:"contato"}); window.fbq && window.fbq("track","Lead"); }}target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
             >
@@ -81,8 +81,8 @@ export function Home() {
       <div style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "20px 0" }}>
         <div className="trust-bar-grid">
           {[
-            { value: "CREA-PA", label: "Responsável técnica registrada — nº 1521301735" },
-            { value: "+50 processos", label: "Mais de 50 processos protocolados junto à SEMAS e outros órgãos" },
+            { value: "CREA-PA", label: "CREA-PA 1521301735 · Responsável técnica registrada" },
+            { value: "Cerca de 50", label: "processos protocolados em diferentes órgãos ambientais e tipos de processo" },
             { value: "SEMAS-PA", label: "Atuação junto à SEMAS-PA e secretarias municipais de meio ambiente" },
             { value: "1 dia útil", label: "Retorno em até 1 dia útil" },
           ].map((item, i, arr) => (
@@ -132,10 +132,10 @@ export function Home() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
             {[
-              { title: "Licença vencida ou prestes a vencer", desc: "A LO tem prazo de validade. Operar com licença vencida equivale a operar sem licença — as multas são as mesmas." },
-              { title: "Outorga de uso de recursos hídricos", desc: "Captação de água em rios, córregos ou poços sem outorga da SEMAS é infração ambiental, independente do volume." },
-              { title: "PGRS obrigatório para a sua atividade", desc: "Muitas atividades exigem Plano de Gerenciamento de Resíduos Sólidos aprovado. A maioria das empresas descobre só quando é autuada." },
-              { title: "Condicionantes não cumpridas", desc: "Cada licença tem condicionantes. Descumprir qualquer uma é causa de cassação — e muitas empresas nem sabem o que precisam fazer." },
+              { title: "Licença vencida ou prestes a vencer", desc: "A renovação deve ser pedida com antecedência mínima de 120 dias do vencimento (Lei Complementar 140/2011, art. 14, § 4º)." },
+              { title: "Outorga de uso de recursos hídricos", desc: "Captar água de poço ou rio, ou lançar efluentes, exige outorga própria, independente da licença ambiental." },
+              { title: "PGRS obrigatório para a sua atividade", desc: "Muitas atividades licenciadas têm o PGRS como condicionante. O plano precisa refletir a operação atual." },
+              { title: "Condicionantes não cumpridas", desc: "Cada licença traz condicionantes com prazo e forma de comprovação. Cumprida e não registrada, para o órgão a obrigação não foi cumprida." },
             ].map((item, i) => (
               <div
                 key={i}
@@ -621,7 +621,7 @@ export function Home() {
           </p>
           <a
             href={WA_VERTICE}
-            target="_blank"
+              onClick={() => { window.gtag && window.gtag("event","whatsapp_click",{event_category:"contato"}); window.fbq && window.fbq("track","Lead"); }}target="_blank"
             rel="noopener noreferrer"
             style={{ fontSize: "0.85rem", color: "rgba(223,196,159,0.55)", textDecoration: "underline", display: "block", marginTop: 8 }}
           >
