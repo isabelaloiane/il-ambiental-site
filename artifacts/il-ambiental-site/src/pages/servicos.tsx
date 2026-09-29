@@ -15,6 +15,17 @@ const WA_NOTIFICACAO = wa("Olá! Vim pelo site e recebi uma notificação ou exi
 const WA_VERTICE = wa("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.");
 
 export function Servicos() {
+  // SC-04: Scroll to anchor on mount
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     document.title = "Outorga, Licença de Operação, PGRS e RIAA | IL Ambiental";
     return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
@@ -126,7 +137,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 1: Outorga */}
-          <div id="agua" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+          <div id="agua" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Outorga e uso da água</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que captam água de poço ou rio, ou que lançam efluentes em corpo hídrico.
@@ -152,7 +163,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 2: Licenciamento */}
-          <div id="licenciamento" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="licenciamento" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Licenciamento ambiental</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que vão iniciar, ampliar ou manter uma atividade sujeita a licenciamento.
@@ -178,7 +189,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 3: Relatórios */}
-          <div id="relatorios" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+          <div id="relatorios" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Relatórios ambientais</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas licenciadas com relatórios periódicos ou condicionantes a comprovar.
@@ -203,7 +214,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 4: PGRS */}
-          <div id="pgrs" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="pgrs" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>PGRS e gestão de resíduos</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que geram resíduos e precisam do plano como condicionante de licença.
@@ -228,7 +239,7 @@ export function Servicos() {
           </div>
 
           {/* CONDICIONANTES */}
-          <div id="condicionantes" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="condicionantes" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de Condicionantes</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas com licenças ou outorgas vigentes que precisam cumprir condicionantes estabelecidas pelo órgão ambiental.
@@ -255,7 +266,7 @@ export function Servicos() {
           </div>
 
           {/* AUTOS DE INFRAÇÃO / NOTIFICAÇÕES */}
-          <div id="notificacoes" data-aos="fade-up" style={{ marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="notificacoes" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de Autos de Infração</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que receberam auto de infração, notificação ou exigência de órgão ambiental e precisam responder no prazo.
