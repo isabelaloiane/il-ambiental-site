@@ -13,7 +13,7 @@ export function CookieBanner() {
 
   const acceptEssential = () => {
     localStorage.setItem(STORAGE_KEY, "essential");
-    if (typeof window !== 'undefined' && typeof window.fbq === 'function') window.fbq('consent', 'grant');
+    if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') (window as any).fbq('consent', 'grant');
     setVisible(false);
   };
 
