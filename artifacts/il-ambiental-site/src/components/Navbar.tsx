@@ -45,27 +45,15 @@ export function Navbar() {
           aria-label="IL Ambiental, engenharia e consultoria ambiental"
           style={{ display: "flex", alignItems: "center", textDecoration: "none" }}
         >
-          <img
-            src="/logo.png"
-            alt="IL Ambiental, engenharia e consultoria ambiental"
-            style={{ height: 40, width: "auto" }}
-            onError={(e) => {
-              const target = e.currentTarget;
-              target.style.display = "none";
-              const fallback = target.nextElementSibling as HTMLElement | null;
-              if (fallback) fallback.style.display = "block";
-            }}
-          />
           <span
             style={{
-              display: "none",
               fontFamily: "'Comfortaa', cursive",
               fontWeight: 700,
-              fontSize: "1.1rem",
+              fontSize: "1.2rem",
               color: "#452816",
             }}
           >
-            <img src="/logo-horizontal.png" alt="IL Ambiental" style={{ height: 40, display: "block", maxWidth: 180 }} />
+            IL Ambiental
           </span>
         </Link>
 
