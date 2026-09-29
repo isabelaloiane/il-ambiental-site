@@ -59,14 +59,14 @@ export function Sobre() {
           {/* Foto */}
           <div data-aos="fade-right" style={{ textAlign: "center" }}>
             <img
-              src="/isabela-quem-conduz.jpg"
-              alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
+              src="/isabela-palestra.jpg"
+              alt="Isabela Loiane apresentando palestra sobre meio ambiente"
               style={{
                 width: "100%",
                 maxWidth: 340,
-                height: 380,
+                height: 480,
                 objectFit: "cover",
-                objectPosition: "top center",
+                objectPosition: "center center",
                 borderRadius: 14,
                 display: "block",
                 margin: "0 auto",
