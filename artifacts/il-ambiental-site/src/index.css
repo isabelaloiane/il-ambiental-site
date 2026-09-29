@@ -2189,3 +2189,39 @@ p, li {
     box-sizing: border-box !important;
   }
 }
+
+
+/* SC-21: Disable automatic hyphenation in headings */
+h1, h2, h3, h4, h5, h6 {
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
+
+
+/* SC-22: Padding for floating WhatsApp button */
+main, .page-content, [class*="page"], body > div {
+  padding-bottom: 88px;
+}
+
+
+/* SC-23: Form single column on mobile (below 640px) */
+@media (max-width: 640px) {
+  .form-row, [class*="grid-cols-2"], [class*="grid-cols-3"] {
+    grid-template-columns: 1fr !important;
+  }
+  form .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* SC-24: AOS elements visible by default (progressive enhancement) */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+[data-aos].aos-animate {
+  opacity: 1 !important;
+  transform: none !important;
+}
