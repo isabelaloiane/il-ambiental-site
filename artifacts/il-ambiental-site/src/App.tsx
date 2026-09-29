@@ -1,84 +1,106 @@
-import { useEffect } from "react";
 import { Route, Switch, useLocation } from "wouter";
 import { Router as WouterRouter } from "wouter";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { Home } from "./pages/home";
+import { Servicos } from "./pages/servicos";
+import { Contato } from "./pages/contato";
+import { Sobre } from "./pages/sobre";
+import { GestaoAmbiental } from "./pages/gestao-ambiental";
+import { Privacidade } from "./pages/privacidade";
+import { NotFound } from "./pages/not-found";
+import { CookieBanner } from "./components/CookieBanner";
+import { useEffect } from "react";
 
-import { Home } from "@/pages/home";
-import { Servicos } from "@/pages/servicos";
-import { Contato } from "@/pages/contato";
-import { Sobre } from "@/pages/sobre";
-import { GestaoAmbiental } from "@/pages/gestao-ambiental";
-import { Privacidade } from "@/pages/privacidade";
-import { CookieBanner } from "@/components/CookieBanner";
-
-function NotFound() {
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: "'Poppins', sans-serif",
-        background: "#F5F0E8",
-        textAlign: "center",
-        padding: "0 24px",
-      }}
-    >
-      <h1
-        style={{
-          fontFamily: "'Comfortaa', cursive",
-          fontSize: "5rem",
-          color: "#DFC49F",
-          margin: 0,
-          lineHeight: 1,
-        }}
-      >
-        404
-      </h1>
-      <p style={{ color: "#6B5443", margin: "16px 0 28px", fontSize: "1.1rem" }}>
-        PÃ¡gina nÃ£o encontrada.
-      </p>
-      <a
-        href="/"
-        style={{
-          background: "#452816",
-          color: "#DFC49F",
-          borderRadius: 8,
-          padding: "11px 28px",
-          textDecoration: "none",
-          fontWeight: 600,
-          fontSize: "0.9rem",
-        }}
-      >
-        Voltar ao inÃ­cio
-      </a>
-    </div>
-  );
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+    gtag?: (...args: unknown[]) => void;
+  }
 }
+
+const PAGE_META: Record<string, { title: string; description: string; canonical: string }> = {
+  "/": {
+    title: "IL Ambiental | Consultoria e Licenciamento Ambiental em Belém",
+    description: "Licenças, outorga de água, PGRS, RIAA e gestão ambiental contínua para empresas de Belém e região metropolitana. Responsável técnica: Eng. Florestal Isabela Loiane, CREA-PA.",
+    canonical: "https://ilambiental.com.br/",
+  },
+  "/servicos": {
+    title: "Serviços | IL Ambiental",
+    description: "Outorga, licença de operação, relatórios, PGRS, condicionantes e autos de infração para empresas da Região Metropolitana de Belém.",
+    canonical: "https://ilambiental.com.br/servicos",
+  },
+  "/contato": {
+    title: "Contato | IL Ambiental",
+    description: "Fale com a IL Ambiental pelo WhatsApp (91) 99272-3570 ou pelo formulário. Retorno em até 1 dia útil.",
+    canonical: "https://ilambiental.com.br/contato",
+  },
+  "/sobre": {
+    title: "Sobre | IL Ambiental",
+    description: "Conheça a IL Ambiental e sua responsável técnica, engenheira florestal com especialização em Direito Agroambiental.",
+    canonical: "https://ilambiental.com.br/sobre",
+  },
+  "/gestao-ambiental": {
+    title: "Gestão Ambiental | IL Ambiental",
+    description: "Programa Sentinela: acompanhamento anual de licenças, prazos e condicionantes da sua empresa. Comece pelo Diagnóstico Vértice, sem custo.",
+    canonical: "https://ilambiental.com.br/gestao-ambiental",
+  },
+  "/privacidade": {
+    title: "Política de Privacidade | IL Ambiental",
+    description: "Política de privacidade da IL Ambiental.",
+    canonical: "https://ilambiental.com.br/privacidade",
+  },
+};
 
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
+
+    const meta = PAGE_META[location] ?? {
+      title: "IL Ambiental | Consultoria e Licenciamento Ambiental em Belém",
+      description: "IL Ambiental – Engenharia e consultoria ambiental em Belém, Pará.",
+      canonical: "https://ilambiental.com.br" + location,
+    };
+
+    // SC-08: update page title
+    document.title = meta.title;
+
+    // SC-10: canonical per page
+    let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonicalEl) {
+      canonicalEl = document.createElement("link") as HTMLLinkElement;
+      canonicalEl.rel = "canonical";
+      document.head.appendChild(canonicalEl);
+    }
+    canonicalEl.href = meta.canonical;
+
+    // SC-11: meta description per page
+    let descEl = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    if (!descEl) {
+      descEl = document.createElement("meta") as HTMLMetaElement;
+      descEl.name = "description";
+      document.head.appendChild(descEl);
+    }
+    descEl.content = meta.description;
+
+    // SC-07: Pixel PageView on each route change
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "PageView");
+    }
+
+    // SC-08: GA4 page_view with correct title
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_title: meta.title,
+        page_location: window.location.href,
+      });
+    }
   }, [location]);
   return null;
 }
 
 export function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: true,
-      easing: "ease-out-cubic",
-      offset: 60,
-    });
-  }, []);
-
   return (
-    <WouterRouter base={import.meta.env.BASE_URL}>
+    <WouterRouter>
       <ScrollToTop />
       <CookieBanner />
       <Switch>
@@ -93,5 +115,3 @@ export function App() {
     </WouterRouter>
   );
 }
-
-export default App;
