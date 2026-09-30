@@ -144,7 +144,7 @@ export function GestaoAmbiental() {
               },
               {
                 icon: <Trash2 size={22} color="#734120" />,
-                title: "Geradores de resíduos",
+                title: "GerGdores de resíduos",
                 desc: "Obrigados por lei a manter PGRS atualizado e comprovantes de destinação.",
               },
               {
@@ -155,7 +155,7 @@ export function GestaoAmbiental() {
               {
                 icon: <Users size={22} color="#734120" />,
                 title: "Empresas sem equipe ambiental interna",
-                desc: "Que precisam de coordenação técnica permanente para licenças, condicionantes, relatórios e outorgas — sem precisar contratar um funcionário fixo para isso.",
+                desc: "Não contam com uma área ambiental interna, ou precisam de apoio técnico especializado para ela.",
               },
             ].map((item, i) => (
               <div
@@ -338,7 +338,7 @@ export function GestaoAmbiental() {
                   "Relatórios periódicos exigidos pelos órgãos",
                   "Outorga de recursos hídricos e renovações",
                   "PGRS e comprovantes de destinação",
-                  "Protocolos e processos no SEMAS-PA",
+                  "Protocolos e processos na SEMAS-PA",
                   "Resposta a autos de infração",
                   "Atendimento de notificações e exigências",
                   "Acompanhamento de processos no IBAMA",
@@ -372,8 +372,7 @@ export function GestaoAmbiental() {
                   fontStyle: "italic",
                 }}
               >
-                Nem toda demanda da lista acima estará no contrato de todas as empresas. O
-                escopo é personalizado após o diagnóstico.
+                O escopo de cada contrato é definido a partir do Diagnóstico Vértice, de acordo com a atividade e as obrigações da empresa.
               </p>
             </div>
           </div>
@@ -652,11 +651,7 @@ export function GestaoAmbiental() {
                   marginBottom: 20,
                 }}
               >
-                Os projetos do Programa Sentinela têm coordenação técnica da engenheira florestal
-                Isabela Loiane, CREA-PA 1521301735, formada pela UEPA e pós-graduada em
-                Direito Ambiental pelo CESUPA. Com atuação direta junto à SEMAS-PA, IBAMA,
-                ANA e secretarias municipais de meio ambiente, ela conhece os trâmites e os
-                prazos reais de cada processo. Você fala diretamente com quem assina e resolve.
+                O Programa Sentinela tem coordenação técnica da engenheira florestal Isabela Loiane (UEPA), pós-graduada em Direito Ambiental pelo CESUPA, CREA-PA 1521301735.
               </p>
               <ul
                 style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}
@@ -719,11 +714,15 @@ export function GestaoAmbiental() {
             },
             {
               q: "O Sentinela substitui ter um funcionário ambiental interno?",
-              a: "Para a maioria das empresas da Região Metropolitana de Belém, sim — com custo previsível e expertise especializada. A Isabela conhece os órgãos, os prazos reais e os trâmites que um profissional interno levaria meses para aprender, e já tem o relacionamento técnico estabelecido com os analistas e fiscalizadores.",
+              a: "Para muitas empresas, sim — com custo previsível e expertise especializada. Para as que já têm equipe interna, o Sentinela atua como apoio técnico especializado, assumindo as demandas que exigem mais conhecimento regulatório ou relacionamento com os órgãos. O modelo é definido no Diagnóstico Vértice.",
+            },
+            {
+              q: "O que acontece se surgir uma demanda nova durante o contrato?",
+              a: "Dependendo da natureza da demanda, ela pode ser incorporada ao escopo existente ou tratada como serviço pontual complementar. O Diagnóstico Vértice delimita o escopo base, mas o contrato prevê como lidar com demandas que surgem ao longo da gestão.",
             },
             {
               q: "O que acontece se surgir uma demanda inesperada — como um auto de infração?",
-              a: "Demandas inesperadas fazem parte da gestão ambiental. A Isabela analisa o documento recebido, orienta imediatamente e, conforme o escopo do contrato, conduz a resposta técnica dentro do prazo. O Sentinela existe justamente para que vocé não enfrente isso sozinho.",
+              a: "Demandas inesperadas fazem parte da gestão ambiental. A Isabela analisa o documento recebido, orienta imediatamente e, conforme o escopo do contrato, conduz a resposta técnica dentro do prazo. O Sentinela existe justamente para que você não enfrente isso sozinho.",
             },
           ].map((faq, i) => (
             <div
