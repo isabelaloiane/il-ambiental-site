@@ -3,22 +3,41 @@ import { Link } from "wouter";
 
 const STORAGE_KEY = "il_cookie_consent";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem(STORAGE_KEY);
-    if (!consent) setVisible(true);
+    if (!consent) {
+      setVisible(true);
+    } else if (consent === "all") {
+      // On load, if user previously accepted all, grant pixel consent
+      if (typeof window !== "undefined" && typeof window.fbq === "function") {
+        window.fbq("consent", "grant");
+      }
+    }
   }, []);
 
   const acceptEssential = () => {
     localStorage.setItem(STORAGE_KEY, "essential");
-    if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') (window as any).fbq('consent', 'grant');
+    // "Apenas essenciais" must NOT call fbq grant
     setVisible(false);
   };
 
   const acceptAll = () => {
-    localStorage.setItem(STORAGE_KEY, "all");     window.dispatchEvent(new Event('il_consent_updated'));
+    localStorage.setItem(STORAGE_KEY, "all");
+    // "Aceitar todos" must call fbq grant
+    if (typeof window !== "undefined" && typeof window.fbq === "function") {
+      window.fbq("consent", "grant");
+    }
+    window.dispatchEvent(new Event("il_consent_updated"));
     setVisible(false);
   };
 
@@ -57,7 +76,7 @@ export function CookieBanner() {
         }}
       >
         Usamos cookies essenciais para o funcionamento do site e, com sua autorização, cookies analíticos para entender como ele é utilizado.
-        Ao continuar navegando, você concorda com nossa{" "}
+        Ao continuar navegando, vocà concorda com nossa{" "}
         <Link href="/privacidade" style={{ color: "#B5895E", textDecoration: "underline" }}>
           Política de Privacidade
         </Link>.
