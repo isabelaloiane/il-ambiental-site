@@ -1,2 +1,814 @@
-import { useEffect } from "react";
-import { Link } from "wouter";import { Navbar } from "@/components/Navbar";import { Footer } from "@/components/Footer";import { WhatsAppButton } from "@/components/WhatsAppButton";const WA_NUMBER = "5591992723570";const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;const WA_SENTINELA = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de conhecer o Programa Sentinela de gestão ambiental contínua.")}`;export function GestaoAmbiental() {  return (    <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>      <Navbar />      {/* BLOCO 1 · TOPO */}      <section className="page-hero" style={{ textAlign: "center", background: "linear-gradient(135deg, #2C1A0E 0%, #452816 50%, #734120 100%)", borderBottom: "1px solid rgba(181,137,94,0.18)" }}>        <div style={{ maxWidth: 700, margin: "0 auto" }}>          <span className="section-caption" style={{ color: "#B5895E" }}>Programa Sentinela · gestão ambiental contínua</span>          <h1            style={{              fontFamily: "'Comfortaa', cursive",              fontWeight: 700,              fontSize: "clamp(2rem, 4.5vw, 3.2rem)",              lineHeight: 1.15,              color: "#DFC49F",              margin: "0 0 18px",            }}          >            As obrigações ambientais da sua empresa acompanhadas o ano inteiro.          </h1>          <p className="fade-2" style={{ fontSize: "1.05rem", color: "rgba(223,196,159,0.78)", maxWidth: 560, margin: "0 auto 28px", lineHeight: 1.75 }}>            Um contrato anual em que a IL Ambiental acompanha licenças, condicionantes, prazos e documentos da sua empresa e organiza, ao longo do ano, o que precisa ser feito.          </p>          <div className="fade-3 hero-cta-group" style={{ justifyContent: "center", flexWrap: "wrap" }}>            <Link href="/contato?assunto=vertice" className="btn-light">              Começar pelo Diagnóstico Vértice             </Link>             <a               href={WA_SENTINELA}               target="_blank"               rel="noopener noreferrer"               className="btn-outline"               style={{ borderColor: "rgba(223,196,159,0.4)", color: "rgba(223,196,159,0.8)" }}             >               Falar sobre o Sentinela             </a>           </div>         </div>       </section>        {/* BLOCO 2 · PARA QUEM É */}       <section style={{ padding: "72px 24px", background: "#F5F0E8" }}>         <div style={{ maxWidth: 900, margin: "0 auto" }}>           <div style={{ textAlign: "center", marginBottom: 40 }}>             <span className="section-caption" data-aos="fade-up">Para quem é</span>             <h2               data-aos="fade-up"               style={{                 fontFamily: "'Comfortaa', cursive",                 fontWeight: 700,                 fontSize: "clamp(1.7rem, 3vw, 2.4rem)",                 color: "#2C1A0E",                 margin: 0,               }}             >               Para empresas que             </h2>             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />           </div>           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>             {[               "Têm Licença de Operação ativa, com condicionantes a cumprir.",               "Captam água de poço ou rio, ou lançam efluentes.",               "Precisam entregar RIAA, PGRS ou outros relatórios periódicos.",               "Não têm um profissional ambiental na equipe.",               "Precisam comprovar regularidade a bancos, clientes ou compradores.",             ].map((item, i) => (               <div                 key={i}                 data-aos="fade-up"                 data-aos-delay={i * 60}                 style={{                   background: "#fff",                   borderRadius: 10,                   padding: "20px 24px",                   border: "1px solid rgba(181,137,94,0.2)",                   display: "flex",                   gap: 14,                   alignItems: "flex-start",                 }}               >                 <span style={{ color: "#734120", fontWeight: 700, fontSize: "1.1rem", flexShrink: 0 }}>✓</span>                 <p style={{ color: "#2C1A0E", fontSize: "0.9rem", lineHeight: 1.6, margin: 0 }}>{item}</p>               </div>             ))}           </div>         </div>       </section>        {/* BLOCO 3 · O QUE ESTÁ INCLUÍDO */}       <section style={{ padding: "72px 24px", background: "#fff" }}>         <div style={{ maxWidth: 800, margin: "0 auto" }}>           <div style={{ textAlign: "center", marginBottom: 40 }}>             <span className="section-caption" data-aos="fade-up">O que está incluído</span>             <h2               data-aos="fade-up"               style={{                 fontFamily: "'Comfortaa', cursive",                 fontWeight: 700,                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",                 color: "#2C1A0E",                 margin: 0,               }}             >               O que o Programa Sentinela cobre             </h2>             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />           </div>           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 14 }}>             {[               "Identificação de todas as obrigações ambientais da empresa.",               "Calendário de prazos de licenças, outorgas e relatórios.",               "Acompanhamento das condicionantes e de sua comprovação.",               "Planejamento das ações necessárias no período.",               "Organização e acompanhamento documental.",               "Orientação ao empreendimento sempre que surgir uma dúvida ou demanda.",               "Relatório de acompanhamento periódico.",             ].map((item, i) => (               <div                 key={i}                 data-aos="fade-up"                 data-aos-delay={i * 50}                 style={{                   display: "flex",                   gap: 12,                   alignItems: "flex-start",                   padding: "12px 0",                   borderBottom: "1px solid rgba(181,137,94,0.15)",                 }}               >                 <span style={{ color: "#B5895E", flexShrink: 0, marginTop: 2 }}>                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>                 </span>                 <p style={{ color: "#2C1A0E", fontSize: "0.9rem", lineHeight: 1.6, margin: 0 }}>{item}</p>               </div>             ))}           </div>           <div             data-aos="fade-up"             style={{               background: "#F5F0E8",               border: "1px solid rgba(181,137,94,0.25)",               borderRadius: 8,               padding: "14px 20px",               marginTop: 24,               fontSize: "0.85rem",               color: "#6B5443",             }}           >             <strong style={{ color: "#734120" }}>Observação:</strong> Serviços específicos que surgirem no período, como renovação de licença ou novas outorgas, são avaliados conforme a demanda.           </div>         </div>       </section>        {/* BLOCO 4 · COMO FUNCIONA */}       <section style={{ padding: "72px 24px", background: "#F5F0E8" }}>         <div style={{ maxWidth: 900, margin: "0 auto" }}>           <div style={{ textAlign: "center", marginBottom: 40 }}>             <span className="section-caption" data-aos="fade-up">Como funciona</span>             <h2               data-aos="fade-up"               style={{                 fontFamily: "'Comfortaa', cursive",                 fontWeight: 700,                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",                 color: "#2C1A0E",                 margin: 0,               }}             >               Da conversa inicial à gestão contínua             </h2>             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />           </div>           <div style={{ display: "flex", flexDirection: "column", gap: 0, maxWidth: 680, margin: "0 auto" }}>             {[               { step: "01", title: "Diagnóstico Vértice", desc: "Levantamento da situação e das obrigações dos próximos 12 meses. Sem custo.", highlight: true },               { step: "02", title: "Proposta anual", desc: "Escopo e valor definidos a partir do diagnóstico." },               { step: "03", title: "Início do acompanhamento", desc: "Calendário montado e documentos organizados." },               { step: "04", title: "Acompanhamento ao longo do ano", desc: "Com relatórios periódicos de situação." },               { step: "05", title: "Revisão ao fim do ciclo", desc: "Planejamento do ano seguinte." },             ].map((item, i) => (               <div                 key={i}                 data-aos="fade-up"                 data-aos-delay={i * 60}                 style={{                   display: "flex",                   gap: 24,                   padding: "20px 0",                   borderBottom: i < 4 ? "1px solid rgba(181,137,94,0.2)" : "none",                   alignItems: "flex-start",                 }}               >                 <div                   style={{                     width: 40,                     height: 40,                     borderRadius: "50%",                     background: item.highlight ? "#734120" : "#E8DDD0",                     color: item.highlight ? "#DFC49F" : "#734120",                     display: "flex",                     alignItems: "center",                     justifyContent: "center",                     fontWeight: 700,                     fontSize: "0.78rem",                     flexShrink: 0,                     fontFamily: "'Comfortaa', cursive",                   }}                 >                   {item.step}                 </div>                 <div>                   <h4 style={{ fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", margin: "0 0 4px" }}>                     {item.title}{item.highlight && <span style={{ color: "#734120", fontSize: "0.78rem", fontWeight: 600, marginLeft: 8 }}>sem custo</span>}                   </h4>                   <p style={{ color: "#6B5443", fontSize: "0.875rem", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>                 </div>               </div>             ))}           </div>         </div>       </section>        {/* BLOCO 5 · TABELA VÉRTICE x SENTINELA */}       <section style={{ padding: "72px 24px", background: "#fff" }}>         <div style={{ maxWidth: 860, margin: "0 auto" }}>           <div style={{ textAlign: "center", marginBottom: 40 }}>             <span className="section-caption" data-aos="fade-up">Diagnóstico Vértice e Programa Sentinela</span>             <h2               data-aos="fade-up"               style={{                 fontFamily: "'Comfortaa', cursive",                 fontWeight: 700,                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",                 color: "#2C1A0E",                 margin: 0,               }}             >               Qual é a diferença entre os dois?             </h2>             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />           </div>           <div             data-aos="fade-up"             style={{               border: "1px solid rgba(181,137,94,0.25)",               borderRadius: 14,               overflowX: "auto",             }}           >             {/* Header */}             <div style={{ display: "grid", gridTemplateColumns: "minmax(100px,1fr) minmax(150px,1fr) minmax(150px,1fr)", minWidth: 480, background: "#452816" }}>               <div style={{ padding: "14px 20px", fontSize: "0.78rem", fontWeight: 700, color: "rgba(223,196,159,0.6)", textTransform: "uppercase", letterSpacing: "0.08em" }}></div>               <div style={{ padding: "14px 20px", fontSize: "0.85rem", fontWeight: 700, color: "#DFC49F", borderLeft: "1px solid rgba(223,196,159,0.12)", textAlign: "center" }}>Diagnóstico Vértice</div>               <div style={{ padding: "14px 20px", fontSize: "0.85rem", fontWeight: 700, color: "#DFC49F", borderLeft: "1px solid rgba(223,196,159,0.12)", textAlign: "center" }}>Programa Sentinela</div>             </div>             {[               { label: "O que é", vertice: "Diagnóstico inicial da situação ambiental", sentinela: "Gestão ambiental contínua" },               { label: "Custo", vertice: "Sem custo", sentinela: "Contrato anual pago, sob proposta" },               { label: "Duração", vertice: "Até 10 dias úteis após envio dos documentos", sentinela: "12 meses, renováveis" },               { label: "Entrega", vertice: "Documento com as obrigações e demandas do próximo ciclo", sentinela: "Acompanhamento, calendário, orientação e relatórios ao longo do ano" },               { label: "Compromisso", vertice: "Nenhum", sentinela: "Contrato anual" },             ].map((row, i) => (               <div                 key={i}                 style={{                   display: "grid",                   gridTemplateColumns: "minmax(100px,1fr) minmax(150px,1fr) minmax(150px,1fr)",                   borderTop: "1px solid rgba(181,137,94,0.15)",                   background: i % 2 === 0 ? "#F5F0E8" : "#fff",                 }}               >                 <div style={{ padding: "14px 20px", fontSize: "0.82rem", fontWeight: 600, color: "#734120" }}>{row.label}</div>                 <div style={{ padding: "14px 20px", fontSize: "0.82rem", color: "#2C1A0E", borderLeft: "1px solid rgba(181,137,94,0.15)" }}>{row.vertice}</div>                 <div style={{ padding: "14px 20px", fontSize: "0.82rem", color: "#2C1A0E", borderLeft: "1px solid rgba(181,137,94,0.15)" }}>{row.sentinela}</div>               </div>             ))}           </div>           <div data-aos="fade-up" data-aos-delay="100" style={{ textAlign: "center", marginTop: 32 }}>             <Link href="/contato?assunto=vertice" className="btn-primary">               Solicitar Diagnóstico Vértice             </Link>           </div>         </div>       </section>        {/* BLOCO 6 · QUEM CONDUZ */}       <section style={{ padding: "56px 24px", background: "#F5F0E8", borderTop: "1px solid rgba(181,137,94,0.2)" }}>         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>           <p             data-aos="fade-up"             style={{ color: "#6B5443", fontSize: "0.95rem", lineHeight: 1.8, margin: "0 0 16px" }}           >             O Programa Sentinela é conduzido pela{" "}             <strong style={{ color: "#2C1A0E" }}>Isabela Loiane</strong>, engenheira florestal com pós-graduação em Direito Ambiental pelo CESUPA (CREA-PA 1521301735).           </p>           <Link href="/sobre" style={{ fontSize: "0.85rem", color: "#734120", fontWeight: 600, textDecoration: "none" }}>             Conhecer a trajetória →           </Link>         </div>       </section>        {/* BLOCO 7 · PERGUNTAS FREQUENTES */}       <section style={{ padding: "72px 24px", background: "#fff" }}>         <div style={{ maxWidth: 760, margin: "0 auto" }}>           <div style={{ textAlign: "center", marginBottom: 40 }}>             <span className="section-caption" data-aos="fade-up">Dúvidas frequentes</span>             <h2               data-aos="fade-up"               style={{                 fontFamily: "'Comfortaa', cursive",                 fontWeight: 700,                 fontSize: "clamp(1.5rem, 2.5vw, 2rem)",                 color: "#2C1A0E",                 margin: 0,               }}             >               Perguntas sobre o Vértice e o Sentinela             </h2>             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />           </div>           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>             {[               {                 q: "Quanto custa o Programa Sentinela?",                 a: "O valor é definido em proposta, conforme a atividade, o porte e a quantidade de obrigações da empresa. Por isso o ponto de partida é o Diagnóstico Vértice.",               },               {                 q: "O Diagnóstico Vértice tem custo?",                 a: "Não. Ele é sem custo e não obriga à contratação de nenhum serviço.",               },               {                 q: "Posso contratar apenas um serviço pontual?",                 a: "Sim. Depois do diagnóstico, você pode contratar só o que precisa, como uma renovação de licença ou uma outorga.",               },               {                 q: "A IL Ambiental substitui um profissional ambiental interno?",                 a: "Para boa parte das empresas da região, sim. A IL assume o acompanhamento técnico e orienta a equipe interna no que for necessário.",               },             ].map((faq, i) => (               <div                 key={i}                 data-aos="fade-up"                 data-aos-delay={i * 60}                 style={{                   padding: "24px 0",                   borderBottom: "1px solid rgba(181,137,94,0.18)",                 }}               >                 <h4 style={{ fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", margin: "0 0 10px" }}>{faq.q}</h4>                 <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, margin: 0 }}>{faq.a}</p>               </div>             ))}           </div>         </div>       </section>        {/* BLOCO 8 · CTA FINAL */}       <section className="cta-section" style={{ background: "#452816", padding: "72px 24px", textAlign: "center" }}>         <h2           data-aos="fade-up"           style={{             fontFamily: "'Comfortaa', cursive",             fontWeight: 700,             fontSize: "clamp(1.7rem, 3vw, 2.4rem)",             color: "#DFC49F",             margin: 0,           }}         >           Comece sabendo exatamente onde sua empresa está.         </h2>         <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.7)", fontSize: "0.9rem", maxWidth: 520, margin: "12px auto 28px", lineHeight: 1.7 }}>           Sem custo e sem compromisso. Atendimento para empresas de Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.         </p>         <div data-aos="fade-up" data-aos-delay="200">           <Link href="/contato?assunto=vertice" className="btn-light">             Solicitar Diagnóstico Vértice           </Link>           <p style={{ marginTop: 14 }}>             <a               href={WA_VERTICE}               target="_blank"               rel="noopener noreferrer"               style={{ fontSize: "0.85rem", color: "rgba(223,196,159,0.5)", textDecoration: "underline" }}             >               ou fale pelo WhatsApp             </a>           </p>         </div>       </section>        <Footer />       <WhatsAppButton />     </div>   ); }
+import { useEffect, useState } from "react";
+import { Link } from "wouter";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import {
+  Shield, FileText, Droplets, Trash2, ClipboardList, Bell,
+  CheckCircle, ArrowRight, AlertTriangle, Calendar, Users, Building2,
+} from "lucide-react";
+
+export function GestaoAmbiental() {
+  useEffect(() => {
+    document.title = "Gestão Ambiental Contínua — Sentinela | IL Ambiental";
+    return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
+  }, []);
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  return (
+    <div style={{ fontFamily: "'Poppins', sans-serif", minHeight: "100vh" }}>
+      <Navbar />
+
+      {/* ── HERO ─────────────────────────────────────────────────── */}
+      <section
+        className="hero-animated-bg"
+        style={{ minHeight: "60vh" }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(26,15,8,0.60)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          className="hero-content-inner"
+          style={{ position: "relative", zIndex: 1, maxWidth: 800, margin: "0 auto" }}
+        >
+          <span
+            className="fade-1"
+            style={{
+              fontSize: "0.72rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.14em",
+              color: "#B5895E",
+              fontWeight: 600,
+              display: "block",
+              marginBottom: 16,
+            }}
+          >
+            Produto principal
+          </span>
+          <h1
+            className="fade-1"
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 700,
+              fontSize: "clamp(2rem, 5vw, 3.4rem)",
+              lineHeight: 1.12,
+              color: "#fff",
+              margin: 0,
+            }}
+          >
+            Sentinela —{" "}
+            <span style={{ color: "#DFC49F" }}>Gestão Ambiental Contínua</span>
+          </h1>
+          <p
+            className="fade-2"
+            style={{
+              fontSize: "clamp(1rem, 1.8vw, 1.12rem)",
+              color: "rgba(223,196,159,0.82)",
+              maxWidth: 580,
+              lineHeight: 1.75,
+              marginTop: 20,
+            }}
+          >
+            Por meio de contrato anual, a IL Ambiental assume a gestão das obrigações
+            ambientais da empresa: licenciamento, condicionantes, outorgas, relatórios e
+            processos junto aos órgãos — acompanhados de forma contínua, com coordenação
+            técnica e respaldo jurídico.
+          </p>
+          <div className="fade-3 hero-cta-group" style={{ marginTop: 36 }}>
+            <Link href="/contato?assunto=vertice" className="btn-primary">
+              Solicitar Diagnóstico Vértice
+            </Link>
+            <a
+              href="#como-funciona"
+              className="btn-outline"
+              onClick={e => {
+                e.preventDefault();
+                document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Como funciona
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PARA QUEM É ──────────────────────────────────────────── */}
+      <section style={{ padding: "80px 24px", background: "#F5F0E8" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <span className="section-caption" data-aos="fade-up">
+              PARA QUEM É
+            </span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              O Sentinela foi feito para{" "}
+              <span style={{ color: "#734120" }}>empresas como a sua</span>
+            </h2>
+            <span
+              className="section-title-line"
+              data-aos="fade-up"
+              style={{ margin: "14px auto 18px" }}
+            />
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: 20,
+            }}
+          >
+            {[
+              {
+                icon: <Building2 size={22} color="#734120" />,
+                title: "Indústrias e agroindústrias",
+                desc: "Com múltiplas licenças, condicionantes e relatórios periódicos para controlar.",
+              },
+              {
+                icon: <Droplets size={22} color="#734120" />,
+                title: "Usuários de recursos hídricos",
+                desc: "Que captam água e precisam manter outorga vigente e renovações em dia.",
+              },
+              {
+                icon: <Trash2 size={22} color="#734120" />,
+                title: "Geradores de resíduos",
+                desc: "Obrigados por lei a manter PGRS atualizado e comprovantes de destinação.",
+              },
+              {
+                icon: <AlertTriangle size={22} color="#734120" />,
+                title: "Quem já foi autuado",
+                desc: "Empresas que precisam regularizar a situação e garantir que não se repita.",
+              },
+              {
+                icon: <Users size={22} color="#734120" />,
+                title: "Empresas sem equipe ambiental interna",
+                desc: "Que precisam de coordenação técnica permanente para licenças, condicionantes, relatórios e outorgas — sem precisar contratar um funcionário fixo para isso.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 70}
+                style={{
+                  background: "#fff",
+                  padding: 28,
+                  borderRadius: 12,
+                  border: "1px solid rgba(181,137,94,0.18)",
+                  boxShadow: "0 2px 8px rgba(69,40,22,0.05)",
+                }}
+              >
+                <div style={{ marginBottom: 14 }}>{item.icon}</div>
+                <h3
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "0.95rem",
+                    color: "#2C1A0E",
+                    marginBottom: 8,
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  style={{
+                    color: "#6B5443",
+                    lineHeight: 1.65,
+                    fontSize: "0.875rem",
+                    margin: 0,
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── O QUE ESTÁ INCLUÍDO ──────────────────────────────────── */}
+      <section style={{ padding: "80px 24px", background: "#fff" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <span className="section-caption" data-aos="fade-up">
+              O QUE INCLUI
+            </span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              Tudo que sua empresa precisa,{" "}
+              <span style={{ color: "#734120" }}>sem improviso</span>
+            </h2>
+            <span
+              className="section-title-line"
+              data-aos="fade-up"
+              style={{ margin: "14px auto 18px" }}
+            />
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: 20,
+            }}
+          >
+            {[
+              {
+                icon: <Bell size={20} color="#734120" />,
+                title: "Monitoramento de prazos",
+                desc: "Alertas preventivos para licenças, outorgas, renovações e relatórios periódicos — com antecedência suficiente para agir.",
+              },
+              {
+                icon: <Shield size={20} color="#734120" />,
+                title: "Controle de condicionantes",
+                desc: "Mapeamento e acompanhamento de todas as condicionantes das licenças vigentes da sua empresa.",
+              },
+              {
+                icon: <FileText size={20} color="#734120" />,
+                title: "Relatórios e documentos periódicos",
+                desc: "Elaboração e protocolo dos relatórios exigidos pelos órgãos nos prazos corretos.",
+              },
+              {
+                icon: <Droplets size={20} color="#734120" />,
+                title: "Gestão de outorgas hídricas",
+                desc: "Acompanhamento da validade das outorgas de uso de recursos hídricos e condução das renovações.",
+              },
+              {
+                icon: <Trash2 size={20} color="#734120" />,
+                title: "Suporte ao PGRS",
+                desc: "Atualização do Plano de Gerenciamento de Resíduos Sólidos e controle dos comprovantes de destinação.",
+              },
+              {
+                icon: <ClipboardList size={20} color="#734120" />,
+                title: "Canal direto com a especialista",
+                desc: "Acesso direto à Isabela para dúvidas, intercorrências e orientação técnica ao longo do mês.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 70}
+                style={{
+                  display: "flex",
+                  gap: 16,
+                  padding: "24px 0",
+                  borderBottom: "1px solid rgba(181,137,94,0.15)",
+                }}
+              >
+                <span style={{ flexShrink: 0, marginTop: 2 }}>{item.icon}</span>
+                <div>
+                  <h3
+                    style={{
+                      fontWeight: 700,
+                      fontSize: "0.95rem",
+                      color: "#2C1A0E",
+                      marginBottom: 6,
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      color: "#6B5443",
+                      lineHeight: 1.65,
+                      fontSize: "0.875rem",
+                      margin: 0,
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── DEMANDAS ABRANGIDAS ──────────────────────────────────── */}
+      <section style={{ padding: "60px 24px 80px", background: "#fff" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start" }}>
+            <div data-aos="fade-right" style={{ flex: "1 1 260px" }}>
+              <h3
+                style={{
+                  fontFamily: "'Comfortaa', cursive",
+                  fontWeight: 700,
+                  fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)",
+                  color: "#2C1A0E",
+                  marginBottom: 12,
+                }}
+              >
+                Demandas que a gestão contínua pode abranger
+              </h3>
+              <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7 }}>
+                O escopo é definido no Diagnóstico Vértice, conforme a realidade de cada
+                empresa. Exemplos de demandas cobertas:
+              </p>
+            </div>
+            <div data-aos="fade-left" style={{ flex: "1 1 260px" }}>
+              <ul
+                style={{
+                  listStyle: "none",
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "10px 24px",
+                }}
+              >
+                {[
+                  "Renovação e acompanhamento de LP, LI e LO",
+                  "Controle de condicionantes das licenças",
+                  "Relatórios periódicos exigidos pelos órgãos",
+                  "Outorga de recursos hídricos e renovações",
+                  "PGRS e comprovantes de destinação",
+                  "Protocolos e processos no SEMAS-PA",
+                  "Resposta a autos de infração",
+                  "Atendimento de notificações e exigências",
+                  "Acompanhamento de processos no IBAMA",
+                  "Secretarias municipais de meio ambiente",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    style={{
+                      display: "flex",
+                      gap: 8,
+                      alignItems: "flex-start",
+                      fontSize: "0.875rem",
+                      color: "#6B5443",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <CheckCircle
+                      size={14}
+                      color="#734120"
+                      style={{ marginTop: 3, flexShrink: 0 }}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  color: "rgba(115,65,32,0.7)",
+                  marginTop: 16,
+                  fontStyle: "italic",
+                }}
+              >
+                Nem toda demanda da lista acima estará no contrato de todas as empresas. O
+                escopo é personalizado após o diagnóstico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMO FUNCIONA ────────────────────────────────────────── */}
+      <section
+        id="como-funciona"
+        style={{ padding: "80px 24px", background: "#452816" }}
+      >
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
+            <span
+              className="section-caption"
+              data-aos="fade-up"
+              style={{ color: "#B5895E" }}
+            >
+              PROCESSO
+            </span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
+                color: "#DFC49F",
+                margin: 0,
+              }}
+            >
+              Como funciona o Sentinela
+            </h2>
+            <span
+              className="section-title-line"
+              data-aos="fade-up"
+              style={{ margin: "14px auto 18px", background: "rgba(223,196,159,0.3)" }}
+            />
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              gap: 32,
+            }}
+          >
+            {[
+              {
+                step: "01",
+                title: "Diagnóstico Vértice sem custo",
+                desc: "Mapeamos todas as suas obrigações ambientais: licenças, outorgas, condicionantes, relatórios e prazos — sem custo inicial.",
+              },
+              {
+                step: "02",
+                title: "Plano Personalizado",
+                desc: "Criamos um calendário de obrigações e definimos as ações prioritárias para o primeiro mês.",
+              },
+              {
+                step: "03",
+                title: "Execução Mensal",
+                desc: "Conduzimos os protocolos, elaboramos documentos e realizamos as entregas exigidas pelos órgãos.",
+              },
+              {
+                step: "04",
+                title: "Relatório ao Cliente",
+                desc: "Ao final de cada ciclo, você recebe um resumo do que foi feito, pendências resolvidas e próximos vencimentos.",
+              },
+              {
+                step: "05",
+                title: "Vigília Contínua",
+                desc: "Monitoramos mudanças na legislação e novas exigências para que sua empresa esteja sempre um passo à frente.",
+              },
+            ].map((item, i) => (
+              <div key={i} data-aos="fade-up" data-aos-delay={i * 80}>
+                <div
+                  style={{
+                    fontSize: "2.4rem",
+                    fontFamily: "'Comfortaa', cursive",
+                    fontWeight: 700,
+                    color: "rgba(223,196,159,0.15)",
+                    lineHeight: 1,
+                    marginBottom: 8,
+                  }}
+                >
+                  {item.step}
+                </div>
+                <h3
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    color: "#DFC49F",
+                    marginBottom: 8,
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  style={{
+                    color: "rgba(223,196,159,0.7)",
+                    lineHeight: 1.65,
+                    fontSize: "0.875rem",
+                    margin: 0,
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPARATIVO VÉRTICE x SENTINELA ─────────────────────── */}
+      <section style={{ padding: "80px 24px", background: "#F5F0E8" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="section-caption" data-aos="fade-up">
+              COMPARATIVO
+            </span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              Por onde começar?
+            </h2>
+            <span
+              className="section-title-line"
+              data-aos="fade-up"
+              style={{ margin: "14px auto 18px" }}
+            />
+          </div>
+          <div
+            data-aos="fade-up"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              border: "1px solid rgba(181,137,94,0.25)",
+              borderRadius: 14,
+              overflow: "hidden",
+            }}
+          >
+            {/* Cabeçalho */}
+            <div
+              style={{
+                background: "#F5F0E8",
+                padding: "20px 28px",
+                fontWeight: 700,
+                fontSize: "1rem",
+                color: "#734120",
+                borderRight: "1px solid rgba(181,137,94,0.25)",
+                borderBottom: "1px solid rgba(181,137,94,0.25)",
+              }}
+            >
+              Diagnóstico Vértice
+            </div>
+            <div
+              style={{
+                background: "#452816",
+                padding: "20px 28px",
+                fontWeight: 700,
+                fontSize: "1rem",
+                color: "#DFC49F",
+                borderBottom: "1px solid rgba(181,137,94,0.25)",
+              }}
+            >
+              Sentinela Contínuo
+            </div>
+            {/* Linhas */}
+            {[
+              ["Serviço pontual", "Serviço mensal recorrente"],
+              ["Mapeamento de obrigações e pendências", "Execução e controle das obrigações"],
+              ["Plano de ação com prazos e prioridades", "Monitoramento proativo mês a mês"],
+              ["Entrega: relatório técnico", "Entrega: tranquilidade e conformidade"],
+              ["Ideal para começar", "Ideal para manter"],
+            ].map(([a, b], i) => (
+              <>
+                <div
+                  key={`a-${i}`}
+                  style={{
+                    padding: "14px 28px",
+                    background: "#fff",
+                    borderRight: "1px solid rgba(181,137,94,0.15)",
+                    borderBottom: i < 4 ? "1px solid rgba(181,137,94,0.12)" : "none",
+                    fontSize: "0.875rem",
+                    color: "#2C1A0E",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {a}
+                </div>
+                <div
+                  key={`b-${i}`}
+                  style={{
+                    padding: "14px 28px",
+                    background: "#fff",
+                    borderBottom: i < 4 ? "1px solid rgba(181,137,94,0.12)" : "none",
+                    fontSize: "0.875rem",
+                    color: "#2C1A0E",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {b}
+                </div>
+              </>
+            ))}
+          </div>
+          <p
+            data-aos="fade-up"
+            style={{
+              textAlign: "center",
+              color: "#6B5443",
+              fontSize: "0.9rem",
+              marginTop: 20,
+              lineHeight: 1.6,
+            }}
+          >
+            O Diagnóstico Vértice é o ponto de partida. Após o diagnóstico, a maioria das
+            empresas migra para o Sentinela para manter o que foi conquistado.
+          </p>
+        </div>
+      </section>
+
+      {/* ── QUEM CONDUZ ──────────────────────────────────────────── */}
+      <section style={{ padding: "80px 24px", background: "#fff" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
+            <div data-aos="fade-right" style={{ flex: "0 0 auto" }}>
+              <img
+                src="/photos/isabela-quem-conduz.jpg"
+                alt="Isabela Loiane, Engenheira Florestal, CREA-PA 1521301735"
+                style={{
+                  width: "clamp(180px, 24vw, 260px)",
+                  aspectRatio: "3/4",
+                  objectFit: "cover",
+                  borderRadius: 12,
+                  display: "block",
+                }}
+              />
+            </div>
+            <div data-aos="fade-left" style={{ flex: "1 1 300px" }}>
+              <span className="section-caption">QUEM CONDUZ</span>
+              <h2
+                style={{
+                  fontFamily: "'Comfortaa', cursive",
+                  fontWeight: 700,
+                  fontSize: "clamp(1.8rem, 3vw, 2.4rem)",
+                  color: "#2C1A0E",
+                  margin: "12px 0 6px",
+                }}
+              >
+                Isabela Loiane
+              </h2>
+              <p
+                style={{
+                  color: "#734120",
+                  fontWeight: 600,
+                  fontSize: "0.92rem",
+                  marginBottom: 4,
+                }}
+              >
+                Engenheira Florestal · CREA-PA 1521301735
+              </p>
+              <p style={{ color: "#6B5443", fontSize: "0.85rem", marginBottom: 20 }}>
+                Especialista em Direito Agroambiental
+              </p>
+              <p
+                style={{
+                  color: "#2C1A0E",
+                  lineHeight: 1.75,
+                  fontSize: "1rem",
+                  marginBottom: 20,
+                }}
+              >
+                Os projetos do Programa Sentinela têm coordenação técnica da engenheira florestal
+                Isabela Loiane, CREA-PA 1521301735, formada pela UEPA e pós-graduada em
+                Direito Ambiental pelo CESUPA. Com atuação direta junto à SEMAS-PA, IBAMA,
+                ANA e secretarias municipais de meio ambiente, ela conhece os trâmites e os
+                prazos reais de cada processo. Você fala diretamente com quem assina e resolve.
+              </p>
+              <ul
+                style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}
+              >
+                {[
+                  "Você fala diretamente com quem resolve",
+                  "Não existe intermediário ou equipe terceirizada",
+                  "Relacionamento pessoal com os órgãos competentes",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    style={{ display: "flex", gap: 10, alignItems: "flex-start" }}
+                  >
+                    <CheckCircle
+                      size={16}
+                      color="#734120"
+                      style={{ marginTop: 3, flexShrink: 0 }}
+                    />
+                    <span style={{ color: "#6B5443", fontSize: "0.9rem" }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────── */}
+      <section style={{ padding: "72px 24px", background: "#F5F0E8" }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="section-caption" data-aos="fade-up">
+              DÚVIDAS
+            </span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              Perguntas frequentes sobre o Sentinela
+            </h2>
+          </div>
+          {[
+            {
+              q: "O que é o Diagnóstico Vértice e por que é o ponto de partida?",
+              a: "O Diagnóstico Vértice é o levantamento completo das obrigações ambientais da sua empresa: licenças vigentes, outorgas, condicionantes, relatórios exigidos e pendências. Sem ele, não é possível montar um plano de gestão realista. É ele que define o escopo do Sentinela para o seu negócio.",
+            },
+            {
+              q: "A empresa precisa ter tudo regularizado antes de contratar o Sentinela?",
+              a: "Não. O Sentinela pode começar com uma situação irregular e atuar em paralelo com o processo de regularização. O Diagnóstico Vértice identifica o que há, e o plano de ação define a ordem das prioridades. Regularizar e manter são feitos juntos, não em sequência.",
+            },
+            {
+              q: "Quem cuida da minha empresa no dia a dia?",
+              a: "A Isabela diretamente. Não existe equipe terceirizada ou intermediário. Você tem acesso direto à engenheira florestal responsável por cada processo, com comunicação direta por WhatsApp e retorno em até 1 dia útil.",
+            },
+            {
+              q: "O Sentinela substitui ter um funcionário ambiental interno?",
+              a: "Para a maioria das empresas da Região Metropolitana de Belém, sim — com custo previsível e expertise especializada. A Isabela conhece os órgãos, os prazos reais e os trâmites que um profissional interno levaria meses para aprender, e já tem o relacionamento técnico estabelecido com os analistas e fiscalizadores.",
+            },
+            {
+              q: "O que acontece se surgir uma demanda inesperada — como um auto de infração?",
+              a: "Demandas inesperadas fazem parte da gestão ambiental. A Isabela analisa o documento recebido, orienta imediatamente e, conforme o escopo do contrato, conduz a resposta técnica dentro do prazo. O Sentinela existe justamente para que vocé não enfrente isso sozinho.",
+            },
+          ].map((faq, i) => (
+            <div
+              key={i}
+              className={`faq-item${openFaq === i ? " open" : ""}`}
+              data-aos="fade-up"
+              data-aos-delay={i * 60}
+            >
+              <div
+                className="faq-question"
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e =>
+                  e.key === "Enter" && setOpenFaq(openFaq === i ? null : i)
+                }
+              >
+                {faq.q}
+                <span className="faq-icon">+</span>
+              </div>
+              <div className="faq-answer">{faq.a}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CTA FINAL ────────────────────────────────────────────── */}
+      <section
+        className="cta-section"
+        style={{ background: "#452816", padding: "80px 24px", textAlign: "center" }}
+      >
+        <h2
+          data-aos="fade-up"
+          style={{
+            fontFamily: "'Comfortaa', cursive",
+            fontWeight: 700,
+            fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+            color: "#DFC49F",
+            margin: 0,
+          }}
+        >
+          Comece pelo Diagnóstico Vértice
+        </h2>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="100"
+          style={{
+            color: "rgba(223,196,159,0.82)",
+            fontSize: "1.05rem",
+            maxWidth: 560,
+            margin: "16px auto 32px",
+            lineHeight: 1.7,
+          }}
+        >
+          Um levantamento completo das obrigações ambientais da sua empresa — com plano de
+          ação, prazos e prioridades definidos pela Isabela.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <Link
+            href="/contato?assunto=vertice"
+            className="btn-light"
+            style={{
+              fontSize: "1.05rem",
+              padding: "16px 40px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            Solicitar Diagnóstico Vértice <ArrowRight size={18} />
+          </Link>
+          <p
+            style={{
+              fontSize: "0.78rem",
+              color: "rgba(223,196,159,0.75)",
+              marginTop: 14,
+            }}
+          >
+            Retorno em até 1 dia útil.
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  );
+}
