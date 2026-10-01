@@ -5,7 +5,6 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const WA_NUMBER = "5591992723570";
 const WA_GENERAL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo site da IL Ambiental e gostaria de falar sobre a situação ambiental da minha empresa.")}`;
-const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
 
 export function Home() {
 return (
@@ -26,7 +25,7 @@ textAlign: "center",
 }}
 >
 <span className="fade-1" style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 14 }}>
-Engenharia e consultoria ambiental · Região Metropolitana de Belém
+Gestão ambiental contínua · Região Metropolitana de Belém
 </span>
 <h1
 className="fade-1"
@@ -53,20 +52,15 @@ margin: "20px auto 0",
 lineHeight: 1.8,
 }}
 >
-Licenças, outorga de água, PGRS, relatórios anuais e condicionantes acompanhados por uma engenheira florestal com pós-graduação em Direito Ambiental pelo CESUPA. Para empresas de Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.
+A IL Ambiental assume a gestão das obrigações ambientais de empresas: licenças, condicionantes, outorgas, relatórios e processos junto aos órgãos, acompanhados de forma contínua, com coordenação técnica e visão jurídica. Atuação em Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal.
 </p>
 <div className="fade-3 hero-cta-group" style={{ marginTop: 36, flexWrap: "wrap", justifyContent: "center" }}>
 <Link href="/contato?assunto=vertice" className="btn-primary">
 Solicitar Diagnóstico Vértice
 </Link>
-<a
-href={WA_VERTICE}
-onClick={() => { window.gtag && window.gtag("event","whatsapp_click",{event_category:"contato"}); window.fbq && window.fbq("track","Lead"); }}target="_blank"
-rel="noopener noreferrer"
-className="btn-outline"
->
-Falar pelo WhatsApp
-</a>
+<Link href="/gestao-ambiental" className="btn-outline">
+Conhecer a gestão ambiental contínua
+</Link>
 </div>
 <p
 className="fade-3"
@@ -81,9 +75,9 @@ Diagnóstico inicial sem custo e sem compromisso de contratação.
 <div style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "20px 0" }}>
 <div className="trust-bar-grid">
 {[
-{ value: "CREA-PA", label: "CREA-PA 1521301735 · Responsável técnica registrada" },
+{ value: "Registro profissional", label: "CREA-PA 1521301735" },
 { value: "Cerca de 50", label: "processos protocolados em diferentes órgãos ambientais e tipos de processo" },
-{ value: "SEMAS-PA", label: "Atuação junto à SEMAS-PA e secretarias municipais de meio ambiente" },
+{ value: "Órgãos ambientais", label: "SEMAS-PA e secretarias municipais de meio ambiente" },
 { value: "1 dia útil", label: "Retorno em até 1 dia útil" },
 ].map((item, i, arr) => (
 <div
@@ -107,7 +101,7 @@ padding: "8px 12px",
 <section style={{ padding: "80px 24px", background: "#fff" }}>
 <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 <div style={{ textAlign: "center", marginBottom: 48 }}>
-<span className="section-caption" data-aos="fade-up">ATENÇÃO</span>
+<span className="section-caption" data-aos="fade-up">PONTOS DE ATENÇÃO</span>
 <h2
 data-aos="fade-up"
 style={{
@@ -118,8 +112,8 @@ color: "#2C1A0E",
 margin: 0,
 }}
 >
-O que costuma{" "}
-<span style={{ color: "#734120" }}>passar despercebido</span>
+O que a fiscalização{" "}
+<span style={{ color: "#734120" }}>costuma verificar</span>
 </h2>
 <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
 <p
@@ -127,7 +121,7 @@ data-aos="fade-up"
 data-aos-delay="100"
 style={{ color: "#6B5443", fontSize: "1.05rem", maxWidth: 560, margin: "0 auto", lineHeight: 1.7 }}
 >
-Empresas que acreditam estar regularizadas muitas vezes têm pendências que só aparecem na hora da fiscalização.
+A conformidade ambiental não termina na emissão da licença. Estes são os pontos que mais geram pendências em empresas já licenciadas.
 </p>
 </div>
 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
@@ -155,7 +149,7 @@ style={{ background: "#F5F0E8", padding: 28, borderRadius: 12, border: "1px soli
 <section style={{ padding: "80px 24px", background: "#F5F0E8" }}>
 <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 <div style={{ textAlign: "center", marginBottom: 48 }}>
-<span className="section-caption" data-aos="fade-up">O QUE FAZEMOS</span>
+<span className="section-caption" data-aos="fade-up">COMO ATUAMOS</span>
 <h2
 data-aos="fade-up"
 style={{
@@ -166,24 +160,26 @@ color: "#2C1A0E",
 margin: 0,
 }}
 >
-Serviços pontuais quando a necessidade é específica.{" "}
-<span style={{ color: "#734120" }}>Gestão contínua quando a empresa quer tirar esse assunto da rotina.</span>
+Gestão ambiental contínua para empresas que precisam de{" "}
+<span style={{ color: "#734120" }}>conformidade permanente.</span>
 </h2>
 <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
 </div>
 
-{/* Destaque Programa Sentinela */}
+{/* Destaque Programa Sentinela — cartão largo, largura inteira */}
 <div
 data-aos="fade-up"
+className="sentinela-wide-card"
 style={{
 background: "#452816",
 borderRadius: 14,
-padding: "36px 40px",
-marginBottom: 28,
+padding: "clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px)",
+marginBottom: 56,
 display: "grid",
-gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-gap: 32,
+gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+gap: 36,
 alignItems: "center",
+boxShadow: "0 8px 32px rgba(69,40,22,0.18)",
 }}
 >
 <div>
@@ -194,10 +190,10 @@ Programa Sentinela · gestão ambiental contínua
 Gestão ambiental contínua
 </h3>
 <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.75, fontSize: "0.95rem", margin: 0 }}>
-Um contrato anual em que a IL Ambiental acompanha licenças, prazos, condicionantes e documentos da sua empresa e organiza o que precisa ser feito ao longo do ano.
+Por meio de contrato anual, a IL Ambiental assume a gestão das demandas ambientais da empresa: licenciamento e acompanhamento de licenças, atendimento de condicionantes, relatórios, processos junto aos órgãos, resposta a autos de infração e serviços técnicos específicos, conforme o escopo definido.
 </p>
 </div>
-<div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
+<div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "stretch", maxWidth: 360, width: "100%", justifySelf: "center" }}>
 <Link
 href="/gestao-ambiental"
 className="btn-light"
@@ -205,14 +201,27 @@ style={{ alignSelf: "stretch", textAlign: "center" }}
 >
 Conhecer o Programa Sentinela
 </Link>
-<p style={{ fontSize: "0.75rem", color: "rgba(223,196,159,0.45)", margin: 0 }}>
-Começa pelo Diagnóstico Vértice, sem custo.
+<p style={{ fontSize: "0.78rem", color: "rgba(223,196,159,0.6)", margin: 0, textAlign: "center" }}>
+O ponto de partida é o Diagnóstico Vértice.
 </p>
 </div>
 </div>
 
-{/* Grade 2x2 de serviços pontuais */}
-<div className="grid-6-services" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
+{/* Demandas específicas — grade de 6 serviços */}
+<h3
+data-aos="fade-up"
+style={{
+fontFamily: "'Comfortaa', cursive",
+fontWeight: 700,
+fontSize: "clamp(1.2rem, 2.2vw, 1.5rem)",
+color: "#2C1A0E",
+textAlign: "center",
+margin: "0 0 28px",
+}}
+>
+Também atuamos em demandas específicas
+</h3>
+<div className="grid-6-services">
 {[
 {
 icon: (
@@ -227,7 +236,7 @@ icon: (
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#734120" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
 ),
 title: "Licenciamento ambiental",
-desc: "Licença de Operação e renovações, alëm de LP, LI, LAR e dispensa de licenciamento, do enquadramento à emissão.",
+desc: "Licença de Operação e renovações, além de LP, LI, LAR e dispensa de licenciamento, do enquadramento à emissão.",
 anchor: "/servicos#licenciamento",
 },
 {
@@ -245,6 +254,22 @@ icon: (
 title: "PGRS e resíduos",
 desc: "Elaboração e atualização do Plano de Gerenciamento de Resíduos Sólidos, com orientação para manter os registros de destinação em dia.",
 anchor: "/servicos#pgrs",
+},
+{
+icon: (
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#734120" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M9 11l2 2 4-4"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+),
+title: "Condicionantes",
+desc: "Levantamento, cumprimento e comprovação das condicionantes de licenças e outorgas, com protocolo dentro dos prazos.",
+anchor: "/servicos#condicionantes",
+},
+{
+icon: (
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#734120" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+),
+title: "Autos de infração e notificações",
+desc: "Análise técnica do documento recebido e resposta fundamentada dentro do prazo.",
+anchor: "/servicos#notificacoes",
 },
 ].map((svc, i) => (
 <div
@@ -415,7 +440,7 @@ onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; 
 </div>
 <div data-aos="fade-left">
 <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#B5895E", fontWeight: 600, display: "block", marginBottom: 12 }}>
-Quem assina o trabalho
+Coordenação técnica
 </span>
 <h2
 style={{
@@ -426,13 +451,13 @@ color: "#DFC49F",
 margin: "0 0 8px",
 }}
 >
-Isabela Loiane
+Isabela Loiane, responsável técnica da IL Ambiental
 </h2>
 <p style={{ color: "#B5895E", fontSize: "0.9rem", marginBottom: 20 }}>
 Engenheira Florestal · Pós-graduação em Direito Ambiental (CESUPA) · CREA-PA 1521301735
 </p>
 <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: 24 }}>
-Formada em Engenharia Florestal pela UEPA (2021), com pós-graduação em Direito Ambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022 e experiência em órgãos públicos — SEMMA e Emater — e no setor privado. Fundei a IL Ambiental para oferecer às empresas da região um acompanhamento técnico, próximo e com visão jurídica. Cada processo é analisado e conduzido por mim, do primeiro levantamento ao protocolo no órgão.
+Os projetos da IL Ambiental têm coordenação técnica da engenheira florestal Isabela Loiane, formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Ambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022, reúne experiência em órgãos públicos, como a SEMMA e a Emater, e no setor privado. Essa combinação permite conduzir cada processo considerando, ao mesmo tempo, a exigência técnica, o enquadramento legal e a realidade da operação.
 </p>
 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
 {["Engenharia Florestal", "Direito Ambiental (CESUPA)", "CREA-PA 1521301735"].map((tag, i) => (
@@ -473,7 +498,7 @@ color: "#2C1A0E",
 margin: 0,
 }}
 >
-Por que empresas da região escolhem a IL Ambiental
+Por que empresas escolhem a IL Ambiental
 </h2>
 <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
 </div>
@@ -481,7 +506,7 @@ Por que empresas da região escolhem a IL Ambiental
 {[
 {
 title: "Técnica e jurídica no mesmo ponto de contato",
-desc: "Formação em Engenharia Florestal pela UEPA, com pós-graduação em Direito Ambiental pelo CESUPA. Cada decisão técnica já considera o respaldo legal.",
+desc: "Engenharia e Direito Ambiental integrados na condução de cada processo. As decisões técnicas já consideram o respaldo legal.",
 },
 {
 title: "Conhecimento local",
@@ -522,10 +547,11 @@ border: "1px solid rgba(181,137,94,0.18)",
 </div>
 </section>
 
-{/* ═══ H-09 CLIENTES ═══ */}
+{/* ═══ H-09 CLIENTES — formato sóbrio ═══ */}
 <section style={{ padding: "72px 24px", background: "#fff" }}>
-<div style={{ maxWidth: 900, margin: "0 auto" }}>
+<div style={{ maxWidth: 960, margin: "0 auto" }}>
 <div style={{ textAlign: "center", marginBottom: 40 }}>
+<span className="section-caption" data-aos="fade-up">EXPERIÊNCIA</span>
 <h2
 data-aos="fade-up"
 style={{
@@ -536,59 +562,25 @@ color: "#2C1A0E",
 margin: 0,
 }}
 >
-Empresas que já confiaram seus processos ambientais à IL Ambiental
+Empresas que já contaram com a IL Ambiental
 </h2>
 <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
 <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#6B5443", fontSize: "0.95rem", lineHeight: 1.6, marginTop: 0 }}>
-Alguns dos clientes atendidos pela IL Ambiental.
+Experiência com empresas da agroindústria, de alimentos e de logística.
 </p>
 </div>
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24, maxWidth: 680, margin: "0 auto" }}>
+<ul className="client-list" data-aos="fade-up">
 {[
-{ initials: "TR", name: "Tropoc", desc: "Multinacional atuante no beneficiamento da pimenta-do-reino" },
-{ initials: "FP", name: "Fruta Pronta", desc: "Empresa de Portel, Pará, produtora de açaí em polpa" },
-{ initials: "TZ", name: "Transzilli", desc: "Operações de transporte, armazenagem e distribuição" },
+{ name: "Tropoc", desc: "Multinacional do beneficiamento de pimenta-do-reino" },
+{ name: "Fruta Pronta", desc: "Produção de polpa de açaí, Portel (PA)" },
+{ name: "Transzilli", desc: "Transporte, armazenagem e distribuição" },
 ].map((c, i) => (
-<div
-key={i}
-className="hover-card"
-data-aos="fade-up"
-data-aos-delay={i * 80}
-style={{
-background: "#F5F0E8",
-padding: "32px 24px",
-borderRadius: 12,
-border: "1px solid rgba(181,137,94,0.25)",
-display: "flex",
-gap: 18,
-alignItems: "flex-start",
-}}
->
-<div
-style={{
-width: 48,
-height: 48,
-background: "#734120",
-borderRadius: 8,
-display: "flex",
-alignItems: "center",
-justifyContent: "center",
-color: "#DFC49F",
-fontFamily: "'Comfortaa', cursive",
-fontWeight: 700,
-fontSize: "0.9rem",
-flexShrink: 0,
-}}
->
-{c.initials}
-</div>
-<div>
-<h4 style={{ fontWeight: 700, color: "#2C1A0E", fontSize: "1rem", marginBottom: 4 }}>{c.name}</h4>
-<p style={{ color: "#6B5443", fontSize: "0.85rem", lineHeight: 1.55, margin: 0 }}>{c.desc}</p>
-</div>
-</div>
+<li key={i} className="client-item">
+<span className="client-name">{c.name}</span>
+<span className="client-sector">{c.desc}</span>
+</li>
 ))}
-</div>
+</ul>
 </div>
 </section>
 
@@ -607,10 +599,10 @@ marginLeft: "auto",
 marginRight: "auto",
 }}
 >
-Quer saber exatamente o que sua empresa precisa cumprir nos próximos 12 meses?
+Comece por um diagnóstico técnico da situação ambiental da sua empresa.
 </h2>
 <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.72)", fontSize: "1rem", maxWidth: 520, margin: "16px auto 0", lineHeight: 1.7 }}>
-Solicite o Diagnóstico Vértice. A análise é feita pela responsável técnica e não tem custo.
+O Diagnóstico Vértice mapeia licenças, condicionantes, outorgas e prazos, e indica o que precisa ser feito nos próximos 12 meses.
 </p>
 <div data-aos="fade-up" data-aos-delay="200" style={{ marginTop: 32 }}>
 <Link href="/contato?assunto=vertice" className="btn-light" style={{ fontSize: "1rem", padding: "15px 36px" }}>
@@ -620,12 +612,12 @@ Solicitar Diagnóstico Vértice
 Sem compromisso de contratação. Retorno em até 1 dia útil.
 </p>
 <a
-href={WA_VERTICE}
+href={WA_GENERAL}
 onClick={() => { window.gtag && window.gtag("event","whatsapp_click",{event_category:"contato"}); window.fbq && window.fbq("track","Lead"); }}target="_blank"
 rel="noopener noreferrer"
 style={{ fontSize: "0.85rem", color: "rgba(223,196,159,0.55)", textDecoration: "underline", display: "block", marginTop: 8 }}
 >
-ou fale pelo WhatsApp
+ou fale com a IL Ambiental
 </a>
 </div>
 </section>

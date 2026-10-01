@@ -9,6 +9,7 @@ import { Privacidade } from "./pages/privacidade";
 import { NotFound } from "./pages/not-found";
 import { CookieBanner } from "./components/CookieBanner";
 import { useEffect } from "react";
+import { captureTracking } from "./lib/tracking";
 
 declare global {
   interface Window {
@@ -50,10 +51,50 @@ const PAGE_META: Record<string, { title: string; description: string; canonical:
   },
 };
 
+// S2: rolagem até a âncora (#agua, #pgrs etc.) depois que a página monta.
+// Desconta o menu fixo (90px). Repete algumas vezes porque imagens e fontes
+// carregadas depois podem deslocar o layout.
+const ANCHOR_OFFSET = 90;
+
+function scrollToHash(hash: string): boolean {
+  const id = decodeURIComponent(hash.replace(/^#/, ""));
+  if (!id) return false;
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const top = el.getBoundingClientRect().top + window.scrollY - ANCHOR_OFFSET;
+  window.scrollTo({ top: Math.max(0, top), behavior: "instant" as ScrollBehavior });
+  return true;
+}
+
+function scheduleHashScroll(): boolean {
+  const hash = window.location.hash;
+  if (!hash || hash === "#") return false;
+  [0, 150, 450, 900].forEach(delay =>
+    window.setTimeout(() => {
+      if (window.location.hash === hash) scrollToHash(hash);
+    }, delay),
+  );
+  return true;
+}
+
+function HashScroll() {
+  useEffect(() => {
+    // Navegação para a mesma página com outra âncora (ex.: links do rodapé em /servicos)
+    const onNav = () => { scheduleHashScroll(); };
+    const events = ["pushState", "replaceState", "hashchange"];
+    events.forEach(ev => window.addEventListener(ev, onNav));
+    return () => events.forEach(ev => window.removeEventListener(ev, onNav));
+  }, []);
+  return null;
+}
+
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    captureTracking();
+    if (!scheduleHashScroll()) {
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }
 
     const meta = PAGE_META[location] ?? {
       title: "IL Ambiental | Consultoria e Licenciamento Ambiental em Belém",
@@ -102,6 +143,7 @@ export function App() {
   return (
     <WouterRouter>
       <ScrollToTop />
+      <HashScroll />
       <CookieBanner />
       <Switch>
         <Route path="/" component={Home} />

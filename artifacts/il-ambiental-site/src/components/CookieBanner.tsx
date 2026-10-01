@@ -76,7 +76,7 @@ export function CookieBanner() {
         }}
       >
         Usamos cookies essenciais para o funcionamento do site e, com sua autorização, cookies analíticos para entender como ele é utilizado.
-        Ao continuar navegando, vocà concorda com nossa{" "}
+        Ao continuar navegando, você concorda com nossa{" "}
         <Link href="/privacidade" style={{ color: "#B5895E", textDecoration: "underline" }}>
           Política de Privacidade
         </Link>.

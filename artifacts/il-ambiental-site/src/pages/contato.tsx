@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { getTracking } from "@/lib/tracking";
 
 const MUNICIPIOS = [
   "Belém",
@@ -46,6 +47,7 @@ export function Contato() {
   const [sending, setSending] = useState(false);
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
+  const [tracking] = useState(() => getTracking());
 
   useEffect(() => {
     if (!feedback) return;
@@ -64,12 +66,12 @@ export function Contato() {
     const municipio = (data.get("municipio") as string)?.trim();
     const message = (data.get("message") as string)?.trim();
 
-    // UTM / origem
-    const params = new URLSearchParams(window.location.search);
-    const utm_source = params.get("utm_source") || "";
-    const utm_medium = params.get("utm_medium") || "";
-    const utm_campaign = params.get("utm_campaign") || "";
-    const origem = "site_formulario";
+    // UTM / página de origem (campos ocultos do formulário)
+    const utm_source = ((data.get("utm_source") as string) || "").trim();
+    const utm_medium = ((data.get("utm_medium") as string) || "").trim();
+    const utm_campaign = ((data.get("utm_campaign") as string) || "").trim();
+    const utm_content = ((data.get("utm_content") as string) || "").trim();
+    const pagina_origem = ((data.get("pagina_origem") as string) || "").trim();
 
     const errors: Record<string, boolean> = {};
     if (!name) errors.name = true;
@@ -88,19 +90,24 @@ export function Contato() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, company, phone, email, municipio, assunto, message, utm_source, utm_medium, utm_campaign, origem }),
+        body: JSON.stringify({ name, company, phone, email, municipio, assunto, message, utm_source, utm_medium, utm_campaign, utm_content, pagina_origem }),
       });
-      const result = await res.json();
-      if (result.success) {
+      const result = await res.json().catch(() => ({ success: false }));
+      if (res.ok && result.success) {
         setSubmitted(true);
-        // GA4 generate_lead event
+        // Envio confirmado: GA4 generate_lead + Meta Pixel Lead
         try {
-          (window as any).gtag?.("event", "generate_lead", {
+          window.gtag?.("event", "generate_lead", {
             event_category: "formulario",
             event_label: assunto || "sem_assunto",
             municipio: municipio || "nao_informado",
+            utm_source: utm_source || undefined,
+            utm_campaign: utm_campaign || undefined,
           });
-        } catch (_) {/* silencia erros se GA4 não estiver carregado */}
+        } catch (_) {/* GA4 indisponível */}
+        try {
+          window.fbq?.("track", "Lead", { content_name: assunto || "Contato site" });
+        } catch (_) {/* Pixel indisponível */}
       } else {
         setFeedback({ type: "error", message: result.message || "Erro ao enviar. Tente pelo WhatsApp." });
       }
@@ -138,7 +145,7 @@ export function Contato() {
               margin: 0,
             }}
           >
-            Fale com quem entende de licenciamento no Pará.
+            Fale com a IL Ambiental
           </h1>
           <p
             className="fade-2"
@@ -262,7 +269,7 @@ export function Contato() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
             gap: 20,
           }}
         >
@@ -299,6 +306,12 @@ export function Contato() {
                   onSubmit={handleSubmit}
                   style={{ display: "flex", flexDirection: "column" }}
                 >
+                  {/* Rastreamento: campos ocultos */}
+                  <input type="hidden" name="utm_source" value={tracking.utm_source} />
+                  <input type="hidden" name="utm_medium" value={tracking.utm_medium} />
+                  <input type="hidden" name="utm_campaign" value={tracking.utm_campaign} />
+                  <input type="hidden" name="utm_content" value={tracking.utm_content} />
+                  <input type="hidden" name="pagina_origem" value={tracking.pagina_origem} />
                   {/* Nome */}
                   <div className="form-group">
                     <input
@@ -680,6 +693,21 @@ export function Contato() {
       {/* ── PROCESS STEPS (S38) ─────────────────────────────────── */}
       <section style={{ padding: "56px 24px 0", background: "#fff" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 32 }}>
+            <span className="section-caption" data-aos="fade-up">Próximos passos</span>
+            <h2
+              data-aos="fade-up"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                color: "#2C1A0E",
+                margin: 0,
+              }}
+            >
+              O que acontece depois do contato?
+            </h2>
+          </div>
           <div
             style={{
               display: "grid",
@@ -693,18 +721,18 @@ export function Contato() {
             {[
               {
                 step: "01",
-                title: "Você entra em contato",
-                desc: "Pelo formulário ou WhatsApp. Descrevemos a situação da sua empresa sem precisar de documentos nesse primeiro momento.",
+                title: "Retorno da equipe técnica",
+                desc: "Nossa equipe técnica analisa sua mensagem e retorna pelo WhatsApp ou e-mail informado.",
               },
               {
                 step: "02",
-                title: "Diagnóstico técnico",
-                desc: "A Isabela mapeia as obrigações ambientais da empresa e identifica o que está em dia, o que está pendente e o que é urgente.",
+                title: "Diagnóstico Vértice",
+                desc: "Solicitamos os documentos da empresa e realizamos o levantamento técnico de licenças, condicionantes, outorgas e prazos.",
               },
               {
                 step: "03",
-                title: "Plano e execução",
-                desc: "Recebe um plano de ação com prazos claros. A IL conduz os processos junto aos órgãos — você acompanha e assina quando necessário.",
+                title: "Entrega e proposta",
+                desc: "Em até 10 dias úteis, você recebe o diagnóstico e, se fizer sentido, uma proposta de gestão contínua ou de serviços específicos.",
               },
             ].map((item, i, arr) => (
               <div
@@ -856,7 +884,7 @@ export function Contato() {
           {[
             {
               q: "Qual o prazo médio para o licenciamento no Pará?",
-              a: "Depende da modalidade e do porte do empreendimento. A Licença Prévia (LP) costuma levar entre 2 e 6 meses na SEMAS-PA; a Licença de Operação (LO) varia conforme a categoria. Com documentação correta desde a primeira entrada e acompanhamento ativo do processo, evitamos os atrasos mais comuns. A Isabela orienta cada caso individualmente.",
+              a: "O prazo depende da modalidade da licença, do porte da atividade e do órgão responsável. Com a documentação correta desde o primeiro protocolo, reduzem-se as exigências e o tempo de análise. O Diagnóstico Vértice indica a modalidade aplicável à sua empresa.",
             },
             {
               q: "Minha empresa pode ser multada sem licença?",
@@ -864,15 +892,15 @@ export function Contato() {
             },
             {
               q: "A IL atende empresas fora da Região Metropolitana de Belém?",
-              a: "A atuação principal é na Região Metropolitana de Belém (Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal). Para outros municípios do estado do Pará, atendemos remotamente ou de forma combinada, dependendo da natureza do serviço. Entre em contato e avaliamos juntos.",
+              a: "A atuação é concentrada em Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal. Demandas em outros municípios são avaliadas caso a caso.",
             },
             {
-              q: "O que é o Diagnóstico Vértice e qual o custo?",
-              a: "O Diagnóstico Vértice é um levantamento técnico das obrigações ambientais da sua empresa: licenças vigentes e vencimentos, outorgas, condicionantes, relatórios exigidos e pendências identificadas. O resultado é um relatório com plano de ação, prazos e prioridades. É o ponto de partida da IL com qualquer empresa — e é realizado sem custo inicial.",
+              q: "O Diagnóstico Vértice é gratuito?",
+              a: "Sim. O Diagnóstico Vértice é um levantamento técnico inicial, sem custo e sem compromisso de contratação. Ao final, você recebe um documento com a situação das licenças, condicionantes e outorgas e as prioridades para os próximos 12 meses.",
             },
             {
               q: "Minha empresa precisa de outorga de recursos hídricos?",
-              a: "Toda atividade que capta água de rios, córregos, lagos ou poços acima dos volumes de isenção exige outorga da SEMAS-PA ou da ANA. Irrigação, abastecimento industrial e atividades agropecuárias costumam ser os casos mais frequentes. A Isabela avalia se a sua atividade se enquadra e orienta o processo completo.",
+              a: "Sim, se a atividade capta água de poço ou de corpo hídrico, ou lança efluentes. A outorga é exigida independentemente da licença ambiental. O Diagnóstico Vértice identifica se ela é necessária no seu caso.",
             },
             {
               q: "Quais documentos preciso para iniciar o licenciamento?",

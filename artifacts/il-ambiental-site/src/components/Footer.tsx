@@ -39,8 +39,8 @@ export function Footer() {
                 color: "rgba(223,196,159,0.65)",
               }}
             >
-              IL Ambiental. Gestão ambiental e consultoria técnica para empresas da Região
-              Metropolitana de Belém e entorno.
+              Gestão ambiental e consultoria técnica para empresas da Região
+              Metropolitana de Belém.
             </p>
             <p
               style={{
@@ -148,12 +148,12 @@ export function Footer() {
             >
               {[
                 { href: "/gestao-ambiental", label: "Gestão ambiental contínua" },
-                { href: "/servicos", label: "Licenciamento ambiental" },
-                { href: "/servicos", label: "Outorga de recursos hídricos" },
-                { href: "/servicos", label: "Relatórios técnicos" },
-                { href: "/servicos", label: "PGRS" },
+                { href: "/servicos#licenciamento", label: "Licenciamento ambiental" },
+                { href: "/servicos#agua", label: "Outorga de recursos hídricos" },
+                { href: "/servicos#relatorios", label: "Relatórios técnicos" },
+                { href: "/servicos#pgrs", label: "PGRS" },
                 { href: "/servicos#condicionantes", label: "Condicionantes" },
-                { href: "/servicos", label: "Autos de infração e notificações" },
+                { href: "/servicos#notificacoes", label: "Autos de infração e notificações" },
               ].map(item => (
                 <li key={item.label}>
                   <Link

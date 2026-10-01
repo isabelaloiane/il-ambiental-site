@@ -85,8 +85,14 @@ export const handler: Handler = async (event) => {
   const telefone = String(body.telefone ?? body.phone ?? "").trim();
   const assunto = String(body.assunto ?? "").trim();
   const mensagem = String(body.mensagem ?? body.message ?? "").trim();
+  const utmSource = String(body.utm_source ?? "").trim();
+  const utmMedium = String(body.utm_medium ?? "").trim();
+  const utmCampaign = String(body.utm_campaign ?? "").trim();
+  const utmContent = String(body.utm_content ?? "").trim();
+  const paginaOrigem = String(body.pagina_origem ?? body.origem ?? "").trim();
 
-  if (!nome || !email) {
+  // Obrigatórios: nome e WhatsApp. E-mail é opcional.
+  if (!nome || !telefone) {
     return {
       statusCode: 400,
       headers,
@@ -101,6 +107,12 @@ export const handler: Handler = async (event) => {
   const cleanEmpresa = sanitize(empresa) || "Não informada";
   const cleanMunicipio = sanitize(municipio) || "Não informado";
   const cleanEmail = sanitize(email);
+  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail);
+  const cleanUtmSource = sanitize(utmSource) || "—";
+  const cleanUtmMedium = sanitize(utmMedium) || "—";
+  const cleanUtmCampaign = sanitize(utmCampaign) || "—";
+  const cleanUtmContent = sanitize(utmContent) || "—";
+  const cleanPaginaOrigem = sanitize(paginaOrigem) || "—";
   const cleanTelefone = sanitize(telefone) || "Não informado";
   const cleanAssunto = sanitize(assunto) || "Não informado";
   const cleanMensagem = sanitize(mensagem) || "(sem mensagem)";
@@ -164,7 +176,7 @@ export const handler: Handler = async (event) => {
       </tr>
       <tr>
         <td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;">E-mail</td>
-        <td style="padding:10px;border:1px solid #ddd;">${cleanEmail}</td>
+        <td style="padding:10px;border:1px solid #ddd;">${cleanEmail || "Não informado"}</td>
       </tr>
       <tr>
         <td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;">WhatsApp</td>
@@ -174,6 +186,14 @@ export const handler: Handler = async (event) => {
         <td style="padding:10px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;vertical-align:top;">Mensagem</td>
         <td style="padding:10px;border:1px solid #ddd;white-space:pre-wrap;">${cleanMensagem}</td>
       </tr>
+    </table>
+    <h3 style="color:#452816;font-family:sans-serif;margin:24px 0 8px;font-size:15px;">Origem do contato</h3>
+    <table style="border-collapse:collapse;width:100%;max-width:600px;font-family:sans-serif;font-size:13px;">
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;width:180px;">Página de origem</td><td style="padding:8px;border:1px solid #ddd;">${cleanPaginaOrigem}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;">utm_source</td><td style="padding:8px;border:1px solid #ddd;">${cleanUtmSource}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;">utm_medium</td><td style="padding:8px;border:1px solid #ddd;">${cleanUtmMedium}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;">utm_campaign</td><td style="padding:8px;border:1px solid #ddd;">${cleanUtmCampaign}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f5f0e8;">utm_content</td><td style="padding:8px;border:1px solid #ddd;">${cleanUtmContent}</td></tr>
     </table>
     <br>
     <p style="color:#888;font-size:12px;font-family:sans-serif;">
@@ -185,8 +205,8 @@ export const handler: Handler = async (event) => {
     const info = await transporter.sendMail({
       from: `"Site IL Ambiental" <${emailUser}>`,
       to: "contato@ilambiental.com.br",
-      replyTo: cleanEmail,
-      subject: `Nova mensagem do site — ${assuntoTexto} — ${cleanNome}`,
+      ...(emailValido ? { replyTo: cleanEmail } : {}),
+      subject: `Novo contato | Site | ${assuntoTexto} | ${cleanMunicipio}`,
       html: htmlBody,
     });
 

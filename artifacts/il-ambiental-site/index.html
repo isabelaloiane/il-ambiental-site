@@ -33,7 +33,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
      <!-- Google tag (gtag.js) — GA4 com Consent Mode v2 (LGPD) -->     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('consent', 'default', {         analytics_storage: 'denied',         ad_storage: 'denied',         wait_for_update: 500       });     </script>     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1S9ZBQGL4W"></script>     <script>       window.dataLayer = window.dataLayer || [];       function gtag(){dataLayer.push(arguments);}       gtag('js', new Date());       gtag('config', 'G-1S9ZBQGL4W', { send_page_view: false });        function ilAtualizarGA4() {         var c = localStorage.getItem('il_cookie_consent');         if (c === 'all') {           gtag('consent', 'update', { analytics_storage: 'granted' });           gtag('event', 'page_view');         }       }       if (document.readyState === 'loading') {         document.addEventListener('DOMContentLoaded', ilAtualizarGA4);       } else {         ilAtualizarGA4();       }       window.addEventListener('il_consent_updated', ilAtualizarGA4);     </script>
 
     <!-- Meta Pixel (Facebook) — ID 1919173311484899 -->
@@ -139,17 +138,64 @@
       domWatcher.observe(document.body, { childList: true, subtree: true });
     </script>
 
-    <!-- AOS.js -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      // ─── INICIALIZA AOS ───────────────────────────────────────────────
+      // ─── S5: ANIMAÇÃO DE ENTRADA SÓ COMO REALCE ──────────────────────
+      // O conteúdo é visível por padrão. Apenas elementos [data-aos] que
+      // ainda estão ABAIXO da tela recebem .il-pending e são revelados assim
+      // que chegam à área visível ou ficam para trás na rolagem.
+      (function () {
+        if (!window.requestAnimationFrame || !window.MutationObserver) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var pending = [];
+        var ticking = false;
+        function reveal(el) {
+          var d = Math.min(parseInt(el.getAttribute('data-aos-delay') || '0', 10) || 0, 300);
+          el.style.transitionDelay = d + 'ms';
+          el.classList.add('il-in');
+          setTimeout(function () {
+            el.classList.remove('il-pending', 'il-in');
+            el.style.transitionDelay = '';
+          }, 700 + d);
+        }
+        function check() {
+          ticking = false;
+          var vh = window.innerHeight || document.documentElement.clientHeight;
+          pending = pending.filter(function (el) {
+            if (!el.isConnected) return false;
+            // revela tudo que já entrou na tela OU ficou para trás (rolagem rápida/âncora)
+            if (el.getBoundingClientRect().top < vh - 40) { reveal(el); return false; }
+            return true;
+          });
+        }
+        function schedule() {
+          if (!ticking) { ticking = true; requestAnimationFrame(check); }
+        }
+        function scan() {
+          var vh = window.innerHeight || document.documentElement.clientHeight;
+          document.querySelectorAll('[data-aos]:not([data-il])').forEach(function (el) {
+            el.setAttribute('data-il', '1');
+            if (el.getBoundingClientRect().top > vh) {
+              el.classList.add('il-pending');
+              pending.push(el);
+            }
+          });
+          schedule();
+        }
+        window.addEventListener('scroll', schedule, { passive: true });
+        window.addEventListener('resize', schedule);
+        new MutationObserver(function (muts) {
+          for (var i = 0; i < muts.length; i++) {
+            if (muts[i].addedNodes.length) { scan(); break; }
+          }
+        }).observe(document.documentElement, { childList: true, subtree: true });
+        if (document.readyState !== 'loading') scan();
+        else document.addEventListener('DOMContentLoaded', scan);
+        // rechecagem periódica (layout pode mudar sem rolagem, ex.: imagens carregando)
+        setInterval(schedule, 1000);
+      })();
+    </script>
+    <script>
       document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({
-          duration: 600,
-          easing: 'ease-out',
-          once: true,
-          offset: 80
-        });
 
         // ─── NAVBAR COM FUNDO AO ROLAR ───────────────────────────────────
         var navbar = document.querySelector('nav, header, .navbar, .nav');

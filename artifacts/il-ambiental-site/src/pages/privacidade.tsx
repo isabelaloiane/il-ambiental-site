@@ -65,7 +65,7 @@ export function Privacidade() {
 
           {section("1. Quem somos",
             <>
-              {p("IL Ambiental (razão social: IL Engenharia e Consultoria Ambiental). Este site é operado por Isabela Loiane, responsável técnica e titular da empresa, com sede em Belém, Pará.")}
+              {p("IL Ambiental é a marca de engenharia e consultoria ambiental sob responsabilidade técnica de Isabela Loiane, Engenheira Florestal, CREA-PA 1521301735, em Belém, Pará.")}
               {p("Contato: contato@ilambiental.com.br")}
             </>
           )}
@@ -98,7 +98,7 @@ export function Privacidade() {
 
           {section("6. Cookies e rastreamento",
             <>
-              {p("Este site pode utilizar cookies para fins de análise de tráfego. Você pode configurar seu navegador para recusar cookies, mas algumas funcionalidades podem ser afetadas.")}
+              {p("Com o seu consentimento, este site e a página lp.ilambiental.com.br utilizam Google Analytics e Meta Pixel para medir visitas e a efetividade de anúncios. Os formulários são processados pelo servidor do site e pelo serviço FormSubmit, apenas para encaminhar sua mensagem. Você pode recusar os cookies de medição no aviso exibido na primeira visita.")}
             </>
           )}
 

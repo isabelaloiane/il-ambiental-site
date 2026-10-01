@@ -2198,8 +2198,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* SC-22: Padding for floating WhatsApp button */
-main, .page-content, [class*="page"], body > div {
+/* SC-22: Padding for floating WhatsApp button (S5: espaço no mobile tratado em .wa-bar) */
+main, .page-content, [class*="page"] {
   padding-bottom: 88px;
 }
 
@@ -2215,13 +2215,133 @@ main, .page-content, [class*="page"], body > div {
 }
 
 
-/* SC-24: AOS elements visible by default (progressive enhancement) */
+/* S5: conteúdo SEMPRE visível por padrão. A animação é só um realce:
+   o script em index.html marca como .il-pending apenas elementos que estão
+   abaixo da tela e os revela ao entrarem na área visível. */
 [data-aos] {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
+  opacity: 1;
+  transform: none;
 }
-[data-aos].aos-animate {
-  opacity: 1 !important;
-  transform: none !important;
+[data-aos].il-pending {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+[data-aos].il-pending.il-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-aos].il-pending { opacity: 1; transform: none; transition: none; }
+}
+
+/* S2: âncoras de /servicos não ficam sob o menu fixo */
+[id] {
+  scroll-margin-top: 90px;
+}
+
+/* S5: WhatsApp — botão flutuante (desktop) / barra fixa (mobile) */
+.wa-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37,211,102,0.38);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.wa-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+}
+.wa-bar {
+  display: none;
+}
+@media (max-width: 767px) {
+  .wa-fab { display: none; }
+  .wa-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    height: 56px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #452816;
+    border-top: 1px solid rgba(223,196,159,0.22);
+    box-shadow: 0 -4px 18px rgba(26,15,8,0.25);
+    color: #DFC49F;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  .wa-bar-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* espaço reservado para a barra: o último conteúdo (rodapé) nunca fica coberto */
+  footer {
+    padding-bottom: calc(36px + 56px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* S15: clientes em formato sóbrio — nome em destaque, setor abaixo, linhas finas */
+.client-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(181,137,94,0.3);
+  border-bottom: 1px solid rgba(181,137,94,0.3);
+}
+.client-item {
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.client-item + .client-item {
+  border-left: 1px solid rgba(181,137,94,0.3);
+}
+.client-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #2C1A0E;
+  letter-spacing: 0.01em;
+}
+.client-sector {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #6B5443;
+}
+@media (max-width: 767px) {
+  .client-list { grid-template-columns: 1fr; }
+  .client-item { padding: 20px 8px; }
+  .client-item + .client-item {
+    border-left: none;
+    border-top: 1px solid rgba(181,137,94,0.3);
+  }
 }

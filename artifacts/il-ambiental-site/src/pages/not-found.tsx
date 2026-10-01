@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-export default function NotFound() {
+export function NotFound() {
   useEffect(() => {
     document.title = "Página não encontrada | IL Ambiental";
     // S6: add noindex for 404 page
@@ -70,3 +70,4 @@ export default function NotFound() {
     </div>
   );
 }
+export default NotFound;

@@ -15,17 +15,6 @@ const WA_NOTIFICACAO = wa("Olá! Vim pelo site e recebi uma notificação ou exi
 const WA_VERTICE = wa("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.");
 
 export function Servicos() {
-  // SC-04: Scroll to anchor on mount
-  useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const el = document.getElementById(hash);
-      if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-      }
-    }
-  }, []);
-
   useEffect(() => {
     document.title = "Outorga, Licença de Operação, PGRS e RIAA | IL Ambiental";
     return () => { document.title = "IL Ambiental | Engenharia e consultoria ambiental em Belém"; };
@@ -52,7 +41,7 @@ export function Servicos() {
             Serviços ambientais para empresas da Região Metropolitana de Belém.
           </h1>
           <p className="fade-2" style={{ fontSize: "1.05rem", color: "#6B5443", maxWidth: 560, margin: "18px auto 0", lineHeight: 1.75 }}>
-            Recursos hídricos, licenciamento, relatórios e planos ambientais conduzidos pela responsável técnica, do levantamento ao protocolo no órgão.
+            Recursos hídricos, licenciamento, relatórios, condicionantes e processos ambientais conduzidos com coordenação técnica especializada, do levantamento ao protocolo no órgão.
           </p>
           <div className="fade-3 hero-cta-group" style={{ marginTop: 32, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contato?assunto=vertice" className="btn-primary">Solicitar Diagnóstico Vértice</Link>
@@ -120,7 +109,7 @@ export function Servicos() {
 
           {/* Serviços pontuais */}
           <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <span className="section-caption" data-aos="fade-up">Serviços pontuais</span>
+            <span className="section-caption" data-aos="fade-up">DEMANDAS ESPECÍFICAS</span>
             <h2
               data-aos="fade-up"
               style={{
@@ -131,9 +120,12 @@ export function Servicos() {
                 margin: 0,
               }}
             >
-              Para quando a necessidade é específica
+              Serviços que também integram a gestão contínua
             </h2>
             <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
+            <p data-aos="fade-up" style={{ color: "#6B5443", fontSize: "1rem", lineHeight: 1.7, maxWidth: 560, margin: "0 auto" }}>
+              Cada serviço pode ser contratado de forma pontual ou fazer parte do escopo do Programa Sentinela.
+            </p>
           </div>
 
           {/* Bloco 1: Outorga */}
@@ -240,7 +232,7 @@ export function Servicos() {
 
           {/* CONDICIONANTES */}
           <div id="condicionantes" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
-            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de Condicionantes</h3>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de condicionantes</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas com licenças ou outorgas vigentes que precisam cumprir condicionantes estabelecidas pelo órgão ambiental.
             </p>
@@ -261,13 +253,13 @@ export function Servicos() {
               ))}
             </ul>
             <a href={wa("Olá! Vim pelo site e preciso de ajuda com atendimento de condicionantes da minha licença ambiental.")} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
-              Falar sobre Condicionantes
+              Falar sobre condicionantes
             </a>
           </div>
 
           {/* AUTOS DE INFRAÇÃO / NOTIFICAÇÕES */}
           <div id="notificacoes" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
-            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de Autos de Infração</h3>
+            <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Autos de infração e notificações</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que receberam auto de infração, notificação ou exigência de órgão ambiental e precisam responder no prazo.
             </p>
@@ -286,7 +278,7 @@ export function Servicos() {
               ))}
             </ul>
             <a href={WA_NOTIFICACAO} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-flex", padding: "10px 24px", fontSize: "0.875rem" }}>
-              Recebi uma notificação
+              Falar sobre auto de infração
             </a>
           </div>
         </div>
@@ -340,10 +332,10 @@ export function Servicos() {
             margin: 0,
           }}
         >
-          Sua empresa está regularizada?
+          Sua empresa tem clareza sobre as obrigações dos próximos 12 meses?
         </h2>
         <p data-aos="fade-up" data-aos-delay="100" style={{ color: "#6B5443", maxWidth: 500, margin: "14px auto 0", lineHeight: 1.7 }}>
-          Se a resposta não é "sim, com certeza", o Diagnóstico Vértice mostra exatamente o que falta. Sem custo e sem compromisso.
+          O Diagnóstico Vértice reúne licenças, condicionantes, prazos e prioridades em um único documento técnico.
         </p>
         <div data-aos="fade-up" data-aos-delay="200">
           <Link href="/contato?assunto=vertice" className="btn-primary" style={{ marginTop: 28, display: "inline-flex" }}>

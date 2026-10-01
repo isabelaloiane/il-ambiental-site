@@ -76,9 +76,9 @@ export function GestaoAmbiental() {
             }}
           >
             Por meio de contrato anual, a IL Ambiental assume a gestão das obrigações
-            ambientais da empresa: licenciamento, condicionantes, outorgas, relatórios e
-            processos junto aos órgãos — acompanhados de forma contínua, com coordenação
-            técnica e respaldo jurídico.
+            ambientais da sua empresa. Licenças, condicionantes, relatórios, processos e
+            demandas técnicas passam a ser acompanhados de forma contínua, com planejamento,
+            registro e prazos controlados.
           </p>
           <div className="fade-3 hero-cta-group" style={{ marginTop: 36 }}>
             <Link href="/contato?assunto=vertice" className="btn-primary">
@@ -144,7 +144,7 @@ export function GestaoAmbiental() {
               },
               {
                 icon: <Trash2 size={22} color="#734120" />,
-                title: "GerGdores de resíduos",
+                title: "Geradores de resíduos",
                 desc: "Obrigados por lei a manter PGRS atualizado e comprovantes de destinação.",
               },
               {
@@ -319,8 +319,8 @@ export function GestaoAmbiental() {
                 Demandas que a gestão contínua pode abranger
               </h3>
               <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7 }}>
-                O escopo é definido no Diagnóstico Vértice, conforme a realidade de cada
-                empresa. Exemplos de demandas cobertas:
+                Além do acompanhamento contínuo, o contrato pode incluir as demandas
+                abaixo, conforme a atividade da empresa.
               </p>
             </div>
             <div data-aos="fade-left" style={{ flex: "1 1 260px" }}>
@@ -328,21 +328,20 @@ export function GestaoAmbiental() {
                 style={{
                   listStyle: "none",
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  gridTemplateColumns: "1fr",
                   gap: "10px 24px",
+                  padding: 0,
+                  margin: 0,
                 }}
               >
                 {[
-                  "Renovação e acompanhamento de LP, LI e LO",
-                  "Controle de condicionantes das licenças",
-                  "Relatórios periódicos exigidos pelos órgãos",
-                  "Outorga de recursos hídricos e renovações",
-                  "PGRS e comprovantes de destinação",
-                  "Protocolos e processos na SEMAS-PA",
-                  "Resposta a autos de infração",
-                  "Atendimento de notificações e exigências",
-                  "Acompanhamento de processos no IBAMA",
-                  "Secretarias municipais de meio ambiente",
+                  "Licenciamento ambiental e renovação de licenças",
+                  "Acompanhamento de licenças e outorgas",
+                  "Atendimento e comprovação de condicionantes",
+                  "Elaboração de relatórios ambientais (RIAA, RCA e outros)",
+                  "Solicitações e processos junto aos órgãos ambientais",
+                  "Resposta a autos de infração e notificações",
+                  "Demais obrigações ambientais e serviços técnicos específicos",
                 ].map((item, i) => (
                   <li
                     key={i}
@@ -421,7 +420,8 @@ export function GestaoAmbiental() {
             {[
               {
                 step: "01",
-                title: "Diagnóstico Vértice sem custo",
+                title: "Diagnóstico Vértice",
+                tag: "sem custo",
                 desc: "Mapeamos todas as suas obrigações ambientais: licenças, outorgas, condicionantes, relatórios e prazos — sem custo inicial.",
               },
               {
@@ -464,9 +464,30 @@ export function GestaoAmbiental() {
                     fontSize: "1rem",
                     color: "#DFC49F",
                     marginBottom: 8,
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    gap: 8,
                   }}
                 >
-                  {item.title}
+                  <span>{item.title}</span>
+                  {"tag" in item && item.tag && (
+                    <span
+                      style={{
+                        fontSize: "0.68rem",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        color: "#452816",
+                        background: "#DFC49F",
+                        borderRadius: 999,
+                        padding: "3px 10px",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {item.tag}
+                    </span>
+                  )}
                 </h3>
                 <p
                   style={{
@@ -606,7 +627,7 @@ export function GestaoAmbiental() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
             <div data-aos="fade-right" style={{ flex: "0 0 auto" }}>
               <img
-                src="/photos/isabela-quem-conduz.jpg"
+                src="/isabela-quem-conduz.jpg"
                 alt="Isabela Loiane, Engenheira Florestal, CREA-PA 1521301735"
                 style={{
                   width: "clamp(180px, 24vw, 260px)",
@@ -713,12 +734,12 @@ export function GestaoAmbiental() {
               a: "A Isabela diretamente. Não existe equipe terceirizada ou intermediário. Você tem acesso direto à engenheira florestal responsável por cada processo, com comunicação direta por WhatsApp e retorno em até 1 dia útil.",
             },
             {
-              q: "O Sentinela substitui ter um funcionário ambiental interno?",
-              a: "Para muitas empresas, sim — com custo previsível e expertise especializada. Para as que já têm equipe interna, o Sentinela atua como apoio técnico especializado, assumindo as demandas que exigem mais conhecimento regulatório ou relacionamento com os órgãos. O modelo é definido no Diagnóstico Vértice.",
+              q: "A IL Ambiental substitui um profissional ambiental interno?",
+              a: "Para muitas empresas, sim. Para as que já têm uma área ambiental, a IL Ambiental atua como apoio técnico especializado, assumindo prazos, processos e demandas que exigem dedicação.",
             },
             {
               q: "O que acontece se surgir uma demanda nova durante o contrato?",
-              a: "Dependendo da natureza da demanda, ela pode ser incorporada ao escopo existente ou tratada como serviço pontual complementar. O Diagnóstico Vértice delimita o escopo base, mas o contrato prevê como lidar com demandas que surgem ao longo da gestão.",
+              a: "As demandas previstas no escopo são atendidas dentro do contrato. Demandas adicionais são dimensionadas com a empresa e incorporadas ao planejamento do período.",
             },
             {
               q: "O que acontece se surgir uma demanda inesperada — como um auto de infração?",
