@@ -70,16 +70,16 @@ export function Sobre() {
           {/* Foto */}
           <div data-aos="fade-right" style={{ textAlign: "center" }}>
             <img
-              src="/photos/isabela-sobre.jpg"
-              alt="Copo com a marca IL Ambiental sobre tronco de madeira"
+              src="/isabela-palestra-sobre.jpg"
+              alt="Isabela Loiane ministrando palestra sobre meio ambiente"
               loading="lazy"
               style={{
                 width: "100%",
                 maxWidth: 420,
-                aspectRatio: "1 / 1",
+                aspectRatio: "4 / 5",
                 height: "auto",
                 objectFit: "cover",
-                objectPosition: "center center",
+                objectPosition: "49% center",
                 boxShadow: "0 8px 28px rgba(69,40,22,0.14)",
                 borderRadius: 14,
                 display: "block",
