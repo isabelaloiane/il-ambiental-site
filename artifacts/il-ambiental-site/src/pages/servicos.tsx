@@ -45,7 +45,7 @@ export function Servicos() {
           </p>
           <div className="fade-3 hero-cta-group" style={{ marginTop: 32, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contato?assunto=vertice" className="btn-primary">Solicitar Diagnóstico Vértice</Link>
-            <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline">Falar pelo WhatsApp</a>
+            <a href={WA_VERTICE} target="_blank" rel="noopener noreferrer" className="btn-outline btn-outline-dark">Falar pelo WhatsApp</a>
           </div>
           <p style={{ fontSize: "0.78rem", color: "#8C7B6B", marginTop: 12, textAlign: "center" }}>
             Não sabe qual serviço sua empresa precisa? O Diagnóstico Vértice identifica isso, sem custo.

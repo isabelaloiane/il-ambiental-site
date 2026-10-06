@@ -2350,3 +2350,14 @@ main, .page-content, [class*="page"] {
 /* Títulos sem hifenização automática (todas as páginas, inclusive celular) */
 h1, h2, h3,
 html:root h1, html:root h2, html:root h3 { hyphens: none !important; -webkit-hyphens: none !important; }
+
+/* Botão contorno sobre fundo claro (ex.: topo de Serviços) */
+.btn-outline.btn-outline-dark {
+  color: #734120;
+  border-color: #734120;
+}
+.btn-outline.btn-outline-dark:hover {
+  color: #734120;
+  border-color: #734120;
+  background: rgba(115, 65, 32, 0.08);
+}
