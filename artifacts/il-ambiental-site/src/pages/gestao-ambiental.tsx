@@ -10,7 +10,7 @@ import {
 
 export function GestaoAmbiental() {
   useEffect(() => {
-    document.title = "Gestão Ambiental Contínua – Sentinela | IL Ambiental";
+    document.title = "Gestão Ambiental Contínua: Programa Sentinela | IL Ambiental";
     return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
   }, []);
 
@@ -49,7 +49,7 @@ export function GestaoAmbiental() {
               marginBottom: 16,
             }}
           >
-            Produto principal
+            Programa Sentinela
           </span>
           <h1
             className="fade-1"
@@ -62,7 +62,7 @@ export function GestaoAmbiental() {
               margin: 0,
             }}
           >
-            Sentinela –{" "}
+            Programa Sentinela:{" "}
             <span style={{ color: "#DFC49F" }}>Gestão Ambiental Contínua</span>
           </h1>
           <p
@@ -234,7 +234,7 @@ export function GestaoAmbiental() {
               {
                 icon: <Bell size={20} color="#734120" />,
                 title: "Monitoramento de prazos",
-                desc: "Alertas preventivos para licenças, outorgas, renovações e relatórios periódicos – com antecedência suficiente para agir.",
+                desc: "Alertas preventivos para licenças, outorgas, renovações e relatórios periódicos, com antecedência suficiente para agir.",
               },
               {
                 icon: <Shield size={20} color="#734120" />,
@@ -422,7 +422,7 @@ export function GestaoAmbiental() {
                 step: "01",
                 title: "Diagnóstico Vértice",
                 tag: "sem custo",
-                desc: "Mapeamos todas as suas obrigações ambientais: licenças, outorgas, condicionantes, relatórios e prazos – sem custo inicial.",
+                desc: "Mapeamos todas as suas obrigações ambientais: licenças, outorgas, condicionantes, relatórios e prazos, sem custo.",
               },
               {
                 step: "02",
@@ -564,14 +564,14 @@ export function GestaoAmbiental() {
                 borderBottom: "1px solid rgba(181,137,94,0.25)",
               }}
             >
-              Sentinela Contínuo
+              Programa Sentinela
             </div>
             {/* Linhas */}
             {[
-              ["Serviço pontual", "Serviço mensal recorrente"],
+              ["Diagnóstico inicial, sem custo", "Contrato anual"],
               ["Mapeamento de obrigações e pendências", "Execução e controle das obrigações"],
               ["Plano de ação com prazos e prioridades", "Monitoramento proativo mês a mês"],
-              ["Entrega: relatório técnico", "Entrega: tranquilidade e conformidade"],
+              ["Entrega: relatório técnico", "Entrega: acompanhamento, calendário e relatórios ao longo do ano"],
               ["Ideal para começar", "Ideal para manter"],
             ].map(([a, b], i) => (
               <>
@@ -615,8 +615,8 @@ export function GestaoAmbiental() {
               lineHeight: 1.6,
             }}
           >
-            O Diagnóstico Vértice é o ponto de partida. Após o diagnóstico, a maioria das
-            empresas migra para o Sentinela para manter o que foi conquistado.
+            O Diagnóstico Vértice é o ponto de partida. Com ele em mãos, a empresa decide
+            entre serviços pontuais e o Programa Sentinela.
           </p>
         </div>
       </section>
@@ -627,12 +627,13 @@ export function GestaoAmbiental() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
             <div data-aos="fade-right" style={{ flex: "0 0 auto" }}>
               <img
-                src="/isabela-quem-conduz.jpg"
+                src="/isabela-palestra-sobre.jpg"
                 alt="Isabela Loiane, Engenheira Florestal, CREA-PA 1521301735"
                 style={{
                   width: "clamp(180px, 24vw, 260px)",
                   aspectRatio: "3/4",
                   objectFit: "cover",
+                  objectPosition: "49% center",
                   borderRadius: 12,
                   display: "block",
                 }}
@@ -662,7 +663,7 @@ export function GestaoAmbiental() {
                 Engenheira Florestal · CREA-PA 1521301735
               </p>
               <p style={{ color: "#6B5443", fontSize: "0.85rem", marginBottom: 20 }}>
-                Especialista em Direito Agroambiental
+                Pós-graduação em Direito Ambiental (CESUPA)
               </p>
               <p
                 style={{
@@ -678,9 +679,9 @@ export function GestaoAmbiental() {
                 style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}
               >
                 {[
-                  "Você fala diretamente com quem resolve",
-                  "Não existe intermediário ou equipe terceirizada",
-                  "Relacionamento pessoal com os órgãos competentes",
+                  "Coordenação técnica em todas as etapas",
+                  "Ponto de contato técnico definido para a sua empresa",
+                  "Diálogo técnico com os órgãos, pelos canais formais",
                 ].map((item, i) => (
                   <li
                     key={i}
@@ -731,7 +732,7 @@ export function GestaoAmbiental() {
             },
             {
               q: "Quem cuida da minha empresa no dia a dia?",
-              a: "Nossa equipe, diretamente. Não existe equipe terceirizada ou intermediário. Você tem acesso direto à equipe técnica responsável por cada processo, com comunicação direta por WhatsApp e retorno em até 1 dia útil.",
+              a: "A equipe técnica da IL Ambiental, sob coordenação da responsável técnica. Sua empresa tem um ponto de contato técnico definido, com comunicação direta por WhatsApp e retorno em até 1 dia útil.",
             },
             {
               q: "A IL Ambiental substitui um profissional ambiental interno?",
@@ -742,7 +743,7 @@ export function GestaoAmbiental() {
               a: "As demandas previstas no escopo são atendidas dentro do contrato. Demandas adicionais são dimensionadas com a empresa e incorporadas ao planejamento do período.",
             },
             {
-              q: "O que acontece se surgir uma demanda inesperada – como um auto de infração?",
+              q: "O que acontece se surgir uma demanda inesperada, como um auto de infração?",
               a: "Demandas inesperadas fazem parte da gestão ambiental. Nossa equipe analisa o documento recebido, orienta imediatamente e, conforme o escopo do contrato, conduz a resposta técnica dentro do prazo. O Sentinela existe justamente para que você não enfrente isso sozinho.",
             },
           ].map((faq, i) => (
@@ -798,7 +799,7 @@ export function GestaoAmbiental() {
             lineHeight: 1.7,
           }}
         >
-          Um levantamento completo das obrigações ambientais da sua empresa – com plano de
+          Um levantamento completo das obrigações ambientais da sua empresa, com plano de
           ação, prazos e prioridades definidos pela nossa equipe.
         </p>
         <div data-aos="fade-up" data-aos-delay="200">

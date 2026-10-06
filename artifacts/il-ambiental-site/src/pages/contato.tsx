@@ -895,8 +895,8 @@ export function Contato() {
               a: "A atuação é concentrada em Belém, Ananindeua, Marituba, Benevides, Santa Isabel do Pará e Castanhal. Demandas em outros municípios são avaliadas caso a caso.",
             },
             {
-              q: "O Diagnóstico Vértice é gratuito?",
-              a: "Sim. O Diagnóstico Vértice é um levantamento técnico inicial, sem custo e sem compromisso de contratação. Ao final, você recebe um documento com a situação das licenças, condicionantes e outorgas e as prioridades para os próximos 12 meses.",
+              q: "O Diagnóstico Vértice tem custo?",
+              a: "Não. O Diagnóstico Vértice é um levantamento técnico inicial, sem custo e sem compromisso de contratação. Ao final, você recebe um documento com a situação das licenças, condicionantes e outorgas e as prioridades para os próximos 12 meses.",
             },
             {
               q: "Minha empresa precisa de outorga de recursos hídricos?",

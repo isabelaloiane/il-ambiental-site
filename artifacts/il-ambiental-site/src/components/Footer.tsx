@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -83,7 +84,7 @@ export function Footer() {
                   gap: 8,
                 }}
               >
-                <span style={{ color: "#B5895E" }}>✆</span>
+                <Phone size={14} color="#B5895E" aria-hidden="true" style={{ flexShrink: 0 }} />
                 <a
                   href="tel:+5591992723570"
                   style={{ color: "rgba(223,196,159,0.72)", textDecoration: "none" }}
@@ -101,7 +102,7 @@ export function Footer() {
                   gap: 8,
                 }}
               >
-                <span style={{ color: "#B5895E" }}>✉</span>
+                <Mail size={14} color="#B5895E" aria-hidden="true" style={{ flexShrink: 0 }} />
                 <a
                   href="mailto:contato@ilambiental.com.br"
                   style={{ color: "rgba(223,196,159,0.72)", textDecoration: "none" }}
@@ -119,7 +120,7 @@ export function Footer() {
                   gap: 8,
                 }}
               >
-                <span style={{ color: "#B5895E" }}>⚲</span>
+                <MapPin size={14} color="#B5895E" aria-hidden="true" style={{ flexShrink: 0 }} />
                 <span>Belém, Pará, Brasil</span>
               </li>
             </ul>
@@ -198,9 +199,10 @@ export function Footer() {
             >
               {[
                 { href: "/", label: "Início" },
-                { href: "/sobre", label: "Quem Somos" },
-                { href: "/servicos", label: "Nossos Serviços" },
-                { href: "/contato", label: "Fale Conosco" },
+                { href: "/gestao-ambiental", label: "Gestão Ambiental" },
+                { href: "/servicos", label: "Serviços" },
+                { href: "/sobre", label: "Sobre" },
+                { href: "/contato", label: "Contato" },
                 { href: "/privacidade", label: "Política de Privacidade" },
               ].map(item => (
                 <li key={item.href}>

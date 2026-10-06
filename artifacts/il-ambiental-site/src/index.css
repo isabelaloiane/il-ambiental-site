@@ -2345,3 +2345,8 @@ main, .page-content, [class*="page"] {
     border-top: 1px solid rgba(181,137,94,0.3);
   }
 }
+
+
+/* Títulos sem hifenização automática (todas as páginas, inclusive celular) */
+h1, h2, h3,
+html:root h1, html:root h2, html:root h3 { hyphens: none !important; -webkit-hyphens: none !important; }

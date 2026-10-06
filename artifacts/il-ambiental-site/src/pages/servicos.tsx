@@ -164,7 +164,7 @@ export function Servicos() {
               {[
                 "Licença de Operação e renovação dentro do prazo legal.",
                 "Licença Prévia e Licença de Instalação.",
-                "Licença de Regularização (LAR) e dispensa de licenciamento (DLA).",
+                "Dispensa de licenciamento (DLA).",
                 "Enquadramento da atividade e definição do órgão competente.",
               ].map((item, j) => (
                 <li key={j} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: "0.875rem", color: "#2C1A0E" }}>
