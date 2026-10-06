@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const WA_NUMBER = "5591992723570";
-const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
+const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
 
 export function Sobre() {
   useEffect(() => {

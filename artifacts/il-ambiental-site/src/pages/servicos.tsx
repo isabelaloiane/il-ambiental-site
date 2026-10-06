@@ -12,7 +12,7 @@ const WA_LICENCA = wa("Olá! Vim pelo site e preciso de ajuda com licença de op
 const WA_RELATORIOS = wa("Olá! Vim pelo site e preciso de ajuda com relatórios ambientais, RIAA ou PGRS.");
 const WA_PGRS = wa("Olá! Vim pelo site e preciso de ajuda com relatórios ambientais, RIAA ou PGRS.");
 const WA_NOTIFICACAO = wa("Olá! Vim pelo site e recebi uma notificação ou exigência de órgão ambiental.");
-const WA_VERTICE = wa("Olá, Isabela! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.");
+const WA_VERTICE = wa("Olá! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.");
 
 export function Servicos() {
   useEffect(() => {

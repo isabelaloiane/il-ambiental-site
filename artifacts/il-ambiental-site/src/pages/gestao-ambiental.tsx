@@ -10,7 +10,7 @@ import {
 
 export function GestaoAmbiental() {
   useEffect(() => {
-    document.title = "Gestão Ambiental Contínua — Sentinela | IL Ambiental";
+    document.title = "Gestão Ambiental Contínua – Sentinela | IL Ambiental";
     return () => { document.title = "IL Ambiental | Engenharia e Consultoria Ambiental"; };
   }, []);
 
@@ -62,7 +62,7 @@ export function GestaoAmbiental() {
               margin: 0,
             }}
           >
-            Sentinela —{" "}
+            Sentinela –{" "}
             <span style={{ color: "#DFC49F" }}>Gestão Ambiental Contínua</span>
           </h1>
           <p
@@ -234,7 +234,7 @@ export function GestaoAmbiental() {
               {
                 icon: <Bell size={20} color="#734120" />,
                 title: "Monitoramento de prazos",
-                desc: "Alertas preventivos para licenças, outorgas, renovações e relatórios periódicos — com antecedência suficiente para agir.",
+                desc: "Alertas preventivos para licenças, outorgas, renovações e relatórios periódicos – com antecedência suficiente para agir.",
               },
               {
                 icon: <Shield size={20} color="#734120" />,
@@ -258,8 +258,8 @@ export function GestaoAmbiental() {
               },
               {
                 icon: <ClipboardList size={20} color="#734120" />,
-                title: "Canal direto com a especialista",
-                desc: "Acesso direto à Isabela para dúvidas, intercorrências e orientação técnica ao longo do mês.",
+                title: "Canal direto com a equipe técnica",
+                desc: "Acesso direto à nossa equipe para dúvidas, intercorrências e orientação técnica ao longo do mês.",
               },
             ].map((item, i) => (
               <div
@@ -422,7 +422,7 @@ export function GestaoAmbiental() {
                 step: "01",
                 title: "Diagnóstico Vértice",
                 tag: "sem custo",
-                desc: "Mapeamos todas as suas obrigações ambientais: licenças, outorgas, condicionantes, relatórios e prazos — sem custo inicial.",
+                desc: "Mapeamos todas as suas obrigações ambientais: licenças, outorgas, condicionantes, relatórios e prazos – sem custo inicial.",
               },
               {
                 step: "02",
@@ -731,7 +731,7 @@ export function GestaoAmbiental() {
             },
             {
               q: "Quem cuida da minha empresa no dia a dia?",
-              a: "A Isabela diretamente. Não existe equipe terceirizada ou intermediário. Você tem acesso direto à engenheira florestal responsável por cada processo, com comunicação direta por WhatsApp e retorno em até 1 dia útil.",
+              a: "Nossa equipe, diretamente. Não existe equipe terceirizada ou intermediário. Você tem acesso direto à equipe técnica responsável por cada processo, com comunicação direta por WhatsApp e retorno em até 1 dia útil.",
             },
             {
               q: "A IL Ambiental substitui um profissional ambiental interno?",
@@ -742,8 +742,8 @@ export function GestaoAmbiental() {
               a: "As demandas previstas no escopo são atendidas dentro do contrato. Demandas adicionais são dimensionadas com a empresa e incorporadas ao planejamento do período.",
             },
             {
-              q: "O que acontece se surgir uma demanda inesperada — como um auto de infração?",
-              a: "Demandas inesperadas fazem parte da gestão ambiental. A Isabela analisa o documento recebido, orienta imediatamente e, conforme o escopo do contrato, conduz a resposta técnica dentro do prazo. O Sentinela existe justamente para que você não enfrente isso sozinho.",
+              q: "O que acontece se surgir uma demanda inesperada – como um auto de infração?",
+              a: "Demandas inesperadas fazem parte da gestão ambiental. Nossa equipe analisa o documento recebido, orienta imediatamente e, conforme o escopo do contrato, conduz a resposta técnica dentro do prazo. O Sentinela existe justamente para que você não enfrente isso sozinho.",
             },
           ].map((faq, i) => (
             <div
@@ -798,8 +798,8 @@ export function GestaoAmbiental() {
             lineHeight: 1.7,
           }}
         >
-          Um levantamento completo das obrigações ambientais da sua empresa — com plano de
-          ação, prazos e prioridades definidos pela Isabela.
+          Um levantamento completo das obrigações ambientais da sua empresa – com plano de
+          ação, prazos e prioridades definidos pela nossa equipe.
         </p>
         <div data-aos="fade-up" data-aos-delay="200">
           <Link

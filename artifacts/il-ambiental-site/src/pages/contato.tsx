@@ -204,7 +204,7 @@ export function Contato() {
               lineHeight: 1.65,
             }}
           >
-            Escolha a opção mais cômoda. A Isabela está pronta para responder por formulário,
+            Escolha a opção mais cômoda. Nossa equipe está pronta para responder por formulário,
             e-mail ou WhatsApp.
           </p>
           <div
@@ -300,7 +300,7 @@ export function Contato() {
                     marginBottom: 24,
                   }}
                 >
-                  Preencha o formulário e a Isabela retorna em até 1 dia útil.
+                  Preencha o formulário e nossa equipe retorna em até 1 dia útil.
                 </p>
                 <form
                   onSubmit={handleSubmit}
@@ -542,7 +542,7 @@ export function Contato() {
                     marginTop: 8,
                   }}
                 >
-                  A Isabela retorna em até 1 dia útil.
+                  Nossa equipe retorna em até 1 dia útil.
                 </p>
               </div>
             )}
@@ -904,7 +904,7 @@ export function Contato() {
             },
             {
               q: "Quais documentos preciso para iniciar o licenciamento?",
-              a: "Em geral: contrato social, documentos do imóvel (matrícula ou contrato de arrendamento), projeto ou memorial descritivo da atividade e ART assinada pelo responsável técnico. Os requisitos variam conforme o órgão licenciador e a modalidade. A Isabela verifica o seu caso e lista exatamente o que é necessário.",
+              a: "Em geral: contrato social, documentos do imóvel (matrícula ou contrato de arrendamento), projeto ou memorial descritivo da atividade e ART assinada pelo responsável técnico. Os requisitos variam conforme o órgão licenciador e a modalidade. Nossa equipe verifica o seu caso e lista exatamente o que é necessário.",
             },
           ].map((faq, i) => (
             <div
