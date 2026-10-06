@@ -107,7 +107,7 @@ export function Sobre() {
               Engenheira Florestal · CREA-PA 1521301735
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              Engenheira florestal formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Ambiental pelo CESUPA, Isabela Loiane atua no mercado ambiental desde 2022. Antes da IL Ambiental, atuou na SEMMA e na Emater e em empresas privadas do setor. A experiência nos dois lados do processo, o da exigência técnica e o da operação, orienta a forma como a IL Ambiental conduz cada projeto.
+              Engenheira florestal formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA, Isabela Loiane atua no mercado ambiental desde 2022. Antes da IL Ambiental, atuou na SEMMA e na Emater e em empresas privadas do setor. A experiência nos dois lados do processo, o da exigência técnica e o da operação, orienta a forma como a IL Ambiental conduz cada projeto.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
               Palestrante em eventos da área ambiental, com foco em traduzir a legislação em orientação objetiva para gestores e empresários.

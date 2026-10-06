@@ -663,7 +663,7 @@ export function GestaoAmbiental() {
                 Engenheira Florestal · CREA-PA 1521301735
               </p>
               <p style={{ color: "#6B5443", fontSize: "0.85rem", marginBottom: 20 }}>
-                Pós-graduação em Direito Ambiental (CESUPA)
+                Pós-graduação em Direito Agroambiental (CESUPA)
               </p>
               <p
                 style={{
@@ -673,7 +673,7 @@ export function GestaoAmbiental() {
                   marginBottom: 20,
                 }}
               >
-                O Programa Sentinela tem coordenação técnica da engenheira florestal Isabela Loiane (UEPA), pós-graduada em Direito Ambiental pelo CESUPA, CREA-PA 1521301735.
+                O Programa Sentinela tem coordenação técnica da engenheira florestal Isabela Loiane (UEPA), pós-graduada em Direito Agroambiental pelo CESUPA, CREA-PA 1521301735.
               </p>
               <ul
                 style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}

@@ -471,13 +471,13 @@ margin: "0 0 8px",
 Isabela Loiane, responsável técnica da IL Ambiental
 </h2>
 <p style={{ color: "#B5895E", fontSize: "0.9rem", marginBottom: 20 }}>
-Engenheira Florestal · Pós-graduação em Direito Ambiental (CESUPA) · CREA-PA 1521301735
+Engenheira Florestal · Pós-graduação em Direito Agroambiental (CESUPA) · CREA-PA 1521301735
 </p>
 <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: 24 }}>
-Os projetos da IL Ambiental têm coordenação técnica da engenheira florestal Isabela Loiane, formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Ambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022, reúne experiência em órgãos públicos, como a SEMMA e a Emater, e no setor privado. Essa combinação permite conduzir cada processo considerando, ao mesmo tempo, a exigência técnica, o enquadramento legal e a realidade da operação.
+Os projetos da IL Ambiental têm coordenação técnica da engenheira florestal Isabela Loiane, formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022, reúne experiência em órgãos públicos, como a SEMMA e a Emater, e no setor privado. Essa combinação permite conduzir cada processo considerando, ao mesmo tempo, a exigência técnica, o enquadramento legal e a realidade da operação.
 </p>
 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
-{["Engenharia Florestal", "Direito Ambiental (CESUPA)", "CREA-PA 1521301735"].map((tag, i) => (
+{["Engenharia Florestal", "Direito Agroambiental (CESUPA)", "CREA-PA 1521301735"].map((tag, i) => (
 <span
 key={i}
 style={{
@@ -523,7 +523,7 @@ Por que empresas escolhem a IL Ambiental
 {[
 {
 title: "Técnica e jurídica no mesmo ponto de contato",
-desc: "Engenharia e Direito Ambiental integrados na condução de cada processo. As decisões técnicas já consideram o respaldo legal.",
+desc: "Engenharia e Direito Agroambiental integrados na condução de cada processo. As decisões técnicas já consideram o respaldo legal.",
 },
 {
 title: "Conhecimento local",
