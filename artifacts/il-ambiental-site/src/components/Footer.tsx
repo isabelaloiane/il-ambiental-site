@@ -42,6 +42,7 @@ export function Footer() {
                 lineHeight: 1.45,
                 color: "#DFC49F",
                 margin: "0 0 8px",
+                textWrap: "balance",
               }}
             >
               Gestão ambiental que sustenta negócios.
