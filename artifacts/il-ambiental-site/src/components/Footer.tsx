@@ -34,6 +34,19 @@ export function Footer() {
               />
             </div>
             <p
+              className="footer-slogan"
+              style={{
+                fontFamily: "'Comfortaa', cursive",
+                fontWeight: 700,
+                fontSize: "0.98rem",
+                lineHeight: 1.45,
+                color: "#DFC49F",
+                margin: "0 0 8px",
+              }}
+            >
+              Gestão ambiental que sustenta negócios.
+            </p>
+            <p
               style={{
                 fontSize: "0.85rem",
                 lineHeight: 1.6,
