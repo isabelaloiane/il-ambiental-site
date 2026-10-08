@@ -474,7 +474,7 @@ Isabela Loiane, responsável técnica da IL Ambiental
 Engenheira Florestal · Pós-graduação em Direito Agroambiental (CESUPA) · CREA-PA 1521301735
 </p>
 <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: 24 }}>
-Os projetos da IL Ambiental têm coordenação técnica da engenheira florestal Isabela Loiane, formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA. Com atuação no mercado ambiental desde 2022, reúne experiência em órgãos públicos, como a SEMMA e a Emater, e no setor privado. Essa combinação permite conduzir cada processo considerando, ao mesmo tempo, a exigência técnica, o enquadramento legal e a realidade da operação.
+Os projetos da IL Ambiental têm coordenação técnica da engenheira florestal Isabela Loiane, formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA, com atuação no mercado ambiental desde 2022. Iniciou a trajetória em estágios na SEMMA e na Emater e atuou por quase quatro anos como responsável técnica de processos e licenciamento ambiental no setor privado. Essa combinação permite conduzir cada processo considerando, ao mesmo tempo, a exigência técnica, o enquadramento legal e a realidade da operação.
 </p>
 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
 {["Engenharia Florestal", "Direito Agroambiental (CESUPA)", "CREA-PA 1521301735"].map((tag, i) => (
