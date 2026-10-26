@@ -107,13 +107,16 @@ export function Sobre() {
               Engenheira Florestal · CREA-PA 1521301735
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              Engenheira florestal formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA, Isabela Loiane atua no mercado ambiental desde 2021. Iniciou a trajetória em estágios na SEMMA e na Emater e atuou por quase quatro anos como responsável técnica de processos e licenciamento ambiental no setor privado. A experiência nos dois lados do processo, o da exigência técnica e o da operação, orienta a forma como a IL Ambiental conduz cada projeto.
+              Engenheira florestal pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA, Isabela Loiane atua no mercado ambiental desde 2021. Sua formação reúne as duas competências que um processo ambiental exige e que raramente caminham juntas: a leitura técnica e a leitura jurídica.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
-              Palestrante em eventos da área ambiental, com foco em traduzir a legislação em orientação objetiva para gestores e empresários.
+              A trajetória começou do lado de quem fiscaliza, em estágios na SEMMA e na Emater. Na sequência, foram quase quatro anos como responsável técnica por processos e licenciamento ambiental no setor privado. Conhecer o processo pelas duas perspectivas, a da exigência e a da operação, é o que define o método da IL Ambiental.
+            </p>
+            <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 16 }}>
+              Como palestrante, dedica-se a traduzir a legislação ambiental em orientação objetiva para gestores e empresários, aproximando a norma das decisões de negócio.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 0 }}>
-              A IL Ambiental concentra sua atuação na Região Metropolitana de Belém e Castanhal, o que permite conhecer em profundidade os órgãos, prazos e exigências locais. Todos os projetos têm coordenação técnica da responsável técnica, do primeiro levantamento ao protocolo.
+              A IL Ambiental concentra sua atuação na Região Metropolitana de Belém e em Castanhal, escolha que garante conhecimento aprofundado dos órgãos, dos prazos e das exigências locais. Cada projeto é conduzido sob sua coordenação técnica direta, do primeiro levantamento ao protocolo.
             </p>
           </div>
         </div>
