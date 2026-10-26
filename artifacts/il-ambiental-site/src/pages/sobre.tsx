@@ -116,7 +116,7 @@ export function Sobre() {
               Como palestrante, dedica-se a traduzir a legislação ambiental em orientação objetiva para gestores e empresários, aproximando a norma das decisões de negócio.
             </p>
             <p style={{ color: "#4B3728", lineHeight: 1.8, marginBottom: 0 }}>
-              A IL Ambiental concentra sua atuação na Região Metropolitana de Belém e em Castanhal, escolha que garante conhecimento aprofundado dos órgãos, dos prazos e das exigências locais. Cada projeto é conduzido sob sua coordenação técnica direta, do primeiro levantamento ao protocolo.
+              Cada projeto da IL Ambiental é conduzido sob sua coordenação técnica direta, do primeiro levantamento ao protocolo.
             </p>
           </div>
         </div>
