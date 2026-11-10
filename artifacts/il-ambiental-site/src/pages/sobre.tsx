@@ -70,8 +70,8 @@ export function Sobre() {
           {/* Foto */}
           <div data-aos="fade-right" style={{ textAlign: "center" }}>
             <img
-              src="/isabela-palestra-sobre.jpg"
-              alt="Isabela Loiane ministrando palestra sobre meio ambiente"
+              src="/isabela-sobre-perfil.jpg"
+              alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
               loading="lazy"
               style={{
                 width: "100%",
@@ -79,7 +79,7 @@ export function Sobre() {
                 aspectRatio: "4 / 5",
                 height: "auto",
                 objectFit: "cover",
-                objectPosition: "49% center",
+                objectPosition: "center top",
                 boxShadow: "0 8px 28px rgba(69,40,22,0.14)",
                 borderRadius: 14,
                 display: "block",
