@@ -442,7 +442,7 @@ alignItems: "center",
 >
 <div data-aos="fade-right" style={{ display: "flex", justifyContent: "center" }}>
 <img
-src="/isabela-loiane.jpg"
+src="/isabela-inicio.jpg"
 alt="Isabela Loiane, responsável técnica da IL Ambiental"
 style={{
 width: "100%",
