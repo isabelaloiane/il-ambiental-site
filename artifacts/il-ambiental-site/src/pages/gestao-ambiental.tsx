@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CarouselNav } from "@/components/CarouselNav";
 import {
   Shield, FileText, Droplets, Trash2, ClipboardList, Bell,
   CheckCircle, ArrowRight, AlertTriangle, Calendar, Users, Building2,
@@ -125,6 +126,7 @@ export function GestaoAmbiental() {
             />
           </div>
           <div
+            className="m-carousel"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -160,6 +162,7 @@ export function GestaoAmbiental() {
             ].map((item, i) => (
               <div
                 key={i}
+                className="m-box"
                 data-aos="fade-up"
                 data-aos-delay={i * 70}
                 style={{
@@ -194,6 +197,7 @@ export function GestaoAmbiental() {
               </div>
             ))}
           </div>
+          <CarouselNav />
         </div>
       </section>
 
@@ -411,6 +415,7 @@ export function GestaoAmbiental() {
             />
           </div>
           <div
+            className="m-carousel m-steps-dark"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
@@ -445,7 +450,7 @@ export function GestaoAmbiental() {
                 desc: "Monitoramos mudanças na legislação e novas exigências para que sua empresa esteja sempre um passo à frente.",
               },
             ].map((item, i) => (
-              <div key={i} data-aos="fade-up" data-aos-delay={i * 80}>
+              <div key={i} className="m-box" data-aos="fade-up" data-aos-delay={i * 80}>
                 <div
                   style={{
                     fontSize: "2.4rem",
@@ -502,6 +507,7 @@ export function GestaoAmbiental() {
               </div>
             ))}
           </div>
+          <CarouselNav tone="dark" />
         </div>
       </section>
 
@@ -531,6 +537,7 @@ export function GestaoAmbiental() {
             />
           </div>
           <div
+            className="m-compare"
             data-aos="fade-up"
             style={{
               display: "grid",
@@ -625,10 +632,11 @@ export function GestaoAmbiental() {
       <section style={{ padding: "80px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
-            <div data-aos="fade-right" style={{ flex: "0 0 auto" }}>
+            <div className="m-photo-wrap" data-aos="fade-right" style={{ flex: "0 0 auto" }}>
               <img
                 src="/isabela-palestra-sobre.jpg"
                 alt="Isabela Loiane, Engenheira Florestal, CREA-PA 1521301735"
+                className="m-photo"
                 style={{
                   width: "clamp(180px, 24vw, 260px)",
                   aspectRatio: "3/4",

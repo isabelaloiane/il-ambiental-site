@@ -83,6 +83,7 @@ export function Footer() {
               Contato
             </h4>
             <ul
+              className="m-footer-contacts"
               style={{
                 listStyle: "none",
                 display: "flex",
@@ -109,6 +110,7 @@ export function Footer() {
                 </a>
               </li>
               <li
+                className="m-footer-email"
                 style={{
                   fontSize: "0.85rem",
                   display: "flex",

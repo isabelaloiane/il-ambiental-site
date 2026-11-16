@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CarouselNav } from "@/components/CarouselNav";
 
 const WA_NUMBER = "5591992723570";
 const WA_VERTICE = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de solicitar o Diagnóstico Vértice para a minha empresa.")}`;
@@ -71,6 +72,7 @@ export function Sobre() {
           <div data-aos="fade-right" style={{ textAlign: "center" }}>
             <img
               src="/isabela-sobre-perfil.jpg"
+              className="m-photo"
               alt="Isabela Loiane, engenheira florestal e responsável técnica da IL Ambiental"
               loading="lazy"
               style={{
@@ -143,6 +145,7 @@ export function Sobre() {
           </div>
 
           <div
+            className="m-two-col m-blocks"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -169,6 +172,7 @@ export function Sobre() {
             ].map((bloco, i) => (
               <div
                 key={i}
+                className="m-box"
                 data-aos="fade-up"
                 data-aos-delay={i * 80}
                 style={{
@@ -296,7 +300,7 @@ export function Sobre() {
           >
             Nossa Missão, Visão e Valores
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+          <div className="m-carousel" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
             {[
               {
                 titulo: "Missão",
@@ -313,6 +317,7 @@ export function Sobre() {
             ].map((card, i) => (
               <div
                 key={i}
+                className="m-box"
                 data-aos="fade-up"
                 data-aos-delay={i * 80}
                 style={{
@@ -332,6 +337,7 @@ export function Sobre() {
               </div>
             ))}
           </div>
+          <CarouselNav />
         </div>
       </section>
 

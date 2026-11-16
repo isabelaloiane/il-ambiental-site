@@ -55,7 +55,7 @@ export function Servicos() {
 
       {/* SV-02 FAIXA DE FATOS */}
       <div style={{ background: "#fff", borderTop: "1px solid rgba(181,137,94,0.25)", borderBottom: "1px solid rgba(181,137,94,0.25)", padding: "16px 0", overflowX: "auto" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-around", gap: 12, padding: "0 24px" }}>
+        <div className="m-tag-scroll" style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-around", gap: 12, padding: "0 24px" }}>
           {[
             "SEMAS-PA e secretarias municipais",
             "Belém e região metropolitana até Castanhal",
@@ -74,6 +74,7 @@ export function Servicos() {
 
           {/* Card destaque: Programa Sentinela */}
           <div
+            className="m-feature"
             data-aos="fade-up"
             style={{
               background: "#452816",
@@ -129,7 +130,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 1: Outorga */}
-          <div id="agua" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+          <div id="agua" className="m-box m-service-block" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Outorga e uso da água</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que captam água de poço ou rio, ou que lançam efluentes em corpo hídrico.
@@ -155,7 +156,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 2: Licenciamento */}
-          <div id="licenciamento" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="licenciamento" className="m-box m-service-block" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Licenciamento ambiental</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que vão iniciar, ampliar ou manter uma atividade sujeita a licenciamento.
@@ -181,7 +182,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 3: Relatórios */}
-          <div id="relatorios" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
+          <div id="relatorios" className="m-box m-service-block" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#F5F0E8" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Relatórios ambientais</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas licenciadas com relatórios periódicos ou condicionantes a comprovar.
@@ -206,7 +207,7 @@ export function Servicos() {
           </div>
 
           {/* Bloco 4: PGRS */}
-          <div id="pgrs" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="pgrs" className="m-box m-service-block" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.2)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>PGRS e gestão de resíduos</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que geram resíduos e precisam do plano como condicionante de licença.
@@ -231,7 +232,7 @@ export function Servicos() {
           </div>
 
           {/* CONDICIONANTES */}
-          <div id="condicionantes" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="condicionantes" className="m-box m-service-block" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Atendimento de condicionantes</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas com licenças ou outorgas vigentes que precisam cumprir condicionantes estabelecidas pelo órgão ambiental.
@@ -258,7 +259,7 @@ export function Servicos() {
           </div>
 
           {/* AUTOS DE INFRAÇÃO / NOTIFICAÇÕES */}
-          <div id="notificacoes" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
+          <div id="notificacoes" className="m-box m-service-block" data-aos="fade-up" style={{ scrollMarginTop: 90, marginBottom: 40, border: "1px solid rgba(181,137,94,0.25)", borderRadius: 12, padding: "32px 36px", background: "#fff" }}>
             <h3 style={{ fontFamily: "'Comfortaa', cursive", fontWeight: 700, fontSize: "1.3rem", color: "#2C1A0E", marginBottom: 8 }}>Autos de infração e notificações</h3>
             <p style={{ color: "#6B5443", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 16 }}>
               <strong>Para quem é:</strong> Empresas que receberam auto de infração, notificação ou exigência de órgão ambiental e precisam responder no prazo.
@@ -303,13 +304,13 @@ export function Servicos() {
           <p data-aos="fade-up" data-aos-delay="100" style={{ color: "rgba(223,196,159,0.72)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 560, margin: "16px auto 32px" }}>
             A irregularidade ambiental não gera só multa. Pode gerar embargo, suspensão de atividades e responsabilidade pessoal do gestor. Prevenir custa menos e dá previsibilidade à operação.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 32 }}>
+          <div className="m-two-col m-legal" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 32 }}>
             {[
               { icon: "⚠", text: "Multas de R$ 50 a R$ 50 milhões (Lei 9.605/1998, art. 75)." },
               { icon: "⛔", text: "Embargo e suspensão de atividades (Decreto 6.514/2008, art. 3º)." },
               { icon: "⚖", text: "Responsabilidade penal de dirigentes (Lei 9.605/1998, art. 2º)." },
             ].map((r, i) => (
-              <div key={i} data-aos="fade-up" data-aos-delay={i * 80} style={{ background: "rgba(26,15,8,0.4)", border: "1px solid rgba(223,196,159,0.12)", borderRadius: 10, padding: "16px 20px", maxWidth: 260, textAlign: "left" }}>
+              <div key={i} className="m-box" data-aos="fade-up" data-aos-delay={i * 80} style={{ background: "rgba(26,15,8,0.4)", border: "1px solid rgba(223,196,159,0.12)", borderRadius: 10, padding: "16px 20px", maxWidth: 260, textAlign: "left" }}>
                 <p style={{ color: "rgba(223,196,159,0.75)", fontSize: "0.85rem", lineHeight: 1.6, margin: 0 }}>{r.text}</p>
               </div>
             ))}

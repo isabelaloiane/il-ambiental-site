@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 const WA_MESSAGE = encodeURIComponent(
   "Olá! Vim pelo site da IL Ambiental e gostaria de falar sobre a situação ambiental da minha empresa."
 );
@@ -23,6 +24,29 @@ const WaIcon = ({ size }: { size: number }) => (
  *   conteúdo (ver .wa-bar em index.css), para não cobrir botões e textos.
  */
 export function WhatsAppButton() {
+  // Barra do celular: só aparece depois que o topo da página sai da tela.
+  const [barVisible, setBarVisible] = useState(false);
+  useEffect(() => {
+    let raf = 0;
+    const check = () => {
+      raf = 0;
+      const top = document.querySelector("section");
+      const limit = top
+        ? top.getBoundingClientRect().bottom + window.scrollY - 64
+        : window.innerHeight * 0.6;
+      setBarVisible(window.scrollY > Math.max(120, limit));
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(check); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    check();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <>
       <a
@@ -39,7 +63,9 @@ export function WhatsAppButton() {
         href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="wa-bar"
+        className={`wa-bar${barVisible ? " is-visible" : ""}`}
+        aria-hidden={barVisible ? undefined : true}
+        tabIndex={barVisible ? undefined : -1}
         onClick={trackClick}
       >
         <span className="wa-bar-icon"><WaIcon size={18} /></span>

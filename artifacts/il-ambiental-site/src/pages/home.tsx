@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CarouselNav } from "@/components/CarouselNav";
 
 const WA_NUMBER = "5591992723570";
 const WA_GENERAL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo site da IL Ambiental e gostaria de falar sobre a situação ambiental da minha empresa.")}`;
@@ -82,6 +83,7 @@ Diagnóstico inicial sem custo e sem compromisso de contratação.
 ].map((item, i, arr) => (
 <div
 key={i}
+className="m-tile"
 data-aos="fade-up"
 data-aos-delay={i * 80}
 style={{
@@ -141,7 +143,7 @@ style={{ color: "#6B5443", fontSize: "1.05rem", maxWidth: 560, margin: "0 auto",
 A conformidade ambiental não termina na emissão da licença. Estes são os pontos que mais geram pendências em empresas já licenciadas.
 </p>
 </div>
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+<div className="m-carousel" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
 {[
 { title: "Licença vencida ou prestes a vencer", desc: "A renovação deve ser pedida com antecedência mínima de 120 dias do vencimento (Lei Complementar 140/2011, art. 14, § 4º)." },
 { title: "Outorga de uso de recursos hídricos", desc: "Captar água de poço ou rio, ou lançar efluentes, exige outorga própria, independente da licença ambiental." },
@@ -152,6 +154,7 @@ A conformidade ambiental não termina na emissão da licença. Estes são os pon
 key={i}
 data-aos="fade-up"
 data-aos-delay={i * 80}
+className="m-box"
 style={{ background: "#F5F0E8", padding: 28, borderRadius: 12, border: "1px solid rgba(181,137,94,0.18)" }}
 >
 <h3 style={{ fontWeight: 700, fontSize: "1rem", color: "#2C1A0E", marginBottom: 8 }}>{item.title}</h3>
@@ -159,6 +162,7 @@ style={{ background: "#F5F0E8", padding: 28, borderRadius: 12, border: "1px soli
 </div>
 ))}
 </div>
+<CarouselNav />
 </div>
 </section>
 
@@ -238,7 +242,7 @@ margin: "0 0 28px",
 >
 Também atuamos em demandas específicas
 </h3>
-<div className="grid-6-services">
+<div className="grid-6-services m-carousel">
 {[
 {
 icon: (
@@ -291,7 +295,7 @@ anchor: "/servicos#notificacoes",
 ].map((svc, i) => (
 <div
 key={i}
-className="hover-card"
+className="hover-card m-box"
 data-aos="fade-up"
 data-aos-delay={i * 80}
 style={{
@@ -312,6 +316,7 @@ Ver detalhes →
 </div>
 ))}
 </div>
+<CarouselNav />
 </div>
 </section>
 
@@ -335,6 +340,7 @@ O primeiro passo é entender onde sua empresa está.
 <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
 </div>
 <div
+className="m-carousel m-steps"
 style={{
 display: "grid",
 gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -366,6 +372,7 @@ desc: "No Programa Sentinela, a IL Ambiental acompanha as obrigações da empres
 ].map((step, i) => (
 <div
 key={i}
+className="m-box"
 data-aos="fade-up"
 data-aos-delay={i * 80}
 style={{
@@ -402,6 +409,7 @@ fontFamily: "'Comfortaa', cursive",
 </div>
 ))}
 </div>
+<CarouselNav />
 
 {/* Nota de custo */}
 <div
@@ -444,6 +452,7 @@ alignItems: "center",
 <img
 src="/isabela-inicio.jpg"
 alt="Isabela Loiane, responsável técnica da IL Ambiental"
+className="m-photo"
 style={{
 width: "100%",
 maxWidth: 320,
@@ -476,7 +485,7 @@ Engenheira Florestal · Pós-graduação em Direito Agroambiental (CESUPA) · CR
 <p style={{ color: "rgba(223,196,159,0.78)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: 24 }}>
 Os projetos da IL Ambiental têm coordenação técnica da engenheira florestal Isabela Loiane, formada pela Universidade do Estado do Pará (UEPA) e pós-graduada em Direito Agroambiental pelo CESUPA, com atuação no mercado ambiental desde 2021. Iniciou a trajetória em estágios na SEMMA e na Emater e atuou por quase quatro anos como responsável técnica de processos e licenciamento ambiental no setor privado. Essa combinação permite conduzir cada processo considerando, ao mesmo tempo, a exigência técnica, o enquadramento legal e a realidade da operação.
 </p>
-<div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
+<div className="m-tags" style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
 {["Engenharia Florestal", "Direito Agroambiental (CESUPA)", "CREA-PA 1521301735"].map((tag, i) => (
 <span
 key={i}
@@ -519,7 +528,7 @@ Por que empresas escolhem a IL Ambiental
 </h2>
 <span className="section-title-line" data-aos="fade-up" style={{ margin: "14px auto 18px" }} />
 </div>
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+<div className="m-carousel" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
 {[
 {
 title: "Técnica e jurídica no mesmo ponto de contato",
@@ -540,7 +549,7 @@ desc: "Licença, água, resíduos e condicionantes analisados em conjunto, para 
 ].map((item, i) => (
 <div
 key={i}
-className="hover-card"
+className="hover-card m-box"
 data-aos="fade-up"
 data-aos-delay={i * 80}
 style={{
@@ -561,6 +570,7 @@ border: "1px solid rgba(181,137,94,0.18)",
 </div>
 ))}
 </div>
+<CarouselNav />
 </div>
 </section>
 
@@ -586,7 +596,7 @@ Empresas que já contaram com a IL Ambiental
 Experiência com empresas da agroindústria, de alimentos e de logística.
 </p>
 </div>
-<ul className="client-list" data-aos="fade-up">
+<ul className="client-list m-carousel" data-aos="fade-up">
 {[
 { name: "Tropoc", desc: "Multinacional do beneficiamento de pimenta-do-reino" },
 { name: "Fruta Pronta", desc: "Produção de polpa de açaí, Portel (PA)" },
@@ -598,6 +608,7 @@ Experiência com empresas da agroindústria, de alimentos e de logística.
 </li>
 ))}
 </ul>
+<CarouselNav />
 </div>
 </section>
 

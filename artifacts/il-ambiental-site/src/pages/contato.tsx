@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CarouselNav } from "@/components/CarouselNav";
 import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 import { getTracking } from "@/lib/tracking";
 
@@ -163,7 +164,7 @@ export function Contato() {
       </section>
 
       {/* ── FLOATING ACTION CARD ─────────────────────────────────── */}
-      <section style={{ padding: "0 24px" }}>
+      <section className="m-keep-v" style={{ padding: "0 24px" }}>
         <div
           className="contact-float-card"
           style={{
@@ -276,6 +277,7 @@ export function Contato() {
 
           {/* Form Card */}
           <div
+            className="m-panel"
             data-aos="fade-right"
             style={{
               background: "#452816",
@@ -550,6 +552,7 @@ export function Contato() {
 
           {/* Info Card */}
           <div
+            className="m-panel"
             data-aos="fade-left"
             data-aos-delay="100"
             style={{
@@ -582,7 +585,7 @@ export function Contato() {
             >
               Prefere falar diretamente? Aqui estão todos os nossos canais.
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 20, flex: 1 }}>
+            <div className="m-contacts" style={{ display: "flex", flexDirection: "column", gap: 20, flex: 1 }}>
               {[
                 {
                   icon: <Phone size={18} color="#B5895E" />,
@@ -625,6 +628,7 @@ export function Contato() {
               ].map((info, i, arr) => (
                 <div
                   key={i}
+                  className={`m-contact m-contact-${i}`}
                   style={{
                     display: "flex",
                     gap: 14,
@@ -691,7 +695,7 @@ export function Contato() {
       </section>
 
       {/* ── PROCESS STEPS (S38) ─────────────────────────────────── */}
-      <section style={{ padding: "56px 24px 0", background: "#fff" }}>
+      <section className="m-keep-v m-steps-section" style={{ padding: "56px 24px 0", background: "#fff" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
             <span className="section-caption" data-aos="fade-up">Próximos passos</span>
@@ -709,6 +713,7 @@ export function Contato() {
             </h2>
           </div>
           <div
+            className="m-carousel m-steps-joined"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -780,12 +785,13 @@ export function Contato() {
               </div>
             ))}
           </div>
+          <CarouselNav />
         </div>
       </section>
 
       {/* ── REGIONAL CARD ────────────────────────────────────────── */}
       <section
-        className="contact-regional-section"
+        className="contact-regional-section m-keep-v"
         style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 48px" }}
       >
         <div

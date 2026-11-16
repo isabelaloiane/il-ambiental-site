@@ -139,50 +139,67 @@
     </script>
 
     <script>
-      // ─── S5: ANIMAÇÃO DE ENTRADA SÓ COMO REALCE ──────────────────────
-      // O conteúdo é visível por padrão. Apenas elementos [data-aos] que
-      // ainda estão ABAIXO da tela recebem .il-pending e são revelados assim
-      // que chegam à área visível ou ficam para trás na rolagem.
+      // ─── REVELAÇÃO AO ROLAR (realce, não condição para ver o conteúdo) ───
+      // Sem JavaScript, ou com "reduzir movimento", tudo aparece normalmente.
+      // Só recebem .il-pending os blocos que ainda estão ABAIXO da tela; eles
+      // surgem com leve subida + fade quando o IntersectionObserver os vê,
+      // com pequeno atraso entre vizinhos que entram juntos.
       (function () {
-        if (!window.requestAnimationFrame || !window.MutationObserver) return;
+        if (!('IntersectionObserver' in window) || !window.MutationObserver) return;
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var SELECTOR = '[data-aos], section ul > li';
+        var STEP = 70, MAX_DELAY = 350;
         var pending = [];
-        var ticking = false;
-        function reveal(el) {
-          var d = Math.min(parseInt(el.getAttribute('data-aos-delay') || '0', 10) || 0, 300);
-          el.style.transitionDelay = d + 'ms';
-          el.classList.add('il-in');
-          setTimeout(function () {
-            el.classList.remove('il-pending', 'il-in');
-            el.style.transitionDelay = '';
-          }, 700 + d);
-        }
-        function check() {
-          ticking = false;
-          var vh = window.innerHeight || document.documentElement.clientHeight;
-          pending = pending.filter(function (el) {
-            if (!el.isConnected) return false;
-            // revela tudo que já entrou na tela OU ficou para trás (rolagem rápida/âncora)
-            if (el.getBoundingClientRect().top < vh - 40) { reveal(el); return false; }
-            return true;
+        function reveal(list) {
+          list.sort(function (a, b) {
+            var ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+            return (ra.top - rb.top) || (ra.left - rb.left);
           });
+          list.forEach(function (el, i) {
+            io.unobserve(el);
+            var d = Math.min(i * STEP, MAX_DELAY);
+            el.style.transitionDelay = d + 'ms';
+            el.classList.add('il-in');
+            setTimeout(function () {
+              el.classList.remove('il-pending', 'il-in');
+              el.style.transitionDelay = '';
+            }, 750 + d);
+          });
+          pending = pending.filter(function (el) { return list.indexOf(el) < 0 && el.isConnected; });
         }
-        function schedule() {
-          if (!ticking) { ticking = true; requestAnimationFrame(check); }
-        }
+        var io = new IntersectionObserver(function (entries) {
+          var batch = [];
+          entries.forEach(function (en) {
+            if (en.isIntersecting && en.target.classList.contains('il-pending') && !en.target.classList.contains('il-in')) batch.push(en.target);
+          });
+          if (batch.length) reveal(batch);
+        }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
         function scan() {
           var vh = window.innerHeight || document.documentElement.clientHeight;
-          document.querySelectorAll('[data-aos]:not([data-il])').forEach(function (el) {
+          document.querySelectorAll(SELECTOR).forEach(function (el) {
+            if (el.hasAttribute('data-il')) return;
+            if (el.closest('footer')) return;
+            if (el.parentElement && el.parentElement.closest('.il-pending')) { el.setAttribute('data-il', '1'); return; }
             el.setAttribute('data-il', '1');
             if (el.getBoundingClientRect().top > vh) {
               el.classList.add('il-pending');
               pending.push(el);
+              io.observe(el);
             }
           });
-          schedule();
         }
-        window.addEventListener('scroll', schedule, { passive: true });
-        window.addEventListener('resize', schedule);
+        // Rede de segurança: rolagem muito rápida ou salto por âncora pode
+        // "pular" um bloco sem o observer vê-lo; o que já ficou acima da tela
+        // é revelado na hora.
+        var ticking = false;
+        function sweep() {
+          ticking = false;
+          var passed = pending.filter(function (el) { return el.isConnected && el.getBoundingClientRect().bottom < 0; });
+          if (passed.length) reveal(passed);
+        }
+        window.addEventListener('scroll', function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(sweep); }
+        }, { passive: true });
         new MutationObserver(function (muts) {
           for (var i = 0; i < muts.length; i++) {
             if (muts[i].addedNodes.length) { scan(); break; }
@@ -190,8 +207,26 @@
         }).observe(document.documentElement, { childList: true, subtree: true });
         if (document.readyState !== 'loading') scan();
         else document.addEventListener('DOMContentLoaded', scan);
-        // rechecagem periódica (layout pode mudar sem rolagem, ex.: imagens carregando)
-        setInterval(schedule, 1000);
+      })();
+    </script>
+    <script>
+      // Fileiras de etiquetas que rolam para o lado: a borda direita esmaece
+      // enquanto houver mais itens e volta ao normal no fim.
+      (function () {
+        var raf = 0;
+        function upd(el) {
+          var max = el.scrollWidth - el.clientWidth;
+          el.classList.toggle('is-end', max <= 2 || el.scrollLeft >= max - 2);
+        }
+        function all() { raf = 0; document.querySelectorAll('.m-tag-scroll').forEach(upd); }
+        function schedule() { if (!raf) raf = requestAnimationFrame(all); }
+        document.addEventListener('scroll', function (e) {
+          var t = e.target;
+          if (t && t.classList && t.classList.contains('m-tag-scroll')) upd(t);
+        }, true);
+        window.addEventListener('resize', schedule);
+        if (window.MutationObserver) new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+        schedule();
       })();
     </script>
     <script>
