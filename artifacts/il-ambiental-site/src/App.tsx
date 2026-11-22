@@ -21,7 +21,7 @@ declare global {
 const PAGE_META: Record<string, { title: string; description: string; canonical: string }> = {
   "/": {
     title: "IL Ambiental | Gestão e Licenciamento Ambiental em Belém",
-    description: "Licenças, outorga de água, PGRS, RIAA e gestão ambiental contínua para empresas de Belém e região metropolitana. Responsável técnica: Eng. Florestal Isabela Loiane, CREA-PA.",
+    description: "Licenças, outorga de água, PGRS, RIAA e gestão ambiental para empresas da Região Metropolitana de Belém e Castanhal. Responsável técnica: Isabela Loiane, CREA-PA.",
     canonical: "https://ilambiental.com.br/",
   },
   "/servicos": {
